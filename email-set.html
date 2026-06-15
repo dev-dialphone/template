@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Success</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background: #f0f0f0;
+            font-family: 'Inter', sans-serif;
+            padding: 40px;
+        }
+
+        .email-wrapper {
+            max-width: 720px;
+            margin: auto;
+            background: #fff;
+            border: 1px solid #dcdcdc;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10);
+        }
+
+        /* ── HEADER ── */
+        .header {
+            padding: 30px 44px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 62px;
+            height: 62px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+        }
+
+        .logo img {
+            width: 100%;
+        }
+
+        .vertical-line-header {
+            width: 1px;
+            height: 68px;
+            background: #d0d0d0;
+            margin-right: 20px;
+        }
+
+        .heading h1 {
+            font-size: 24px;
+            font-weight: 900;
+            color: #000;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .header-right {
+            width: 46%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            overflow: visible;
+        }
+
+        .header-right svg {
+            width: 100%;
+            height: auto;
+            overflow: visible;
+        }
+
+        /* ── DIVIDER ── */
+        .divider {
+            border-top: 1px solid #e2e2e2;
+        }
+
+        /* ── CONTENT ── */
+        .content {
+            padding: 44px 50px 38px 50px;
+            text-align: center;
+        }
+
+        .greeting {
+            font-size: 20px;
+            font-weight: 800;
+            color: #000;
+            margin-bottom: 16px;
+        }
+
+        .body-text {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 32px;
+        }
+
+        /* ── PROFESSIONAL MEDIUM SET PASSWORD BUTTON ── */
+        .btn-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .set-password-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #111111;
+            border-radius: 40px;
+            /* Perfect pill shape */
+            text-decoration: none;
+            width: 100%;
+            max-width: 320px;
+            /* Medium width */
+            padding: 5px 6px 5px 5px;
+            /* Clean inner spacing */
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            /* Subtle premium shadow */
+        }
+
+        .set-password-btn:hover {
+            background: #2a2a2a;
+        }
+
+        .btn-lock-circle {
+            width: 42px;
+            height: 42px;
+            /* Proportional medium size */
+            background: transparent;
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .btn-label {
+            flex: 1;
+            text-align: center;
+            font-size: 13.5px;
+            /* Clean and legible size */
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0 10px;
+        }
+
+        .btn-arrow {
+            width: 42px;
+            height: 42px;
+            /* Matches left side */
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* ── SHIELD WARNING BOX ── */
+        .warning-box {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            padding: 20px 26px;
+            text-align: left;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        .shield-icon-wrap {
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .warning-text {
+            font-size: 14px;
+            line-height: 1.65;
+            color: #333;
+        }
+
+        /* ── FOOTER 2: ? icon + assistance text ── */
+        .footer-question {
+            border-top: 1px solid #e8e8e8;
+            padding: 26px 44px;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            background: #ffffff;
+        }
+
+        .question-circle {
+            width: 50px;
+            height: 50px;
+            background: #ebebeb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 800;
+            color: #000;
+            flex-shrink: 0;
+        }
+
+        .footer-question-text {
+            font-size: 14.5px;
+            line-height: 1.65;
+            color: #333;
+        }
+
+        .footer-question-text strong {
+            font-weight: 800;
+            color: #000;
+        }
+
+        @media(max-width:650px) {
+            body {
+                padding: 16px;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 24px;
+            }
+
+            .header-left {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .vertical-line-header {
+                display: none;
+            }
+
+            .heading h1 {
+                font-size: 20px;
+            }
+
+            .header-right {
+                width: 85%;
+                justify-content: center;
+            }
+
+            .content {
+                padding: 30px 24px;
+            }
+
+            .footer-question {
+                padding: 22px 24px;
+            }
+
+            .set-password-btn {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+        <a href="email-task reminder notification.html">Next</a>
+
+
+<body>
+    <div class="email-wrapper">
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="header-left">
+                <div class="logo">
+                    <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png"
+                        alt="DialPhone Logo">
+                </div>
+                <div class="vertical-line-header"></div>
+                <div class="heading">
+                    <h1>Account Success</h1>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 260">
+
+                    <!-- Background light gray cloud -->
+                    <ellipse cx="250" cy="150" rx="160" ry="75" fill="#f7f7f7" />
+
+                    <!-- DECORATIVE ICONS: Plus (+) and Circles (o) -->
+                    <!-- Left + -->
+                    <path d="M 120,95 v 10 M 115,100 h 10" stroke="#111" stroke-width="2" stroke-linecap="round" />
+                    <!-- Top-Left o -->
+                    <circle cx="170" cy="50" r="4.5" fill="none" stroke="#111" stroke-width="2" />
+                    <!-- Bottom-Left o -->
+                    <circle cx="150" cy="205" r="4.5" fill="none" stroke="#111" stroke-width="2" />
+
+                    <!-- Right-Top + -->
+                    <path d="M 390,65 v 10 M 385,70 h 10" stroke="#111" stroke-width="2" stroke-linecap="round" />
+                    <!-- Far-Right o -->
+                    <circle cx="470" cy="120" r="4.5" fill="none" stroke="#111" stroke-width="2" />
+                    <!-- Right-Bottom + -->
+                    <path d="M 405,185 v 10 M 400,190 h 10" stroke="#111" stroke-width="2" stroke-linecap="round" />
+
+                    <!-- LEFT DASHED PATH -->
+                    <path d="M 170,140 C 100,140 100,230 140,240" stroke="#111" stroke-width="2.5"
+                        stroke-dasharray="3,7" stroke-linecap="round" fill="none" />
+
+                    <!-- ✅ PERFECTLY FIXED: Right Dashed Path (Thinner, precise curve) -->
+                    <path d="M 330,135 C 370,145 385,100 415,70" stroke="#111" stroke-width="1.5" stroke-dasharray="3,6"
+                        stroke-linecap="round" fill="none" />
+
+                    <!-- ✅ PERFECTLY FIXED: Paper Airplane (Smaller, symmetric, thin lines like image) -->
+                    <!-- Main hollow shape -->
+                    <path d="M 400,55 L 455,30 L 430,85 L 415,70 Z" fill="#fff" stroke="#111" stroke-width="1.5"
+                        stroke-linejoin="round" />
+                    <!-- Center fold line -->
+                    <path d="M 455,30 L 415,70" stroke="#111" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+
+                    <!-- ENVELOPE DARK INSIDE (Back layer) -->
+                    <rect x="170" y="100" width="160" height="110" fill="#111" />
+
+                    <!-- NOTIFICATION CARD (White card coming out) -->
+                    <rect x="195" y="30" width="110" height="135" rx="8" fill="#fff" stroke="#111" stroke-width="3" />
+
+                    <!-- PADLOCK (Solid Black) -->
+                    <!-- Shackle -->
+                    <path d="M 235,68 v -8 a 15,15 0 0 1 30,0 v 8" stroke="#111" stroke-width="4" fill="none"
+                        stroke-linecap="round" />
+                    <!-- Body -->
+                    <rect x="228" y="68" width="44" height="34" rx="7" fill="#111" />
+                    <!-- White Keyhole -->
+                    <circle cx="250" cy="82" r="4" fill="#fff" />
+                    <path d="M 248,85 l -1,6 h 6 l -1,-6 z" fill="#fff" />
+
+                    <!-- DOT PILL (Password dots shape) -->
+                    <rect x="215" y="118" width="70" height="22" rx="11" fill="#fff" stroke="#dcdcdc"
+                        stroke-width="2" />
+                    <!-- 5 Dots -->
+                    <circle cx="231" cy="129" r="3.2" fill="#111" />
+                    <circle cx="240.5" cy="129" r="3.2" fill="#111" />
+                    <circle cx="250" cy="129" r="3.2" fill="#111" />
+                    <circle cx="259.5" cy="129" r="3.2" fill="#111" />
+                    <circle cx="269" cy="129" r="3.2" fill="#111" />
+
+                    <!-- ENVELOPE FRONT FLAP (White layer) -->
+                    <path d="M 170,100 L 250,165 L 330,100 L 330,210 L 170,210 Z" fill="#fff" />
+                    <path d="M 170,100 L 250,165 L 330,100" stroke="#111" stroke-width="3" fill="none"
+                        stroke-linejoin="round" />
+                    <path d="M 170,210 L 250,145 L 330,210" stroke="#111" stroke-width="3" fill="none"
+                        stroke-linejoin="round" />
+                    <rect x="170" y="100" width="160" height="110" rx="3" fill="none" stroke="#111" stroke-width="3" />
+
+                    <!-- CHECKMARK BADGE (Bottom Right) -->
+                    <circle cx="315" cy="180" r="28" fill="#fff" />
+                    <circle cx="315" cy="180" r="23" fill="#111" />
+                    <path d="M 303,180 l 8,8 l 15,-15" stroke="#fff" stroke-width="4.5" stroke-linecap="round"
+                        stroke-linejoin="round" fill="none" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- CONTENT -->
+        <div class="content">
+            <p class="greeting">Dear Alex Carter,</p>
+            <p class="body-text">
+                Welcome! Your account has been successfully created.<br>
+                To secure your account and get started, please set your password using the button below:
+            </p>
+
+            <div class="btn-wrapper">
+                <a href="#" class="set-password-btn">
+                    <div class="btn-lock-circle">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" />
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                            <circle cx="12" cy="16" r="1.5" fill="#fff" stroke="none" />
+                        </svg>
+                    </div>
+                    <span class="btn-label">SET PASSWORD</span>
+                    <div class="btn-arrow">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                        </svg>
+                    </div>
+                </a>
+            </div>
+
+            <div class="warning-box">
+                <div class="shield-icon-wrap">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        <path d="M9 12l2 2 4-4" stroke="#111" stroke-width="2" fill="none" />
+                    </svg>
+                </div>
+                <p class="warning-text">
+                    If you didn't create this account or believe this was a mistake,<br>
+                    please ignore this email.
+                </p>
+            </div>
+        </div>
+
+        <!-- FOOTER: ? icon + assistance text -->
+        <div class="footer-question">
+            <div class="question-circle">?</div>
+            <div class="footer-question-text">
+                If you have any questions or need assistance,<br>
+                feel free to contact our <strong>support team.</strong>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

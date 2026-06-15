@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Event Invite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }   
+
+        body {
+            background: #f5f5f5;
+            font-family: 'Inter', sans-serif;
+            padding: 40px;
+        }
+
+        .email-wrapper {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            border: 1px solid #dcdcdc;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        /* HEADER */
+        .header {
+            padding: 40px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 30px;
+        }
+
+        .logo img {
+            width: 100%;
+        }
+
+        .vertical-line {
+            width: 1px;
+            height: 100px;
+            background: #d8d8d8;
+            margin-right: 30px;
+        }
+
+        /* UPDATED: Highlighted Heading Section */
+        .heading h1 {
+            font-size: 42px;
+            line-height: 1.1;
+            font-weight: 800;
+            color: #000;
+        }
+
+        .header-right svg {
+            max-width: 500px;
+            height: auto;
+        }
+
+        /* DIVIDER */
+        .divider {
+            border-top: 1px solid #e2e2e2;
+        }
+
+        /* UPDATED: Highlighted Content Section */
+        .content {
+            padding: 50px 60px;
+            text-align: center; /* Centered Text */
+        }
+
+        .content h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: #000;
+            margin-bottom: 15px;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #1b1b1b;
+            margin-bottom: 25px;
+        }
+
+        /* EVENT DETAILS BOX */
+        .details-box {
+            background: #fafafa;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 15px 40px;
+            max-width: 680px;
+            margin: 30px auto;
+            text-align: left;
+        }
+
+        .detail-row {
+            display: flex;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .detail-row:not(:last-child) {
+            border-bottom: 1px solid #eee;
+        }
+
+        .icon-circle {
+            width: 44px;
+            height: 44px;
+            background: #ebebeb;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 25px;
+            flex-shrink: 0;
+        }
+
+        .detail-label {
+            width: 90px;
+            font-weight: 700;
+            font-size: 16px;
+            color: #000;
+            flex-shrink: 0;
+        }
+
+        .detail-colon {
+            width: 30px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 16px;
+            color: #000;
+            flex-shrink: 0;
+        }
+
+        .detail-value {
+            font-size: 16px;
+            color: #222;
+        }
+
+        /* BUTTON */
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            padding: 16px 30px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 15px;
+        }
+
+        /* FOOTER (UPDATED to match second image) */
+        .footer {
+            border-top: 1px solid #e2e2e2;
+            padding: 35px 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .help-icon {
+            width: 70px;
+            height: 70px;
+            background: #f0f0f0;
+            color: #000000;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .footer-text {
+            font-size: 17px;
+            line-height: 1.6;
+            color: #111111;
+            text-align: left;
+        }
+
+        .footer-text strong {
+            font-weight: 800;
+        }
+
+        /* BOTTOM BAR (Untouched) */
+        .bottom-bar {
+            height: 6px;
+            background: #d8d8d8;
+            position: relative;
+        }
+
+        .bottom-bar::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100%;
+            border-radius: 0 4px 4px 0;
+        }
+
+        @media(max-width:900px) {
+            .header {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .header-left {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .vertical-line {
+                display: none;
+            }
+
+            .heading h1 {
+                font-size: 36px;
+            }
+
+            .content,
+            .footer {
+                padding: 40px;
+            }
+
+            .details-box {
+                padding: 15px 20px;
+            }
+
+            .detail-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .detail-label, .detail-colon {
+                width: auto;
+                text-align: left;
+            }
+            
+            .detail-colon { display: none; }
+
+            .icon-circle {
+                margin-right: 0;
+            }
+
+            .footer-left {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .footer-text {
+                text-align: center;
+            }
+        }
+    </style>
+
+</head>
+
+        <a href="index-video event invite.html">Next</a>
+
+
+<body>
+
+    <div class="email-wrapper">
+
+        <div class="header">
+
+            <div class="header-left">
+
+                <!-- Logo (Untouched) -->
+                <div class="logo">
+                    <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png"
+                        alt="Logo">
+                </div>
+
+                <div class="vertical-line"></div>
+
+                <!-- HIGHLIGHTED SECTION 1: HEADING -->
+                <div class="heading">
+                    <h1>Video Event Invite</h1>
+                </div>
+
+            </div>
+
+            <div class="header-right">
+                
+                <!-- Laptop SVG (Untouched) -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="10 20 380 160" width="100%" height="100%">
+                    <path d="M 60,170 C 20,170 10,130 30,100 C 50,70 100,90 110,130 C 120,170 90,170 60,170 Z" fill="#F8FAFC" />
+                    <path d="M 340,170 C 300,170 290,130 310,100 C 330,70 380,90 390,130 C 400,170 370,170 340,170 Z" fill="#F8FAFC" />
+                    <path d="M 30,105 v 10 M 25,110 h 10" stroke="#111827" stroke-width="2.5" stroke-linecap="round" />
+                    <path d="M 360,105 v 10 M 355,110 h 10" stroke="#111827" stroke-width="2.5" stroke-linecap="round" />
+                    <path d="M 60,140 m -3,0 a 3,3 0 1,1 6,0 a 3,3 0 1,1 -6,0" stroke="#111827" stroke-width="2" fill="none" />
+                    <path d="M 330,140 m -3,0 a 3,3 0 1,1 6,0 a 3,3 0 1,1 -6,0" stroke="#111827" stroke-width="2" fill="none" />
+                    <path d="M 285,35 m -2,0 a 2,2 0 1,1 4,0 a 2,2 0 1,1 -4,0" stroke="#111827" stroke-width="2" fill="none" />
+                    <path d="M 235,95 l 4,-2 M 243,91 l 4,-2 M 251,87 l 4,-2 M 258,82 l 2,-4 M 261,74 l -1,-4 M 258,67 l -3,-1 M 252,69 l -2,4 M 250,77 l 1,4 M 254,84 l 3,3 M 261,89 l 4,2 M 269,91 l 4,-1 M 277,88 l 4,-2 M 285,84 l 4,-2 M 293,80 l 4,-2 M 301,76 l 4,-2" stroke="#475569" stroke-width="2" stroke-linecap="round" fill="none" />
+                    <path d="M 310,75 L 360,50 L 335,95 L 325,80 Z" stroke="#111827" stroke-width="2.5" fill="#ffffff" stroke-linejoin="round" />
+                    <path d="M 360,50 L 325,80 L 330,88 Z" fill="#111827" />
+                    <path d="M 85,160 h 160 a 3,3 0 0 1 3,3 v 2 h -166 v -2 a 3,3 0 0 1 3,-3 z" fill="#111827" />
+                    <path d="M 150,161 h 30 v 2 h -30 z" fill="#ffffff" />
+                    <path d="M 95,60 h 140 a 5,5 0 0 1 5,5 v 95 h -150 v -95 a 5,5 0 0 1 5,-5 z" stroke="#111827" stroke-width="3.5" fill="#ffffff" />
+                    <path d="M 98,64 h 134 a 2,2 0 0 1 2,2 v 90 h -138 v -90 a 2,2 0 0 1 2,-2 z" stroke="#111827" stroke-width="2" fill="#ffffff" />
+                    <path d="M 130,115 m -14,0 a 14,14 0 1,1 28,0 a 14,14 0 1,1 -28,0" fill="#111827" />
+                    <path d="M 105,156 v -8 a 25,25 0 0 1 50,0 v 8 z" fill="#111827" />
+                    <path d="M 185,105 h 20 a 3,3 0 0 1 3,3 v 14 a 3,3 0 0 1 -3,3 h -20 a 3,3 0 0 1 -3,-3 v -14 a 3,3 0 0 1 3,-3 z" fill="#111827" />
+                    <path d="M 208,110 l 10,-4 v 18 l -10,-4 z" fill="#111827" />
+                    <path d="M 60,40 A 25,25 0 1 1 40,80 L 25,85 L 35,70 A 25,25 0 0 1 60,40 Z" stroke="#111827" stroke-width="2.5" fill="#ffffff" stroke-linejoin="round" />
+                    <path d="M 50,52 h 14 a 2,2 0 0 1 2,2 v 12 a 2,2 0 0 1 -2,2 h -14 a 2,2 0 0 1 -2,-2 v -12 a 2,2 0 0 1 2,-2 z" fill="#111827" />
+                    <path d="M 66,56 l 8,-3 v 14 l -8,-3 z" fill="#111827" />
+                    <path d="M 251,111 h 40 a 4,4 0 0 1 4,4 v 45 a 4,4 0 0 1 -4,4 h -40 a 4,4 0 0 1 -4,-4 v -45 a 4,4 0 0 1 4,-4 z" stroke="#111827" stroke-width="2.5" fill="#ffffff" />
+                    <path d="M 247,115 a 4,4 0 0 1 4,-4 h 40 a 4,4 0 0 1 4,4 v 12 h -48 z" fill="#111827" />
+                    <path d="M 258,108 h 4 a 2,2 0 0 1 2,2 v 8 a 2,2 0 0 1 -2,2 h -4 a 2,2 0 0 1 -2,-2 v -8 a 2,2 0 0 1 2,-2 z M 278,108 h 4 a 2,2 0 0 1 2,2 v 8 a 2,2 0 0 1 -2,2 h -4 a 2,2 0 0 1 -2,-2 v -8 a 2,2 0 0 1 2,-2 z" stroke="#111827" stroke-width="2" fill="#ffffff" />
+                    <path d="M 254,132 h 8 v 6 h -8 z" fill="#111827" />
+                    <path d="M 266,132 h 8 v 6 h -8 z M 278,132 h 8 v 6 h -8 z M 254,142 h 8 v 6 h -8 z M 266,142 h 8 v 6 h -8 z M 278,142 h 8 v 6 h -8 z M 254,152 h 8 v 6 h -8 z" stroke="#111827" stroke-width="1.5" fill="none" />
+                    <path d="M 295,150 m -16,0 a 16,16 0 1,1 32,0 a 16,16 0 1,1 -32,0" fill="#ffffff" />
+                    <path d="M 295,150 m -14,0 a 14,14 0 1,1 28,0 a 14,14 0 1,1 -28,0" fill="#111827" />
+                    <path d="M 295,150 v -6 M 295,150 l 4,4" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" fill="none" />
+                </svg>
+
+            </div>
+
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- HIGHLIGHTED SECTION 2: CONTENT & FOOTER -->
+        <div class="content">
+
+            <h2>Hi Alex Carter,</h2>
+
+            <p>
+                You have been invited to attend a video event. Please review the event details below<br>
+                and use the link when the event begins.
+            </p>
+
+            <div class="details-box">
+                <!-- Event Row -->
+                <div class="detail-row">
+                    <div class="icon-circle">
+                        <!-- Calendar Icon SVG -->
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                            <path d="M 8 14 h .01 M 12 14 h .01 M 16 14 h .01 M 8 18 h .01 M 12 18 h .01 M 16 18 h .01" stroke-width="3"/>
+                        </svg>
+                    </div>
+                    <div class="detail-label">Event</div>
+                    <div class="detail-colon">:</div>
+                    <div class="detail-value">Quarterly Strategy Review</div>
+                </div>
+
+                <!-- Start Time Row -->
+                <div class="detail-row">
+                    <div class="icon-circle">
+                        <!-- Clock Icon SVG -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <div class="detail-label">Start Time</div>
+                    <div class="detail-colon">:</div>
+                    <div class="detail-value">2026-06-15 &nbsp; 10:00 AM America/New_York</div>
+                </div>
+
+                <!-- End Time Row -->
+                <div class="detail-row">
+                    <div class="icon-circle">
+                        <!-- Clock Icon SVG -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <div class="detail-label">End Time</div>
+                    <div class="detail-colon">:</div>
+                    <div class="detail-value">2026-06-15 &nbsp; 11:00 AM America/New_York</div>
+                </div>
+            </div>
+
+            <p>
+                Use the button below to open the event link. You can keep this email handy<br>
+                so the event details are easy to find.
+            </p>
+
+            <a href="#" class="cta-btn">
+                <!-- Camera Icon SVG -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="23 7 16 12 23 17 23 7" fill="white"></polygon>
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2" fill="white"></rect>
+                </svg>
+                Open Event
+            </a>
+
+        </div>
+
+        <!-- FOOTER (UPDATED to match second image) -->
+        <div class="footer">
+            <div class="footer-left">
+                <div class="help-icon">?</div>
+                <div class="footer-text">
+                    If you have any questions or need assistance,<br>
+                    feel free to contact our
+                    <strong>support team.</strong>
+                </div>
+            </div>
+        </div>
+        <!-- END OF HIGHLIGHTED SECTION 2 -->
+
+        <!-- Bottom Bar (Untouched) -->
+        <div class="bottom-bar"></div>
+
+    </div>
+
+</body>
+
+</html>
