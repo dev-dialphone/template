@@ -322,10 +322,14 @@
 
 </head>
 
-        <a href="email-verification code.html">Next</a>
-
-
 <body>
+<!-- GLOBAL NAVIGATION BAR -->
+<div style="background: #111; color: #fff; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif; position: fixed; top: 0; left: 0; width: 100%; box-sizing: border-box; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <a href="email-upcoming meeting reminder.html" style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">&larr; Back</a>
+    <a href="index.html" style="color: #fff; text-decoration: none; font-size: 16px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;">UPCOMING TASK REMINDER</a>
+    <a href="email-verification code.html" style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">Next &rarr;</a>
+</div>
+<!-- END GLOBAL NAVIGATION BAR -->
 
     <div class="email-wrapper">
 
@@ -347,55 +351,56 @@
 
             <div class="header-right">
                 
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 440 260" width="100%" height="100%">
-                    <!-- Subtle Background Clouds -->
-                    <path d="M 120,180 C 60,180 70,120 120,100 C 140,60 220,60 260,90 C 310,70 370,110 340,170 C 320,200 180,210 120,180 Z" fill="#f8fafc" />
-
-                    <!-- Decorative Elements (+ and o) -->
-                    <path d="M 120,65 v 10 M 115,70 h 10" stroke="#111827" stroke-width="2.5" stroke-linecap="round" />
-                    <path d="M 110,180 v 10 M 105,185 h 10" stroke="#111827" stroke-width="2.5" stroke-linecap="round" />
-                    <path d="M 330,165 v 10 M 325,170 h 10" stroke="#111827" stroke-width="2.5" stroke-linecap="round" />
+                <svg viewBox="0 0 500 320" fill="none" xmlns="http://www.w3.org/2000/svg">
                     
-                    <circle cx="80" cy="110" r="4.5" fill="none" stroke="#111827" stroke-width="2.5" />
-                    <circle cx="370" cy="115" r="4.5" fill="none" stroke="#111827" stroke-width="2.5" />
+                    <!-- Decorative Elements -->
+                    <!-- Top Left Plus -->
+                    <path d="M 120 100 L 120 116 M 112 108 L 128 108" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+                    <!-- Mid Left Circle -->
+                    <circle cx="90" cy="160" r="5" stroke="#111" stroke-width="2.5"/>
+                    <!-- Far Left Plus -->
+                    <path d="M 60 240 L 60 256 M 52 248 L 68 248" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+                    
+                    <!-- Top Right Plus -->
+                    <path d="M 380 90 L 380 106 M 372 98 L 388 98" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+                    <!-- Bottom Right Circle -->
+                    <circle cx="430" cy="280" r="5" stroke="#111" stroke-width="2.5"/>
 
-                    <!-- Dashed Paths -->
-                    <path d="M 60,190 C 80,120 130,150 160,130" stroke="#111827" stroke-width="2" stroke-dasharray="3,8" stroke-linecap="round" fill="none" />
-                    <path d="M 280,110 C 290,135 300,95 315,78" stroke="#111827" stroke-width="2" stroke-dasharray="3,8" stroke-linecap="round" fill="none" />
+                    <!-- Left Dashed Loop -->
+                    <path d="M 150 220 C 100 190, 60 200, 50 240 C 40 280, 100 290, 80 240 C 70 210, 40 250, 20 290" stroke="#111" stroke-width="2.5" stroke-dasharray="6 8" stroke-linecap="round" fill="none"/>
+
+                    <!-- Right Dashed Loop -->
+                    <path d="M 350 250 C 400 270, 420 190, 390 200 C 360 210, 390 250, 410 230 C 430 210, 420 170, 425 140" stroke="#111" stroke-width="2.5" stroke-dasharray="6 8" stroke-linecap="round" fill="none"/>
 
                     <!-- Paper Airplane -->
-                    <path d="M 320,75 L 400,35 L 350,80 Z" fill="#ffffff" stroke="#111827" stroke-width="2.5" stroke-linejoin="round" />
-                    <path d="M 400,35 L 350,80 L 360,105 Z" fill="#111827" stroke="#111827" stroke-width="2.5" stroke-linejoin="round" />
+                    <g stroke="#111" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+                       <path d="M410 110 L470 80 L450 140 Z" fill="white"/>
+                       <path d="M470 80 L425 118" />
+                       <path d="M425 118 L425 140 L440 128" fill="none"/>
+                    </g>
 
-                    <!-- ENVELOPE & CARD STRUCTURE -->
-                    <!-- Layer 1 & 2: Envelope Back & Inside -->
-                    <rect x="150" y="80" width="140" height="90" fill="#111827" />
-                    <path d="M 150,80 L 220,35 L 290,80 Z" fill="#111827" stroke="#111827" stroke-width="2" stroke-linejoin="round" />
-
-                    <!-- Layer 3: The Notification Card -->
-                    <rect x="175" y="25" width="90" height="120" rx="6" fill="#ffffff" stroke="#111827" stroke-width="3" />
+                    <!-- ENVELOPE & PAPER (Proper 3D Layering with Dark Interior) -->
                     
-                    <!-- Bell Icon -->
-                    <path d="M 220,45 c -5.5,0 -9.5,4.5 -9.5,11 v 5 l -4,4 v 2 h 27 v -2 l -4,-4 v -5 c 0,-6.5 -4,-11 -9.5,-11 z" stroke="#111827" stroke-width="3" fill="none" stroke-linejoin="round" />
-                    <path d="M 216,71 a 4,4 0 0 0 8,0 h -8 z" fill="#111827" />
+                    <!-- Dark Interior (Provides the dark inner triangles) -->
+                    <path d="M 150 150 L 350 150 L 350 200 L 150 200 Z" fill="#111" />
+
+                    <!-- Envelope Top Border (Drawn behind paper) -->
+                    <path d="M 150 150 L 350 150" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+
+                    <!-- Letter Paper -->
+                    <rect x="180" y="60" width="140" height="180" rx="8" fill="white" stroke="#111" stroke-width="4"/>
                     
-                    <!-- 5 Dots -->
-                    <circle cx="192" cy="90" r="3.5" fill="#111827" />
-                    <circle cx="206" cy="90" r="3.5" fill="#111827" />
-                    <circle cx="220" cy="90" r="3.5" fill="#111827" />
-                    <circle cx="234" cy="90" r="3.5" fill="#111827" />
-                    <circle cx="248" cy="90" r="3.5" fill="#111827" />
+                    <!-- Checkmark Badge on Paper -->
+                    <circle cx="250" cy="115" r="30" fill="#111"/>
+                    <path d="M 235 115 L 245 125 L 265 105" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
 
-                    <!-- Layer 4: Envelope Front Flaps -->
-                    <path d="M 150,80 L 220,135 L 290,80 L 290,170 L 150,170 Z" fill="#ffffff" />
-                    <path d="M 150,80 L 220,135 L 290,80" stroke="#111827" stroke-width="3" fill="none" stroke-linejoin="round" />
-                    <path d="M 150,170 L 220,115 L 290,170" stroke="#111827" stroke-width="3" fill="none" stroke-linejoin="round" />
-                    <rect x="150" y="80" width="140" height="90" rx="3" fill="none" stroke="#111827" stroke-width="3" />
+                    <!-- Envelope Front Flap (White Fill covers paper bottom, draws outer border and top V) -->
+                    <!-- This forms the top half of the interlocking diamond -->
+                    <path d="M 150 150 L 230 215 C 240 225, 260 225, 270 215 L 350 150 L 350 280 L 150 280 Z" fill="white" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+                    
+                    <!-- Bottom Curve Fold (Drawn over the front flap to complete the diamond loop) -->
+                    <path d="M 150 280 L 230 215 C 240 205, 260 205, 270 215 L 350 280" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
 
-                    <!-- Layer 5: Checkmark Badge -->
-                    <circle cx="285" cy="155" r="24" fill="#ffffff" />
-                    <circle cx="285" cy="155" r="20" fill="#111827" />
-                    <path d="M 275,155 l 6,6 l 12,-12" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
                 </svg>
 
             </div>

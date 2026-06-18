@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Your Email Address - DialPhone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        body {
+            background: #f5f5f5;
+            font-family: 'Inter', sans-serif;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .email-wrapper {
+            max-width: 680px;
+            width: 100%;
+            margin: auto;
+            background: #fff;
+            border: 1px solid #dcdcdc;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+        }
+        .header {
+            padding: 26px 44px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+        }
+        .header-left { display: flex; align-items: center; }
+        .logo { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; margin-right: 18px; }
+        .logo img { width: 100%; }
+        .vertical-line-header { width: 1px; height: 48px; background: #d0d0d0; margin-right: 20px; }
+        .heading h1 { font-size: 20px; font-weight: 800; color: #000; letter-spacing: 0.1px; white-space: nowrap; }
+        .heading p { font-size: 13px; color: #888; margin-top: 3px; font-weight: 500; }
+        .header-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; padding-left: 10px; }
+        .header-right svg { width: 140px; height: auto; display: block; }
+        .divider-line { border-top: 1px solid #e2e2e2; }
+        .content { padding: 44px 56px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .main-icon-container { margin-bottom: 26px; }
+        .title { font-size: 28px; font-weight: 800; color: #000; margin-bottom: 14px; letter-spacing: -0.4px; line-height: 1.25; }
+        .subtitle { font-size: 15px; color: #666; margin-bottom: 24px; line-height: 1.65; max-width: 420px; }
+        .short-divider { width: 40px; height: 2px; background-color: #222; margin-bottom: 32px; }
+        .email-body { width: 100%; font-size: 15px; line-height: 1.75; color: #333; margin-bottom: 32px; text-align: left; }
+        .confirm-btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            background-color: #000; color: #fff; text-decoration: none;
+            padding: 14px 30px; border-radius: 8px; font-weight: 700; font-size: 14px;
+            letter-spacing: 0.8px; margin-bottom: 36px; transition: background-color 0.2s;
+            width: 100%; max-width: 300px;
+        }
+        .confirm-btn:hover { background-color: #1f2937; }
+        .info-row { width: 100%; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+        .info-card {
+            background: #f9fafb; border: 1px solid #eaeaea; border-radius: 10px;
+            padding: 18px 14px; display: flex; flex-direction: column;
+            align-items: flex-start; gap: 8px; text-align: left;
+        }
+        .info-card-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; }
+        .info-card h4 { font-size: 13px; font-weight: 700; color: #000; line-height: 1.3; }
+        .info-card p { font-size: 12.5px; color: #666; line-height: 1.5; }
+        .help-box {
+            width: 100%; display: flex; align-items: center; gap: 18px;
+            background: #f9fafb; border: 1px solid #eaeaea;
+            border-radius: 10px; padding: 22px 24px; text-align: left;
+        }
+        .help-circle {
+            width: 52px; height: 52px; background: #e8e8e8; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; font-weight: 900; color: #000; flex-shrink: 0;
+        }
+        .help-text h3 { font-size: 15px; font-weight: 700; color: #000; margin-bottom: 4px; }
+        .help-text p { font-size: 14px; color: #555; line-height: 1.5; }
+        .help-text strong { color: #000; font-weight: 700; }
+        .footer { border-top: 1px solid #e8e8e8; padding: 24px 50px; text-align: center; font-size: 13px; color: #aaa; background: #fff; }
+
+        @media(max-width: 620px) {
+            body { padding: 12px; }
+            .header { flex-direction: column; gap: 18px; padding: 20px; }
+            .header-left { flex-direction: column; text-align: center; }
+            .vertical-line-header { display: none; }
+            .heading h1 { font-size: 17px; }
+            .header-right { width: 85%; justify-content: center; padding-left: 0; }
+            .content { padding: 28px 20px; }
+            .info-row { grid-template-columns: 1fr; }
+            .footer { padding: 20px; }
+        }
+    </style>
+</head>
+
+        
+
+<body>
+<!-- GLOBAL NAVIGATION BAR -->
+<div style="background: #111; color: #fff; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif; position: fixed; top: 0; left: 0; width: 100%; box-sizing: border-box; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <a href="index.html" style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">&larr; Back</a>
+    <a href="index.html" style="color: #fff; text-decoration: none; font-size: 16px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;">CONFIRM ADDRESS</a>
+    <a href="email-email verification.html" style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">Next &rarr;</a>
+</div>
+<!-- END GLOBAL NAVIGATION BAR -->
+<div class="email-wrapper">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-left">
+            <div class="logo">
+                <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png" alt="DialPhone Logo">
+            </div>
+            <div class="vertical-line-header"></div>
+            <div class="heading">
+                <h1>Confirm Your Email Address</h1>
+                <p>Action Required</p>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <!-- PERFECT HEADER ILLUSTRATION MATCHING THE IMAGE -->
+            <svg viewBox="0 0 500 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Left PERFECT dashed line loop matching the red box highlight -->
+                <path d="M 110 220 C 70 220, 50 290, 30 280 C 10 270, 10 220, 30 210 C 50 200, 60 270, 15 290" stroke="#111" stroke-width="2.5" stroke-dasharray="6 8" stroke-linecap="round" fill="none"/>
+                
+                <!-- Left + sign -->
+                <path d="M 95 95 L 95 115 M 85 105 L 105 105" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+                
+                <!-- Left hollow circle exactly above the left loop as in the image -->
+                <circle cx="85" cy="190" r="4.5" stroke="#111" stroke-width="2.5"/>
+
+                <!-- Right BIG dashed line loop -->
+                <path d="M 370 180 C 440 160, 480 220, 440 250 C 400 280, 390 200, 430 200 C 470 200, 490 250, 470 280" stroke="#111" stroke-width="2.5" stroke-dasharray="6 8" stroke-linecap="round" fill="none"/>
+
+                <!-- Right + sign -->
+                <path d="M 400 60 L 400 80 M 390 70 L 410 70" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+                
+                <!-- Small diamond -->
+                <rect x="435" y="260" width="8" height="8" transform="rotate(45 439 264)" stroke="#111" stroke-width="2.5"/>
+
+                <!-- LAYER 1: Envelope Background Fill (Hides dashed lines behind envelope) -->
+                <rect x="110" y="150" width="260" height="140" rx="8" fill="white" stroke="none"/>
+
+                <!-- LAYER 2: Envelope Back Top Edges (only visible outside the paper) -->
+                <path d="M 110 158 A 8 8 0 0 1 118 150 L 152 150" stroke="#111" stroke-width="4" fill="none" stroke-linecap="round"/>
+                <path d="M 328 150 L 362 150 A 8 8 0 0 1 370 158" stroke="#111" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+                <!-- LAYER 3: Letter Paper (goes deep inside, covers top back edge) -->
+                <rect x="150" y="50" width="180" height="200" rx="12" fill="white" stroke="#111" stroke-width="4"/>
+                
+                <!-- Checkmark Badge on Paper -->
+                <circle cx="240" cy="120" r="40" fill="#111"/>
+                <path d="M 215 120 L 230 135 L 265 100" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <!-- LAYER 4: Envelope Front (Covers the bottom of the paper, draws front folds and outer borders) -->
+                <path d="M 110 158 A 8 8 0 0 1 118 150 L 240 230 L 362 150 A 8 8 0 0 1 370 158 L 370 282 A 8 8 0 0 1 362 290 L 118 290 A 8 8 0 0 1 110 282 Z" fill="white" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+
+                <!-- Bottom V Fold Line -->
+                <path d="M 113 286 L 240 230 L 367 286" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                
+                <!-- EXACT TEARDROP LOCATION PIN -->
+                <!-- White outline for pin to overlap envelope cleanly -->
+                <path d="M 350 155 C 330.65 155 315 170.65 315 190 C 315 216.25 350 255 350 255 C 350 255 385 216.25 385 190 C 385 170.65 369.35 155 350 155 Z" fill="white" stroke="white" stroke-width="12" stroke-linejoin="round"/>
+                <!-- Black pin body -->
+                <path d="M 350 155 C 330.65 155 315 170.65 315 190 C 315 216.25 350 255 350 255 C 350 255 385 216.25 385 190 C 385 170.65 369.35 155 350 155 Z" fill="#111"/>
+                <!-- Inner circle hole -->
+                <circle cx="350" cy="190" r="14" fill="white"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="divider-line"></div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <!-- Center Icon -->
+        <div class="main-icon-container">
+            <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Gray background circle -->
+                <circle cx="50" cy="50" r="50" fill="#EEEFF1"/>
+
+                <!-- EXACT TEARDROP LOCATION PIN (Center) -->
+                <path d="M 50 16 C 36.2 16 25 27.2 25 41 C 25 59.7 50 87 50 87 C 50 87 75 59.7 75 41 C 75 27.2 63.8 16 50 16 Z" fill="#111"/>
+                <!-- White inner hole of pin -->
+                <circle cx="50" cy="41" r="12" fill="white"/>
+
+                <!-- Checkmark badge -->
+                <circle cx="70" cy="70" r="15" fill="#111" stroke="white" stroke-width="3"/>
+                <path d="M 63 70 L 68 75 L 77 64" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+
+        <h2 class="title">Please Confirm Your Email Address</h2>
+        <p class="subtitle">We just need to confirm your email address to ensure secure access to your DialPhone account.</p>
+
+        <div class="short-divider"></div>
+
+        <div class="email-body">
+            <p>Hello Alex Carter,</p><br>
+            <p>To help us keep your account secure and compliant,<br>
+            please confirm your email address by clicking the button below.<br>
+            This will verify your email and ensure uninterrupted service.</p>
+        </div>
+
+        <!-- CTA Button -->
+        <a href="#" class="confirm-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Teardrop Pin for Button -->
+                <path d="M 12 2 C 8.13 2 5 5.13 5 9 C 5 14.25 12 22 12 22C 12 22 19 14.25 19 9 C 19 5.13 15.87 2 12 2 Z" fill="white"/>
+                <circle cx="12" cy="9" r="3" fill="#000"/>
+            </svg>
+            CONFIRM EMAIL ADDRESS
+        </a>
+
+        <!-- 3 Horizontal Info Cards -->
+        <div class="info-row">
+            <div class="info-card">
+                <div class="info-card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L4 6V12C4 16.4 7.4 20.5 12 22C16.6 20.5 20 16.4 20 12V6L12 2Z" stroke="#111" stroke-width="2" fill="none" stroke-linejoin="round"/>
+                        <path d="M9 12L11 14L15 10" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h4>Secure &amp; Private</h4>
+                <p>Your information is kept safe and secure.</p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="5" y="11" width="14" height="10" rx="2" stroke="#111" stroke-width="2"/>
+                        <path d="M8 11V7C8 5.34 9.34 4 12 4C14.66 4 16 5.34 16 7V11" stroke="#111" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="12" cy="16" r="1.5" fill="#111"/>
+                    </svg>
+                </div>
+                <h4>Why we need this</h4>
+                <p>To verify your identity and prevent fraud.</p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="9" stroke="#111" stroke-width="2"/>
+                        <path d="M12 7V12L15 14" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h4>Takes less than 1 min</h4>
+                <p>Quick verification to keep your account active.</p>
+            </div>
+        </div>
+
+        <!-- Help Box -->
+        <div class="help-box">
+            <div class="help-circle">?</div>
+            <div class="help-text">
+                <h3>Need help?</h3>
+                <p>Our support team is here for you.<br>
+                <strong>support@dialphone.com</strong></p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>&copy; 2026 DialPhone. All rights reserved.</p>
+    </div>
+
+</div>
+</body>
+</html>

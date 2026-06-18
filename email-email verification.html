@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Email Address - DialPhone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f5f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #111827;
+        }
+
+        .email-container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 580px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            display: block;
+        }
+
+        .logo-divider {
+            width: 1px;
+            height: 50px;
+            background-color: #e5e7eb;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .header-illustration {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-content {
+            padding: 40px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-icon-container {
+            margin-bottom: 24px;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #4b5563;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .divider {
+            width: 40px;
+            height: 2px;
+            background-color: #e5e7eb;
+            margin-bottom: 40px;
+        }
+
+        .email-body {
+            width: 100%;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #1f2937;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .verify-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background-color: #000000;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            margin-bottom: 40px;
+            transition: background-color 0.2s;
+        }
+
+        .verify-btn:hover {
+            background-color: #1f2937;
+        }
+
+        .info-boxes {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .info-box {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 16px;
+            background-color: #f9fafb;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .info-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            flex-shrink: 0;
+        }
+
+        .help-icon {
+            background-color: transparent;
+            box-shadow: none;
+            border: 1px solid #e5e7eb;
+        }
+
+        .info-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .info-text h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 2px;
+            color: #111827;
+        }
+
+        .info-text p {
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .info-text a {
+            color: #111827;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .info-text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+<!-- GLOBAL NAVIGATION BAR -->
+<div style="background: #111; color: #fff; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif; position: fixed; top: 0; left: 0; width: 100%; box-sizing: border-box; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <a href="email-confirm address.html" style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">&larr; Back</a>
+    <a href="index.html" style="color: #fff; text-decoration: none; font-size: 16px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;">EMAIL VERIFICATION</a>
+    <a href="email-payment failed.html" style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">Next &rarr;</a>
+</div>
+<!-- END GLOBAL NAVIGATION BAR -->
+    <div class="email-container">
+        <header class="header">
+            <div class="logo-area">
+                <!-- ✅ Real DialPhone Logo -->
+                <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png"
+                    alt="DialPhone Logo" class="logo" width="48" height="48" style="object-fit:contain;">
+                <div class="logo-divider"></div>
+                <h1 class="header-title">Verify Email Address</h1>
+            </div>
+            <div class="header-illustration">
+                <svg width="160" height="100" viewBox="0 0 500 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 120 100 L 120 116 M 112 108 L 128 108" stroke="#111827" stroke-width="2.5"
+                        stroke-linecap="round" />
+                    <circle cx="95" cy="140" r="4.5" fill="none" stroke="#111827" stroke-width="2.5" />
+                    <path d="M 60 220 L 60 236 M 52 228 L 68 228" stroke="#111827" stroke-width="2.5"
+                        stroke-linecap="round" />
+                    <path d="M 380 90 L 380 106 M 372 98 L 388 98" stroke="#111827" stroke-width="2.5"
+                        stroke-linecap="round" />
+                    <path d="M 465 200 L 465 216 M 457 208 L 473 208" stroke="#111827" stroke-width="2.5"
+                        stroke-linecap="round" />
+                    <circle cx="410" cy="285" r="4.5" fill="none" stroke="#111827" stroke-width="2.5" />
+                    <path d="M 160 220 C 110 190, 70 200, 60 240 C 50 280, 110 290, 90 240 C 80 210, 50 250, 25 290"
+                        stroke="#111827" stroke-width="2.5" stroke-dasharray="6 8" stroke-linecap="round" fill="none" />
+                    <circle cx="25" cy="290" r="3.5" fill="#111827" />
+                    <path
+                        d="M 340 250 C 390 280, 440 290, 420 230 C 400 170, 360 210, 390 220 C 420 230, 415 170, 425 140"
+                        stroke="#111827" stroke-width="2.5" stroke-dasharray="6 8" stroke-linecap="round" fill="none" />
+                    <g stroke="#111827" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+                        <path d="M410 110 L470 80 L450 140 Z" fill="white" />
+                        <path d="M470 80 L425 118" />
+                        <path d="M425 118 L425 140 L440 128" fill="none" />
+                    </g>
+                    <path d="M 160 160 L 340 160 L 340 210 L 160 210 Z" fill="#111827" />
+                    <path d="M 160 160 L 340 160" stroke="#111827" stroke-width="4" stroke-linecap="round" />
+                    <rect x="190" y="70" width="120" height="160" rx="8" fill="white" stroke="#111827"
+                        stroke-width="4" />
+                    <circle cx="250" cy="130" r="26" fill="#111827" />
+                    <path d="M 238 130 L 246 138 L 262 122" stroke="white" stroke-width="5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M 160 160 L 235 220 C 245 230, 255 230, 265 220 L 340 160 L 340 280 L 160 280 Z"
+                        fill="white" stroke="#111827" stroke-width="4" stroke-linejoin="round" />
+                    <path d="M 160 280 L 235 215 C 245 205, 255 205, 265 215 L 340 280" fill="none" stroke="#111827"
+                        stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="main-icon-container">
+                <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="50" fill="#F8F9FA" />
+                    <rect x="30" y="35" width="40" height="26" rx="2" stroke="black" stroke-width="2.5" fill="none" />
+                    <path d="M30 35L50 48L70 35" stroke="black" stroke-width="2.5" />
+                    <circle cx="65" cy="60" r="14" fill="black" />
+                    <path d="M59 60L63 64L71 56" stroke="white" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+            <h2 class="title">Verify Your Email Address</h2>
+            <p class="subtitle">Complete your account setup and activate your DialPhone account.</p>
+            <div class="divider"></div>
+            <div class="email-body">
+                <p>Dear Alex Carter,</p>
+                <p>Thank you for creating your DialPhone account.</p>
+                <p>To complete your registration and activate your account,<br>please verify your email address by
+                    clicking the button below.</p>
+            </div>
+
+            <a href="#" class="verify-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7" stroke="white"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <rect x="3" y="5" width="18" height="14" rx="2" stroke="white" stroke-width="2"
+                        stroke-linecap="round" />
+                </svg>
+                VERIFY EMAIL
+            </a>
+
+            <div class="info-boxes">
+                <div class="info-box">
+                    <div class="info-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 22S19 18 19 12V5L12 2L5 5V12C5 18 12 22 12 22Z" stroke="black" stroke-width="2"
+                                stroke-linejoin="round" />
+                            <path d="M9 12L11 14L15 10" stroke="black" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="info-text">
+                        <h3>Verification Link Expires in 24 Hours</h3>
+                        <p>For security, this link can only be used once.</p>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <div class="info-icon help-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" fill="#E5E7EB" />
+                            <path
+                                d="M9.09 9C9.3251 8.33167 9.78915 7.76811 10.4 7.40913C11.0108 7.05016 11.7289 6.91894 12.4272 7.03871C13.1255 7.15849 13.7588 7.52152 14.2151 8.06353C14.6713 8.60553 14.9211 9.29152 14.92 10C14.92 12 11.92 13 11.92 13M12 17H12.01"
+                                stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="info-text">
+                        <h3>Need Help?</h3>
+                        <p>Support is available 24/7 at <a href="mailto:support@dialphone.com">support@dialphone.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+</body>
+
+</html>

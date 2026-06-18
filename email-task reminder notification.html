@@ -224,10 +224,14 @@
     </style>
 </head>
 
-        <a href="email-upcoming event reminder.html">Next</a>
-
-
 <body>
+<!-- GLOBAL NAVIGATION BAR -->
+<div style="background: #111; color: #fff; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif; position: fixed; top: 0; left: 0; width: 100%; box-sizing: border-box; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <a href="email-Subscription renewal reminder .html" style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">&larr; Back</a>
+    <a href="index.html" style="color: #fff; text-decoration: none; font-size: 16px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;">TASK REMINDER NOTIFICATION</a>
+    <a href="email-upcoming event reminder.html" style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">Next &rarr;</a>
+</div>
+<!-- END GLOBAL NAVIGATION BAR -->
     <div class="email-wrapper">
 
         <!-- HEADER -->
@@ -241,53 +245,56 @@
             </div>
 
             <div class="header-right">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 260">
-                    <ellipse cx="250" cy="150" rx="160" ry="75" fill="#f7f7f7"/>
-
-                    <!-- Decorative elements -->
-                    <path d="M 120,95 v 10 M 115,100 h 10" stroke="#111" stroke-width="2" stroke-linecap="round"/>
-                    <circle cx="170" cy="50" r="4.5" fill="none" stroke="#111" stroke-width="2"/>
-                    <circle cx="150" cy="205" r="4.5" fill="none" stroke="#111" stroke-width="2"/>
+               <svg viewBox="0 0 500 320" fill="none" xmlns="http://www.w3.org/2000/svg">
                     
-                    <path d="M 375,60 v 10 M 370,65 h 10" stroke="#111" stroke-width="2" stroke-linecap="round"/>
+                    <!-- Decorative Elements -->
+                    <!-- Top Left Plus -->
+                    <path d="M 120 100 L 120 116 M 112 108 L 128 108" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+                    <!-- Mid Left Circle -->
+                    <circle cx="90" cy="160" r="5" stroke="#111" stroke-width="2.5"/>
+                    <!-- Far Left Plus -->
+                    <path d="M 60 240 L 60 256 M 52 248 L 68 248" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
                     
-                    <circle cx="470" cy="120" r="4.5" fill="none" stroke="#111" stroke-width="2"/>
-                    <path d="M 405,185 v 10 M 400,190 h 10" stroke="#111" stroke-width="2" stroke-linecap="round"/>
+                    <!-- Top Right Plus -->
+                    <path d="M 380 90 L 380 106 M 372 98 L 388 98" stroke="#111" stroke-width="2.5" stroke-linecap="round"/>
+                    <!-- Bottom Right Circle -->
+                    <circle cx="430" cy="280" r="5" stroke="#111" stroke-width="2.5"/>
 
-                    <path d="M 170,140 C 100,140 100,230 140,240" stroke="#111" stroke-width="2.5" stroke-dasharray="3,7" stroke-linecap="round" fill="none"/>
-                    
-                    <path d="M 330,135 C 360,145 370,100 390,70" stroke="#111" stroke-width="1.5" stroke-dasharray="3,6" stroke-linecap="round" fill="none"/>
+                    <!-- Left Dashed Loop -->
+                    <path d="M 150 220 C 100 190, 60 200, 50 240 C 40 280, 100 290, 80 240 C 70 210, 40 250, 20 290" stroke="#111" stroke-width="2.5" stroke-dasharray="6 8" stroke-linecap="round" fill="none"/>
 
-                    <!-- PERFECTED PROFESSIONAL FLIGHT ICON -->
-                    <!-- Outer Airplane Body -->
-                    <path d="M 390,70 L 450,45 L 430,105 L 415,80 Z" fill="#fff" stroke="#111" stroke-width="2" stroke-linejoin="round"/>
-                    <!-- Central Fold Line -->
-                    <path d="M 450,45 L 415,80" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Right Dashed Loop -->
+                    <path d="M 350 250 C 400 270, 420 190, 390 200 C 360 210, 390 250, 410 230 C 430 210, 420 170, 425 140" stroke="#111" stroke-width="2.5" stroke-dasharray="6 8" stroke-linecap="round" fill="none"/>
 
-                    <rect x="170" y="100" width="160" height="110" fill="#111"/>
-                    <rect x="195" y="30" width="110" height="135" rx="8" fill="#fff" stroke="#111" stroke-width="3"/>
-
-                    <!-- BELL ICON -->
-                    <g transform="translate(230, 48) scale(1.7)">
-                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="#111" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Paper Airplane -->
+                    <g stroke="#111" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+                       <path d="M410 110 L470 80 L450 140 Z" fill="white"/>
+                       <path d="M470 80 L425 118" />
+                       <path d="M425 118 L425 140 L440 128" fill="none"/>
                     </g>
 
-                    <rect x="215" y="118" width="70" height="22" rx="11" fill="#fff" stroke="#dcdcdc" stroke-width="2"/>
-                    <circle cx="231" cy="129" r="3.2" fill="#111"/>
-                    <circle cx="240.5" cy="129" r="3.2" fill="#111"/>
-                    <circle cx="250" cy="129" r="3.2" fill="#111"/>
-                    <circle cx="259.5" cy="129" r="3.2" fill="#111"/>
-                    <circle cx="269" cy="129" r="3.2" fill="#111"/>
+                    <!-- ENVELOPE & PAPER (Proper 3D Layering with Dark Interior) -->
+                    
+                    <!-- Dark Interior (Provides the dark inner triangles) -->
+                    <path d="M 150 150 L 350 150 L 350 200 L 150 200 Z" fill="#111" />
 
-                    <path d="M 170,100 L 250,165 L 330,100 L 330,210 L 170,210 Z" fill="#fff"/>
-                    <path d="M 170,100 L 250,165 L 330,100" stroke="#111" stroke-width="3" fill="none" stroke-linejoin="round"/>
-                    <path d="M 170,210 L 250,145 L 330,210" stroke="#111" stroke-width="3" fill="none" stroke-linejoin="round"/>
-                    <rect x="170" y="100" width="160" height="110" rx="3" fill="none" stroke="#111" stroke-width="3"/>
+                    <!-- Envelope Top Border (Drawn behind paper) -->
+                    <path d="M 150 150 L 350 150" stroke="#111" stroke-width="4" stroke-linecap="round"/>
 
-                    <circle cx="315" cy="180" r="28" fill="#fff"/>
-                    <circle cx="315" cy="180" r="23" fill="#111"/>
-                    <path d="M 303,180 l 8,8 l 15,-15" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <!-- Letter Paper -->
+                    <rect x="180" y="60" width="140" height="180" rx="8" fill="white" stroke="#111" stroke-width="4"/>
+                    
+                    <!-- Checkmark Badge on Paper -->
+                    <circle cx="250" cy="115" r="30" fill="#111"/>
+                    <path d="M 235 115 L 245 125 L 265 105" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+                    <!-- Envelope Front Flap (White Fill covers paper bottom, draws outer border and top V) -->
+                    <!-- This forms the top half of the interlocking diamond -->
+                    <path d="M 150 150 L 230 215 C 240 225, 260 225, 270 215 L 350 150 L 350 280 L 150 280 Z" fill="white" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+                    
+                    <!-- Bottom Curve Fold (Drawn over the front flap to complete the diamond loop) -->
+                    <path d="M 150 280 L 230 215 C 240 205, 260 205, 270 215 L 350 280" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
                 </svg>
             </div>
         </div>

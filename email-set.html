@@ -286,10 +286,14 @@
     </style>
 </head>
 
-        <a href="email-task reminder notification.html">Next</a>
-
-
 <body>
+<!-- GLOBAL NAVIGATION BAR -->
+<div style="background: #111; color: #fff; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif; position: fixed; top: 0; left: 0; width: 100%; box-sizing: border-box; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <a href="email-reset.html" style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">&larr; Back</a>
+    <a href="index.html" style="color: #fff; text-decoration: none; font-size: 16px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;">SET PASSWORD</a>
+    <a href="email-Subscription renewal reminder .html" style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">Next &rarr;</a>
+</div>
+<!-- END GLOBAL NAVIGATION BAR -->
     <div class="email-wrapper">
 
         <!-- HEADER -->
@@ -306,8 +310,7 @@
             </div>
 
             <div class="header-right">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 260">
-
+                 <svg width="160" height="100" viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg">
                     <!-- Background light gray cloud -->
                     <ellipse cx="250" cy="150" rx="160" ry="75" fill="#f7f7f7" />
 
@@ -330,57 +333,46 @@
                     <path d="M 170,140 C 100,140 100,230 140,240" stroke="#111" stroke-width="2.5"
                         stroke-dasharray="3,7" stroke-linecap="round" fill="none" />
 
-                    <!-- ✅ PERFECTLY FIXED: Right Dashed Path (Thinner, precise curve) -->
+                    <!-- Right Dashed Path -->
                     <path d="M 330,135 C 370,145 385,100 415,70" stroke="#111" stroke-width="1.5" stroke-dasharray="3,6"
                         stroke-linecap="round" fill="none" />
 
-                    <!-- ✅ PERFECTLY FIXED: Paper Airplane (Smaller, symmetric, thin lines like image) -->
-                    <!-- Main hollow shape -->
-                    <path d="M 400,55 L 455,30 L 430,85 L 415,70 Z" fill="#fff" stroke="#111" stroke-width="1.5"
-                        stroke-linejoin="round" />
-                    <!-- Center fold line -->
-                    <path d="M 455,30 L 415,70" stroke="#111" stroke-width="1.5" stroke-linecap="round"
-                        stroke-linejoin="round" />
+                    <!-- Paper Airplane -->
+                    <path d="M 400,55 L 455,30 L 430,85 L 415,70 Z" fill="#fff" stroke="#111" stroke-width="1.5" stroke-linejoin="round" />
+                    <path d="M 455,30 L 415,70" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
 
                     <!-- ENVELOPE DARK INSIDE (Back layer) -->
                     <rect x="170" y="100" width="160" height="110" fill="#111" />
 
-                    <!-- NOTIFICATION CARD (White card coming out) -->
-                    <rect x="195" y="30" width="110" height="135" rx="8" fill="#fff" stroke="#111" stroke-width="3" />
+                    <!-- NOTIFICATION CARD (Shifted UP so contents are fully visible) -->
+                    <rect x="195" y="15" width="110" height="150" rx="8" fill="#fff" stroke="#111" stroke-width="3" />
 
-                    <!-- PADLOCK (Solid Black) -->
-                    <!-- Shackle -->
-                    <path d="M 235,68 v -8 a 15,15 0 0 1 30,0 v 8" stroke="#111" stroke-width="4" fill="none"
-                        stroke-linecap="round" />
-                    <!-- Body -->
-                    <rect x="228" y="68" width="44" height="34" rx="7" fill="#111" />
-                    <!-- White Keyhole -->
-                    <circle cx="250" cy="82" r="4" fill="#fff" />
-                    <path d="M 248,85 l -1,6 h 6 l -1,-6 z" fill="#fff" />
+                    <!-- PADLOCK (Solid Black, shifted up) -->
+                    <path d="M 235,53 v -8 a 15,15 0 0 1 30,0 v 8" stroke="#111" stroke-width="4" fill="none" stroke-linecap="round" />
+                    <rect x="228" y="53" width="44" height="34" rx="7" fill="#111" />
+                    <circle cx="250" cy="67" r="4" fill="#fff" />
+                    <path d="M 248,70 l -1,6 h 6 l -1,-6 z" fill="#fff" />
 
-                    <!-- DOT PILL (Password dots shape) -->
-                    <rect x="215" y="118" width="70" height="22" rx="11" fill="#fff" stroke="#dcdcdc"
-                        stroke-width="2" />
-                    <!-- 5 Dots -->
-                    <circle cx="231" cy="129" r="3.2" fill="#111" />
-                    <circle cx="240.5" cy="129" r="3.2" fill="#111" />
-                    <circle cx="250" cy="129" r="3.2" fill="#111" />
-                    <circle cx="259.5" cy="129" r="3.2" fill="#111" />
-                    <circle cx="269" cy="129" r="3.2" fill="#111" />
+                    <!-- DOT PILL (Password dots shape, shifted up) -->
+                    <rect x="215" y="103" width="70" height="22" rx="11" fill="#fff" stroke="#dcdcdc" stroke-width="2" />
+                    <circle cx="231" cy="114" r="3.2" fill="#111" />
+                    <circle cx="240.5" cy="114" r="3.2" fill="#111" />
+                    <circle cx="250" cy="114" r="3.2" fill="#111" />
+                    <circle cx="259.5" cy="114" r="3.2" fill="#111" />
+                    <circle cx="269" cy="114" r="3.2" fill="#111" />
 
                     <!-- ENVELOPE FRONT FLAP (White layer) -->
                     <path d="M 170,100 L 250,165 L 330,100 L 330,210 L 170,210 Z" fill="#fff" />
-                    <path d="M 170,100 L 250,165 L 330,100" stroke="#111" stroke-width="3" fill="none"
-                        stroke-linejoin="round" />
-                    <path d="M 170,210 L 250,145 L 330,210" stroke="#111" stroke-width="3" fill="none"
-                        stroke-linejoin="round" />
-                    <rect x="170" y="100" width="160" height="110" rx="3" fill="none" stroke="#111" stroke-width="3" />
+                    <path d="M 170,100 L 250,165 L 330,100" stroke="#111" stroke-width="3" fill="none" stroke-linejoin="round" />
+                    <path d="M 170,210 L 250,145 L 330,210" stroke="#111" stroke-width="3" fill="none" stroke-linejoin="round" />
+                    
+                    <!-- ENVELOPE OUTER BORDER (Replaced rect with a 3-sided path to remove the top line crossing the card) -->
+                    <path d="M 170,100 v 107 a 3,3 0 0 0 3,3 h 154 a 3,3 0 0 0 3,-3 v -107" fill="none" stroke="#111" stroke-width="3" />
 
                     <!-- CHECKMARK BADGE (Bottom Right) -->
                     <circle cx="315" cy="180" r="28" fill="#fff" />
                     <circle cx="315" cy="180" r="23" fill="#111" />
-                    <path d="M 303,180 l 8,8 l 15,-15" stroke="#fff" stroke-width="4.5" stroke-linecap="round"
-                        stroke-linejoin="round" fill="none" />
+                    <path d="M 303,180 l 8,8 l 15,-15" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
                 </svg>
             </div>
         </div>
@@ -441,7 +433,15 @@
         </div>
 
     </div>
-
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
