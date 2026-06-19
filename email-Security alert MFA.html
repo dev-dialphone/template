@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Alert - MFA - DialPhone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        body {
+            background: #f5f5f5;
+            font-family: 'Inter', sans-serif;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 720px;
+            width: 100%;
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border: 1px solid #e5e7eb;
+        }
+        /* Header */
+        .header {
+            padding: 32px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+        .header-logo {
+            width: 44px;
+            height: 44px;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+        .header-divider {
+            width: 1px;
+            height: 40px;
+            background: #e5e7eb;
+            margin-right: 16px;
+        }
+        .header-title-block {
+            display: flex;
+            flex-direction: column;
+        }
+        .header-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #000;
+            line-height: 1.2;
+        }
+        .header-subtitle {
+            font-size: 13px;
+            color: #4b5563;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+        .header-illustration {
+            width: 180px;
+            height: 100px;
+        }
+
+        /* Title Area */
+        .title-area {
+            text-align: center;
+            padding: 48px 48px 24px 48px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .bell-icon-wrapper {
+            width: 72px;
+            height: 72px;
+            background-color: #fef2f2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            position: relative;
+        }
+        .bell-icon-wrapper svg {
+            width: 36px;
+            height: 36px;
+        }
+        .main-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: #000;
+            margin-bottom: 12px;
+        }
+        .desc-text {
+            font-size: 15px;
+            color: #1f2937;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        .desc-subtext {
+            font-size: 15px;
+            color: #1f2937;
+            font-weight: 500;
+        }
+        .title-divider {
+            width: 40px;
+            height: 2px;
+            background-color: #94a3b8;
+            margin: 24px auto;
+        }
+
+        /* Content Area */
+        .content {
+            padding: 0 48px 48px 48px;
+        }
+
+        /* Cards */
+        .alert-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-top {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .card-icon-wrap {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-right: 24px;
+        }
+        .card-icon-wrap svg {
+            width: 32px;
+            height: 32px;
+        }
+        .card-info {
+            flex: 1;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: #000;
+            margin-bottom: 8px;
+        }
+        .card-desc {
+            font-size: 14px;
+            color: #1f2937;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+        .meta-row {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            color: #1f2937;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .meta-row svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 12px;
+        }
+        .meta-row:last-child { margin-bottom: 0; }
+
+        .card-divider {
+            height: 1px;
+            background: #f3f4f6;
+            margin: 0 -24px 20px -24px;
+        }
+
+        .card-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .was-this-you {
+            display: flex;
+            flex-direction: column;
+        }
+        .was-this-you-title {
+            font-size: 15px;
+            font-weight: 800;
+            color: #000;
+            margin-bottom: 4px;
+        }
+        .was-this-you-desc {
+            font-size: 13px;
+            color: #4b5563;
+            font-weight: 500;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .btn svg {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+        }
+        .btn-outline {
+            border: 1px solid #111827;
+            color: #111827;
+            background: transparent;
+        }
+        .btn-green {
+            background: #059669;
+            color: #fff;
+            border: 1px solid #059669;
+        }
+
+        /* Help Box */
+        .help-box {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .help-left {
+            display: flex;
+            align-items: center;
+        }
+        .help-icon {
+            width: 52px;
+            height: 52px;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+        }
+        .help-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+        .help-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: #000;
+            margin-bottom: 4px;
+        }
+        .help-desc {
+            font-size: 13px;
+            color: #4b5563;
+            font-weight: 500;
+        }
+        .help-link {
+            font-size: 13px;
+            font-weight: 700;
+            color: #059669;
+            text-decoration: none;
+            margin-top: 2px;
+            display: inline-block;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 24px;
+            border-top: 1px solid #e5e7eb;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+        .footer-logo svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 6px;
+        }
+        .footer-logo-text {
+            font-size: 13px;
+            font-weight: 800;
+            color: #000;
+        }
+        .footer-copyright {
+            font-size: 12px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            .header, .content, .title-area { padding: 24px; }
+            .card-bottom { flex-direction: column; align-items: flex-start; gap: 16px; }
+            .action-buttons { flex-direction: column; width: 100%; }
+            .help-box { flex-direction: column; align-items: flex-start; gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+<!-- GLOBAL NAVIGATION BAR -->
+<div style="background: #111; color: #fff; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif; position: fixed; top: 0; left: 0; width: 100%; box-sizing: border-box; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <a href="email-security-alert.html" style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">&larr; Back</a>
+    <a href="index.html" style="color: #fff; text-decoration: none; font-size: 16px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;">SECURITY ALERT MFA</a>
+    <a href="email-trial-reminder.html" style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">Next &rarr;</a>
+</div>
+<!-- END GLOBAL NAVIGATION BAR -->
+
+<div class="container" style="margin-top: 60px;">
+    <div class="header">
+        <div class="header-left">
+            <!-- Black badge shield logo -->
+            <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png" alt="DialPhone Logo" style="width: 56px; height: 56px; margin-right: 16px; flex-shrink: 0;" />
+            <div class="header-divider"></div>
+            <div class="header-title-block">
+                <div class="header-title">Security Alert</div>
+                <div class="header-subtitle">Important Security Notification</div>
+            </div>
+        </div>
+        <div class="header-illustration">
+            <!-- Perfected Illustration matching user's reference -->
+            <svg viewBox="0 0 200 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background Blobs -->
+                <circle cx="65" cy="80" r="35" fill="#e8f5e9" />
+                <circle cx="90" cy="95" r="25" fill="#e8f5e9" />
+                <circle cx="145" cy="75" r="35" fill="#e8f5e9" />
+
+                <!-- Dashed Swooshes (Smooth S-Curves) -->
+                <path d="M 20 90 C 35 110, 50 65, 75 80" stroke="#111827" stroke-width="2" stroke-dasharray="3 7" stroke-linecap="round" fill="none" />
+                <path d="M 125 75 C 150 55, 165 105, 185 85" stroke="#111827" stroke-width="2" stroke-dasharray="3 7" stroke-linecap="round" fill="none" />
+
+                <!-- Left Decorations -->
+                <path d="M 32 40 V 50 M 27 45 H 37" stroke="#111827" stroke-width="3" stroke-linecap="round" />
+                <rect x="20" y="70" width="8" height="8" transform="rotate(45 20 70)" stroke="#111827" stroke-width="2.5" fill="none" />
+
+                <!-- Right Decorations -->
+                <path d="M 168 40 V 50 M 163 45 H 173" stroke="#111827" stroke-width="3" stroke-linecap="round" />
+                <circle cx="188" cy="60" r="4" stroke="#111827" stroke-width="2.5" fill="none" />
+                
+                <!-- Shield Main -->
+                <path d="M100 10 L145 25 V65 C145 95 125 115 100 125 C75 115 55 95 55 65 V25 L100 10Z" fill="#ffffff" stroke="#111827" stroke-width="6" stroke-linejoin="round" />
+
+                <!-- Lock inside shield -->
+                <rect x="80" y="55" width="40" height="28" rx="5" fill="#111827" />
+                <path d="M87 55 V45 C87 38 93 32 100 32 C107 32 113 38 113 45 V55" stroke="#111827" stroke-width="6" stroke-linecap="round" />
+                
+                <!-- Keyhole (White) -->
+                <circle cx="100" cy="65" r="4.5" fill="#ffffff" />
+                <path d="M98 68 L95 78 H105 L102 68 Z" fill="#ffffff" />
+
+                <!-- Exclamation Circle (Alert) -->
+                <circle cx="140" cy="100" r="20" fill="#111827" stroke="#ffffff" stroke-width="6" />
+                <path d="M140 88 V100" stroke="#ffffff" stroke-width="5" stroke-linecap="round" />
+                <circle cx="140" cy="108" r="3" fill="#ffffff" />
+            </svg>
+        </div>
+    </div>
+
+    <div class="title-area">
+        <div class="bell-icon-wrapper" style="width: 72px; height: 72px; background-color: #fef2f2; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="M12 8v4"></path>
+                <circle cx="12" cy="16" r="1" fill="#ef4444" stroke="none"></circle>
+            </svg>
+        </div>
+        <h1 class="main-title">Security Alert</h1>
+        <p class="desc-text">We noticed a suspicious activity on your account.</p>
+        <p class="desc-subtext">Please review the details below and take action to secure your account.</p>
+        <div class="title-divider"></div>
+    </div>
+
+    <div class="content">
+        <!-- Card 1 -->
+        <div class="alert-card">
+            <div class="card-top">
+                <div class="card-icon-wrap">
+                    <!-- Phone with Shield Icon -->
+                    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Phone -->
+                        <rect x="7" y="3" width="16" height="26" rx="3" stroke="#111827" stroke-width="2.5" />
+                        <line x1="13" y1="6" x2="17" y2="6" stroke="#111827" stroke-width="2" stroke-linecap="round" />
+                        
+                        <!-- Mask -->
+                        <circle cx="23" cy="23" r="10" fill="#f3f4f6" />
+                        
+                        <!-- Shield -->
+                        <path d="M 23 15 L 30 18 V 24 C 30 27.5 26.5 30.5 23 32 C 19.5 30.5 16 27.5 16 24 V 18 Z" stroke="#111827" stroke-width="2.5" stroke-linejoin="round" />
+                        
+                        <!-- Checkmark -->
+                        <path d="M 19.5 24 L 21.5 26 L 26.5 21" stroke="#111827" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="card-info">
+                    <div class="card-title">Multi-Factor Authentication (MFA) Changed</div>
+                    <div class="card-desc">Your multi-factor authentication method<br>was recently updated.</div>
+                    
+                    <div class="meta-row">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        May 24, 2026 at 10:15 PM (UTC)
+                    </div>
+                    <div class="meta-row">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        San Francisco, United States
+                    </div>
+                </div>
+            </div>
+            <div class="card-divider"></div>
+            <div class="card-bottom">
+                <div class="was-this-you">
+                    <div class="was-this-you-title">Was this you?</div>
+                    <div class="was-this-you-desc">If this wasn't you, secure your account immediately.</div>
+                </div>
+                <div class="action-buttons">
+                    <a href="#" class="btn btn-outline">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+                        Secure Account
+                    </a>
+                    <a href="#" class="btn btn-green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg>
+                        This Was Me
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="alert-card">
+            <div class="card-top">
+                <div class="card-icon-wrap">
+                    <!-- Envelope with User Icon -->
+                    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Envelope -->
+                        <rect x="2" y="8" width="26" height="18" rx="2" stroke="#111827" stroke-width="2.5" />
+                        <path d="M 2 10 L 15 19 L 28 10" stroke="#111827" stroke-width="2.5" stroke-linejoin="round" />
+                        
+                        <!-- Mask -->
+                        <circle cx="24" cy="24" r="10" fill="#f3f4f6" />
+                        
+                        <!-- Black Circle Background -->
+                        <circle cx="24" cy="24" r="8" fill="#111827" />
+                        
+                        <!-- User Head -->
+                        <circle cx="24" cy="21" r="2.5" fill="#ffffff" />
+                        
+                        <!-- User Body -->
+                        <path d="M 19 28 C 19 25.5 21 24.5 24 24.5 C 27 24.5 29 25.5 29 28" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+                    </svg>
+                </div>
+                <div class="card-info">
+                    <div class="card-title">Email Address Changed</div>
+                    <div class="card-desc">Your account email address<br>was recently updated.</div>
+                    
+                    <div class="meta-row">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        May 24, 2026 at 09:42 PM (UTC)
+                    </div>
+                    <div class="meta-row">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        New York, United States
+                    </div>
+                </div>
+            </div>
+            <div class="card-divider"></div>
+            <div class="card-bottom">
+                <div class="was-this-you">
+                    <div class="was-this-you-title">Was this you?</div>
+                    <div class="was-this-you-desc">If this wasn't you, secure your account immediately.</div>
+                </div>
+                <div class="action-buttons">
+                    <a href="#" class="btn btn-outline">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+                        Secure Account
+                    </a>
+                    <a href="#" class="btn btn-green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg>
+                        This Was Me
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help Box -->
+        <div class="help-box">
+            <div class="help-left">
+                <div class="help-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                        <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+                    </svg>
+                </div>
+                <div>
+                    <div class="help-title">Need Help?</div>
+                    <div class="help-desc">Our support team is here for you.</div>
+                    <a href="mailto:support@dialphone.com" class="help-link">support@dialphone.com</a>
+                </div>
+            </div>
+            <a href="#" class="btn btn-outline" style="border-radius: 6px; padding: 12px 24px;">Contact Support</a>
+        </div>
+    </div>
+</div>
+
+<!-- Footer Removed -->
+
+</body>
+</html>

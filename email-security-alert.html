@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Alert - DialPhone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #111827;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            justify-content: center;
+            padding: 90px 20px 40px;
+        }
+
+        .container {
+            max-width: 640px;
+            width: 100%;
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 32px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon img {
+            width: 56px;
+            height: 56px;
+            object-fit: contain;
+        }
+
+        .logo-divider {
+            width: 1px;
+            height: 48px;
+            background-color: #d1d5db;
+            margin: 0 20px;
+        }
+
+        .logo-text-block {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #111827;
+            line-height: 1.2;
+        }
+
+        .logo-subtitle {
+            font-size: 14px;
+            color: #4b5563;
+            font-weight: 500;
+        }
+
+        .header-illustration {
+            width: 200px;
+            height: 120px;
+            position: relative;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        .header-illustration svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* Title Area */
+        .title-area {
+            text-align: center;
+            margin-bottom: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .alert-icon-wrapper {
+            width: 64px;
+            height: 64px;
+            background-color: #fef2f2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .alert-icon-wrapper svg {
+            width: 32px;
+            height: 32px;
+            stroke: #ef4444;
+        }
+
+        .main-title {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+
+        .desc-text {
+            font-size: 15px;
+            color: #374151;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .desc-subtext {
+            font-size: 14px;
+            color: #4b5563;
+        }
+
+        .title-divider {
+            width: 40px;
+            height: 2px;
+            background-color: #d1d5db;
+            margin: 24px auto 0;
+        }
+
+        /* Recent Alerts Section */
+        .section-title {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .alert-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .alert-card-top {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .alert-icon-circle {
+            width: 64px;
+            height: 64px;
+            background-color: #f3f4f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .alert-icon-circle svg {
+            width: 32px;
+            height: 32px;
+            stroke: #111827;
+        }
+
+        .alert-badge {
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            width: 24px;
+            height: 24px;
+            background-color: #111827;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .alert-badge svg {
+            width: 14px;
+            height: 14px;
+            stroke: #ffffff;
+        }
+
+        .alert-details {
+            flex: 1;
+        }
+
+        .alert-title {
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .alert-desc {
+            font-size: 14px;
+            color: #4b5563;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .alert-meta {
+            font-size: 13px;
+            font-weight: 600;
+            color: #111827;
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .alert-meta svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            stroke: #4b5563;
+        }
+
+        .alert-card-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .alert-question {
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .alert-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 6px;
+        }
+
+        .btn-outline {
+            border: 1px solid #d1d5db;
+            background-color: #ffffff;
+            color: #111827;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-outline:hover {
+            background-color: #f9fafb;
+            border-color: #9ca3af;
+        }
+
+        .btn-green {
+            background-color: #059669;
+            color: #ffffff;
+            border: 1px solid #059669;
+            box-shadow: 0 1px 2px rgba(5, 150, 105, 0.2);
+        }
+
+        .btn-green:hover {
+            background-color: #047857;
+            border-color: #047857;
+        }
+
+        /* Features Row */
+        .features-row {
+            display: flex;
+            gap: 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            background-color: #fafafa;
+        }
+
+        .feature-item {
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            width: 32px;
+            height: 32px;
+            margin-right: 12px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: #111827;
+            stroke-width: 2;
+        }
+
+        .feature-title {
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 4px;
+            color: #111827;
+        }
+
+        .feature-desc {
+            font-size: 12px;
+            color: #4b5563;
+            line-height: 1.4;
+        }
+
+        /* Help Card */
+        .help-card {
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 32px;
+        }
+
+        .help-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .help-icon {
+            width: 44px;
+            height: 44px;
+            background-color: #e5e7eb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+
+        .help-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: #111827;
+            stroke-width: 2;
+        }
+
+        .help-title {
+            font-size: 14px;
+            font-weight: 800;
+            margin-bottom: 4px;
+            color: #111827;
+        }
+
+        .help-desc {
+            font-size: 13px;
+            color: #4b5563;
+            margin-bottom: 2px;
+        }
+
+        .help-link {
+            font-size: 13px;
+            font-weight: 700;
+            color: #059669;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 24px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .footer-logo img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .footer-logo-text {
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #111827;
+        }
+
+        .footer-copyright {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .logo-divider {
+                display: none;
+            }
+
+            .logo-section {
+                flex-direction: column;
+                margin-bottom: 20px;
+            }
+
+            .logo-text-block {
+                margin-top: 12px;
+            }
+
+            .alert-card-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .alert-actions {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .features-row {
+                flex-direction: column;
+            }
+
+            .help-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- GLOBAL NAVIGATION BAR -->
+    <div
+        style="background: #111; color: #fff; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif; position: fixed; top: 0; left: 0; width: 100%; box-sizing: border-box; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <a href="email-payment-past-due.html"
+            style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">&larr;
+            Back</a>
+        <a href="index.html"
+            style="color: #fff; text-decoration: none; font-size: 16px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;">SECURITY
+            ALERT</a>
+        <a href="email-Security%20alert%20MFA.html"
+            style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">Next
+            &rarr;</a>
+    </div>
+    <!-- END GLOBAL NAVIGATION BAR -->
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png"
+                        alt="DialPhone Logo">
+                </div>
+                <div class="logo-divider"></div>
+                <div class="logo-text-block">
+                    <div class="logo-title">Security Alert</div>
+                    <div class="logo-subtitle">Important Security Notification</div>
+                </div>
+            </div>
+            <div class="header-illustration">
+                <!-- Shield & Lock Illustration -->
+                <svg viewBox="0 0 200 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Background Blobs -->
+                    <circle cx="65" cy="80" r="35" fill="#e8f5e9" />
+                    <circle cx="90" cy="95" r="25" fill="#e8f5e9" />
+                    <circle cx="145" cy="75" r="35" fill="#e8f5e9" />
+
+                    <!-- Dashed Swooshes (Smooth S-Curves) -->
+                    <path d="M 20 90 C 35 110, 50 65, 75 80" stroke="#111827" stroke-width="2" stroke-dasharray="3 7"
+                        stroke-linecap="round" fill="none" />
+                    <path d="M 125 75 C 150 55, 165 105, 185 85" stroke="#111827" stroke-width="2"
+                        stroke-dasharray="3 7" stroke-linecap="round" fill="none" />
+
+                    <!-- Left Decorations -->
+                    <path d="M 32 40 V 50 M 27 45 H 37" stroke="#111827" stroke-width="3" stroke-linecap="round" />
+                    <rect x="20" y="70" width="8" height="8" transform="rotate(45 20 70)" stroke="#111827"
+                        stroke-width="2.5" fill="none" />
+
+                    <!-- Right Decorations -->
+                    <path d="M 168 40 V 50 M 163 45 H 173" stroke="#111827" stroke-width="3" stroke-linecap="round" />
+                    <circle cx="188" cy="60" r="4" stroke="#111827" stroke-width="2.5" fill="none" />
+
+                    <!-- Shield Main -->
+                    <path d="M100 10 L145 25 V65 C145 95 125 115 100 125 C75 115 55 95 55 65 V25 L100 10Z"
+                        fill="#ffffff" stroke="#111827" stroke-width="6" stroke-linejoin="round" />
+
+                    <!-- Lock inside shield -->
+                    <rect x="80" y="55" width="40" height="28" rx="5" fill="#111827" />
+                    <path d="M87 55 V45 C87 38 93 32 100 32 C107 32 113 38 113 45 V55" stroke="#111827" stroke-width="6"
+                        stroke-linecap="round" />
+
+                    <!-- Keyhole (White) -->
+                    <circle cx="100" cy="65" r="4.5" fill="#ffffff" />
+                    <path d="M98 68 L95 78 H105 L102 68 Z" fill="#ffffff" />
+
+                    <!-- Exclamation Circle (Alert) -->
+                    <circle cx="140" cy="100" r="20" fill="#111827" stroke="#ffffff" stroke-width="6" />
+                    <path d="M140 88 V100" stroke="#ffffff" stroke-width="5" stroke-linecap="round" />
+                    <circle cx="140" cy="108" r="3" fill="#ffffff" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Title Area -->
+        <div class="title-area">
+            <div class="alert-icon-wrapper"
+                style="width: 72px; height: 72px; background-color: #fef2f2; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <path d="M12 8v4"></path>
+                    <circle cx="12" cy="16" r="1" fill="#ef4444" stroke="none"></circle>
+                </svg>
+            </div>
+            <h1 class="main-title">Security Alert</h1>
+            <p class="desc-text">We noticed a suspicious activity on your account.</p>
+            <p class="desc-subtext">Please review the details below and take action to secure your account.</p>
+            <div class="title-divider"></div>
+        </div>
+
+        <!-- Recent Alerts -->
+        <h3 class="section-title">Recent Alerts</h3>
+
+        <!-- Alert Card 1 -->
+        <div class="alert-card">
+            <div class="alert-card-top">
+                <div class="alert-icon-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    <div class="alert-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                </div>
+                <div class="alert-details">
+                    <div class="alert-title">New Device Login</div>
+                    <div class="alert-desc">We noticed a sign-in to your account from a new device.</div>
+                    <div class="alert-meta">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        May 24, 2026 at 11:59 PM (UTC)
+                    </div>
+                    <div class="alert-meta">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        New York, United States
+                    </div>
+                </div>
+            </div>
+            <div class="alert-card-bottom">
+                <div class="alert-question">Was this you?</div>
+                <div class="alert-actions">
+                    <a href="#" class="btn btn-outline">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <path d="M9 12l2 2 4-4"></path>
+                        </svg>
+                        Secure Account
+                    </a>
+                    <a href="#" class="btn btn-green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        This Was Me
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alert Card 2 -->
+        <div class="alert-card">
+            <div class="alert-card-top">
+                <div class="alert-icon-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        <path d="M8 16h.01M12 16h.01M16 16h.01" stroke-width="3"></path>
+                    </svg>
+                </div>
+                <div class="alert-details">
+                    <div class="alert-title">Password Changed</div>
+                    <div class="alert-desc">Your account password was recently updated.</div>
+                    <div class="alert-meta">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        May 24, 2026 at 10:15 PM (UTC)
+                    </div>
+                    <div class="alert-meta">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        San Francisco, United States
+                    </div>
+                </div>
+            </div>
+            <div class="alert-card-bottom">
+                <div class="alert-question">Was this you?</div>
+                <div class="alert-actions">
+                    <a href="#" class="btn btn-outline">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <path d="M9 12l2 2 4-4"></path>
+                        </svg>
+                        Secure Account
+                    </a>
+                    <a href="#" class="btn btn-green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        This Was Me
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Row -->
+        <div class="features-row">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path d="M9 12l2 2 4-4" stroke="#059669" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+                <div>
+                    <div class="feature-title">Secure & Private</div>
+                    <div class="feature-desc">Your information is kept safe and secure.</div>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        <line x1="12" y1="14" x2="12" y2="17" stroke="#059669"></line>
+                    </svg>
+                </div>
+                <div>
+                    <div class="feature-title">Why we need this</div>
+                    <div class="feature-desc">To verify your identity and prevent fraud.</div>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14" stroke="#059669"></polyline>
+                    </svg>
+                </div>
+                <div>
+                    <div class="feature-title">Takes less than 1 min</div>
+                    <div class="feature-desc">Quick verification to keep your account active.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help Card -->
+        <div class="help-card">
+            <div class="help-left">
+                <div class="help-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                        <path
+                            d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z">
+                        </path>
+                    </svg>
+                </div>
+                <div>
+                    <div class="help-title">Need Help?</div>
+                    <div class="help-desc">Our support team is here for you.</div>
+                    <a href="mailto:support@dialphone.com" class="help-link">support@dialphone.com</a>
+                </div>
+            </div>
+            <a href="#" class="btn btn-outline">Contact Support</a>
+        </div>
+
+        <!-- Footer Removed -->
+    </div>
+
+</body>
+
+</html>

@@ -22,7 +22,8 @@
 
         /* ── PAGE KO CHOTA (STANDARD 640px) KIYA GAYA ── */
         .email-wrapper {
-            max-width: 640px; /* Reduced from 1400px */
+            max-width: 640px;
+            /* Reduced from 1400px */
             margin: auto;
             background: #fff;
             border: 1px solid #dcdcdc;
@@ -33,7 +34,8 @@
 
         /* HEADER */
         .header {
-            padding: 30px 40px; /* Scaled down */
+            padding: 30px 40px;
+            /* Scaled down */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -45,7 +47,8 @@
         }
 
         .logo {
-            width: 56px; /* Scaled down */
+            width: 56px;
+            /* Scaled down */
             height: 56px;
             display: flex;
             align-items: center;
@@ -59,14 +62,16 @@
 
         .vertical-line {
             width: 1px;
-            height: 60px; /* Scaled down */
+            height: 60px;
+            /* Scaled down */
             background: #d8d8d8;
             margin-right: 24px;
         }
 
         .heading small {
             display: block;
-            font-size: 14px; /* Scaled down */
+            font-size: 14px;
+            /* Scaled down */
             font-weight: 600;
             color: #444;
             margin-bottom: 4px;
@@ -75,7 +80,8 @@
         }
 
         .heading h1 {
-            font-size: 24px; /* Scaled down */
+            font-size: 24px;
+            /* Scaled down */
             line-height: 1.2;
             font-weight: 800;
             color: #000;
@@ -91,7 +97,8 @@
         .header-right svg {
             width: 100%;
             height: auto;
-            max-width: 220px; /* Scaled down */
+            max-width: 220px;
+            /* Scaled down */
         }
 
         /* DIVIDER */
@@ -101,37 +108,24 @@
 
         /* CONTENT */
         .content {
-            padding: 40px 50px; /* Scaled down */
+            padding: 40px 50px;
+            /* Scaled down */
             text-align: left;
         }
 
         .content h2 {
-            font-size: 20px; /* Scaled down */
+            font-size: 20px;
+            /* Scaled down */
             font-weight: 800;
             color: #000;
             margin-bottom: 16px;
         }
 
-        .underline {
-            width: 30px;
-            height: 4px;
-            background: #000;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
 
-        .underline::after {
-            content: '';
-            display: inline-block;
-            width: 30px;
-            height: 4px;
-            background: #d8d8d8;
-            border-radius: 10px;
-            margin-left: 36px;
-        }
 
         .content p {
-            font-size: 15px; /* Scaled down */
+            font-size: 15px;
+            /* Scaled down */
             line-height: 1.6;
             color: #333;
             margin-bottom: 24px;
@@ -150,9 +144,11 @@
             background: #000;
             color: #fff;
             text-decoration: none;
-            padding: 14px 24px; /* Scaled down */
+            padding: 14px 24px;
+            /* Scaled down */
             border-radius: 8px;
-            font-size: 15px; /* Scaled down */
+            font-size: 15px;
+            /* Scaled down */
             font-weight: 700;
             margin-top: 10px;
             transition: background 0.3s;
@@ -170,7 +166,8 @@
         /* FOOTER */
         .footer {
             border-top: 1px solid #e2e2e2;
-            padding: 30px 40px; /* Scaled down */
+            padding: 30px 40px;
+            /* Scaled down */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -184,7 +181,8 @@
         }
 
         .help-icon {
-            width: 50px; /* Scaled down */
+            width: 50px;
+            /* Scaled down */
             height: 50px;
             background: #f0f0f0;
             border-radius: 50%;
@@ -198,7 +196,8 @@
         }
 
         .footer-text {
-            font-size: 14.5px; /* Scaled down */
+            font-size: 14.5px;
+            /* Scaled down */
             line-height: 1.6;
             color: #333;
         }
@@ -220,35 +219,78 @@
             position: absolute;
             left: 0;
             top: 0;
-            width: 140px; /* Scaled down progress bar */
+            width: 140px;
+            /* Scaled down progress bar */
             height: 100%;
             border-radius: 0 4px 4px 0;
-            background: #000; /* Added background color so it is visible */
+            background: #000;
+            /* Added background color so it is visible */
         }
 
         /* MOBILE RESPONSIVE */
         @media(max-width: 650px) {
-            body { padding: 16px; }
-            .header { flex-direction: column; gap: 24px; padding: 30px; }
-            .header-left { flex-direction: column; text-align: center; }
-            .logo { margin-right: 0; margin-bottom: 12px; }
-            .vertical-line { display: none; }
-            .heading h1 { font-size: 22px; }
-            .header-right { width: 90%; justify-content: center; }
-            .content, .footer { padding: 30px; }
-            .footer-left { flex-direction: column; text-align: center; gap: 16px; }
+            body {
+                padding: 16px;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 24px;
+                padding: 30px;
+            }
+
+            .header-left {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-right: 0;
+                margin-bottom: 12px;
+            }
+
+            .vertical-line {
+                display: none;
+            }
+
+            .heading h1 {
+                font-size: 22px;
+            }
+
+            .header-right {
+                width: 90%;
+                justify-content: center;
+            }
+
+            .content,
+            .footer {
+                padding: 30px;
+            }
+
+            .footer-left {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
         }
     </style>
 </head>
 
 <body>
-<!-- GLOBAL NAVIGATION BAR -->
-<div style="background: #111; color: #fff; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif; position: fixed; top: 0; left: 0; width: 100%; box-sizing: border-box; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-    <a href="email-upcoming event reminder.html" style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">&larr; Back</a>
-    <a href="index.html" style="color: #fff; text-decoration: none; font-size: 16px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;">UPCOMING MEETING REMINDER</a>
-    <a href="email-upcoming task reminder.html" style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">Next &rarr;</a>
-</div>
-<!-- END GLOBAL NAVIGATION BAR -->
+    <!-- GLOBAL NAVIGATION BAR -->
+    <div
+        style="background: #111; color: #fff; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif; position: fixed; top: 0; left: 0; width: 100%; box-sizing: border-box; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <a href="email-upcoming event reminder.html"
+            style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">&larr;
+            Back</a>
+        <a href="index.html"
+            style="color: #fff; text-decoration: none; font-size: 16px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;">UPCOMING
+            MEETING REMINDER</a>
+        <a href="email-upcoming task reminder.html"
+            style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">Next
+            &rarr;</a>
+    </div>
+    <!-- END GLOBAL NAVIGATION BAR -->
 
     <div class="email-wrapper">
 

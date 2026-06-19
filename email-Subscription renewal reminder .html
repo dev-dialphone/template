@@ -27,7 +27,7 @@
         .container {
             background-color: #ffffff;
             width: 100%;
-            max-width: 580px;
+            max-width: 640px;
             border: 1px solid #e5e7eb;
             border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
@@ -35,47 +35,52 @@
             margin-top: 50px;
         }
 
-        /* --- Hero Section --- */
-        .hero-section {
-            background-color: #f9fafb;
-            padding: 40px 40px 30px;
-            position: relative;
+        /* --- Top Banner --- */
+        .top-banner {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
+            padding: 30px 40px;
             border-bottom: 1px solid #e5e7eb;
+            background-color: #ffffff;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 340px;
-        }
-
-        .hero-header {
+        .brand-section {
             display: flex;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 24px;
         }
 
-        .logo-divider {
+        .brand-section img {
+            width: 56px;
+            height: 56px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .brand-divider {
             width: 1px;
-            height: 36px;
+            height: 48px;
             background-color: #d1d5db;
+            margin: 0 20px;
         }
 
-        .hero-header h1 {
-            font-size: 22px;
-            font-weight: 700;
+        .brand-title {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 800;
             color: #111827;
             letter-spacing: -0.5px;
+        }
+
+        .banner-text-area {
+            margin-top: 24px;
         }
 
         .hero-text {
             font-size: 16px;
             color: #4b5563;
             line-height: 1.6;
+            margin: 0;
         }
 
         .hero-text strong {
@@ -415,17 +420,19 @@
 
     <div class="container">
         
-        <!-- Hero Section -->
-        <div class="hero-section">
-            <div class="hero-content">
-                <div class="hero-header">
-                    <!-- Real DialPhone Logo -->
-                    <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png"
-                         alt="DialPhone Logo" width="48" height="48" style="object-fit:contain;">
-                    <div class="logo-divider"></div>
-                    <h1>Subscription Renewal Reminder</h1>
+        <!-- Top Banner -->
+        <div class="top-banner">
+            <div>
+                <div class="brand-section">
+                    <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png" alt="DialPhone Logo">
+                    <div class="brand-divider"></div>
+                    <h2 class="brand-title">Subscription Renewal</h2>
                 </div>
-                <p class="hero-text">Your Premium Plan will<br>automatically renew on<br><strong>May 24, 2026.</strong></p>
+                <div class="banner-text-area">
+                    <p class="hero-text">Your Premium Plan will</p>
+                    <p class="hero-text">automatically renew on</p>
+                    <p class="hero-text"><strong>May 24, 2026.</strong></p>
+                </div>
             </div>
 
             <!-- Header Illustration (Calendar + Bell) -->
