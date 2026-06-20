@@ -2,10 +2,8 @@ version: '3.8'
 
 services:
   web:
-    image: nginx:alpine
+    build: .
     container_name: email-template-web
     restart: always
-    volumes:
-      - ./:/usr/share/nginx/html
     expose:
       - "80"
