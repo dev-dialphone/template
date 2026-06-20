@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proration Summary - DialPhone</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: #f9fafb;
+            font-family: 'Inter', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 60px 10px 40px;
+            /* Padding top for global nav */
+        }
+
+        .container {
+            max-width: 580px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 1px;
+            border: 1px solid #e5e7eb;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            position: relative;
+        }
+
+        /* Top Header */
+        .header {
+            padding: 24px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-logo {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-center {
+            flex: 1;
+            padding: 0 24px;
+            border-left: 1px solid #e5e7eb;
+            margin-left: 24px;
+        }
+
+        .header-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: #000000;
+            margin-bottom: 6px;
+        }
+
+        .header-subtitle {
+            font-size: 13px;
+            color: #000000;
+            line-height: 1.5;
+        }
+
+        .header-illustration {
+            width: 120px;
+            height: 90px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 40px 40px 32px;
+            text-align: center;
+        }
+
+        .hero-icon-container {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #000000;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-subtitle {
+            font-size: 15px;
+            color: #000000;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        .credit-box {
+            background-color: #f0fdf4;
+            border: 1px solid #dcfce7;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 0 auto 24px;
+            max-width: 320px;
+        }
+
+        .credit-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .credit-amount {
+            font-size: 28px;
+            font-weight: 800;
+            color: #047857;
+            letter-spacing: -0.5px;
+        }
+
+        .btn-black {
+            display: inline-flex;
+            align-items: center;
+            background-color: #000000;
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: opacity 0.2s;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-black svg {
+            margin-right: 12px;
+        }
+
+        .btn-black:hover {
+            opacity: 0.85;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #e5e7eb;
+            margin: 0 40px;
+        }
+
+        /* Information Cards */
+        .cards-container {
+            padding: 32px 40px;
+        }
+
+        .card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 24px 32px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+        }
+
+        .card-icon {
+            width: 72px;
+            height: 72px;
+            background-color: #f3f4f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-right: 32px;
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: #000000;
+            margin-bottom: 16px;
+        }
+
+        .card-text {
+            font-size: 14px;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Subscription Details Grid */
+        .details-grid {
+            font-size: 14px;
+            color: #000000;
+            width: 100%;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .detail-label {
+            color: #4b5563;
+        }
+
+        .detail-value {
+            font-weight: 500;
+            color: #111827;
+        }
+
+        .detail-value.green {
+            color: #047857;
+            font-weight: 700;
+        }
+
+        /* Need Help Box */
+        .help-email {
+            display: inline-flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 800;
+            color: #000000;
+            text-decoration: none;
+            margin-top: 12px;
+        }
+
+        .help-email svg {
+            margin-right: 8px;
+        }
+
+
+
+        @media (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 24px;
+            }
+
+            .header-center {
+                border-left: none;
+                margin-left: 0;
+                padding: 24px 0;
+                border-bottom: 1px solid #e5e7eb;
+                border-top: 1px solid #e5e7eb;
+                margin: 24px 0;
+            }
+
+            .card {
+                flex-direction: column;
+                text-align: center;
+                padding: 24px;
+            }
+
+            .card-icon {
+                margin-right: 0;
+                margin-bottom: 24px;
+            }
+
+            .detail-row {
+                flex-direction: column;
+                margin-bottom: 8px;
+                padding: 12px 0;
+            }
+
+            .detail-label {
+                margin-bottom: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- GLOBAL NAVIGATION BAR -->
+    <div
+        style="background: #111; color: #fff; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif; position: fixed; top: 0; left: 0; width: 100%; box-sizing: border-box; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <a href="email-downgrade-successful.html"
+            style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">&larr;
+            Back</a>
+        <a href="index.html"
+            style="color: #fff; text-decoration: none; font-size: 16px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;">PRORATION
+            SUMMARY</a>
+        <a href="email-payment-method-expiring.html"
+            style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">Next
+            &rarr;</a>
+    </div>
+    <!-- END GLOBAL NAVIGATION BAR -->
+
+    <div class="container">
+        <!-- Top Header -->
+        <div class="header">
+            <div class="header-logo">
+                <img src="logo.png" alt="DialPhone Logo" style="height: 48px; width: auto;" />
+            </div>
+            <div class="header-center">
+                <div class="header-title">Proration Summary</div>
+                <div class="header-subtitle">Your plan has been updated and your billing<br>has been adjusted
+                    automatically.</div>
+            </div>
+            <div class="header-illustration">
+                <svg width="120" height="90" viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Subtle background blob -->
+                    <circle cx="70" cy="45" r="35" fill="#f9fafb" />
+                    <!-- Sparkles -->
+                    <path d="M20 25 Q 22 27 24 25 Q 22 23 20 25 Z" fill="#111827" />
+                    <path d="M105 20 Q 107 22 109 20 Q 107 18 105 20 Z" fill="#111827" />
+                    <path d="M30 65 Q 32 67 34 65 Q 32 63 30 65 Z" fill="#111827" />
+                    <circle cx="110" cy="50" r="1" fill="#111827" />
+                    <circle cx="25" cy="50" r="1.5" fill="#111827" />
+
+                    <!-- Document Icon -->
+                    <path d="M50 20 H75 L90 35 V75 C90 77 88 79 86 79 H50 C48 79 46 77 46 75 V24 C46 22 48 20 50 20 Z"
+                        fill="#ffffff" stroke="#111827" stroke-width="2" stroke-linejoin="round" />
+                    <path d="M75 20 V35 H90" stroke="#111827" stroke-width="2" stroke-linejoin="round" fill="none" />
+
+                    <!-- Lines on Document -->
+                    <line x1="56" y1="35" x2="68" y2="35" stroke="#111827" stroke-width="2" stroke-linecap="round" />
+                    <line x1="56" y1="45" x2="72" y2="45" stroke="#111827" stroke-width="2" stroke-linecap="round" />
+                    <line x1="56" y1="55" x2="68" y2="55" stroke="#111827" stroke-width="2" stroke-linecap="round" />
+                    <line x1="56" y1="65" x2="64" y2="65" stroke="#111827" stroke-width="2" stroke-linecap="round" />
+
+                    <!-- Bullet points on Document -->
+                    <line x1="51" y1="45" x2="51" y2="45.1" stroke="#111827" stroke-width="2.5"
+                        stroke-linecap="round" />
+                    <line x1="51" y1="55" x2="51" y2="55.1" stroke="#111827" stroke-width="2.5"
+                        stroke-linecap="round" />
+                    <line x1="51" y1="65" x2="51" y2="65.1" stroke="#111827" stroke-width="2.5"
+                        stroke-linecap="round" />
+
+                    <!-- $ Circle overlapping document bottom right -->
+                    <circle cx="85" cy="65" r="14" fill="#ffffff" stroke="#111827" stroke-width="2" />
+                    <text x="85" y="70" font-family="'Inter', sans-serif" font-size="14" font-weight="800"
+                        text-anchor="middle" fill="#111827">$</text>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-icon-container">
+                <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="44" fill="#f3f4f6" />
+                    <circle cx="50" cy="50" r="22" fill="#111827" />
+                    <circle cx="50" cy="50" r="26" stroke="#111827" stroke-width="1.5" fill="none" />
+                    <text x="50" y="56" font-family="'Inter', sans-serif" font-size="18" font-weight="600"
+                        text-anchor="middle" fill="#ffffff">$</text>
+
+                    <line x1="18" y1="50" x2="22" y2="50" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
+                    <line x1="78" y1="50" x2="82" y2="50" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
+                    <line x1="50" y1="18" x2="50" y2="22" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
+                    <line x1="50" y1="78" x2="50" y2="82" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
+
+                    <line x1="27" y1="27" x2="30" y2="30" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
+                    <line x1="73" y1="73" x2="70" y2="70" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
+                    <line x1="73" y1="27" x2="70" y2="30" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
+                    <line x1="27" y1="73" x2="30" y2="70" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+            </div>
+
+            <h1 class="hero-title">Your Billing Adjustment</h1>
+            <p class="hero-subtitle">
+                We've calculated the billing adjustment for<br>
+                your recent plan change.
+            </p>
+
+            <div class="credit-box">
+                <div class="credit-label">Credit Applied</div>
+                <div class="credit-amount">$17.00</div>
+            </div>
+
+            <p class="hero-subtitle" style="margin-top: 16px; margin-bottom: 24px; font-size: 14px;">
+                This credit will appear on your next invoice.
+            </p>
+
+            <a href="#" class="btn-black">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="10 16 14 12 10 8"></polyline>
+                    <line x1="8" y1="12" x2="14" y2="12"></line>
+                </svg>
+                VIEW BILLING
+            </a>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Information Cards -->
+        <div class="cards-container">
+            <!-- Account Summary Card -->
+            <div class="card" style="flex-direction: column; padding: 24px 32px; align-items: flex-start;">
+                <div class="card-title" style="margin-bottom: 24px;">Account Summary</div>
+                <div class="details-grid">
+                    <div class="detail-row" style="padding-top: 0;">
+                        <span class="detail-label">Previous Plan</span>
+                        <span class="detail-value">Professional Plan</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">New Plan</span>
+                        <span class="detail-value">Basic Plan</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Adjustment</span>
+                        <span class="detail-value green">-$17.00</span>
+                    </div>
+                    <div class="detail-row" style="border-bottom: none; padding-bottom: 0;">
+                        <span class="detail-label">Next Billing Date</span>
+                        <span class="detail-value">May 25, 2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Need Help Card -->
+            <div class="card" style="margin-bottom: 0; padding: 24px 32px; flex-direction: row; align-items: center;">
+                <div class="card-icon"
+                    style="background: #f3f4f6; width: 64px; height: 64px; border-radius: 50%; margin-right: 32px; flex-shrink: 0;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <text x="12" y="18" font-size="24" font-weight="900" font-family="'Inter', Arial, sans-serif"
+                            text-anchor="middle" fill="#000000">?</text>
+                    </svg>
+                </div>
+                <div class="card-content" style="border-left: 1px solid #e5e7eb; padding-left: 32px;">
+                    <div class="card-title" style="margin-bottom: 8px;">Need Help?</div>
+                    <div class="card-text" style="font-size: 13px; margin-bottom: 12px; color: #111827;">
+                        Questions about your billing adjustment?
+                    </div>
+                    <a href="mailto:support@dialphone.com" class="help-email">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        support@dialphone.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
