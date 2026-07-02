@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +20,8 @@
             font-family: 'Inter', Arial, sans-serif;
             display: flex;
             justify-content: center;
-            padding: 60px 10px 40px; /* Padding top for global nav */
+            padding: 60px 10px 40px;
+            /* Padding top for global nav */
         }
 
         .container {
@@ -134,7 +136,7 @@
         .btn-black:hover {
             opacity: 0.85;
         }
-        
+
         .divider {
             height: 1px;
             background-color: #e5e7eb;
@@ -156,7 +158,7 @@
             align-items: center;
             background: #f9fafb;
         }
-        
+
         .card:last-child {
             margin-bottom: 0;
         }
@@ -184,7 +186,7 @@
             color: #000000;
             margin-bottom: 8px;
         }
-        
+
         .card-text {
             font-size: 11px;
             color: #111827;
@@ -204,7 +206,7 @@
             align-items: center;
             margin-bottom: 8px;
         }
-        
+
         .detail-row:last-child {
             margin-bottom: 0;
         }
@@ -255,6 +257,7 @@
                 text-align: center;
                 padding: 24px;
             }
+
             .header-center {
                 border-left: none;
                 margin-left: 0;
@@ -263,33 +266,41 @@
                 border-top: 1px solid #e5e7eb;
                 margin: 24px 0;
             }
+
             .cards-container {
                 padding: 24px;
             }
+
             .card {
                 flex-direction: column;
                 text-align: center;
                 padding: 24px;
             }
+
             .card-icon {
                 margin-right: 0;
                 margin-bottom: 20px;
             }
+
             .detail-row {
                 flex-direction: column;
                 margin-bottom: 12px;
             }
+
             .detail-label {
                 width: 100%;
                 margin-bottom: 4px;
                 text-align: center;
             }
+
             .detail-colon {
                 display: none;
             }
+
             .detail-value {
                 text-align: center;
             }
+
             .hero {
                 padding: 32px 24px;
             }
@@ -299,10 +310,16 @@
 
 <body>
     <!-- GLOBAL NAVIGATION BAR -->
-    <div style="background: #111; color: #fff; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif; position: fixed; top: 0; left: 0; width: 100%; box-sizing: border-box; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-        <a href="email-subscription-cancelled.html" style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">&larr; Back</a>
-        <a href="index.html" style="color: #fff; text-decoration: none; font-size: 16px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;">SUBSCRIPTION ENDED</a>
-        <a href="index.html" style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">Home</a>
+    <div
+        style="background: #111; color: #fff; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif; position: fixed; top: 0; left: 0; width: 100%; box-sizing: border-box; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <a href="email-subscription-cancelled.html"
+            style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">&larr;
+            Back</a>
+        <a href="index.html"
+            style="color: #fff; text-decoration: none; font-size: 16px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;">SUBSCRIPTION
+            ENDED</a>
+        <a href="index.html"
+            style="color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: 0.3s;">Home</a>
     </div>
     <!-- END GLOBAL NAVIGATION BAR -->
 
@@ -319,27 +336,29 @@
             <div class="header-illustration">
                 <svg width="120" height="90" viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <!-- Calendar Outline -->
-                    <rect x="38" y="27" width="44" height="36" rx="4" fill="#ffffff" stroke="#111827" stroke-width="2.5" />
+                    <rect x="38" y="27" width="44" height="36" rx="4" fill="#ffffff" stroke="#111827"
+                        stroke-width="2.5" />
                     <!-- Header Line -->
                     <line x1="38" y1="38" x2="82" y2="38" stroke="#111827" stroke-width="2.5" />
-                    
+
                     <!-- Rings -->
                     <line x1="48" y1="21" x2="48" y2="31" stroke="#111827" stroke-width="3" stroke-linecap="round" />
                     <line x1="72" y1="21" x2="72" y2="31" stroke="#111827" stroke-width="3" stroke-linecap="round" />
-                    
+
                     <!-- Dots -->
                     <circle cx="48" cy="48" r="2" fill="#111827" />
                     <circle cx="60" cy="48" r="2" fill="#111827" />
                     <circle cx="72" cy="48" r="2" fill="#111827" />
                     <circle cx="48" cy="56" r="2" fill="#111827" />
                     <circle cx="60" cy="56" r="2" fill="#111827" />
-                    
+
                     <!-- White Halo Cutout for X Badge -->
                     <circle cx="82" cy="63" r="14" fill="#ffffff" stroke="#ffffff" stroke-width="6" />
-                    
+
                     <!-- X Badge -->
                     <circle cx="82" cy="63" r="12" fill="#ffffff" stroke="#111827" stroke-width="2.5" />
-                    <path d="M77 58 L87 68 M87 58 L77 68" stroke="#111827" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M77 58 L87 68 M87 58 L77 68" stroke="#111827" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
                 </svg>
             </div>
         </div>
@@ -350,23 +369,25 @@
                 <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <!-- Light gray background circle -->
                     <circle cx="50" cy="50" r="32" fill="#f3f4f6" />
-                    
+
                     <!-- Calendar Icon inside circle -->
-                    <rect x="28" y="32" width="44" height="36" rx="4" fill="#ffffff" stroke="#111827" stroke-width="2.5" />
+                    <rect x="28" y="32" width="44" height="36" rx="4" fill="#ffffff" stroke="#111827"
+                        stroke-width="2.5" />
                     <line x1="28" y1="43" x2="72" y2="43" stroke="#111827" stroke-width="2.5" />
-                    
+
                     <line x1="38" y1="26" x2="38" y2="36" stroke="#111827" stroke-width="3" stroke-linecap="round" />
                     <line x1="62" y1="26" x2="62" y2="36" stroke="#111827" stroke-width="3" stroke-linecap="round" />
-                    
+
                     <circle cx="38" cy="53" r="2" fill="#111827" />
                     <circle cx="50" cy="53" r="2" fill="#111827" />
                     <circle cx="62" cy="53" r="2" fill="#111827" />
                     <circle cx="38" cy="61" r="2" fill="#111827" />
                     <circle cx="50" cy="61" r="2" fill="#111827" />
-                    
+
                     <circle cx="72" cy="68" r="14" fill="#ffffff" stroke="#ffffff" stroke-width="6" />
                     <circle cx="72" cy="68" r="12" fill="#ffffff" stroke="#ef4444" stroke-width="2.5" />
-                    <path d="M67 63 L77 73 M77 63 L67 73" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M67 63 L77 73 M77 63 L67 73" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
 
                     <!-- Dark radiating lines (8 lines total) -->
                     <!-- Top, Bottom, Left, Right -->
@@ -374,7 +395,7 @@
                     <line x1="50" y1="88" x2="50" y2="94" stroke="#111827" stroke-width="2" stroke-linecap="round" />
                     <line x1="6" y1="50" x2="12" y2="50" stroke="#111827" stroke-width="2" stroke-linecap="round" />
                     <line x1="88" y1="50" x2="94" y2="50" stroke="#111827" stroke-width="2" stroke-linecap="round" />
-                    
+
                     <!-- Diagonals -->
                     <line x1="19" y1="19" x2="23" y2="23" stroke="#111827" stroke-width="2" stroke-linecap="round" />
                     <line x1="81" y1="81" x2="77" y2="77" stroke="#111827" stroke-width="2" stroke-linecap="round" />
@@ -390,7 +411,8 @@
             </p>
 
             <a href="#" class="btn-black">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="10"></circle>
                     <line x1="8" y1="12" x2="16" y2="12"></line>
                     <polyline points="12 8 16 12 12 16"></polyline>
@@ -398,26 +420,29 @@
                 VIEW ACCOUNT SUMMARY
             </a>
         </div>
-        
+
         <div class="divider"></div>
 
         <!-- Information Cards -->
         <div class="cards-container">
-            
+
             <!-- Account Summary Card -->
             <div class="card">
                 <div class="card-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <!-- User Silhouette -->
-                        <path d="M4 21 V19 C4 16.79 5.79 15 8 15 H16 C18.21 15 20 16.79 20 19 V21 Z" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <circle cx="12" cy="7" r="4" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        
+                        <path d="M4 21 V19 C4 16.79 5.79 15 8 15 H16 C18.21 15 20 16.79 20 19 V21 Z" stroke="#111827"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <circle cx="12" cy="7" r="4" stroke="#111827" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+
                         <!-- Black Filled Badge Cutout -->
                         <circle cx="19" cy="19" r="6.5" fill="#e5e7eb" stroke="#e5e7eb" stroke-width="1.5" />
-                        
+
                         <!-- Black Filled Badge with X -->
                         <circle cx="19" cy="19" r="5.5" fill="#111827" />
-                        <path d="M17 17 L21 21 M21 17 L17 21" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M17 17 L21 21 M21 17 L17 21" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
                     </svg>
                 </div>
                 <div class="card-content">
@@ -463,8 +488,10 @@
                         Our support team is here to assist you.
                     </div>
                     <a href="mailto:support@dialphone.com" class="help-email">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
                             <polyline points="22,6 12,13 2,6"></polyline>
                         </svg>
                         support@dialphone.com
@@ -475,4 +502,5 @@
 
     </div>
 </body>
+
 </html>

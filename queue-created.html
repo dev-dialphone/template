@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue Created Component</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #000000;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: var(--gray-900);
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .notification-card {
+            position: relative;
+            padding: 24px 32px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            right: 24px;
+        }
+
+        .black-dot-top {
+            width: 12px;
+            height: 12px;
+            background-color: var(--black);
+            border-radius: 50%;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: var(--gray-900);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+            border-radius: 4px;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .close-btn:hover {
+            background-color: var(--gray-100);
+        }
+
+        .close-btn:active {
+            transform: scale(0.95);
+        }
+
+        .close-btn svg {
+            width: 24px;
+            height: 24px;
+            stroke-width: 1.5;
+        }
+
+        .card-body {
+            display: flex;
+            align-items: flex-start;
+            gap: 28px;
+            margin-top: 16px;
+            padding-left: 24px;
+        }
+
+        .icon-large {
+            width: 96px;
+            height: 96px;
+            background-color: var(--gray-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        .icon-large svg {
+            width: 44px;
+            height: 44px;
+            color: var(--black);
+            stroke-width: 2.2;
+        }
+
+        .notification-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .notification-title {
+            color: var(--black);
+            font-weight: 700;
+            font-size: 15px;
+            letter-spacing: -0.01em;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 15px;
+            flex-wrap: wrap;
+        }
+
+        .info-name {
+            font-weight: 700;
+            color: var(--black);
+            font-size: 20px;
+            margin-right: 8px;
+        }
+
+        .info-separator {
+            color: var(--gray-300);
+            font-weight: 300;
+        }
+
+        .info-item {
+            color: var(--gray-800);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .info-item svg {
+            width: 18px;
+            height: 18px;
+            color: var(--black);
+        }
+        
+        .bottom-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2px;
+        }
+
+        .subtext {
+            color: var(--gray-800);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--gray-400);
+            background-color: #ffffff;
+            color: var(--black);
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--gray-50);
+        }
+
+        .btn-outline:active {
+            transform: scale(0.98);
+            background-color: var(--gray-100);
+        }
+
+        .btn-outline svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .card-body {
+                flex-direction: column;
+                align-items: center;
+                padding-left: 0;
+            }
+            .bottom-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+            .btn-outline {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card notification-card">
+        <div class="card-header">
+            <div class="black-dot-top"></div>
+            <button class="close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="card-body">
+            <div class="icon-large">
+                <!-- Custom Queue/Workflow Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="6" height="6" rx="1.5"></rect>
+                    <path d="M10.5 3h1a1.5 1.5 0 0 1 1.5 1.5v3A1.5 1.5 0 0 1 11.5 9h-1"></path>
+                    <path d="M15 3h1a1.5 1.5 0 0 1 1.5 1.5v3A1.5 1.5 0 0 1 16 9h-1"></path>
+                    <rect x="11.5" y="14" width="6" height="6" rx="1.5"></rect>
+                    <path d="M2 11.5v3.5a2 2 0 0 0 2 2h4.5"></path>
+                    <polyline points="6 14.5 8.5 17 6 19.5"></polyline>
+                </svg>
+            </div>
+            <div class="notification-details">
+                <div class="notification-title">Queue Created</div>
+                
+                <div class="info-row">
+                    <span class="info-name">Customer Support Queue</span>
+                    <span class="info-separator">|</span>
+                    <span class="info-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        15 Agents
+                    </span>
+                    <span class="info-separator">|</span>
+                    <span class="info-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        Ring All Strategy
+                    </span>
+                    <span class="info-separator">|</span>
+                    <span class="info-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        May 15, 2025, 02:30 PM
+                    </span>
+                </div>
+
+                <div class="bottom-row">
+                    <div class="subtext">The queue has been created successfully.</div>
+                    <button class="btn-outline">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                            <rect x="15" y="6" width="4" height="14" rx="1"></rect>
+                            <rect x="9" y="10" width="4" height="10" rx="1"></rect>
+                            <rect x="3" y="14" width="4" height="6" rx="1"></rect>
+                        </svg>
+                        View Details
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            const card = this.closest('.notification-card');
+            card.style.transition = 'opacity 0.3s ease';
+            card.style.opacity = '0';
+            setTimeout(() => {
+                card.style.display = 'none';
+            }, 300);
+        });
+
+        document.querySelector('.btn-outline').addEventListener('click', function() {
+            alert('View Details clicked! Redirecting to queue information...');
+        });
+    </script>
+</body>
+</html>

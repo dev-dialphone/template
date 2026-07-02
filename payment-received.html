@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Received Component</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #000000;
+            --green: #16a34a;
+            --gray-bg: #f3f4f6;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --text-dark: #1e1b4b; 
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: var(--gray-900);
+            padding: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            background-color: #ffffff;
+            width: max-content;
+            max-width: 100%;
+            position: relative;
+            padding: 24px 32px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+            display: flex;
+            gap: 28px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: none;
+            border: none;
+            color: var(--gray-900);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+            border-radius: 4px;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .close-btn:hover {
+            background-color: var(--gray-100);
+        }
+
+        .close-btn:active {
+            transform: scale(0.95);
+        }
+
+        .close-btn svg {
+            width: 24px;
+            height: 24px;
+            stroke-width: 1.5;
+        }
+
+        .left-col {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .status-dot-top {
+            width: 10px;
+            height: 10px;
+            background-color: var(--green);
+            border-radius: 50%;
+            margin-left: 4px;
+            margin-bottom: 24px;
+        }
+
+        .icon-large {
+            width: 96px;
+            height: 96px;
+            background-color: var(--gray-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .icon-large svg {
+            width: 48px;
+            height: 48px;
+            color: var(--black);
+        }
+
+        .notification-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-top: 2px;
+        }
+
+        .notification-title-top {
+            color: var(--green);
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .info-name {
+            font-weight: 700;
+            color: var(--black);
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 14.5px;
+            flex-wrap: wrap;
+        }
+
+        .info-separator {
+            color: var(--gray-300);
+            font-weight: 300;
+            font-size: 18px;
+        }
+
+        .info-item {
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .info-item svg {
+            width: 18px;
+            height: 18px;
+            color: var(--gray-900);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--gray-400);
+            background-color: #ffffff;
+            color: var(--text-dark);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--gray-50);
+        }
+
+        .btn-outline:active {
+            transform: scale(0.98);
+            background-color: var(--gray-100);
+        }
+
+        .btn-outline svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .subtext {
+            color: var(--gray-800);
+            font-size: 15px;
+            font-weight: 500;
+            margin-top: 12px;
+        }
+
+        @media (max-width: 900px) {
+            .card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .status-dot-top {
+                margin-bottom: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <button class="close-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+
+        <div class="left-col">
+            <div class="status-dot-top"></div>
+            <div class="icon-large">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Credit Card Base (Lucide style) -->
+                    <g transform="translate(1, 2) scale(1.1)">
+                        <rect x="2" y="5" width="20" height="14" rx="2" fill="#ffffff" stroke-width="2.2" />
+                        <line x1="2" y1="10" x2="22" y2="10" stroke-width="2.2" />
+                        <rect x="5" y="14" width="3.5" height="2" rx="0.5" fill="currentColor" stroke="none" />
+                    </g>
+                    
+                    <!-- White cutout background to hide the card corner -->
+                    <circle cx="23" cy="23" r="8.5" fill="#ffffff" stroke="none" />
+                    
+                    <!-- Dollar Sign Badge (Lucide style) -->
+                    <g transform="translate(13.4, 13.4) scale(0.8)">
+                        <circle cx="12" cy="12" r="10" stroke-width="2.5" />
+                        <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" stroke-width="2.5" />
+                        <path d="M12 18V6" stroke-width="2.5" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <div class="notification-details">
+            <div class="notification-title-top">Payment Received</div>
+            <div class="info-name">Payment of $199.00 Received</div>
+            
+            <div class="info-row">
+                <span class="info-item">
+                    <!-- Calendar -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    May 16, 2025, 10:00 AM
+                </span>
+                <span class="info-separator">|</span>
+                <span class="info-item">
+                    <!-- Document -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    Invoice #INV-2025-0516
+                </span>
+                <span class="info-separator">|</span>
+                <span class="info-item">
+                    <!-- Small Credit Card -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="2" y1="10" x2="22" y2="10"></line>
+                        <line x1="6" y1="15" x2="10" y2="15"></line>
+                    </svg>
+                    Visa &bull;&bull;&bull;&bull; 4242
+                </span>
+                <span class="info-separator">|</span>
+                <button class="btn-outline">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                        <rect x="15" y="6" width="4" height="14" rx="1"></rect>
+                        <rect x="9" y="10" width="4" height="10" rx="1"></rect>
+                        <rect x="3" y="14" width="4" height="6" rx="1"></rect>
+                    </svg>
+                    View Details
+                </button>
+            </div>
+
+            <div class="subtext">Your payment has been received successfully.</div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            const card = this.closest('.card');
+            card.style.transition = 'opacity 0.3s ease';
+            card.style.opacity = '0';
+            setTimeout(() => {
+                card.style.display = 'none';
+            }, 300);
+        });
+
+        document.querySelector('.btn-outline').addEventListener('click', function() {
+            alert('View Details clicked!');
+        });
+    </script>
+</body>
+</html>

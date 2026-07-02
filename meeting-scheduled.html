@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Scheduled Component</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #000000;
+            --green: #16a34a; /* status dot green */
+            --gray-bg: #f3f4f6; /* light gray for circle */
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --text-dark: #1e1b4b; 
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: var(--gray-900);
+            padding: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            background-color: #ffffff;
+            width: max-content;
+            max-width: 100%;
+            position: relative;
+            padding: 24px 32px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+            display: flex;
+            gap: 28px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: none;
+            border: none;
+            color: var(--gray-900);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+            border-radius: 4px;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .close-btn:hover {
+            background-color: var(--gray-100);
+        }
+
+        .close-btn:active {
+            transform: scale(0.95);
+        }
+
+        .close-btn svg {
+            width: 24px;
+            height: 24px;
+            stroke-width: 1.5;
+        }
+
+        .left-col {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .status-dot-top {
+            width: 10px;
+            height: 10px;
+            background-color: var(--green);
+            border-radius: 50%;
+            margin-left: 4px;
+            margin-bottom: 24px;
+        }
+
+        .icon-large {
+            width: 96px;
+            height: 96px;
+            background-color: var(--gray-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .icon-large svg {
+            width: 48px;
+            height: 48px;
+            color: var(--black);
+        }
+
+        .notification-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-top: 2px;
+        }
+
+        .notification-title-top {
+            color: var(--gray-900);
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .info-name {
+            font-weight: 700;
+            color: var(--black);
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 14.5px;
+            flex-wrap: wrap;
+        }
+
+        .info-separator {
+            color: var(--gray-300);
+            font-weight: 300;
+            font-size: 18px;
+        }
+
+        .info-item {
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .info-item svg {
+            width: 18px;
+            height: 18px;
+            color: var(--gray-900);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--gray-400);
+            background-color: #ffffff;
+            color: var(--text-dark);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--gray-50);
+        }
+
+        .btn-outline:active {
+            transform: scale(0.98);
+            background-color: var(--gray-100);
+        }
+
+        .btn-outline svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .subtext {
+            color: var(--gray-800);
+            font-size: 15px;
+            font-weight: 500;
+            margin-top: 12px;
+        }
+
+        @media (max-width: 900px) {
+            .card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .status-dot-top {
+                margin-bottom: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <button class="close-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+
+        <div class="left-col">
+            <div class="status-dot-top"></div>
+            <div class="icon-large">
+                <!-- Calendar with Users Badge Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <rect x="2" y="3" width="18" height="18" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></rect>
+                    <line x1="7" y1="1" x2="7" y2="5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+                    <line x1="15" y1="1" x2="15" y2="5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+                    <line x1="2" y1="9" x2="20" y2="9" fill="none" stroke="currentColor" stroke-width="2"></line>
+                    
+                    <rect x="6.5" y="12.5" width="2.5" height="2.5" fill="currentColor" rx="0.5"></rect>
+                    <rect x="11" y="12.5" width="2.5" height="2.5" fill="currentColor" rx="0.5"></rect>
+                    <rect x="15.5" y="12.5" width="2.5" height="2.5" fill="currentColor" rx="0.5"></rect>
+                    <rect x="6.5" y="16.5" width="2.5" height="2.5" fill="currentColor" rx="0.5"></rect>
+                    <rect x="11" y="16.5" width="2.5" height="2.5" fill="currentColor" rx="0.5"></rect>
+                    
+                    <circle cx="17.5" cy="17.5" r="7.5" fill="var(--gray-bg)"></circle>
+                    <g transform="translate(11, 12) scale(0.52)" fill="currentColor">
+                        <circle cx="5" cy="8" r="4"></circle>
+                        <path d="M1 22v-2a6 6 0 0 1 8-5.6"></path>
+                        <circle cx="19" cy="8" r="4"></circle>
+                        <path d="M23 22v-2a6 6 0 0 0-8-5.6"></path>
+                        <g stroke="var(--gray-bg)" stroke-width="2.5" stroke-linejoin="round">
+                            <circle cx="12" cy="7" r="4.5"></circle>
+                            <path d="M4 22v-2c0-3.5 3.5-6 8-6s8 2.5 8 6v2z"></path>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <div class="notification-details">
+            <div class="notification-title-top">Meeting Scheduled</div>
+            <div class="info-name">Team Sync Meeting</div>
+            
+            <div class="info-row">
+                <span class="info-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    John Doe & 5 Others
+                </span>
+                <span class="info-separator">|</span>
+                <span class="info-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    May 16, 2025, 10:00 AM
+                </span>
+                <span class="info-separator">|</span>
+                <span class="info-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                        <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"></path>
+                    </svg>
+                    Google Meet
+                </span>
+                <span class="info-separator">|</span>
+                <button class="btn-outline">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                        <rect x="15" y="6" width="4" height="14" rx="1"></rect>
+                        <rect x="9" y="10" width="4" height="10" rx="1"></rect>
+                        <rect x="3" y="14" width="4" height="6" rx="1"></rect>
+                    </svg>
+                    View Details
+                </button>
+            </div>
+
+            <div class="subtext">The meeting has been scheduled successfully.</div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            const card = this.closest('.card');
+            card.style.transition = 'opacity 0.3s ease';
+            card.style.opacity = '0';
+            setTimeout(() => {
+                card.style.display = 'none';
+            }, 300);
+        });
+
+        document.querySelector('.btn-outline').addEventListener('click', function() {
+            alert('View Details clicked! You can link this to any page or modal.');
+        });
+    </script>
+</body>
+</html>
