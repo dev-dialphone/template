@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Templates Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #111827;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #1f2937;
+        }
+        p.subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            border-color: #d1d5db;
+        }
+        .card-title {
+            font-weight: 600;
+            font-size: 16px;
+            text-transform: capitalize;
+        }
+        .icon {
+            color: #9ca3af;
+        }
+        .card:hover .icon {
+            color: #4f46e5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Email Templates Dashboard</h1>
+        <p class="subtitle">Click on any template below to view it</p>
+        
+        <div class="grid">
+            <a href="callback-scheduled.html" class="card">
+                <span class="card-title">Callback Scheduled</span>
+                <svg class="icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+            
+            <a href="campaign-completed.html" class="card">
+                <span class="card-title">Campaign Completed</span>
+                <svg class="icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+            
+            <a href="event-notification.html" class="card">
+                <span class="card-title">Event Notification</span>
+                <svg class="icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+            
+            <a href="meeting-scheduled.html" class="card">
+                <span class="card-title">Meeting Scheduled</span>
+                <svg class="icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+            
+            <a href="missed-call.html" class="card">
+                <span class="card-title">Missed Call</span>
+                <svg class="icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+            
+            <a href="payment-received.html" class="card">
+                <span class="card-title">Payment Received</span>
+                <svg class="icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+            
+            <a href="queue-created.html" class="card">
+                <span class="card-title">Queue Created</span>
+                <svg class="icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+            
+            <a href="security-notification.html" class="card">
+                <span class="card-title">Security Notification</span>
+                <svg class="icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+            
+            <a href="sms-message.html" class="card">
+                <span class="card-title">SMS Message</span>
+                <svg class="icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+            
+            <a href="tasks-notification.html" class="card">
+                <span class="card-title">Tasks Notification</span>
+                <svg class="icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+            
+            <a href="voicemail.html" class="card">
+                <span class="card-title">Voicemail</span>
+                <svg class="icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
