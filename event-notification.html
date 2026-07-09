@@ -1,12 +1,15 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Notification Component</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --black: #000000;
@@ -22,7 +25,7 @@
             --gray-600: #4b5563;
             --gray-800: #1f2937;
             --gray-900: #111827;
-            --text-dark: #1e1b4b; 
+            --text-dark: #1e1b4b;
         }
 
         * {
@@ -226,26 +229,35 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
+
             .status-dot-top {
                 margin-bottom: 12px;
             }
         }
     </style>
 </head>
+
 <body>
-    <div id="__global_nav__" style="background:#111827;color:#fff;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;position:fixed;top:0;left:0;width:100%;box-sizing:border-box;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
-        <a href="campaign-completed.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">&#8592; Back</a>
-        <a href="index.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:0.7;">&#9679; Event Notification</a>
-        <a href="meeting-scheduled.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">Next &#8594;</a>
+    <div id="__global_nav__"
+        style="background:#111827;color:#fff;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;position:fixed;top:0;left:0;width:100%;box-sizing:border-box;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+        <a href="campaign-completed.html"
+            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">&#8592;
+            Back</a>
+        <a href="index.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:0.7;">&#9679;
+            Event Notification</a>
+        <a href="meeting-scheduled.html"
+            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">Next
+            &#8594;</a>
     </div>
     <div style="height:50px;"></div>
     <!-- GLOBAL NAVIGATION BAR -->
-    
+
     <!-- END GLOBAL NAVIGATION BAR -->
 
     <div class="card">
         <button class="close-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
@@ -255,7 +267,8 @@
             <div class="status-dot-top"></div>
             <div class="icon-large">
                 <!-- Large Calendar Check Icon (Professional Composite) -->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <g transform="translate(2, 2) scale(1.15)">
                         <!-- Calendar Body -->
                         <rect x="3" y="4" width="18" height="18" rx="2.5" stroke-width="2.5" />
@@ -265,10 +278,10 @@
                         <!-- Horizontal line -->
                         <line x1="3" y1="11" x2="21" y2="11" stroke-width="2.5" />
                     </g>
-                    
+
                     <!-- Mask (matches --gray-bg) to cut out bottom right corner perfectly -->
                     <circle cx="26" cy="26" r="9.5" fill="var(--gray-bg)" stroke="none" />
-                    
+
                     <!-- Super Bold Checkmark -->
                     <path d="M 17 24.5 l 4.5 4.5 l 9 -9" stroke-width="3.5" />
                 </svg>
@@ -278,11 +291,12 @@
         <div class="notification-details">
             <div class="notification-title-top">EVENT NOTIFICATION</div>
             <div class="info-name">Reminder: <i>Your event (ert) is scheduled ...</i></div>
-            
+
             <div class="info-row">
                 <span class="info-item">
                     <!-- Calendar Check Small -->
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect width="18" height="18" x="3" y="4" rx="2" />
                         <path d="M16 2v4" />
                         <path d="M8 2v4" />
@@ -294,7 +308,8 @@
                 <span class="info-separator">|</span>
                 <span class="info-item">
                     <!-- Calendar Days -->
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect width="18" height="18" x="3" y="4" rx="2" />
                         <path d="M16 2v4" />
                         <path d="M8 2v4" />
@@ -311,7 +326,8 @@
                 <span class="info-separator">|</span>
                 <span class="info-item">
                     <!-- Clock -->
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="10" />
                         <polyline points="12 6 12 12 16 14" />
                     </svg>
@@ -320,17 +336,19 @@
                 <span class="info-separator">|</span>
                 <span class="info-item">
                     <!-- Bell -->
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
                         <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
                     </svg>
                     <span class="badge-upcoming">Upcoming</span>
                 </span>
-                
+
                 <!-- Spacer to push button to right if needed, but in original it's just flex layout -->
                 <button class="btn-outline" style="margin-left: auto;">
                     <!-- Calendar Empty -->
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect width="18" height="18" x="3" y="4" rx="2" />
                         <path d="M16 2v4" />
                         <path d="M8 2v4" />
@@ -345,7 +363,7 @@
     </div>
 
     <script>
-        document.querySelector('.close-btn').addEventListener('click', function() {
+        document.querySelector('.close-btn').addEventListener('click', function () {
             const card = this.closest('.card');
             card.style.transition = 'opacity 0.3s ease';
             card.style.opacity = '0';
@@ -354,9 +372,10 @@
             }, 300);
         });
 
-        document.querySelector('.btn-outline').addEventListener('click', function() {
+        document.querySelector('.btn-outline').addEventListener('click', function () {
             alert('View Event clicked!');
         });
     </script>
 </body>
+
 </html>
