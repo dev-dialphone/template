@@ -30,8 +30,8 @@
       .cta-table { width: 100% !important; }
       .cta-td { width: 100% !important; border-radius: 8px !important; }
       .cta-a { display: block !important; font-size: 14px !important; padding: 12px 16px !important; border: none !important; text-align: center !important; }
-      .support-icon-td { display: block !important; padding: 16px 16px 0 16px !important; text-align: center !important; }
-      .support-text-td { display: block !important; padding: 10px 16px !important; text-align: center !important; }
+      .support-left-td { display: block !important; width: 100% !important; padding-bottom: 16px !important; }
+      .support-btn-td { display: block !important; width: 100% !important; text-align: left !important; }
       .hero-svg { width: 100% !important; height: auto !important; }
     }
   </style>
@@ -229,28 +229,38 @@
                 </td>
               </tr>
 
-              <!-- SUPPORT CARD -->
+              <!-- HELP BOX -->
               <tr>
                 <td>
                   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
-                    style="border:1px solid #e0e0e0;border-radius:10px;background-color:#ffffff;">
+                    style="background-color:#f9fafb; border:1px solid #eaeaea; border-radius:10px; width:100%;">
                     <tr>
-                      <td class="support-icon-td" style="padding:18px 0 18px 18px;vertical-align:middle;width:68px;">
-                        <div
-                          style="width:52px;height:52px;border-radius:50%;background-color:#ebebeb;text-align:center;display:inline-block;">
-                          <span
-                            style="display:inline-block;width:52px;height:52px;line-height:52px;font-size:24px;font-weight:700;color:#000000;font-family:Arial,Helvetica,sans-serif;text-align:center;">?</span>
-                        </div>
-                      </td>
-                      <td class="support-text-td" style="padding:18px 18px 18px 14px;vertical-align:middle;">
-                        <p
-                          style="font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:#000000;margin:0 0 3px 0;">
-                          Need help?</p>
-                        <p
-                          style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#555555;margin:0 0 2px 0;line-height:1.5;">
-                          Our support team is here for you.</p>
-                        <a href="mailto:support@dialphone.com"
-                          style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#000000;font-weight:700;text-decoration:none;">support@dialphone.com</a>
+                      <td style="padding:22px 24px;">
+                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <!-- LEFT SIDE -->
+                            <td class="support-left-td" style="vertical-align:middle; text-align:left;">
+                              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                  <td style="vertical-align:middle; padding-right:18px;">
+                                    <div style="width:52px; height:52px; border-radius:50%; background-color:#e8e8e8; text-align:center; display:inline-block;">
+                                      <span style="display:inline-block; width:52px; height:52px; line-height:52px; font-size:24px; font-weight:900; color:#000000; font-family:'Inter', Arial, sans-serif; text-align:center;">?</span>
+                                    </div>
+                                  </td>
+                                  <td style="vertical-align:middle;">
+                                    <h3 style="font-family:'Inter', Arial, sans-serif; font-size:15px; font-weight:700; color:#000000; margin:0 0 4px 0;">Need Help?</h3>
+                                    <p style="font-family:'Inter', Arial, sans-serif; font-size:14px; color:#555555; margin:0; line-height:1.5;">Our support team is here for you.<br>
+                                    <strong style="color:#000000; font-weight:700;">support@dialphone.com</strong></p>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                            <!-- RIGHT SIDE (Button) -->
+                            <td class="support-btn-td" style="vertical-align:middle; text-align:right;">
+                              <a href="mailto:support@dialphone.com" style="display:inline-block; background-color:#ffffff; border:1px solid #d0d0d0; border-radius:6px; padding:12px 20px; color:#000000; font-size:14px; font-weight:600; text-decoration:none; font-family:'Inter', Arial, sans-serif; white-space:nowrap;">Contact Support</a>
+                            </td>
+                          </tr>
+                        </table>
                       </td>
                     </tr>
                   </table>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -172,44 +172,28 @@
             margin-top: 15px;
         }
 
-        /* FOOTER (UPDATED to match second image) */
-        .footer {
-            border-top: 1px solid #e2e2e2;
-            padding: 35px 60px;
-            display: flex;
-            align-items: center;
+        /* ── HELP BOX ── */
+        .help-box {
+            width: 100%; display: flex; align-items: center; justify-content: space-between;
+            background: #f9fafb; border: 1px solid #eaeaea;
+            border-radius: 10px; padding: 22px 24px; text-align: left;
+            margin: 35px 0 0; box-sizing: border-box;
         }
-
-        .footer-left {
-            display: flex;
-            align-items: center;
-            gap: 30px;
+        .help-left { display: flex; align-items: center; gap: 18px; }
+        .help-circle {
+            width: 52px; height: 52px; background: #e8e8e8; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; font-weight: 900; color: #000; flex-shrink: 0;
         }
-
-        .help-icon {
-            width: 70px;
-            height: 70px;
-            background: #f0f0f0;
-            color: #000000;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 32px;
-            font-weight: 800;
-            flex-shrink: 0;
+        .help-text h3 { font-size: 15px; font-weight: 700; color: #000; margin-bottom: 4px; }
+        .help-text p { font-size: 14px; color: #555; line-height: 1.5; margin: 0; }
+        .help-text strong { color: #000; font-weight: 700; }
+        .contact-btn {
+            background: #fff; border: 1px solid #d0d0d0; border-radius: 6px;
+            padding: 12px 20px; color: #000; font-size: 14px; font-weight: 600;
+            text-decoration: none; white-space: nowrap; transition: 0.2s;
         }
-
-        .footer-text {
-            font-size: 17px;
-            line-height: 1.6;
-            color: #111111;
-            text-align: left;
-        }
-
-        .footer-text strong {
-            font-weight: 800;
-        }
+        .contact-btn:hover { border-color: #888; }
 
         /* BOTTOM BAR (Untouched) */
         .bottom-bar {
@@ -247,8 +231,7 @@
                 font-size: 36px;
             }
 
-            .content,
-            .footer {
+            .content {
                 padding: 40px;
             }
 
@@ -273,14 +256,10 @@
                 margin-right: 0;
             }
 
-            .footer-left {
+            .help-box {
                 flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-
-            .footer-text {
-                text-align: center;
+                align-items: flex-start;
+                gap: 16px;
             }
         }
     </style>
@@ -431,17 +410,17 @@
                 Open Event
             </a>
 
-        </div>
-
-        <!-- FOOTER (UPDATED to match second image) -->
-        <div class="footer">
-            <div class="footer-left">
-                <div class="help-icon">?</div>
-                <div class="footer-text">
-                    If you have any questions or need assistance,<br>
-                    feel free to contact our
-                    <strong>support team.</strong>
+            <!-- HELP BOX -->
+            <div class="help-box">
+                <div class="help-left">
+                    <div class="help-circle">?</div>
+                    <div class="help-text">
+                        <h3>Need Help?</h3>
+                        <p>Our support team is here for you.<br>
+                        <strong>support@dialphone.com</strong></p>
+                    </div>
                 </div>
+                <a href="mailto:support@dialphone.com" class="contact-btn">Contact Support</a>
             </div>
         </div>
         <!-- END OF HIGHLIGHTED SECTION 2 -->
