@@ -58,21 +58,22 @@ const cssInjection = `
                 max-width: 100% !important;
             }
             .logo-text, .header-title, .logo-title, .brand-title, .heading h1, .header-text h1, .heading h2, .header-text h2, .heading h3, .header-text h3, .heading small {
-                font-size: 16px !important; 
-                line-height: 1.25 !important;
+                font-size: 15px !important; 
+                font-weight: 700 !important;
+                line-height: 1.3 !important;
                 margin: 0 !important;
-                white-space: nowrap !important;
-                text-overflow: ellipsis !important;
+                white-space: normal !important;
                 overflow: hidden !important;
                 text-align: left !important;
                 min-width: 0 !important;
+                color: #111827 !important;
             }
             .logo-text-wrapper, .logo-text-block, .heading, .header-text, .header-center, .header-title-block {
                 display: flex !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                justify-content: flex-start !important;
-                gap: 4px !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                justify-content: center !important;
+                gap: 2px !important;
                 min-width: 0 !important;
                 flex: 1 !important;
                 border: none !important;
@@ -80,10 +81,12 @@ const cssInjection = `
             }
             .logo-subtitle, .logo-tagline, .banner-desc, .heading p, .header-text p, .header-subtitle {
                 display: block !important;
-                font-size: 12px !important;
+                font-size: 11px !important;
+                font-weight: 400 !important;
                 color: #6b7280 !important;
-                margin-top: 4px !important;
+                margin: 2px 0 0 0 !important;
                 line-height: 1.4 !important;
+                white-space: normal !important;
             }
             /* The icon/illustration in the header */
             .header-right, .header-illustration, .header-right-td, .banner-illustration, .header-icon, .hero-illustration {
