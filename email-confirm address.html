@@ -1,13 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirm Your Email Address - DialPhone</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Confirm Your Email - DialPhone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
         body {
             background: #f5f5f5;
             font-family: 'Inter', sans-serif;
@@ -17,6 +24,7 @@
             align-items: center;
             min-height: 100vh;
         }
+
         .email-wrapper {
             max-width: 680px;
             width: 100%;
@@ -25,8 +33,9 @@
             border: 1px solid #dcdcdc;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
         }
+
         .header {
             padding: 26px 44px;
             display: flex;
@@ -34,256 +43,906 @@
             align-items: center;
             background: #fff;
         }
-        .header-left { display: flex; align-items: center; }
-        .logo { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; margin-right: 18px; }
-        .logo img { width: 100%; }
-        .vertical-line-header { width: 1px; height: 48px; background: #d0d0d0; margin-right: 20px; }
-        .heading h1 { font-size: 20px; font-weight: 800; color: #000; letter-spacing: 0.1px; white-space: nowrap; }
-        .heading p { font-size: 13px; color: #888; margin-top: 3px; font-weight: 500; }
-        .header-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; padding-left: 10px; }
-        .header-right svg { width: 140px; height: auto; display: block; }
-        .divider-line { border-top: 1px solid #e2e2e2; }
-        .content { padding: 44px 56px; display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .main-icon-container { margin-bottom: 26px; }
-        .title { font-size: 28px; font-weight: 800; color: #000; margin-bottom: 14px; letter-spacing: -0.4px; line-height: 1.25; }
-        .subtitle { font-size: 15px; color: #666; margin-bottom: 24px; line-height: 1.65; max-width: 420px; }
-        .short-divider { width: 40px; height: 2px; background-color: #222; margin-bottom: 32px; }
-        .email-body { width: 100%; font-size: 15px; line-height: 1.75; color: #333; margin-bottom: 32px; text-align: left; }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 18px;
+        }
+
+        .logo img {
+            width: 100%;
+        }
+
+        .vertical-line-header {
+            width: 1px;
+            height: 48px;
+            background: #d0d0d0;
+            margin-right: 20px;
+        }
+
+        .heading h1 {
+            font-size: 20px;
+            font-weight: 800;
+            color: #000;
+            letter-spacing: 0.1px;
+            white-space: nowrap;
+        }
+
+        .heading p {
+            font-size: 13px;
+            color: #888;
+            margin-top: 3px;
+            font-weight: 500;
+        }
+
+        .header-right {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-left: 10px;
+        }
+
+        .header-right svg {
+            width: 140px;
+            height: auto;
+            display: block;
+        }
+
+        .divider-line {
+            border-top: 1px solid #e2e2e2;
+        }
+
+        .content {
+            padding: 44px 56px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .main-icon-container {
+            margin-bottom: 26px;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #000;
+            margin-bottom: 14px;
+            letter-spacing: -0.4px;
+            line-height: 1.25;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 24px;
+            line-height: 1.65;
+            max-width: 420px;
+        }
+
+        .short-divider {
+            width: 40px;
+            height: 2px;
+            background-color: #222;
+            margin-bottom: 32px;
+        }
+
+        .email-body {
+            width: 100%;
+            font-size: 15px;
+            line-height: 1.75;
+            color: #333;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+
         .confirm-btn {
-            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-            background-color: #000; color: #fff; text-decoration: none;
-            padding: 14px 30px; border-radius: 8px; font-weight: 700; font-size: 14px;
-            letter-spacing: 0.8px; margin-bottom: 36px; transition: background-color 0.2s;
-            width: 100%; max-width: 300px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.8px;
+            margin-bottom: 36px;
+            transition: background-color 0.2s;
+            width: 100%;
+            max-width: 300px;
         }
-        .confirm-btn:hover { background-color: #1f2937; }
-        .info-row { width: 100%; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+
+        .confirm-btn:hover {
+            background-color: #1f2937;
+        }
+
+        .info-row {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
         .info-card {
-            background: #f9fafb; border: 1px solid #eaeaea; border-radius: 10px;
-            padding: 18px 14px; display: flex; flex-direction: column;
-            align-items: flex-start; gap: 8px; text-align: left;
+            background: #f9fafb;
+            border: 1px solid #eaeaea;
+            border-radius: 10px;
+            padding: 18px 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            text-align: left;
         }
-        .info-card-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; }
-        .info-card h4 { font-size: 13px; font-weight: 700; color: #000; line-height: 1.3; }
-        .info-card p { font-size: 12.5px; color: #666; line-height: 1.5; }
+
+        .info-card-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-card h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: #000;
+            line-height: 1.3;
+        }
+
+        .info-card p {
+            font-size: 12.5px;
+            color: #666;
+            line-height: 1.5;
+        }
+
         .help-box {
-            width: 100%; display: flex; align-items: center; justify-content: space-between;
-            background: #f9fafb; border: 1px solid #eaeaea;
-            border-radius: 10px; padding: 22px 24px; text-align: left;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f9fafb;
+            border: 1px solid #eaeaea;
+            border-radius: 10px;
+            padding: 22px 24px;
+            text-align: left;
         }
-        .help-left { display: flex; align-items: center; gap: 18px; }
+
+        .help-left {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
         .contact-btn {
-            background: #fff; border: 1px solid #d0d0d0; border-radius: 6px;
-            padding: 12px 20px; color: #000; font-size: 14px; font-weight: 600;
-            text-decoration: none; white-space: nowrap; transition: 0.2s;
+            background: #fff;
+            border: 1px solid #d0d0d0;
+            border-radius: 6px;
+            padding: 12px 20px;
+            color: #000;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: 0.2s;
         }
-        .contact-btn:hover { border-color: #888; }
+
+        .contact-btn:hover {
+            border-color: #888;
+        }
+
         .help-circle {
-            width: 52px; height: 52px; background: #e8e8e8; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 24px; font-weight: 900; color: #000; flex-shrink: 0;
+            width: 52px;
+            height: 52px;
+            background: #e8e8e8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 900;
+            color: #000;
+            flex-shrink: 0;
         }
-        .help-text h3 { font-size: 15px; font-weight: 700; color: #000; margin-bottom: 4px; }
-        .help-text p { font-size: 14px; color: #555; line-height: 1.5; }
-        .help-text strong { color: #000; font-weight: 700; }
-        .footer { border-top: 1px solid #e8e8e8; padding: 24px 50px; text-align: center; font-size: 13px; color: #aaa; background: #fff; }
+
+        .help-text h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 4px;
+        }
+
+        .help-text p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .help-text strong {
+            color: #000;
+            font-weight: 700;
+        }
+
+        .footer {
+            border-top: 1px solid #e8e8e8;
+            padding: 24px 50px;
+            text-align: center;
+            font-size: 13px;
+            color: #aaa;
+            background: #fff;
+        }
 
         @media(max-width: 620px) {
-            body { padding: 12px; }
-            .help-box { flex-direction: column; align-items: flex-start; gap: 16px; }
-            .header { flex-direction: column; gap: 18px; padding: 20px; }
-            .header-left { flex-direction: column; text-align: center; }
-            .vertical-line-header { display: none; }
-            .heading h1 { font-size: 17px; }
-            .header-right { width: 85%; justify-content: center; padding-left: 0; }
-            .content { padding: 28px 20px; }
-            .info-row { grid-template-columns: 1fr; }
-            .footer { padding: 20px; }
+            body {
+                padding: 12px;
+            }
+
+            .help-box {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 18px;
+                padding: 20px;
+            }
+
+            .header-left {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .vertical-line-header {
+                display: none;
+            }
+
+            .heading h1 {
+                font-size: 17px;
+            }
+
+            .header-right {
+                width: 85%;
+                justify-content: center;
+                padding-left: 0;
+            }
+
+            .content {
+                padding: 28px 20px;
+            }
+
+            .info-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer {
+                padding: 20px;
+            }
         }
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        /* --- BEGIN GLOBAL OVERRIDES --- */
+        /* --- GLOBAL MOBILE OVERRIDES --- */
+        @media (max-width: 640px) {
+            body { 
+                padding-left: 12px !important; 
+                padding-right: 12px !important; 
+                padding-top: 60px !important;
+            }
+            .container, .card, .email-container, .main-wrapper, .email-wrapper { 
+                width: 100% !important; 
+                max-width: 100% !important; 
+                padding: 16px !important;
+                box-sizing: border-box !important;
+            }
+            /* Force header elements into a single row */
+            .header, .top-banner {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                padding: 16px 8px !important;
+                gap: 8px !important;
+                box-sizing: border-box !important;
+                min-height: 40px !important;
+                overflow: visible !important;
+            }
+            .header-left, .logo-section, .header-title-container, .brand-section, .logo-area {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                align-items: center !important;
+                gap: 8px !important;
+                flex: 1 !important;
+                min-width: 0 !important;
+            }
+            /* Prevent logo wrapper from shrinking to 0 width */
+            div.logo, span.logo, .header-logo, .logo-icon {
+                flex-shrink: 1 !important;
+                width: auto !important;
+                height: auto !important;
+                margin: 0 !important;
+                min-width: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+            }
+            /* Apply strict medium height ONLY to images */
+            img.logo, .logo-img, .header-logo img, .logo-icon img, .brand-section img, div.logo img {
+                height: 48px !important; 
+                width: auto !important;
+                flex-shrink: 0 !important;
+                display: block !important;
+                max-width: 100% !important;
+            }
+            .logo-text, .header-title, .logo-title, .brand-title, .heading h1, .header-text h1, .heading h2, .header-text h2, .heading h3, .header-text h3, .heading small {
+                font-size: 16px !important; 
+                line-height: 1.25 !important;
+                margin: 0 !important;
+                white-space: nowrap !important;
+                text-overflow: ellipsis !important;
+                overflow: hidden !important;
+                text-align: left !important;
+                min-width: 0 !important;
+            }
+            .logo-text-wrapper, .logo-text-block, .heading, .header-text, .header-center, .header-title-block {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: flex-start !important;
+                gap: 4px !important;
+                min-width: 0 !important;
+                flex: 1 !important;
+                border: none !important;
+                padding-left: 0 !important;
+            }
+            .logo-subtitle, .logo-tagline, .banner-desc, .heading p, .header-text p, .header-subtitle {
+                display: none !important;
+            }
+            /* The icon/illustration in the header */
+            .header-right, .header-illustration, .header-right-td, .banner-illustration, .header-icon, .hero-illustration {
+                display: flex !important;
+                width: 115px !important; 
+                max-width: 115px !important;
+                flex: 0 0 115px !important;
+                height: 100% !important;
+                min-height: 40px !important;
+                align-items: center !important;
+                justify-content: center !important;
+                padding-left: 0 !important;
+                overflow: visible !important;
+            }
+            .header-right svg, .header-illustration svg, .banner-illustration svg, .header-icon svg, .hero-illustration svg {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 100% !important;
+                max-height: 100% !important;
+                object-fit: contain !important;
+                overflow: visible !important;
+            }
+            svg.hero-svg {
+                max-width: 180px !important;
+                height: auto !important;
+                margin: 0 auto !important;
+                display: block !important;
+            }
+            /* Stack other body elements */
+            .info-row, .features-row, .alert-actions { 
+                display: flex !important;
+                flex-direction: column !important; 
+                align-items: flex-start !important;
+                gap: 12px !important;
+            }
+            .btn, .btn-outline, .btn-primary, .support-btn, .dashboard-btn, .confirm-btn {
+                width: 100% !important;
+                justify-content: center !important;
+                margin: 12px 0 0 0 !important;
+                box-sizing: border-box !important;
+            }
+            .info-separator, .logo-divider, .header-divider, .brand-divider, .vertical-line-header, .header-left .vertical-line { display: none !important; }
+            .info-item { margin-bottom: 8px !important; }
+            
+            /* Force OTP boxes into a single line */
+            .otp-container {
+                flex-wrap: nowrap !important;
+                gap: 6px !important;
+                width: 100% !important;
+                justify-content: center !important;
+                padding: 0 !important;
+            }
+            .otp-box {
+                flex: 1 1 0 !important;
+                width: auto !important;
+                max-width: 50px !important;
+                height: 55px !important;
+                font-size: 24px !important;
+            }
+            
+            /* Table-based email template overrides */
+            td.header-cell {
+                padding: 12px 8px !important;
+                display: block !important;
+            }
+            td.header-cell > table, 
+            td.header-cell > table > tbody,
+            td.header-cell > table > tbody > tr {
+                display: flex !important;
+                width: 100% !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child {
+                display: flex !important;
+                flex: 1 !important;
+                min-width: 0 !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table,
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody,
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr {
+                display: flex !important;
+                width: 100% !important;
+                flex-direction: row !important;
+                align-items: center !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(1) {
+                flex-shrink: 0 !important;
+                display: block !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(2) {
+                display: none !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) {
+                flex: 1 !important;
+                min-width: 0 !important;
+                padding-left: 8px !important;
+                border-left: 1px solid #eaeaea !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) span {
+                font-size: 16px !important;
+                white-space: nowrap !important;
+                text-overflow: ellipsis !important;
+                overflow: hidden !important;
+                display: block !important;
+            }
+            td.header-right-td {
+                display: flex !important;
+                width: 115px !important; 
+                max-width: 115px !important;
+                flex: 0 0 115px !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+        }
+        
+        /* --- GLOBAL DESKTOP OVERRIDES --- */
+        @media (min-width: 641px) {
+            .logo, .header-logo {
+                width: 54px !important;
+                height: 54px !important;
+                margin-right: 20px !important;
+            }
+            .header, .top-banner {
+                padding: 30px 40px !important;
+                flex-wrap: nowrap !important;
+            }
+            .vertical-line, .vertical-line-header, .logo-divider, .header-divider {
+                margin-right: 20px !important;
+            }
+            .header-right {
+                width: auto !important;
+                max-width: 175px !important;
+                flex-shrink: 0 !important;
+            }
+            .heading {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 6px !important;
+                white-space: nowrap !important;
+            }
+            .heading h1, .heading h2, .heading h3, .heading small {
+                display: inline-block !important;
+                margin: 0 !important;
+                white-space: nowrap !important;
+            }
+            .heading small, .heading h2:first-child:not(:last-child) {
+                font-size: 13px !important;
+                font-weight: 700 !important;
+                color: #555 !important;
+                letter-spacing: 0.5px !important;
+            }
+            .heading h1, .heading h2:only-child, .heading h3:only-child {
+                font-size: 24px !important;
+            }
+            div.card {
+                max-width: 1100px !important;
+            }
+        }
+        /* --- END GLOBAL OVERRIDES --- */
+
     </style>
 </head>
 
-        
+
 
 <body>
-    <div id="__global_nav__" style="background:#111827;color:#fff;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;position:fixed;top:0;left:0;width:100%;box-sizing:border-box;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
-        <a href="email-action required.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">&#8592; Back</a>
-        <a href="index.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:0.7;">&#9679; Confirm Address</a>
-        <a href="email-email verification.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">Next &#8594;</a>
+    <div id="__global_nav__"
+        style="background:#111827;color:#fff;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;position:fixed;top:0;left:0;width:100%;box-sizing:border-box;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+        <a href="email-action required.html"
+            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">&#8592;
+            Back</a>
+        <a href="index.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:0.7;">&#9679;
+            Confirm Address</a>
+        <a href="email-email verification.html"
+            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">Next
+            &#8594;</a>
     </div>
     <div style="height:50px;"></div>
-<!-- GLOBAL NAVIGATION BAR -->
+    <!-- GLOBAL NAVIGATION BAR -->
 
-<!-- END GLOBAL NAVIGATION BAR -->
-<div class="email-wrapper">
+    <!-- END GLOBAL NAVIGATION BAR -->
+    <div class="email-wrapper">
 
-    <!-- HEADER -->
-    <div class="header">
-        <div class="header-left">
-            <div class="logo">
-                <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png" alt="DialPhone Logo">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="header-left">
+                <div class="logo">
+                    <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png"
+                        alt="DialPhone Logo">
+                </div>
+                <div class="vertical-line-header"></div>
+                <div class="heading">
+                    <h1>Confirm Your Email </h1>
+                    <p>Action Required</p>
+                </div>
             </div>
-            <div class="vertical-line-header"></div>
-            <div class="heading">
-                <h1>Confirm Your Email Address</h1>
-                <p>Action Required</p>
+
+            <div class="header-right">
+                <!-- PERFECT HEADER ILLUSTRATION MATCHING THE IMAGE -->
+                <svg viewBox="20 50 460 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Left PERFECT dashed line loop matching the red box highlight -->
+                    <path d="M 110 220 C 70 220, 50 290, 30 280 C 10 270, 10 220, 30 210 C 50 200, 60 270, 15 290"
+                        stroke="#111" stroke-width="2.5" stroke-dasharray="6 8" stroke-linecap="round" fill="none" />
+
+                    <!-- Left + sign -->
+                    <path d="M 95 95 L 95 115 M 85 105 L 105 105" stroke="#111" stroke-width="3"
+                        stroke-linecap="round" />
+
+                    <!-- Left hollow circle exactly above the left loop as in the image -->
+                    <circle cx="85" cy="190" r="4.5" stroke="#111" stroke-width="2.5" />
+
+                    <!-- Right BIG dashed line loop -->
+                    <path
+                        d="M 370 180 C 440 160, 480 220, 440 250 C 400 280, 390 200, 430 200 C 470 200, 490 250, 470 280"
+                        stroke="#111" stroke-width="2.5" stroke-dasharray="6 8" stroke-linecap="round" fill="none" />
+
+                    <!-- Right + sign -->
+                    <path d="M 400 60 L 400 80 M 390 70 L 410 70" stroke="#111" stroke-width="3"
+                        stroke-linecap="round" />
+
+                    <!-- Small diamond -->
+                    <rect x="435" y="260" width="8" height="8" transform="rotate(45 439 264)" stroke="#111"
+                        stroke-width="2.5" />
+
+                    <!-- LAYER 1: Envelope Background Fill (Hides dashed lines behind envelope) -->
+                    <rect x="110" y="150" width="260" height="140" rx="8" fill="white" stroke="none" />
+
+                    <!-- LAYER 2: Envelope Back Top Edges (only visible outside the paper) -->
+                    <path d="M 110 158 A 8 8 0 0 1 118 150 L 152 150" stroke="#111" stroke-width="4" fill="none"
+                        stroke-linecap="round" />
+                    <path d="M 328 150 L 362 150 A 8 8 0 0 1 370 158" stroke="#111" stroke-width="4" fill="none"
+                        stroke-linecap="round" />
+
+                    <!-- LAYER 3: Letter Paper (goes deep inside, covers top back edge) -->
+                    <rect x="150" y="50" width="180" height="200" rx="12" fill="white" stroke="#111" stroke-width="4" />
+
+                    <!-- Checkmark Badge on Paper -->
+                    <circle cx="240" cy="120" r="40" fill="#111" />
+                    <path d="M 215 120 L 230 135 L 265 100" stroke="white" stroke-width="8" stroke-linecap="round"
+                        stroke-linejoin="round" />
+
+                    <!-- LAYER 4: Envelope Front (Covers the bottom of the paper, draws front folds and outer borders) -->
+                    <path
+                        d="M 110 158 A 8 8 0 0 1 118 150 L 240 230 L 362 150 A 8 8 0 0 1 370 158 L 370 282 A 8 8 0 0 1 362 290 L 118 290 A 8 8 0 0 1 110 282 Z"
+                        fill="white" stroke="#111" stroke-width="4" stroke-linejoin="round" />
+
+                    <!-- Bottom V Fold Line -->
+                    <path d="M 113 286 L 240 230 L 367 286" fill="none" stroke="#111" stroke-width="4"
+                        stroke-linecap="round" stroke-linejoin="round" />
+
+                    <!-- AT SYMBOL BUBBLE -->
+                    <!-- White outline for bubble to overlap envelope cleanly -->
+                    <circle cx="350" cy="190" r="30" fill="white" stroke="white" stroke-width="12" />
+
+                    <!-- Black bubble body -->
+                    <circle cx="350" cy="190" r="30" fill="#111" />
+
+                    <!-- @ symbol -->
+                    <text x="350" y="202" font-family="Inter, sans-serif" font-size="34" font-weight="900" fill="white"
+                        text-anchor="middle">@</text>
+                </svg>
             </div>
         </div>
 
-        <div class="header-right">
-            <!-- PERFECT HEADER ILLUSTRATION MATCHING THE IMAGE -->
-            <svg viewBox="0 0 500 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Left PERFECT dashed line loop matching the red box highlight -->
-                <path d="M 110 220 C 70 220, 50 290, 30 280 C 10 270, 10 220, 30 210 C 50 200, 60 270, 15 290" stroke="#111" stroke-width="2.5" stroke-dasharray="6 8" stroke-linecap="round" fill="none"/>
-                
-                <!-- Left + sign -->
-                <path d="M 95 95 L 95 115 M 85 105 L 105 105" stroke="#111" stroke-width="3" stroke-linecap="round"/>
-                
-                <!-- Left hollow circle exactly above the left loop as in the image -->
-                <circle cx="85" cy="190" r="4.5" stroke="#111" stroke-width="2.5"/>
+        <div class="divider-line"></div>
 
-                <!-- Right BIG dashed line loop -->
-                <path d="M 370 180 C 440 160, 480 220, 440 250 C 400 280, 390 200, 430 200 C 470 200, 490 250, 470 280" stroke="#111" stroke-width="2.5" stroke-dasharray="6 8" stroke-linecap="round" fill="none"/>
+        <!-- CONTENT -->
+        <div class="content">
 
-                <!-- Right + sign -->
-                <path d="M 400 60 L 400 80 M 390 70 L 410 70" stroke="#111" stroke-width="3" stroke-linecap="round"/>
-                
-                <!-- Small diamond -->
-                <rect x="435" y="260" width="8" height="8" transform="rotate(45 439 264)" stroke="#111" stroke-width="2.5"/>
+            <!-- Center Icon -->
+            <div class="main-icon-container">
+                <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Gray background circle -->
+                    <circle cx="50" cy="50" r="50" fill="#EEEFF1" />
 
-                <!-- LAYER 1: Envelope Background Fill (Hides dashed lines behind envelope) -->
-                <rect x="110" y="150" width="260" height="140" rx="8" fill="white" stroke="none"/>
+                    <!-- ENVELOPE ICON (Center) -->
+                    <rect x="28" y="32" width="44" height="32" rx="4" fill="#111" />
+                    <path d="M 28 36 L 50 50 L 72 36" stroke="white" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round" />
 
-                <!-- LAYER 2: Envelope Back Top Edges (only visible outside the paper) -->
-                <path d="M 110 158 A 8 8 0 0 1 118 150 L 152 150" stroke="#111" stroke-width="4" fill="none" stroke-linecap="round"/>
-                <path d="M 328 150 L 362 150 A 8 8 0 0 1 370 158" stroke="#111" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <!-- Checkmark badge -->
+                    <circle cx="70" cy="70" r="15" fill="#111" stroke="white" stroke-width="3" />
+                    <path d="M 63 70 L 68 75 L 77 64" stroke="white" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
 
-                <!-- LAYER 3: Letter Paper (goes deep inside, covers top back edge) -->
-                <rect x="150" y="50" width="180" height="200" rx="12" fill="white" stroke="#111" stroke-width="4"/>
-                
-                <!-- Checkmark Badge on Paper -->
-                <circle cx="240" cy="120" r="40" fill="#111"/>
-                <path d="M 215 120 L 230 135 L 265 100" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <h2 class="title">Confirm Your Email Address</h2>
+            <p class="subtitle">We just need to confirm your email address to ensure secure access to your
+                <b>DialPhone</b> account.</p>
 
-                <!-- LAYER 4: Envelope Front (Covers the bottom of the paper, draws front folds and outer borders) -->
-                <path d="M 110 158 A 8 8 0 0 1 118 150 L 240 230 L 362 150 A 8 8 0 0 1 370 158 L 370 282 A 8 8 0 0 1 362 290 L 118 290 A 8 8 0 0 1 110 282 Z" fill="white" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+            <div class="short-divider"></div>
 
-                <!-- Bottom V Fold Line -->
-                <path d="M 113 286 L 240 230 L 367 286" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                
-                <!-- AT SYMBOL BUBBLE -->
-                <!-- White outline for bubble to overlap envelope cleanly -->
-                <circle cx="350" cy="190" r="30" fill="white" stroke="white" stroke-width="12"/>
-                
-                <!-- Black bubble body -->
-                <circle cx="350" cy="190" r="30" fill="#111"/>
-                
-                <!-- @ symbol -->
-                <text x="350" y="202" font-family="Inter, sans-serif" font-size="34" font-weight="900" fill="white" text-anchor="middle">@</text>
-            </svg>
+            <div class="email-body">
+                <p>Hello Alex Carter,</p><br>
+                <p>Please confirm your email address by clicking the button below. <br> This helps keep your account
+                    secure and ensures uninterrupted access.</p>
+            </div>
+
+            <!-- CTA Button -->
+            <a href="#" class="confirm-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Envelope for Button -->
+                    <rect x="3" y="6" width="18" height="12" rx="2" stroke="white" stroke-width="2" />
+                    <path d="M 3 8 L 12 14 L 21 8" stroke="white" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                CONFIRM EMAIL
+            </a>
+
+            <!-- 3 Horizontal Info Cards -->
+            <div class="info-row">
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L4 6V12C4 16.4 7.4 20.5 12 22C16.6 20.5 20 16.4 20 12V6L12 2Z" stroke="#111"
+                                stroke-width="2" fill="none" stroke-linejoin="round" />
+                            <path d="M9 12L11 14L15 10" stroke="#111" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <h4>Secure &amp; Private</h4>
+                    <p>Your information is kept safe and secure.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="5" y="11" width="14" height="10" rx="2" stroke="#111" stroke-width="2" />
+                            <path d="M8 11V7C8 5.34 9.34 4 12 4C14.66 4 16 5.34 16 7V11" stroke="#111" stroke-width="2"
+                                stroke-linecap="round" />
+                            <circle cx="12" cy="16" r="1.5" fill="#111" />
+                        </svg>
+                    </div>
+                    <h4>Why It's Required</h4>
+                    <p>To verify your identity and prevent fraud.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="9" stroke="#111" stroke-width="2" />
+                            <path d="M12 7V12L15 14" stroke="#111" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <h4>Takes less than 1 min</h4>
+                    <p>Quick verification to keep your account active.</p>
+                </div>
+            </div>
+
+            <!-- Help Box -->
+            <div class="help-box">
+                <div class="help-left">
+                    <div class="help-circle">?</div>
+                    <div class="help-text">
+                        <h3>Need Help?</h3>
+                        <p>Our support team is here for you.<br>
+                            <strong>support@dialphone.com</strong>
+                        </p>
+                    </div>
+                </div>
+                <a href="mailto:support@dialphone.com" class="contact-btn">Contact Support</a>
+            </div>
+
         </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+
+        </div>
+
     </div>
-
-    <div class="divider-line"></div>
-
-    <!-- CONTENT -->
-    <div class="content">
-
-        <!-- Center Icon -->
-        <div class="main-icon-container">
-            <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Gray background circle -->
-                <circle cx="50" cy="50" r="50" fill="#EEEFF1"/>
-
-                <!-- ENVELOPE ICON (Center) -->
-                <rect x="28" y="32" width="44" height="32" rx="4" fill="#111"/>
-                <path d="M 28 36 L 50 50 L 72 36" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-
-                <!-- Checkmark badge -->
-                <circle cx="70" cy="70" r="15" fill="#111" stroke="white" stroke-width="3"/>
-                <path d="M 63 70 L 68 75 L 77 64" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </div>
-
-        <h2 class="title">Please Confirm Your Email Address</h2>
-        <p class="subtitle">We just need to confirm your email address to ensure secure access to your DialPhone account.</p>
-
-        <div class="short-divider"></div>
-
-        <div class="email-body">
-            <p>Hello Alex Carter,</p><br>
-            <p>To help us keep your account secure and compliant,<br>
-            please confirm your email address by clicking the button below.<br>
-            This will verify your email and ensure uninterrupted service.</p>
-        </div>
-
-        <!-- CTA Button -->
-        <a href="#" class="confirm-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Envelope for Button -->
-                <rect x="3" y="6" width="18" height="12" rx="2" stroke="white" stroke-width="2"/>
-                <path d="M 3 8 L 12 14 L 21 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            CONFIRM EMAIL ADDRESS
-        </a>
-
-        <!-- 3 Horizontal Info Cards -->
-        <div class="info-row">
-            <div class="info-card">
-                <div class="info-card-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L4 6V12C4 16.4 7.4 20.5 12 22C16.6 20.5 20 16.4 20 12V6L12 2Z" stroke="#111" stroke-width="2" fill="none" stroke-linejoin="round"/>
-                        <path d="M9 12L11 14L15 10" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <h4>Secure &amp; Private</h4>
-                <p>Your information is kept safe and secure.</p>
-            </div>
-
-            <div class="info-card">
-                <div class="info-card-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="5" y="11" width="14" height="10" rx="2" stroke="#111" stroke-width="2"/>
-                        <path d="M8 11V7C8 5.34 9.34 4 12 4C14.66 4 16 5.34 16 7V11" stroke="#111" stroke-width="2" stroke-linecap="round"/>
-                        <circle cx="12" cy="16" r="1.5" fill="#111"/>
-                    </svg>
-                </div>
-                <h4>Why we need this</h4>
-                <p>To verify your identity and prevent fraud.</p>
-            </div>
-
-            <div class="info-card">
-                <div class="info-card-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="9" stroke="#111" stroke-width="2"/>
-                        <path d="M12 7V12L15 14" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <h4>Takes less than 1 min</h4>
-                <p>Quick verification to keep your account active.</p>
-            </div>
-        </div>
-
-        <!-- Help Box -->
-        <div class="help-box">
-            <div class="help-left">
-                <div class="help-circle">?</div>
-                <div class="help-text">
-                    <h3>Need Help?</h3>
-                    <p>Our support team is here for you.<br>
-                    <strong>support@dialphone.com</strong></p>
-                </div>
-            </div>
-            <a href="mailto:support@dialphone.com" class="contact-btn">Contact Support</a>
-        </div>
-
-    </div>
-
-    <!-- FOOTER -->
-    <div class="footer">
-
-    </div>
-
-</div>
 </body>
+
 </html>

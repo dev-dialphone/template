@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -24,7 +24,7 @@
         }
 
         .container {
-            max-width: 640px;
+            max-width: 600px;
             width: 100%;
             background: #ffffff;
             border-radius: 12px;
@@ -36,7 +36,7 @@
 
         /* Top Header */
         .header {
-            padding: 32px 40px;
+            padding: 12px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -75,7 +75,7 @@
 
         /* Hero Section */
         .hero {
-            padding: 48px 40px 40px;
+            padding: 20px 24px 16px;
             text-align: center;
         }
 
@@ -83,7 +83,7 @@
             position: relative;
             width: 100px;
             height: 100px;
-            margin: 0 auto 32px;
+            margin: 0 auto 16px;
         }
 
         .hero-title {
@@ -98,7 +98,7 @@
             font-size: 15px;
             color: #4b5563;
             line-height: 1.6;
-            margin-bottom: 32px;
+            margin-bottom: 16px;
             font-weight: 500;
         }
 
@@ -107,9 +107,9 @@
             align-items: center;
             background-color: #059669;
             color: #ffffff;
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-size: 15px;
+            padding: 9px 18px;
+            border-radius: 6px;
+            font-size: 13px;
             font-weight: 800;
             text-decoration: none;
             transition: opacity 0.2s;
@@ -126,14 +126,14 @@
 
         /* Information Cards */
         .cards-container {
-            padding: 0 40px 40px;
+            padding: 0 24px 20px;
         }
 
         .card {
             border: 1px solid #e5e7eb;
             border-radius: 8px;
-            padding: 24px 32px;
-            margin-bottom: 16px;
+            padding: 12px 16px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
         }
@@ -304,18 +304,419 @@
                 display: none;
             }
         }
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        /* --- BEGIN GLOBAL OVERRIDES --- */
+        /* --- GLOBAL MOBILE OVERRIDES --- */
+        @media (max-width: 640px) {
+            body { 
+                padding-left: 12px !important; 
+                padding-right: 12px !important; 
+                padding-top: 60px !important;
+            }
+            .container, .card, .email-container, .main-wrapper, .email-wrapper { 
+                width: 100% !important; 
+                max-width: 100% !important; 
+                padding: 16px !important;
+                box-sizing: border-box !important;
+            }
+            /* Force header elements into a single row */
+            .header, .top-banner {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                padding: 16px 8px !important;
+                gap: 8px !important;
+                box-sizing: border-box !important;
+                min-height: 40px !important;
+                overflow: visible !important;
+            }
+            .header-left, .logo-section, .header-title-container, .brand-section, .logo-area {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                align-items: center !important;
+                gap: 8px !important;
+                flex: 1 !important;
+                min-width: 0 !important;
+            }
+            /* Prevent logo wrapper from shrinking to 0 width */
+            div.logo, span.logo, .header-logo, .logo-icon {
+                flex-shrink: 1 !important;
+                width: auto !important;
+                height: auto !important;
+                margin: 0 !important;
+                min-width: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+            }
+            /* Apply strict medium height ONLY to images */
+            img.logo, .logo-img, .header-logo img, .logo-icon img, .brand-section img, div.logo img {
+                height: 48px !important; 
+                width: auto !important;
+                flex-shrink: 0 !important;
+                display: block !important;
+                max-width: 100% !important;
+            }
+            .logo-text, .header-title, .logo-title, .brand-title, .heading h1, .header-text h1, .heading h2, .header-text h2, .heading h3, .header-text h3, .heading small {
+                font-size: 16px !important; 
+                line-height: 1.25 !important;
+                margin: 0 !important;
+                white-space: nowrap !important;
+                text-overflow: ellipsis !important;
+                overflow: hidden !important;
+                text-align: left !important;
+                min-width: 0 !important;
+            }
+            .logo-text-wrapper, .logo-text-block, .heading, .header-text, .header-center, .header-title-block {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: flex-start !important;
+                gap: 4px !important;
+                min-width: 0 !important;
+                flex: 1 !important;
+                border: none !important;
+                padding-left: 0 !important;
+            }
+            .logo-subtitle, .logo-tagline, .banner-desc, .heading p, .header-text p, .header-subtitle {
+                display: none !important;
+            }
+            /* The icon/illustration in the header */
+            .header-right, .header-illustration, .header-right-td, .banner-illustration, .header-icon, .hero-illustration {
+                display: flex !important;
+                width: 115px !important; 
+                max-width: 115px !important;
+                flex: 0 0 115px !important;
+                height: 100% !important;
+                min-height: 40px !important;
+                align-items: center !important;
+                justify-content: center !important;
+                padding-left: 0 !important;
+                overflow: visible !important;
+            }
+            .header-right svg, .header-illustration svg, .banner-illustration svg, .header-icon svg, .hero-illustration svg {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 100% !important;
+                max-height: 100% !important;
+                object-fit: contain !important;
+                overflow: visible !important;
+            }
+            svg.hero-svg {
+                max-width: 180px !important;
+                height: auto !important;
+                margin: 0 auto !important;
+                display: block !important;
+            }
+            /* Stack other body elements */
+            .info-row, .features-row, .alert-actions { 
+                display: flex !important;
+                flex-direction: column !important; 
+                align-items: flex-start !important;
+                gap: 12px !important;
+            }
+            .btn, .btn-outline, .btn-primary, .support-btn, .dashboard-btn, .confirm-btn {
+                width: 100% !important;
+                justify-content: center !important;
+                margin: 12px 0 0 0 !important;
+                box-sizing: border-box !important;
+            }
+            .info-separator, .logo-divider, .header-divider, .brand-divider, .vertical-line-header, .header-left .vertical-line { display: none !important; }
+            .info-item { margin-bottom: 8px !important; }
+            
+            /* Force OTP boxes into a single line */
+            .otp-container {
+                flex-wrap: nowrap !important;
+                gap: 6px !important;
+                width: 100% !important;
+                justify-content: center !important;
+                padding: 0 !important;
+            }
+            .otp-box {
+                flex: 1 1 0 !important;
+                width: auto !important;
+                max-width: 50px !important;
+                height: 55px !important;
+                font-size: 24px !important;
+            }
+            
+            /* Table-based email template overrides */
+            td.header-cell {
+                padding: 12px 8px !important;
+                display: block !important;
+            }
+            td.header-cell > table, 
+            td.header-cell > table > tbody,
+            td.header-cell > table > tbody > tr {
+                display: flex !important;
+                width: 100% !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child {
+                display: flex !important;
+                flex: 1 !important;
+                min-width: 0 !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table,
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody,
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr {
+                display: flex !important;
+                width: 100% !important;
+                flex-direction: row !important;
+                align-items: center !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(1) {
+                flex-shrink: 0 !important;
+                display: block !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(2) {
+                display: none !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) {
+                flex: 1 !important;
+                min-width: 0 !important;
+                padding-left: 8px !important;
+                border-left: 1px solid #eaeaea !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) span {
+                font-size: 16px !important;
+                white-space: nowrap !important;
+                text-overflow: ellipsis !important;
+                overflow: hidden !important;
+                display: block !important;
+            }
+            td.header-right-td {
+                display: flex !important;
+                width: 115px !important; 
+                max-width: 115px !important;
+                flex: 0 0 115px !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+        }
+        
+        /* --- GLOBAL DESKTOP OVERRIDES --- */
+        @media (min-width: 641px) {
+            .logo, .header-logo {
+                width: 54px !important;
+                height: 54px !important;
+                margin-right: 20px !important;
+            }
+            .header, .top-banner {
+                padding: 30px 40px !important;
+                flex-wrap: nowrap !important;
+            }
+            .vertical-line, .vertical-line-header, .logo-divider, .header-divider {
+                margin-right: 20px !important;
+            }
+            .header-right {
+                width: auto !important;
+                max-width: 175px !important;
+                flex-shrink: 0 !important;
+            }
+            .heading {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 6px !important;
+                white-space: nowrap !important;
+            }
+            .heading h1, .heading h2, .heading h3, .heading small {
+                display: inline-block !important;
+                margin: 0 !important;
+                white-space: nowrap !important;
+            }
+            .heading small, .heading h2:first-child:not(:last-child) {
+                font-size: 13px !important;
+                font-weight: 700 !important;
+                color: #555 !important;
+                letter-spacing: 0.5px !important;
+            }
+            .heading h1, .heading h2:only-child, .heading h3:only-child {
+                font-size: 24px !important;
+            }
+            div.card {
+                max-width: 1100px !important;
+            }
+        }
+        /* --- END GLOBAL OVERRIDES --- */
+
     </style>
 </head>
 
 <body>
-    <div id="__global_nav__" style="background:#111827;color:#fff;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;position:fixed;top:0;left:0;width:100%;box-sizing:border-box;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
-        <a href="email-trial-reminder.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">&#8592; Back</a>
-        <a href="index.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:0.7;">&#9679; Upgrade Successful</a>
-        <a href="index-video event invite.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">Next &#8594;</a>
+    <div id="__global_nav__"
+        style="background:#111827;color:#fff;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;position:fixed;top:0;left:0;width:100%;box-sizing:border-box;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+        <a href="email-trial-reminder.html"
+            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">&#8592;
+            Back</a>
+        <a href="index.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:0.7;">&#9679;
+            Upgrade Successful</a>
+        <a href="index-video event invite.html"
+            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">Next
+            &#8594;</a>
     </div>
     <div style="height:50px;"></div>
     <!-- GLOBAL NAVIGATION BAR -->
-    
+
     <!-- END GLOBAL NAVIGATION BAR -->
     <div class="container">
         <!-- Top Header -->
@@ -326,7 +727,7 @@
             </div>
             <div class="header-center">
                 <div class="header-title">Upgrade Successful</div>
-                <div class="header-subtitle">You've unlocked the full power of<br>premium communication.</div>
+                <div class="header-subtitle">You’ve unlocked the full power of DialPhone.</div>
             </div>
             <div class="header-illustration">
                 <!-- Ultra-Professional Two-Tone Growth Illustration (Monochrome) -->
@@ -400,9 +801,8 @@
 
             <h1 class="hero-title">Upgrade Successful</h1>
             <p class="hero-subtitle">
-                Thank you for upgrading to a premium plan.<br>
-                You now have full access to all premium features<br>
-                and advanced tools.
+                Your plan has been upgraded successfully. <br>You now have access to all features and tools included
+                <br>in your new plan.
             </p>
 
             <a href="#" class="btn-black">
@@ -437,9 +837,8 @@
                 <div class="card-content">
                     <div class="card-title">Hello Alex Carter,</div>
                     <div class="card-text">
-                        Great choice! Your plan has been successfully upgraded.<br>
-                        You can now enjoy enhanced features, higher limits,<br>
-                        and priority support.
+                        Your plan has been upgraded successfully. <br>You now have access to enhanced features, higher
+                        usage limits,<br> and priority support.
                     </div>
                 </div>
             </div>
@@ -493,7 +892,7 @@
                         </div>
                     </div>
                     <a href="#" class="view-invoice">
-                        View Invoice
+                        View Billing Details
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="9 18 15 12 9 6"></polyline>

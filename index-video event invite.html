@@ -65,10 +65,11 @@
 
         /* UPDATED: Highlighted Heading Section */
         .heading h1 {
-            font-size: 42px;
-            line-height: 1.1;
+            font-size: 28px;
+            line-height: 1.2;
             font-weight: 800;
             color: #000;
+            white-space: nowrap;
         }
 
         .header-right svg {
@@ -206,11 +207,12 @@
         }
 
         .detail-label {
-            width: 90px;
+            width: 120px;
             font-weight: 700;
             font-size: 16px;
             color: #000;
             flex-shrink: 0;
+            white-space: nowrap;
         }
 
         .detail-colon {
@@ -251,27 +253,74 @@
 
         /* ── HELP BOX ── */
         .help-box {
-            width: 100%; display: flex; align-items: center; justify-content: space-between;
-            background: #f9fafb; border: 1px solid #eaeaea;
-            border-radius: 10px; padding: 22px 24px; text-align: left;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f9fafb;
+            border: 1px solid #eaeaea;
+            border-radius: 10px;
+            padding: 22px 24px;
+            text-align: left;
             margin: 0;
             box-sizing: border-box;
         }
-        .help-left { display: flex; align-items: center; gap: 18px; }
+
+        .help-left {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
         .help-circle {
-            width: 52px; height: 52px; background: #e8e8e8; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 24px; font-weight: 900; color: #000; flex-shrink: 0;
+            width: 52px;
+            height: 52px;
+            background: #e8e8e8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 900;
+            color: #000;
+            flex-shrink: 0;
         }
-        .help-text h3 { font-size: 15px; font-weight: 700; color: #000; margin-bottom: 4px; }
-        .help-text p { font-size: 14px; color: #555; line-height: 1.5; margin: 0; }
-        .help-text strong { color: #000; font-weight: 700; }
+
+        .help-text h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 4px;
+        }
+
+        .help-text p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .help-text strong {
+            color: #000;
+            font-weight: 700;
+        }
+
         .contact-btn {
-            background: #fff; border: 1px solid #d0d0d0; border-radius: 6px;
-            padding: 12px 20px; color: #000; font-size: 14px; font-weight: 600;
-            text-decoration: none; white-space: nowrap; transition: 0.2s;
+            background: #fff;
+            border: 1px solid #d0d0d0;
+            border-radius: 6px;
+            padding: 12px 20px;
+            color: #000;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: 0.2s;
         }
-        .contact-btn:hover { border-color: #888; }
+
+        .contact-btn:hover {
+            border-color: #888;
+        }
 
         /* BOTTOM BAR (Untouched) */
         .bottom-bar {
@@ -349,19 +398,420 @@
                 gap: 15px;
             }
         }
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        /* --- BEGIN GLOBAL OVERRIDES --- */
+        /* --- GLOBAL MOBILE OVERRIDES --- */
+        @media (max-width: 640px) {
+            body { 
+                padding-left: 12px !important; 
+                padding-right: 12px !important; 
+                padding-top: 60px !important;
+            }
+            .container, .card, .email-container, .main-wrapper, .email-wrapper { 
+                width: 100% !important; 
+                max-width: 100% !important; 
+                padding: 16px !important;
+                box-sizing: border-box !important;
+            }
+            /* Force header elements into a single row */
+            .header, .top-banner {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                padding: 16px 8px !important;
+                gap: 8px !important;
+                box-sizing: border-box !important;
+                min-height: 40px !important;
+                overflow: visible !important;
+            }
+            .header-left, .logo-section, .header-title-container, .brand-section, .logo-area {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                align-items: center !important;
+                gap: 8px !important;
+                flex: 1 !important;
+                min-width: 0 !important;
+            }
+            /* Prevent logo wrapper from shrinking to 0 width */
+            div.logo, span.logo, .header-logo, .logo-icon {
+                flex-shrink: 1 !important;
+                width: auto !important;
+                height: auto !important;
+                margin: 0 !important;
+                min-width: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+            }
+            /* Apply strict medium height ONLY to images */
+            img.logo, .logo-img, .header-logo img, .logo-icon img, .brand-section img, div.logo img {
+                height: 48px !important; 
+                width: auto !important;
+                flex-shrink: 0 !important;
+                display: block !important;
+                max-width: 100% !important;
+            }
+            .logo-text, .header-title, .logo-title, .brand-title, .heading h1, .header-text h1, .heading h2, .header-text h2, .heading h3, .header-text h3, .heading small {
+                font-size: 16px !important; 
+                line-height: 1.25 !important;
+                margin: 0 !important;
+                white-space: nowrap !important;
+                text-overflow: ellipsis !important;
+                overflow: hidden !important;
+                text-align: left !important;
+                min-width: 0 !important;
+            }
+            .logo-text-wrapper, .logo-text-block, .heading, .header-text, .header-center, .header-title-block {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: flex-start !important;
+                gap: 4px !important;
+                min-width: 0 !important;
+                flex: 1 !important;
+                border: none !important;
+                padding-left: 0 !important;
+            }
+            .logo-subtitle, .logo-tagline, .banner-desc, .heading p, .header-text p, .header-subtitle {
+                display: none !important;
+            }
+            /* The icon/illustration in the header */
+            .header-right, .header-illustration, .header-right-td, .banner-illustration, .header-icon, .hero-illustration {
+                display: flex !important;
+                width: 115px !important; 
+                max-width: 115px !important;
+                flex: 0 0 115px !important;
+                height: 100% !important;
+                min-height: 40px !important;
+                align-items: center !important;
+                justify-content: center !important;
+                padding-left: 0 !important;
+                overflow: visible !important;
+            }
+            .header-right svg, .header-illustration svg, .banner-illustration svg, .header-icon svg, .hero-illustration svg {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 100% !important;
+                max-height: 100% !important;
+                object-fit: contain !important;
+                overflow: visible !important;
+            }
+            svg.hero-svg {
+                max-width: 180px !important;
+                height: auto !important;
+                margin: 0 auto !important;
+                display: block !important;
+            }
+            /* Stack other body elements */
+            .info-row, .features-row, .alert-actions { 
+                display: flex !important;
+                flex-direction: column !important; 
+                align-items: flex-start !important;
+                gap: 12px !important;
+            }
+            .btn, .btn-outline, .btn-primary, .support-btn, .dashboard-btn, .confirm-btn {
+                width: 100% !important;
+                justify-content: center !important;
+                margin: 12px 0 0 0 !important;
+                box-sizing: border-box !important;
+            }
+            .info-separator, .logo-divider, .header-divider, .brand-divider, .vertical-line-header, .header-left .vertical-line { display: none !important; }
+            .info-item { margin-bottom: 8px !important; }
+            
+            /* Force OTP boxes into a single line */
+            .otp-container {
+                flex-wrap: nowrap !important;
+                gap: 6px !important;
+                width: 100% !important;
+                justify-content: center !important;
+                padding: 0 !important;
+            }
+            .otp-box {
+                flex: 1 1 0 !important;
+                width: auto !important;
+                max-width: 50px !important;
+                height: 55px !important;
+                font-size: 24px !important;
+            }
+            
+            /* Table-based email template overrides */
+            td.header-cell {
+                padding: 12px 8px !important;
+                display: block !important;
+            }
+            td.header-cell > table, 
+            td.header-cell > table > tbody,
+            td.header-cell > table > tbody > tr {
+                display: flex !important;
+                width: 100% !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child {
+                display: flex !important;
+                flex: 1 !important;
+                min-width: 0 !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table,
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody,
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr {
+                display: flex !important;
+                width: 100% !important;
+                flex-direction: row !important;
+                align-items: center !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(1) {
+                flex-shrink: 0 !important;
+                display: block !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(2) {
+                display: none !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) {
+                flex: 1 !important;
+                min-width: 0 !important;
+                padding-left: 8px !important;
+                border-left: 1px solid #eaeaea !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) span {
+                font-size: 16px !important;
+                white-space: nowrap !important;
+                text-overflow: ellipsis !important;
+                overflow: hidden !important;
+                display: block !important;
+            }
+            td.header-right-td {
+                display: flex !important;
+                width: 115px !important; 
+                max-width: 115px !important;
+                flex: 0 0 115px !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+        }
+        
+        /* --- GLOBAL DESKTOP OVERRIDES --- */
+        @media (min-width: 641px) {
+            .logo, .header-logo {
+                width: 54px !important;
+                height: 54px !important;
+                margin-right: 20px !important;
+            }
+            .header, .top-banner {
+                padding: 30px 40px !important;
+                flex-wrap: nowrap !important;
+            }
+            .vertical-line, .vertical-line-header, .logo-divider, .header-divider {
+                margin-right: 20px !important;
+            }
+            .header-right {
+                width: auto !important;
+                max-width: 175px !important;
+                flex-shrink: 0 !important;
+            }
+            .heading {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 6px !important;
+                white-space: nowrap !important;
+            }
+            .heading h1, .heading h2, .heading h3, .heading small {
+                display: inline-block !important;
+                margin: 0 !important;
+                white-space: nowrap !important;
+            }
+            .heading small, .heading h2:first-child:not(:last-child) {
+                font-size: 13px !important;
+                font-weight: 700 !important;
+                color: #555 !important;
+                letter-spacing: 0.5px !important;
+            }
+            .heading h1, .heading h2:only-child, .heading h3:only-child {
+                font-size: 24px !important;
+            }
+            div.card {
+                max-width: 1100px !important;
+            }
+        }
+        /* --- END GLOBAL OVERRIDES --- */
+
     </style>
 
 </head>
 
 <body>
-    <div id="__global_nav__" style="background:#111827;color:#fff;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;position:fixed;top:0;left:0;width:100%;box-sizing:border-box;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
-        <a href="email-upgrade-successful.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">&#8592; Back</a>
-        <a href="index.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:0.7;">&#9679; Video Event Invite</a>
-        <a href="trial converted.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">Next &#8594;</a>
+    <div id="__global_nav__"
+        style="background:#111827;color:#fff;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;position:fixed;top:0;left:0;width:100%;box-sizing:border-box;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+        <a href="email-upgrade-successful.html"
+            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">&#8592;
+            Back</a>
+        <a href="index.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:0.7;">&#9679;
+            Video Event Invite</a>
+        <a href="trial converted.html"
+            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">Next
+            &#8594;</a>
     </div>
     <div style="height:50px;"></div>
     <!-- GLOBAL NAVIGATION BAR -->
-    
+
     <!-- END GLOBAL NAVIGATION BAR -->
 
 
@@ -381,7 +831,7 @@
 
                 <!-- HIGHLIGHTED SECTION 1: HEADING -->
                 <div class="heading">
-                    <h1>Video Event Invite</h1>
+                    <h1>Video Event Invitation</h1>
                 </div>
 
             </div>
@@ -456,8 +906,8 @@
             <h2>Hi Alex Carter,</h2>
 
             <p>
-                You have been invited to attend a video event. Please review the event details below<br>
-                and use the link when the event begins.
+                You’re invited to join a video event. Review the details below and <br>use the event link when it’s time
+                to join.
             </p>
 
 
@@ -477,7 +927,7 @@
                                 stroke-width="3" />
                         </svg>
                     </div>
-                    <div class="detail-label">Event</div>
+                    <div class="detail-label">Event Name</div>
                     <div class="detail-colon">:</div>
                     <div class="detail-value">Quarterly Strategy Review</div>
                 </div>
@@ -494,7 +944,7 @@
                     </div>
                     <div class="detail-label">Start Time</div>
                     <div class="detail-colon">:</div>
-                    <div class="detail-value">2026-06-15 &nbsp; 10:00 AM America/New_York</div>
+                    <div class="detail-value">June 15, &nbsp; 2026 at 10:00 AM ET</div>
                 </div>
 
                 <!-- End Time Row -->
@@ -509,7 +959,7 @@
                     </div>
                     <div class="detail-label">End Time</div>
                     <div class="detail-colon">:</div>
-                    <div class="detail-value">2026-06-15 &nbsp; 11:00 AM America/New_York</div>
+                    <div class="detail-value">June 15,&nbsp; 2026 at 11:00 AM ET</div>
                 </div>
             </div>
 
@@ -523,7 +973,7 @@
             <!-- RSVP SECTION (NEW GOING? OPTIONS) -->
             <!-- ========================================== -->
             <div class="rsvp-container">
-                <span class="rsvp-label">Going?</span>
+                <span class="rsvp-label">Will You Attend?</span>
                 <div class="rsvp-buttons">
                     <div class="rsvp-yes-group">
                         <a href="#" class="rsvp-btn rsvp-yes">
@@ -548,7 +998,6 @@
                     </div>
                     <a href="#" class="rsvp-btn">Maybe</a>
                     <a href="#" class="rsvp-btn">No</a>
-                    <a href="#" class="rsvp-more">More</a>
                 </div>
             </div>
             <!-- ========================================== -->
@@ -556,8 +1005,7 @@
 
 
             <p>
-                Use the button below to open the event link. You can keep this email handy<br>
-                so the event details are easy to find.
+                Use the button below to join the event. Keep this email for<br> quick access to the event details.
             </p>
 
             <a href="#" class="cta-btn">
@@ -567,7 +1015,7 @@
                     <polygon points="23 7 16 12 23 17 23 7" fill="white"></polygon>
                     <rect x="1" y="5" width="15" height="14" rx="2" ry="2" fill="white"></rect>
                 </svg>
-                Open Event
+                Join Event
             </a>
 
         </div>
@@ -580,7 +1028,8 @@
                     <div class="help-text">
                         <h3>Need Help?</h3>
                         <p>Our support team is here for you.<br>
-                        <strong>support@dialphone.com</strong></p>
+                            <strong>support@dialphone.com</strong>
+                        </p>
                     </div>
                 </div>
                 <a href="mailto:support@dialphone.com" class="contact-btn">Contact Support</a>

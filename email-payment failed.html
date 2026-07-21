@@ -1,219 +1,982 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Failed - DialPhone</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: #f4f5f7; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 40px 20px; color: #111827; }
-        .email-container { background-color: #ffffff; width: 100%; max-width: 640px; border: 1px solid #e5e7eb; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 24px 40px; border-bottom: 1px solid #e5e7eb; }
-        .logo-area { display: flex; align-items: center; gap: 16px; }
-        .logo img { width: 50px; height: 50px; object-fit: contain; display: block; }
-        .logo-divider { width: 1.5px; height: 50px; background-color: #e5e7eb; }
-        .header-text h1 { font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 3px; }
-        .header-text p { font-size: 14px; color: #4b5563; }
-        .header-illustration { display: flex; align-items: center; justify-content: flex-end; }
-        .main-content { padding: 41px 48px; display: flex; flex-direction: column; }
-        /* Error Rings */
-        .main-error-icon { display: flex; justify-content: center; margin-bottom: 24px; }
-        .error-ring-2 { background-color: #fef2f2; padding: 12px; border-radius: 50%; display: inline-flex; }
-        .error-ring-1 { background-color: #fee2e2; padding: 12px; border-radius: 50%; display: inline-flex; }
-        .error-circle { width: 64px; height: 64px; background-color: white; border: 2.5px solid #ef4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .error-circle svg { width: 28px; height: 28px; stroke: #ef4444; stroke-width: 3; }
-        /* Typography */
-        .title { font-size: 30px; font-weight: 800; color: #111827; margin-bottom: 12px; letter-spacing: -0.5px; text-align: center; }
-        .subtitle { font-size: 14px; color: #4b5563; line-height: 1.6; margin-bottom: 24px; text-align: center; }
-        .separator { width: 32px; height: 1px; background-color: #9ca3af; margin: 0 auto 32px; }
-        /* Alert Box */
-        .alert-box { background-color: #fff1f2; border: 1px solid #ffe4e6; border-radius: 8px; padding: 20px 24px; display: flex; gap: 16px; margin-bottom: 40px; align-items: center; }
-        .alert-icon-wrap { width: 40px; height: 40px; background-color: #fee2e2; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .alert-text h3 { font-size: 14px; font-weight: 700; color: #111827; margin-bottom: 4px; }
-        .alert-text p { font-size: 13px; color: #374151; line-height: 1.5; }
-        /* Email Body */
-        .email-body { font-size: 14px; line-height: 1.7; color: #111827; margin-bottom: 32px; }
-        .email-body p { margin-bottom: 16px; }
-        .email-body p:last-child { margin-bottom: 0; }
-        /* Action Buttons */
-        .action-area { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; }
-        .primary-btn { background-color: #000000; color: white; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 15px; display: inline-flex; align-items: center; gap: 10px; width: 100%; max-width: 250px; justify-content: center; margin-bottom: 16px; transition: background-color 0.2s; }
-        .primary-btn:hover { background-color: #1f2937; }
-        .btn-icon { width: 20px; height: 20px; }
-        .secondary-link { color: #111827; font-size: 14px; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 4px; }
-        /* Steps Box */
-        .steps-box { background-color: #f9fafb; border-radius: 8px; padding: 24px; display: flex; align-items: stretch; margin-bottom: 24px; gap: 12px; }
-        .step-item { display: flex; flex: 1; gap: 12px; align-items: flex-start; padding: 0 4px; }
-        .step-divider { width: 1px; background-color: #e5e7eb; }
-        .step-icon { width: 36px; height: 36px; background-color: #e5e7eb; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .step-icon svg { width: 18px; height: 18px; stroke: #111827; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-        .step-content h4 { font-size: 12px; font-weight: 700; color: #111827; margin-bottom: 4px; }
-        .step-content p { font-size: 11px; color: #6b7280; line-height: 1.4; }
-        /* Help Box */
-        .help-box-new { background-color: #f9fafb; border-radius: 8px; padding: 20px 24px; display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
-        .help-icon-new { width: 44px; height: 44px; background-color: #e5e7eb; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .help-icon-new svg { width: 22px; height: 22px; stroke: #111827; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-        .help-text-new { flex: 1; }
-        .help-text-new h4 { font-size: 13px; font-weight: 700; color: #111827; margin-bottom: 4px; }
-        .help-text-new p { font-size: 12px; color: #6b7280; line-height: 1.5; }
-        .help-text-new strong { color: #111827; }
-        .contact-btn { background-color: transparent; border: 1px solid #111827; color: #111827; text-decoration: none; padding: 10px 16px; border-radius: 6px; font-size: 13px; font-weight: 600; transition: background-color 0.2s; }
-        .contact-btn:hover { background-color: #f3f4f6; }
-        /* Footer */
-        .footer { text-align: center; padding: 24px 0 0; font-size: 12px; color: #6b7280; border-top: 1px solid #e5e7eb; }
-        @media(max-width: 600px) {
-            body { padding: 16px; }
-            .header { flex-direction: column; gap: 16px; padding: 20px; text-align: center; }
-            .logo-area { flex-direction: column; gap: 8px; }
-            .logo-divider { display: none; }
-            .main-content { padding: 32px 20px; }
-            .steps-box { flex-direction: column; gap: 20px; padding: 20px; }
-            .step-divider { width: 100%; height: 1px; }
-            .help-box-new { flex-direction: column; text-align: center; }
-            .action-area { padding: 0 10px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f5f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #111827;
+        }
+
+        .email-container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 640px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 40px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .logo-divider {
+            width: 1.5px;
+            height: 50px;
+            background-color: #e5e7eb;
+        }
+
+        .header-text h1 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 3px;
+        }
+
+        .header-text p {
+            font-size: 14px;
+            color: #4b5563;
+        }
+
+        .header-illustration {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .main-content {
+            padding: 41px 48px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Error Rings */
+        .main-error-icon {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .error-ring-2 {
+            background-color: #fef2f2;
+            padding: 12px;
+            border-radius: 50%;
+            display: inline-flex;
+        }
+
+        .error-ring-1 {
+            background-color: #fee2e2;
+            padding: 12px;
+            border-radius: 50%;
+            display: inline-flex;
+        }
+
+        .error-circle {
+            width: 64px;
+            height: 64px;
+            background-color: white;
+            border: 2.5px solid #ef4444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .error-circle svg {
+            width: 28px;
+            height: 28px;
+            stroke: #ef4444;
+            stroke-width: 3;
+        }
+
+        /* Typography */
+        .title {
+            font-size: 30px;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .separator {
+            width: 32px;
+            height: 1px;
+            background-color: #9ca3af;
+            margin: 0 auto 32px;
+        }
+
+        /* Alert Box */
+        .alert-box {
+            background-color: #fff1f2;
+            border: 1px solid #ffe4e6;
+            border-radius: 8px;
+            padding: 20px 24px;
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+
+        .alert-icon-wrap {
+            width: 40px;
+            height: 40px;
+            background-color: #fee2e2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .alert-text h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+
+        .alert-text p {
+            font-size: 13px;
+            color: #374151;
+            line-height: 1.5;
+        }
+
+        /* Email Body */
+        .email-body {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #111827;
+            margin-bottom: 32px;
+        }
+
+        .email-body p {
+            margin-bottom: 16px;
+        }
+
+        .email-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Action Buttons */
+        .action-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .primary-btn {
+            background-color: #000000;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 250px;
+            justify-content: center;
+            margin-bottom: 16px;
+            transition: background-color 0.2s;
+        }
+
+        .primary-btn:hover {
+            background-color: #1f2937;
+        }
+
+        .btn-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .secondary-link {
+            color: #111827;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Steps Box */
+        .steps-box {
+            background-color: #f9fafb;
+            border-radius: 8px;
+            padding: 24px;
+            display: flex;
+            align-items: stretch;
+            margin-bottom: 24px;
+            gap: 12px;
+        }
+
+        .step-item {
+            display: flex;
+            flex: 1;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 0 4px;
+        }
+
+        .step-divider {
+            width: 1px;
+            background-color: #e5e7eb;
+        }
+
+        .step-icon {
+            width: 36px;
+            height: 36px;
+            background-color: #e5e7eb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .step-icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: #111827;
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .step-content h4 {
+            font-size: 12px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+
+        .step-content p {
+            font-size: 11px;
+            color: #6b7280;
+            line-height: 1.4;
+        }
+
+        /* Help Box */
+        .help-box-new {
+            background-color: #f9fafb;
+            border-radius: 8px;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 8px;
+        }
+
+        .help-icon-new {
+            width: 44px;
+            height: 44px;
+            background-color: #e5e7eb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .help-icon-new svg {
+            width: 22px;
+            height: 22px;
+            stroke: #111827;
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .help-text-new {
+            flex: 1;
+        }
+
+        .help-text-new h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+
+        .help-text-new p {
+            font-size: 12px;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        .help-text-new strong {
+            color: #111827;
+        }
+
+        .contact-btn {
+            background-color: transparent;
+            border: 1px solid #111827;
+            color: #111827;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .contact-btn:hover {
+            background-color: #f3f4f6;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 24px 0 0;
+            font-size: 12px;
+            color: #6b7280;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        @media(max-width: 600px) {
+            body {
+                padding: 16px;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 16px;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .logo-area {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .logo-divider {
+                display: none;
+            }
+
+            .main-content {
+                padding: 32px 20px;
+            }
+
+            .steps-box {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .step-divider {
+                width: 100%;
+                height: 1px;
+            }
+
+            .help-box-new {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .action-area {
+                padding: 0 10px;
+            }
+        }
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        /* --- BEGIN GLOBAL OVERRIDES --- */
+        /* --- GLOBAL MOBILE OVERRIDES --- */
+        @media (max-width: 640px) {
+            body { 
+                padding-left: 12px !important; 
+                padding-right: 12px !important; 
+                padding-top: 60px !important;
+            }
+            .container, .card, .email-container, .main-wrapper, .email-wrapper { 
+                width: 100% !important; 
+                max-width: 100% !important; 
+                padding: 16px !important;
+                box-sizing: border-box !important;
+            }
+            /* Force header elements into a single row */
+            .header, .top-banner {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                padding: 16px 8px !important;
+                gap: 8px !important;
+                box-sizing: border-box !important;
+                min-height: 40px !important;
+                overflow: visible !important;
+            }
+            .header-left, .logo-section, .header-title-container, .brand-section, .logo-area {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                align-items: center !important;
+                gap: 8px !important;
+                flex: 1 !important;
+                min-width: 0 !important;
+            }
+            /* Prevent logo wrapper from shrinking to 0 width */
+            div.logo, span.logo, .header-logo, .logo-icon {
+                flex-shrink: 1 !important;
+                width: auto !important;
+                height: auto !important;
+                margin: 0 !important;
+                min-width: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+            }
+            /* Apply strict medium height ONLY to images */
+            img.logo, .logo-img, .header-logo img, .logo-icon img, .brand-section img, div.logo img {
+                height: 48px !important; 
+                width: auto !important;
+                flex-shrink: 0 !important;
+                display: block !important;
+                max-width: 100% !important;
+            }
+            .logo-text, .header-title, .logo-title, .brand-title, .heading h1, .header-text h1, .heading h2, .header-text h2, .heading h3, .header-text h3, .heading small {
+                font-size: 16px !important; 
+                line-height: 1.25 !important;
+                margin: 0 !important;
+                white-space: nowrap !important;
+                text-overflow: ellipsis !important;
+                overflow: hidden !important;
+                text-align: left !important;
+                min-width: 0 !important;
+            }
+            .logo-text-wrapper, .logo-text-block, .heading, .header-text, .header-center, .header-title-block {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: flex-start !important;
+                gap: 4px !important;
+                min-width: 0 !important;
+                flex: 1 !important;
+                border: none !important;
+                padding-left: 0 !important;
+            }
+            .logo-subtitle, .logo-tagline, .banner-desc, .heading p, .header-text p, .header-subtitle {
+                display: none !important;
+            }
+            /* The icon/illustration in the header */
+            .header-right, .header-illustration, .header-right-td, .banner-illustration, .header-icon, .hero-illustration {
+                display: flex !important;
+                width: 115px !important; 
+                max-width: 115px !important;
+                flex: 0 0 115px !important;
+                height: 100% !important;
+                min-height: 40px !important;
+                align-items: center !important;
+                justify-content: center !important;
+                padding-left: 0 !important;
+                overflow: visible !important;
+            }
+            .header-right svg, .header-illustration svg, .banner-illustration svg, .header-icon svg, .hero-illustration svg {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 100% !important;
+                max-height: 100% !important;
+                object-fit: contain !important;
+                overflow: visible !important;
+            }
+            svg.hero-svg {
+                max-width: 180px !important;
+                height: auto !important;
+                margin: 0 auto !important;
+                display: block !important;
+            }
+            /* Stack other body elements */
+            .info-row, .features-row, .alert-actions { 
+                display: flex !important;
+                flex-direction: column !important; 
+                align-items: flex-start !important;
+                gap: 12px !important;
+            }
+            .btn, .btn-outline, .btn-primary, .support-btn, .dashboard-btn, .confirm-btn {
+                width: 100% !important;
+                justify-content: center !important;
+                margin: 12px 0 0 0 !important;
+                box-sizing: border-box !important;
+            }
+            .info-separator, .logo-divider, .header-divider, .brand-divider, .vertical-line-header, .header-left .vertical-line { display: none !important; }
+            .info-item { margin-bottom: 8px !important; }
+            
+            /* Force OTP boxes into a single line */
+            .otp-container {
+                flex-wrap: nowrap !important;
+                gap: 6px !important;
+                width: 100% !important;
+                justify-content: center !important;
+                padding: 0 !important;
+            }
+            .otp-box {
+                flex: 1 1 0 !important;
+                width: auto !important;
+                max-width: 50px !important;
+                height: 55px !important;
+                font-size: 24px !important;
+            }
+            
+            /* Table-based email template overrides */
+            td.header-cell {
+                padding: 12px 8px !important;
+                display: block !important;
+            }
+            td.header-cell > table, 
+            td.header-cell > table > tbody,
+            td.header-cell > table > tbody > tr {
+                display: flex !important;
+                width: 100% !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child {
+                display: flex !important;
+                flex: 1 !important;
+                min-width: 0 !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table,
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody,
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr {
+                display: flex !important;
+                width: 100% !important;
+                flex-direction: row !important;
+                align-items: center !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(1) {
+                flex-shrink: 0 !important;
+                display: block !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(2) {
+                display: none !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) {
+                flex: 1 !important;
+                min-width: 0 !important;
+                padding-left: 8px !important;
+                border-left: 1px solid #eaeaea !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) span {
+                font-size: 16px !important;
+                white-space: nowrap !important;
+                text-overflow: ellipsis !important;
+                overflow: hidden !important;
+                display: block !important;
+            }
+            td.header-right-td {
+                display: flex !important;
+                width: 115px !important; 
+                max-width: 115px !important;
+                flex: 0 0 115px !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+        }
+        
+        /* --- GLOBAL DESKTOP OVERRIDES --- */
+        @media (min-width: 641px) {
+            .logo, .header-logo {
+                width: 54px !important;
+                height: 54px !important;
+                margin-right: 20px !important;
+            }
+            .header, .top-banner {
+                padding: 30px 40px !important;
+                flex-wrap: nowrap !important;
+            }
+            .vertical-line, .vertical-line-header, .logo-divider, .header-divider {
+                margin-right: 20px !important;
+            }
+            .header-right {
+                width: auto !important;
+                max-width: 175px !important;
+                flex-shrink: 0 !important;
+            }
+            .heading {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 6px !important;
+                white-space: nowrap !important;
+            }
+            .heading h1, .heading h2, .heading h3, .heading small {
+                display: inline-block !important;
+                margin: 0 !important;
+                white-space: nowrap !important;
+            }
+            .heading small, .heading h2:first-child:not(:last-child) {
+                font-size: 13px !important;
+                font-weight: 700 !important;
+                color: #555 !important;
+                letter-spacing: 0.5px !important;
+            }
+            .heading h1, .heading h2:only-child, .heading h3:only-child {
+                font-size: 24px !important;
+            }
+            div.card {
+                max-width: 1100px !important;
+            }
+        }
+        /* --- END GLOBAL OVERRIDES --- */
+
     </style>
 </head>
+
 <body>
-    <div id="__global_nav__" style="background:#111827;color:#fff;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;position:fixed;top:0;left:0;width:100%;box-sizing:border-box;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
-        <a href="email-email verification.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">&#8592; Back</a>
-        <a href="index.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:0.7;">&#9679; Payment Failed</a>
-        <a href="email-reset.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">Next &#8594;</a>
+    <div id="__global_nav__"
+        style="background:#111827;color:#fff;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;position:fixed;top:0;left:0;width:100%;box-sizing:border-box;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+        <a href="email-email verification.html"
+            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">&#8592;
+            Back</a>
+        <a href="index.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:0.7;">&#9679;
+            Payment Failed</a>
+        <a href="email-reset.html"
+            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">Next
+            &#8594;</a>
     </div>
     <div style="height:50px;"></div>
-<!-- GLOBAL NAVIGATION BAR -->
+    <!-- GLOBAL NAVIGATION BAR -->
 
-<!-- END GLOBAL NAVIGATION BAR -->
-<div class="email-container">
-    <header class="header">
-        <div class="logo-area">
-            <div class="logo">
-                <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png" alt="DialPhone Logo">
+    <!-- END GLOBAL NAVIGATION BAR -->
+    <div class="email-container">
+        <header class="header">
+            <div class="logo-area">
+                <div class="logo">
+                    <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png"
+                        alt="DialPhone Logo">
+                </div>
+                <div class="logo-divider"></div>
+                <div class="header-text">
+                    <h1>Payment Failed</h1>
+                    <p>Action Required</p>
+                </div>
             </div>
-            <div class="logo-divider"></div>
-            <div class="header-text">
-                <h1>Payment Failed</h1>
-                <p>Action Required</p>
+            <div class="header-illustration">
+                <svg width="180" height="114" viewBox="0 0 300 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Decorative dashes Left -->
+                    <path d="M 35 170 C 20 105, 100 105, 90 175" fill="none" stroke="#64748b" stroke-width="1.5"
+                        stroke-dasharray="4 6" stroke-linecap="round" />
+                    <!-- Decorative dashes Right -->
+                    <path d="M 218 115 C 248 95, 265 138, 245 150 C 225 162, 252 178, 270 165" fill="none"
+                        stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 6" />
+
+
+
+                    <!-- Small symbols -->
+                    <!-- Plus left (top floating) -->
+                    <path d="M 65 75 L 65 85 M 60 80 L 70 80" stroke="#334155" stroke-width="1.5"
+                        stroke-linecap="round" />
+                    <!-- Plus right (top floating) -->
+                    <path d="M 222 85 L 222 95 M 217 90 L 227 90" stroke="#334155" stroke-width="1.5"
+                        stroke-linecap="round" />
+                    <!-- Circle left (touching arch) -->
+                    <circle cx="51" cy="124" r="3" fill="#ffffff" stroke="#334155" stroke-width="1.5" />
+                    <!-- Diamond right (floating near card) -->
+                    <path d="M 250 162 L 253 165 L 250 168 L 247 165 Z" fill="none" stroke="#334155" stroke-width="1.5"
+                        stroke-linejoin="round" />
+
+                    <!-- Envelope Back -->
+                    <rect x="90" y="95" width="120" height="80" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" />
+
+                    <!-- Paper inside -->
+                    <rect x="106" y="40" width="88" height="110" rx="3" fill="#ffffff" stroke="#94a3b8"
+                        stroke-width="1.5" />
+
+                    <!-- Red error icon -->
+                    <circle cx="150" cy="85" r="22" fill="#ff2a3f" />
+                    <path d="M 141 76 L 159 94 M 159 76 L 141 94" stroke="#ffffff" stroke-width="2"
+                        stroke-linecap="round" />
+
+                    <!-- Envelope Front -->
+                    <polygon points="90,95 150,135 210,95 210,175 90,175" fill="#ffffff" stroke="#94a3b8"
+                        stroke-width="1.5" stroke-linejoin="round" />
+                    <path d="M 90 175 L 150 135 L 210 175" fill="none" stroke="#94a3b8" stroke-width="1.5"
+                        stroke-linejoin="round" />
+
+                    <!-- Black Credit Card -->
+                    <rect x="185" y="125" width="60" height="40" rx="3" fill="#111827" />
+                    <rect x="185" y="135" width="60" height="8" fill="#f8fafc" />
+                    <rect x="195" y="152" width="15" height="4" rx="1.5" fill="#f8fafc" />
+                    <rect x="218" y="152" width="8" height="4" rx="1.5" fill="#f8fafc" />
+                </svg>
             </div>
-        </div>
-        <div class="header-illustration">
-            <svg width="180" height="114" viewBox="0 0 300 190" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Decorative dashes Left -->
-    <path d="M 35 170 C 20 105, 100 105, 90 175" fill="none" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 6" stroke-linecap="round"/>
-    <!-- Decorative dashes Right -->
-        <path d="M 218 115 C 248 95, 265 138, 245 150 C 225 162, 252 178, 270 165" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 6"/>
+        </header>
 
-
-
-    <!-- Small symbols -->
-    <!-- Plus left (top floating) -->
-    <path d="M 65 75 L 65 85 M 60 80 L 70 80" stroke="#334155" stroke-width="1.5" stroke-linecap="round"/>
-    <!-- Plus right (top floating) -->
-    <path d="M 222 85 L 222 95 M 217 90 L 227 90" stroke="#334155" stroke-width="1.5" stroke-linecap="round"/>
-    <!-- Circle left (touching arch) -->
-    <circle cx="51" cy="124" r="3" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
-    <!-- Diamond right (floating near card) -->
-    <path d="M 250 162 L 253 165 L 250 168 L 247 165 Z" fill="none" stroke="#334155" stroke-width="1.5" stroke-linejoin="round"/>
-
-    <!-- Envelope Back -->
-    <rect x="90" y="95" width="120" height="80" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
-    
-    <!-- Paper inside -->
-    <rect x="106" y="40" width="88" height="110" rx="3" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
-    
-    <!-- Red error icon -->
-    <circle cx="150" cy="85" r="22" fill="#ff2a3f"/>
-    <path d="M 141 76 L 159 94 M 159 76 L 141 94" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-    
-    <!-- Envelope Front -->
-    <polygon points="90,95 150,135 210,95 210,175 90,175" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" stroke-linejoin="round"/>
-    <path d="M 90 175 L 150 135 L 210 175" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linejoin="round"/>
-    
-    <!-- Black Credit Card -->
-    <rect x="185" y="125" width="60" height="40" rx="3" fill="#111827"/>
-    <rect x="185" y="135" width="60" height="8" fill="#f8fafc"/>
-    <rect x="195" y="152" width="15" height="4" rx="1.5" fill="#f8fafc"/>
-    <rect x="218" y="152" width="8" height="4" rx="1.5" fill="#f8fafc"/>
-</svg>
-        </div>
-    </header>
-
-    <main class="main-content">
-        <div class="main-error-icon">
-            <div class="error-ring-2">
-                <div class="error-ring-1">
-                    <div class="error-circle">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
+        <main class="main-content">
+            <div class="main-error-icon">
+                <div class="error-ring-2">
+                    <div class="error-ring-1">
+                        <div class="error-circle">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <h2 class="title">Payment Failed</h2>
-        <p class="subtitle">We couldn't process your payment.<br>Please check your payment details and try again.</p>
-        <div class="separator"></div>
-        <div class="alert-box">
-            <div class="alert-icon-wrap">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px;">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="16" x2="12" y2="12"></line>
-                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                </svg>
+            <h2 class="title">Payment Failed</h2>
+            <p class="subtitle">We couldn't process your payment. <br>Please review your payment details and try again.
+            </p>
+            <div class="separator"></div>
+            <div class="alert-box">
+                <div class="alert-icon-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round" style="width: 20px; height: 20px;">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                </div>
+                <div class="alert-text">
+                    <h3>What happened?</h3>
+                    <p>Your payment was declined by your bank. No amount has been deducted.</p>
+                </div>
             </div>
-            <div class="alert-text">
-                <h3>What happened?</h3>
-                <p>Your payment was declined by your bank.<br>No amount has been deducted.</p>
+            <div class="email-body">
+                <p>Hello <b>Alex Carter</b>,</p>
+                <p>We couldn't process your recent payment. Please check your payment<br>details and try again.</p>
             </div>
-        </div>
-        <div class="email-body">
-            <p>Hello Alex Carter,</p>
-            <p>We couldn't process your recent payment. Please check your payment<br>details and try again.</p>
-        </div>
-        <div class="action-area">
-            <a href="#" class="primary-btn">
-                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Try Payment Again
-            </a>
-            <a href="#" class="secondary-link">Go to Dashboard <span style="font-weight: 400;">&gt;</span></a>
-        </div>
-       
-        <div class="help-box-new">
-            <div class="help-icon-new">
-                <svg viewBox="0 0 24 24">
-                    <text x="12" y="18" font-size="20" font-weight="900" font-family="'Inter', Arial, sans-serif" text-anchor="middle" fill="#000000" stroke="none">?</text>
-                </svg>
+            <div class="action-area">
+                <a href="#" class="primary-btn">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Try Again
+                </a>
+                <a href="#" class="secondary-link">Go to Dashboard <span style="font-weight: 400;">&gt;</span></a>
             </div>
-            <div class="help-text-new">
-                <h4>Need Help?</h4>
-                <p>Our support team is here for you.<br><strong>support@dialphone.com</strong></p>
+
+            <div class="help-box-new">
+                <div class="help-icon-new">
+                    <svg viewBox="0 0 24 24">
+                        <text x="12" y="18" font-size="20" font-weight="900" font-family="'Inter', Arial, sans-serif"
+                            text-anchor="middle" fill="#000000" stroke="none">?</text>
+                    </svg>
+                </div>
+                <div class="help-text-new">
+                    <h4>Need Help?</h4>
+                    <p>Our support team is here for you.<br><strong>support@dialphone.com</strong></p>
+                </div>
+                <a href="#" class="contact-btn">Contact Support</a>
             </div>
-            <a href="#" class="contact-btn">Contact Support</a>
-        </div>
-        <footer class="footer">
-        </footer>
-    </main>
-</div>
+
+            <div style="text-align: center; margin-top: 10px; margin-bottom: 20px;">
+                <h4 style="font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 12px;">Note !!</h4>
+                <p style="font-size: 14.5px; color: #4b5563; line-height: 1.6;">
+                    If the problem continues, contact your bank or reach out to our support team.
+                </p>
+            </div>
+
+            <footer class="footer">
+
+            </footer>
+        </main>
+    </div>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

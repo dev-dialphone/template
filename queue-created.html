@@ -1,5 +1,6 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <style>
         :root {
             --black: #000000;
+            --blue: #0066FF;
             --gray-50: #f9fafb;
             --gray-100: #f3f4f6;
             --gray-200: #e5e7eb;
@@ -43,7 +45,7 @@
             border-radius: 12px;
             background-color: #ffffff;
             width: 100%;
-            max-width: 1100px;
+            max-width: 750px;
         }
 
         .notification-card {
@@ -65,9 +67,10 @@
         .black-dot-top {
             width: 12px;
             height: 12px;
-            background-color: var(--black);
+            background-color: var(--blue);
             border-radius: 50%;
         }
+
 
         .close-btn {
             background: none;
@@ -131,7 +134,7 @@
         }
 
         .notification-title {
-            color: var(--black);
+            color: var(--blue);
             font-weight: 700;
             font-size: 15px;
             letter-spacing: -0.01em;
@@ -171,7 +174,7 @@
             height: 18px;
             color: var(--black);
         }
-        
+
         .bottom-row {
             display: flex;
             justify-content: space-between;
@@ -215,39 +218,444 @@
         }
 
         /* Responsive */
-        @media (max-width: 900px) {
+        @media (max-width: 600px) {
             .card-body {
                 flex-direction: column;
                 align-items: center;
                 padding-left: 0;
             }
+
             .bottom-row {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 16px;
             }
+
             .btn-outline {
                 margin-left: 0;
             }
         }
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        /* --- BEGIN GLOBAL OVERRIDES --- */
+        /* --- GLOBAL MOBILE OVERRIDES --- */
+        @media (max-width: 640px) {
+            body { 
+                padding-left: 12px !important; 
+                padding-right: 12px !important; 
+                padding-top: 60px !important;
+            }
+            .container, .card, .email-container, .main-wrapper, .email-wrapper { 
+                width: 100% !important; 
+                max-width: 100% !important; 
+                padding: 16px !important;
+                box-sizing: border-box !important;
+            }
+            /* Force header elements into a single row */
+            .header, .top-banner {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                padding: 16px 8px !important;
+                gap: 8px !important;
+                box-sizing: border-box !important;
+                min-height: 40px !important;
+                overflow: visible !important;
+            }
+            .header-left, .logo-section, .header-title-container, .brand-section, .logo-area {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                align-items: center !important;
+                gap: 8px !important;
+                flex: 1 !important;
+                min-width: 0 !important;
+            }
+            /* Prevent logo wrapper from shrinking to 0 width */
+            div.logo, span.logo, .header-logo, .logo-icon {
+                flex-shrink: 1 !important;
+                width: auto !important;
+                height: auto !important;
+                margin: 0 !important;
+                min-width: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+            }
+            /* Apply strict medium height ONLY to images */
+            img.logo, .logo-img, .header-logo img, .logo-icon img, .brand-section img, div.logo img {
+                height: 48px !important; 
+                width: auto !important;
+                flex-shrink: 0 !important;
+                display: block !important;
+                max-width: 100% !important;
+            }
+            .logo-text, .header-title, .logo-title, .brand-title, .heading h1, .header-text h1, .heading h2, .header-text h2, .heading h3, .header-text h3, .heading small {
+                font-size: 16px !important; 
+                line-height: 1.25 !important;
+                margin: 0 !important;
+                white-space: nowrap !important;
+                text-overflow: ellipsis !important;
+                overflow: hidden !important;
+                text-align: left !important;
+                min-width: 0 !important;
+            }
+            .logo-text-wrapper, .logo-text-block, .heading, .header-text, .header-center, .header-title-block {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: flex-start !important;
+                gap: 4px !important;
+                min-width: 0 !important;
+                flex: 1 !important;
+                border: none !important;
+                padding-left: 0 !important;
+            }
+            .logo-subtitle, .logo-tagline, .banner-desc, .heading p, .header-text p, .header-subtitle {
+                display: none !important;
+            }
+            /* The icon/illustration in the header */
+            .header-right, .header-illustration, .header-right-td, .banner-illustration, .header-icon, .hero-illustration {
+                display: flex !important;
+                width: 115px !important; 
+                max-width: 115px !important;
+                flex: 0 0 115px !important;
+                height: 100% !important;
+                min-height: 40px !important;
+                align-items: center !important;
+                justify-content: center !important;
+                padding-left: 0 !important;
+                overflow: visible !important;
+            }
+            .header-right svg, .header-illustration svg, .banner-illustration svg, .header-icon svg, .hero-illustration svg {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 100% !important;
+                max-height: 100% !important;
+                object-fit: contain !important;
+                overflow: visible !important;
+            }
+            svg.hero-svg {
+                max-width: 180px !important;
+                height: auto !important;
+                margin: 0 auto !important;
+                display: block !important;
+            }
+            /* Stack other body elements */
+            .info-row, .features-row, .alert-actions { 
+                display: flex !important;
+                flex-direction: column !important; 
+                align-items: flex-start !important;
+                gap: 12px !important;
+            }
+            .btn, .btn-outline, .btn-primary, .support-btn, .dashboard-btn, .confirm-btn {
+                width: 100% !important;
+                justify-content: center !important;
+                margin: 12px 0 0 0 !important;
+                box-sizing: border-box !important;
+            }
+            .info-separator, .logo-divider, .header-divider, .brand-divider, .vertical-line-header, .header-left .vertical-line { display: none !important; }
+            .info-item { margin-bottom: 8px !important; }
+            
+            /* Force OTP boxes into a single line */
+            .otp-container {
+                flex-wrap: nowrap !important;
+                gap: 6px !important;
+                width: 100% !important;
+                justify-content: center !important;
+                padding: 0 !important;
+            }
+            .otp-box {
+                flex: 1 1 0 !important;
+                width: auto !important;
+                max-width: 50px !important;
+                height: 55px !important;
+                font-size: 24px !important;
+            }
+            
+            /* Table-based email template overrides */
+            td.header-cell {
+                padding: 12px 8px !important;
+                display: block !important;
+            }
+            td.header-cell > table, 
+            td.header-cell > table > tbody,
+            td.header-cell > table > tbody > tr {
+                display: flex !important;
+                width: 100% !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child {
+                display: flex !important;
+                flex: 1 !important;
+                min-width: 0 !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table,
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody,
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr {
+                display: flex !important;
+                width: 100% !important;
+                flex-direction: row !important;
+                align-items: center !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(1) {
+                flex-shrink: 0 !important;
+                display: block !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(2) {
+                display: none !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) {
+                flex: 1 !important;
+                min-width: 0 !important;
+                padding-left: 8px !important;
+                border-left: 1px solid #eaeaea !important;
+            }
+            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) span {
+                font-size: 16px !important;
+                white-space: nowrap !important;
+                text-overflow: ellipsis !important;
+                overflow: hidden !important;
+                display: block !important;
+            }
+            td.header-right-td {
+                display: flex !important;
+                width: 115px !important; 
+                max-width: 115px !important;
+                flex: 0 0 115px !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+        }
+        
+        /* --- GLOBAL DESKTOP OVERRIDES --- */
+        @media (min-width: 641px) {
+            .logo, .header-logo {
+                width: 54px !important;
+                height: 54px !important;
+                margin-right: 20px !important;
+            }
+            .header, .top-banner {
+                padding: 30px 40px !important;
+                flex-wrap: nowrap !important;
+            }
+            .vertical-line, .vertical-line-header, .logo-divider, .header-divider {
+                margin-right: 20px !important;
+            }
+            .header-right {
+                width: auto !important;
+                max-width: 175px !important;
+                flex-shrink: 0 !important;
+            }
+            .heading {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 6px !important;
+                white-space: nowrap !important;
+            }
+            .heading h1, .heading h2, .heading h3, .heading small {
+                display: inline-block !important;
+                margin: 0 !important;
+                white-space: nowrap !important;
+            }
+            .heading small, .heading h2:first-child:not(:last-child) {
+                font-size: 13px !important;
+                font-weight: 700 !important;
+                color: #555 !important;
+                letter-spacing: 0.5px !important;
+            }
+            .heading h1, .heading h2:only-child, .heading h3:only-child {
+                font-size: 24px !important;
+            }
+            div.card {
+                max-width: 1100px !important;
+            }
+        }
+        /* --- END GLOBAL OVERRIDES --- */
+
     </style>
 </head>
+
 <body>
-    <div id="__global_nav__" style="background:#111827;color:#fff;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;position:fixed;top:0;left:0;width:100%;box-sizing:border-box;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
-        <a href="payment-received.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">&#8592; Back</a>
-        <a href="index.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:0.7;">&#9679; Queue Created</a>
-        <a href="security-notification.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">Next &#8594;</a>
+    <div id="__global_nav__"
+        style="background:#111827;color:#fff;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;position:fixed;top:0;left:0;width:100%;box-sizing:border-box;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+        <a href="payment-received.html"
+            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">&#8592;
+            Back</a>
+        <a href="index.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:0.7;">&#9679;
+            Queue Created</a>
+        <a href="security-notification.html"
+            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">Next
+            &#8594;</a>
     </div>
     <div style="height:50px;"></div>
     <!-- GLOBAL NAVIGATION BAR -->
-    
+
     <!-- END GLOBAL NAVIGATION BAR -->
 
     <div class="card notification-card">
         <div class="card-header">
             <div class="black-dot-top"></div>
             <button class="close-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
@@ -256,7 +664,8 @@
         <div class="card-body">
             <div class="icon-large">
                 <!-- Custom Queue/Workflow Icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <rect x="2" y="3" width="6" height="6" rx="1.5"></rect>
                     <path d="M10.5 3h1a1.5 1.5 0 0 1 1.5 1.5v3A1.5 1.5 0 0 1 11.5 9h-1"></path>
                     <path d="M15 3h1a1.5 1.5 0 0 1 1.5 1.5v3A1.5 1.5 0 0 1 16 9h-1"></path>
@@ -267,45 +676,50 @@
             </div>
             <div class="notification-details">
                 <div class="notification-title">Queue Created</div>
-                
+
                 <div class="info-row">
                     <span class="info-name">Customer Support Queue</span>
                     <span class="info-separator">|</span>
                     <span class="info-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                             <circle cx="9" cy="7" r="4"></circle>
                             <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
                             <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                         </svg>
-                        15 Agents
+                        15 agents
                     </span>
                     <span class="info-separator">|</span>
                     <span class="info-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
                         </svg>
-                        Ring All Strategy
+                        Ring all
                     </span>
                     <span class="info-separator">|</span>
                     <span class="info-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"></circle>
                             <polyline points="12 6 12 12 16 14"></polyline>
                         </svg>
-                        May 15, 2025, 02:30 PM
+                        May 15, 2025 at 2:30 PM
                     </span>
                 </div>
 
                 <div class="bottom-row">
-                    <div class="subtext">The queue has been created successfully.</div>
+                    <div class="subtext">Customer Support Queue was created successfully.</div>
                     <button class="btn-outline">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none">
                             <rect x="15" y="6" width="4" height="14" rx="1"></rect>
                             <rect x="9" y="10" width="4" height="10" rx="1"></rect>
                             <rect x="3" y="14" width="4" height="6" rx="1"></rect>
                         </svg>
-                        View Details
+                        View Queue
                     </button>
                 </div>
             </div>
@@ -313,7 +727,7 @@
     </div>
 
     <script>
-        document.querySelector('.close-btn').addEventListener('click', function() {
+        document.querySelector('.close-btn').addEventListener('click', function () {
             const card = this.closest('.notification-card');
             card.style.transition = 'opacity 0.3s ease';
             card.style.opacity = '0';
@@ -322,9 +736,10 @@
             }, 300);
         });
 
-        document.querySelector('.btn-outline').addEventListener('click', function() {
+        document.querySelector('.btn-outline').addEventListener('click', function () {
             alert('View Details clicked! Redirecting to queue information...');
         });
     </script>
 </body>
+
 </html>
