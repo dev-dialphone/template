@@ -489,6 +489,51 @@
         
 
     
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
+        
+
+    
         /* --- BEGIN GLOBAL OVERRIDES --- */
         /* --- GLOBAL MOBILE OVERRIDES --- */
         @media (max-width: 640px) {
@@ -686,10 +731,13 @@
         
         /* --- GLOBAL DESKTOP OVERRIDES --- */
         @media (min-width: 641px) {
+            .email-wrapper, .email-container, table.main, .container {
+                max-width: 720px !important;
+            }
             .logo, .header-logo {
-                width: 54px !important;
-                height: 54px !important;
-                margin-right: 20px !important;
+                width: 64px !important;
+                height: 64px !important;
+                flex-shrink: 0 !important;
             }
             .header, .top-banner {
                 padding: 30px 40px !important;
@@ -698,10 +746,15 @@
             .vertical-line, .vertical-line-header, .logo-divider, .header-divider {
                 margin-right: 20px !important;
             }
-            .header-right {
-                width: auto !important;
-                max-width: 175px !important;
+            .header-right, .header-illustration {
+                width: 100% !important;
+                max-width: 160px !important;
                 flex-shrink: 0 !important;
+                height: auto !important;
+            }
+            .header-right svg, .header-illustration svg {
+                width: 100% !important;
+                height: auto !important;
             }
             .heading {
                 display: flex !important;
@@ -710,7 +763,7 @@
                 gap: 6px !important;
                 white-space: nowrap !important;
             }
-            .heading h1, .heading h2, .heading h3, .heading small {
+            .heading h1, .heading h2, .heading h3, .heading small, .logo-text, .header-title {
                 display: inline-block !important;
                 margin: 0 !important;
                 white-space: nowrap !important;
@@ -721,11 +774,12 @@
                 color: #555 !important;
                 letter-spacing: 0.5px !important;
             }
-            .heading h1, .heading h2:only-child, .heading h3:only-child {
+            .heading h1, .heading h2:only-child, .heading h3:only-child, .logo-text, .header-title {
                 font-size: 24px !important;
             }
-            div.card {
-                max-width: 1100px !important;
+            div.notification-card {
+                max-width: 1150px !important;
+                width: fit-content !important;
             }
         }
         /* --- END GLOBAL OVERRIDES --- */
@@ -769,7 +823,7 @@
 
             <div class="header-right">
                 <!-- PERFECT HEADER ILLUSTRATION MATCHING THE IMAGE -->
-                <svg viewBox="20 50 460 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 50 500 250" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <!-- Left PERFECT dashed line loop matching the red box highlight -->
                     <path d="M 110 220 C 70 220, 50 290, 30 280 C 10 270, 10 220, 30 210 C 50 200, 60 270, 15 290"
                         stroke="#111" stroke-width="2.5" stroke-dasharray="6 8" stroke-linecap="round" fill="none" />

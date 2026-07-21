@@ -10,7 +10,7 @@ const files = [
 files.forEach(f => {
     try {
         let text = fs.readFileSync(f, 'utf8');
-        text = text.replace(/viewBox="0 0 500 320"/g, 'viewBox="20 50 460 250"');
+        text = text.replace(/viewBox="20 50 460 250"/g, 'viewBox="0 50 500 250"');
         fs.writeFileSync(f, text);
         console.log('Updated ' + f);
     } catch (e) {
