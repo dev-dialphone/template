@@ -201,6 +201,8 @@ const cssInjection = `
         @media (min-width: 641px) {
             .email-wrapper, .email-container, table.main, .container {
                 max-width: 720px !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
             }
             .logo, .header-logo {
                 width: 64px !important;
