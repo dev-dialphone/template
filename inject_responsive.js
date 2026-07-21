@@ -79,7 +79,11 @@ const cssInjection = `
                 padding-left: 0 !important;
             }
             .logo-subtitle, .logo-tagline, .banner-desc, .heading p, .header-text p, .header-subtitle {
-                display: none !important;
+                display: block !important;
+                font-size: 12px !important;
+                color: #6b7280 !important;
+                margin-top: 4px !important;
+                line-height: 1.4 !important;
             }
             /* The icon/illustration in the header */
             .header-right, .header-illustration, .header-right-td, .banner-illustration, .header-icon, .hero-illustration {
