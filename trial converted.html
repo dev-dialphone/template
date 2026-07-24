@@ -5,805 +5,437 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trial Converted - DialPhone</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <!-- Force Light Mode in Dark Mode clients -->
+    <meta name="color-scheme" content="light only" />
+    <meta name="supported-color-schemes" content="light only" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
+        :root {
+            color-scheme: light only;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        /* Reset */
+        body,
+        table,
+        td,
+        a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        table,
+        td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+            border: 0;
+            outline: none;
+            text-decoration: none;
         }
 
         body {
-            background-color: #f9fafb;
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            justify-content: center;
-            padding: 20px 10px;
+            margin: 0;
+            padding: 0;
+            width: 100% !important;
+            height: 100% !important;
         }
 
-        .container {
-            max-width: 600px;
-            width: 100%;
-            background: #ffffff;
-            border-radius: 16px;
-            border: 1px solid #e5e7eb;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-        }
-
-        /* Header */
-        .header {
-            padding: 20px 32px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #f3f4f6;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-        }
-
-        .header-logo {
-            width: 52px;
-            height: 52px;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
-
-        .header-divider {
-            width: 1px;
-            height: 48px;
-            background: #e5e7eb;
-            margin-right: 20px;
-        }
-
-        .header-title-block {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .header-title {
-            font-size: 20px;
-            font-weight: 800;
-            color: #111827;
-        }
-
-        .header-subtitle {
-            font-size: 13px;
-            color: #4b5563;
-            font-weight: 500;
-            margin-top: 4px;
-        }
-
-        .header-illustration {
-            width: 160px;
-            height: 100px;
-        }
-
-        /* Title Area */
-        .title-area {
-            text-align: center;
-            padding: 24px 32px 16px 32px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .success-icon-wrapper {
-            width: 80px;
-            height: 80px;
-            background-color: #059669;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            position: relative;
-            box-shadow: 0 0 0 16px #ecfdf5;
-            margin-top: 16px;
-        }
-
-        .main-title {
-            font-size: 26px;
-            font-weight: 800;
-            color: #000;
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
-        }
-
-        .desc-text {
-            font-size: 15px;
-            color: #374151;
-            font-weight: 500;
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-
-        .desc-text strong {
-            color: #000;
-            font-weight: 800;
-        }
-
-        .btn-dashboard {
-            margin-top: 32px;
-            display: inline-flex;
-            align-items: center;
-            background-color: #059669;
-            color: #fff;
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-size: 15px;
-            font-weight: 800;
-            text-decoration: none;
-            letter-spacing: 0.5px;
-            transition: opacity 0.2s;
-        }
-
-        .btn-dashboard:hover {
-            opacity: 0.9;
-        }
-
-        .btn-dashboard svg {
-            margin-right: 12px;
-        }
-
-        /* Content Area */
-        .content {
-            padding: 0 32px 32px 32px;
-        }
-
-        /* Details Box */
-        .details-box {
-            border: 1px solid #f3f4f6;
-            border-radius: 12px;
-            padding: 24px 32px;
-            margin-bottom: 20px;
-            background: #ffffff;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .details-icon {
-            width: 80px;
-            height: 80px;
-            background: #f3f4f6;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            margin-right: 32px;
-        }
-
-        .details-content {
-            flex: 1;
-        }
-
-        .details-title {
-            font-size: 18px;
-            font-weight: 800;
-            color: #111827;
-            margin-bottom: 24px;
-        }
-
-        .detail-row {
-            display: flex;
-            align-items: center;
-            margin-bottom: 16px;
-            font-size: 14px;
-        }
-
-        .detail-row:last-child {
-            margin-bottom: 0;
-        }
-
-        .detail-icon {
-            width: 18px;
-            height: 18px;
-            margin-right: 16px;
-            color: #4b5563;
-        }
-
-        .detail-label {
-            color: #4b5563;
-            font-weight: 600;
-            width: 160px;
-        }
-
-        .detail-colon {
-            color: #4b5563;
-            margin-right: 16px;
-            font-weight: 600;
-        }
-
-        .detail-value {
-            color: #111827;
-            font-weight: 600;
-        }
-
-        /* Help Box */
-        .help-box {
-            border: 1px solid #f3f4f6;
-            border-radius: 12px;
-            padding: 24px 32px;
-            background: #fafafa;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .help-left {
-            display: flex;
-            align-items: center;
-        }
-
-        .help-icon {
-            width: 64px;
-            height: 64px;
-            background: #f3f4f6;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
-
-        .help-text h4 {
-            font-size: 16px;
-            font-weight: 800;
-            color: #111827;
-            margin-bottom: 4px;
-        }
-
-        .help-text p {
-            font-size: 13px;
-            color: #4b5563;
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-
-        .help-email {
-            display: flex;
-            align-items: center;
-            color: #111827;
-            font-size: 13px;
-            font-weight: 700;
-            text-decoration: none;
-        }
-
-        .btn-outline {
-            border: 1px solid #111827;
-            color: #111827;
-            background: transparent;
-            padding: 12px 20px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 800;
-            text-decoration: none;
-            transition: 0.2s;
-        }
-
-        .btn-outline:hover {
-            background: #111827;
-            color: #fff;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 32px 0 16px 0;
-            border-top: 1px solid #f3f4f6;
-            margin-top: 24px;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-            font-weight: 800;
-            font-size: 16px;
-            color: #111827;
-        }
-
-        .footer-logo img {
-            width: 24px;
-            height: 24px;
-            margin-right: 8px;
-        }
-
-        .footer-text {
-            font-size: 13px;
-            color: #6b7280;
-            font-weight: 500;
-        }
-
-        @media (max-width: 600px) {
-
-            .header,
-            .content,
-            .title-area {
-                padding: 24px;
-            }
-
-            .details-box {
-                flex-direction: column;
-                padding: 24px;
-            }
-
-            .details-icon {
-                margin-right: 0;
-                margin-bottom: 24px;
-            }
-
-            .help-box {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 20px;
-            }
-        }
-    
-        /* --- BEGIN GLOBAL OVERRIDES --- */
-        /* --- GLOBAL MOBILE OVERRIDES --- */
-        @media (max-width: 640px) {
-            body { 
-                padding-left: 12px !important; 
-                padding-right: 12px !important; 
-                padding-top: 60px !important;
-            }
-            .container, .card, .email-container, .main-wrapper, .email-wrapper { 
-                width: 100% !important; 
-                max-width: 100% !important; 
-                padding: 16px !important;
-                box-sizing: border-box !important;
-            }
-            /* Force header elements into a single row */
-            .header, .top-banner {
-                display: flex !important;
-                flex-direction: row !important;
-                flex-wrap: nowrap !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-                padding: 16px 8px !important;
-                gap: 8px !important;
-                box-sizing: border-box !important;
-                min-height: 40px !important;
-                overflow: visible !important;
-            }
-            .header-left, .logo-section, .header-title-container, .brand-section, .logo-area {
-                display: flex !important;
-                flex-direction: row !important;
-                flex-wrap: nowrap !important;
-                align-items: center !important;
-                gap: 8px !important;
-                flex: 1 !important;
-                min-width: 0 !important;
-            }
-            /* Prevent logo wrapper from shrinking to 0 width */
-            div.logo, span.logo, .header-logo, .logo-icon {
-                flex-shrink: 1 !important;
-                width: auto !important;
-                height: auto !important;
-                margin: 0 !important;
-                min-width: 0 !important;
-                display: flex !important;
-                align-items: center !important;
-                gap: 8px !important;
-            }
-            /* Apply strict medium height ONLY to images */
-            img.logo, .logo-img, .header-logo img, .logo-icon img, .brand-section img, div.logo img {
-                height: 48px !important; 
-                width: auto !important;
-                flex-shrink: 0 !important;
-                display: block !important;
+        @media only screen and (max-width: 600px) {
+            .mobile-full {
+                width: 100% !important;
                 max-width: 100% !important;
             }
-            .logo-text, .header-title, .logo-title, .brand-title, .heading h1, .header-text h1, .heading h2, .header-text h2, .heading h3, .header-text h3, .heading small {
-                font-size: 15px !important; 
-                font-weight: 700 !important;
-                line-height: 1.3 !important;
-                margin: 0 !important;
-                white-space: normal !important;
-                overflow: hidden !important;
-                text-align: left !important;
-                min-width: 0 !important;
-                color: #111827 !important;
+
+            .mobile-padding {
+                padding-left: 16px !important;
+                padding-right: 16px !important;
             }
-            .logo-text-wrapper, .logo-text-block, .heading, .header-text, .header-center, .header-title-block {
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: flex-start !important;
-                justify-content: center !important;
-                gap: 2px !important;
-                min-width: 0 !important;
-                flex: 1 !important;
-                border: none !important;
-                padding-left: 0 !important;
-            }
-            .logo-subtitle, .logo-tagline, .banner-desc, .heading p, .header-text p, .header-subtitle {
+
+            .mobile-stack {
                 display: block !important;
-                font-size: 11px !important;
-                font-weight: 400 !important;
-                color: #6b7280 !important;
-                margin: 2px 0 0 0 !important;
-                line-height: 1.4 !important;
-                white-space: normal !important;
-            }
-            /* The icon/illustration in the header */
-            .header-right, .header-illustration, .header-right-td, .banner-illustration, .header-icon, .hero-illustration {
-                display: flex !important;
-                width: 115px !important; 
-                max-width: 115px !important;
-                flex: 0 0 115px !important;
-                height: 100% !important;
-                min-height: 40px !important;
-                align-items: center !important;
-                justify-content: center !important;
-                padding-left: 0 !important;
-                overflow: visible !important;
-            }
-            .header-right svg, .header-illustration svg, .banner-illustration svg, .header-icon svg, .hero-illustration svg {
                 width: 100% !important;
-                height: auto !important;
-                max-width: 100% !important;
-                max-height: 100% !important;
-                object-fit: contain !important;
-                overflow: visible !important;
+                padding-right: 0 !important;
+                padding-bottom: 16px !important;
             }
-            svg.hero-svg {
-                max-width: 180px !important;
-                height: auto !important;
-                margin: 0 auto !important;
+
+            .mobile-stack-spacer {
                 display: block !important;
-            }
-            /* Stack other body elements */
-            .info-row, .features-row, .alert-actions { 
-                display: flex !important;
-                flex-direction: column !important; 
-                align-items: flex-start !important;
-                gap: 12px !important;
-            }
-            .btn, .btn-outline, .btn-primary, .support-btn, .dashboard-btn, .confirm-btn {
+                height: 16px !important;
                 width: 100% !important;
-                justify-content: center !important;
-                margin: 12px 0 0 0 !important;
-                box-sizing: border-box !important;
             }
-            .info-separator, .logo-divider, .header-divider, .brand-divider, .vertical-line-header, .header-left .vertical-line { display: none !important; }
-            .info-item { margin-bottom: 8px !important; }
-            
-            /* Force OTP boxes into a single line */
-            .otp-container {
-                flex-wrap: nowrap !important;
-                gap: 6px !important;
-                width: 100% !important;
-                justify-content: center !important;
-                padding: 0 !important;
+
+            .mobile-center {
+                text-align: center !important;
             }
-            .otp-box {
-                flex: 1 1 0 !important;
-                width: auto !important;
-                max-width: 50px !important;
-                height: 55px !important;
-                font-size: 24px !important;
-            }
-            
-            /* Table-based email template overrides */
-            td.header-cell {
-                padding: 12px 8px !important;
-                display: block !important;
-            }
-            td.header-cell > table, 
-            td.header-cell > table > tbody,
-            td.header-cell > table > tbody > tr {
-                display: flex !important;
-                width: 100% !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child {
-                display: flex !important;
-                flex: 1 !important;
-                min-width: 0 !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table,
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody,
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr {
-                display: flex !important;
-                width: 100% !important;
-                flex-direction: row !important;
-                align-items: center !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(1) {
-                flex-shrink: 0 !important;
-                display: block !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(2) {
+
+            .mobile-hide {
                 display: none !important;
             }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) {
-                flex: 1 !important;
-                min-width: 0 !important;
-                padding-left: 8px !important;
-                border-left: 1px solid #eaeaea !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) span {
-                font-size: 16px !important;
-                white-space: nowrap !important;
-                text-overflow: ellipsis !important;
-                overflow: hidden !important;
-                display: block !important;
-            }
-            td.header-right-td {
-                display: flex !important;
-                width: 115px !important; 
-                max-width: 115px !important;
-                flex: 0 0 115px !important;
-                align-items: center !important;
-                justify-content: center !important;
-            }
-        }
-        
-        /* --- GLOBAL DESKTOP OVERRIDES --- */
-        @media (min-width: 641px) {
-            .email-wrapper, .email-container, table.main, .container {
-                max-width: 720px !important;
-                margin-left: auto !important;
-                margin-right: auto !important;
-            }
-            .logo, .header-logo {
-                width: 64px !important;
-                height: 64px !important;
-                flex-shrink: 0 !important;
-            }
-            .header, .top-banner {
-                padding: 30px 40px !important;
-                flex-wrap: nowrap !important;
-            }
-            .vertical-line, .vertical-line-header, .logo-divider, .header-divider {
-                margin-right: 20px !important;
-            }
-            .header-right, .header-illustration {
-                width: 100% !important;
-                max-width: 160px !important;
-                flex-shrink: 0 !important;
-                height: auto !important;
-            }
-            .header-right svg, .header-illustration svg {
-                width: 100% !important;
-                height: auto !important;
-            }
-            .heading {
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: flex-start !important;
-                gap: 6px !important;
-                white-space: nowrap !important;
-            }
-            .heading h1, .heading h2, .heading h3, .heading small, .logo-text, .header-title {
-                display: inline-block !important;
-                margin: 0 !important;
-                white-space: nowrap !important;
-            }
-            .heading small, .heading h2:first-child:not(:last-child) {
-                font-size: 13px !important;
-                font-weight: 700 !important;
-                color: #555 !important;
-                letter-spacing: 0.5px !important;
-            }
-            .heading h1, .heading h2:only-child, .heading h3:only-child, .logo-text, .header-title {
-                font-size: 24px !important;
-            }
-            div.notification-card {
-                max-width: 1150px !important;
-                width: fit-content !important;
-            }
-        }
-        /* --- END GLOBAL OVERRIDES --- */
 
+            .mobile-icon-center {
+                margin: 0 auto 16px auto !important;
+            }
+
+            .mobile-text-center {
+                text-align: center !important;
+            }
+
+            .mobile-btn-full {
+                display: block !important;
+                width: 100% !important;
+                text-align: center !important;
+            }
+
+            .mobile-btn-full a {
+                display: block !important;
+                width: auto !important;
+                margin-right: 0 !important;
+                margin-bottom: 8px !important;
+            }
+
+            /* Responsive Header Rules to keep everything in one line */
+            .mobile-logo-cell {
+                width: 40px !important;
+            }
+
+            .mobile-logo-img {
+                width: 40px !important;
+            }
+
+            .mobile-header-divider {
+                padding: 0 10px !important;
+            }
+
+            .mobile-header-title {
+                font-size: 14px !important;
+            }
+
+            .mobile-header-subtitle {
+                font-size: 10px !important;
+                line-height: 1.2 !important;
+            }
+
+            .mobile-header-icon-cell {
+                width: 65px !important;
+            }
+
+            .mobile-header-icon-img {
+                width: 55px !important;
+            }
+
+            .mobile-list-label {
+                display: block !important;
+                width: 100% !important;
+                padding-bottom: 4px !important;
+                text-align: left !important;
+                border-bottom: none !important;
+            }
+
+            .mobile-list-value {
+                display: block !important;
+                width: 100% !important;
+                text-align: left !important;
+                padding-top: 0 !important;
+            }
+        }
     </style>
 </head>
 
-<body>
-    <div id="__global_nav__"
-        style="background:#111827;color:#fff;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;position:fixed;top:0;left:0;width:100%;box-sizing:border-box;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
-        <a href="index-video event invite.html"
-            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">&#8592;
-            Back</a>
-        <a href="index.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:0.7;">&#9679;
-            Trial Converted</a>
-        <a href="company-user-added.html"
-            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">Next
-            &#8594;</a>
-    </div>
-    <div style="height:50px;"></div>
-    <!-- GLOBAL NAVIGATION BAR -->
+<body
+    style="margin: 0; padding: 0; background-color: #f9fafb; font-family: 'Inter', Arial, sans-serif; -webkit-font-smoothing: antialiased;">
 
-    <!-- END GLOBAL NAVIGATION BAR -->
-    <div class="container" style="margin-top: 60px;">
-        <!-- Header -->
-        <div class="header">
-            <div class="header-left">
-                <!-- Custom Logo -->
-                <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png"
-                    alt="DialPhone Logo" style="width: 56px; height: 56px; margin-right: 16px; flex-shrink: 0;" />
-                <div class="header-divider"></div>
-                <div class="header-title-block">
-                    <div class="header-title">Premium Plan Activated</div>
-                    <div class="header-subtitle">Your subscription is now active</div>
-                </div>
-            </div>
-            <div class="header-illustration">
-                <!-- Shield Illustration -->
-                <svg viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Light Green Irregular Blob Background -->
-                    <path
-                        d="M 60 15 C 100 10, 130 30, 125 65 C 120 100, 80 95, 55 85 C 30 75, 25 45, 45 30 C 50 25, 55 20, 60 15 Z"
-                        fill="#ecfdf5" />
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f9fafb;">
+        <tr>
+            <td align="center" style="padding: 40px 10px;">
 
-                    <!-- Decorative Sparks -->
-                    <!-- Top Left Star -->
-                    <path d="M 45 15 Q 45 20 40 20 Q 45 20 45 25 Q 45 20 50 20 Q 45 20 45 15 Z" fill="#111827"
-                        stroke="#111827" stroke-width="1.5" stroke-linejoin="round" />
-                    <!-- Far Left Gray Cross -->
-                    <path d="M 32 35 V 39 M 30 37 H 34" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" />
-                    <!-- Mid Left Hollow Circle -->
-                    <circle cx="35" cy="55" r="3.5" stroke="#111827" stroke-width="2.5" fill="none" />
-                    <!-- Bottom Left Cross (above swooshes) -->
-                    <path d="M 43 68 V 72 M 41 70 H 45" stroke="#111827" stroke-width="2" stroke-linecap="round" />
+                <!-- Main Container -->
+                <table border="0" cellpadding="0" cellspacing="0" width="740" class="mobile-full"
+                    style="max-width: 740px; width: 100%; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 2px;">
+                    <tr>
+                        <td>
 
-                    <!-- Bottom Center Cross (left of shield point) -->
-                    <path d="M 65 86 V 90 M 63 88 H 67" stroke="#111827" stroke-width="2" stroke-linecap="round" />
-                    <!-- Bottom Right Cross (right of shield point) -->
-                    <path d="M 115 83 V 87 M 113 85 H 117" stroke="#111827" stroke-width="2" stroke-linecap="round" />
+                            <!-- ═══════════════════════════════════════════ -->
+                            <!-- TOP HEADER BAR -->
+                            <!-- ═══════════════════════════════════════════ -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                style="border-bottom: 1px solid #e5e7eb;">
+                                <tr>
+                                    <td style="padding: 16px 24px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <!-- Logo -->
+                                                <td width="50" valign="middle" align="center" style="width: 50px;"
+                                                    class="mobile-logo-cell">
+                                                    <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png"
+                                                        alt="DialPhone Logo" width="50"
+                                                        style="display: block; width: 50px; height: auto;"
+                                                        class="mobile-logo-img" />
+                                                </td>
+                                                <!-- Short Divider Line -->
+                                                <td width="1" valign="middle" style="width: 1px; padding: 0 16px;"
+                                                    class="mobile-header-divider">
+                                                    <div
+                                                        style="height: 32px; width: 1px; background-color: #e5e7eb; font-size: 0; line-height: 0;">
+                                                        &nbsp;</div>
+                                                </td>
+                                                <!-- Title + Subtitle -->
+                                                <td width="55%" valign="middle"
+                                                    style="width: 55%; font-family: 'Inter', Arial, sans-serif;">
+                                                    <p style="margin: 0 0 3px 0; font-size: 24px; font-weight: 800; color: #2d3748; font-family: 'Inter', Arial, sans-serif; line-height: 1.2;"
+                                                        class="mobile-header-title">Premium Plan Activated</p>
+                                                    <p style="margin: 0; font-size: 12px; color: #6b7280; font-family: 'Inter', Arial, sans-serif; line-height: 1.4;"
+                                                        class="mobile-header-subtitle">Your subscription is now active
+                                                    </p>
+                                                </td>
+                                                <!-- Right Illustration -->
+                                                <td width="35%" valign="middle" align="right"
+                                                    style="width: 35%; max-width: 260px;"
+                                                    class="mobile-header-icon-cell">
+                                                    <img src="https://res.cloudinary.com/powk2ugh/image/upload/v1784815962/New_Project_25_dokhde.png"
+                                                        alt="Trial Converted" width="260"
+                                                        style="display: block; width: 100%; max-width: 260px; height: auto; margin-left: auto;"
+                                                        class="mobile-header-icon-img" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
 
-                    <!-- Far Right Hollow Circle -->
-                    <circle cx="138" cy="65" r="3.5" stroke="#111827" stroke-width="2.5" fill="none" />
-                    <!-- Mid Right Cross -->
-                    <path d="M 145 40 V 46 M 142 43 H 148" stroke="#111827" stroke-width="2.5" stroke-linecap="round" />
-                    <!-- Top Right Star -->
-                    <path d="M 125 25 Q 125 30 120 30 Q 125 30 125 35 Q 125 30 130 30 Q 125 30 125 25 Z" fill="#111827"
-                        stroke="#111827" stroke-width="1.5" stroke-linejoin="round" />
-                    <!-- Far Top Right Cross -->
-                    <path d="M 142 18 V 22 M 140 20 H 144" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
+                            <!-- ═══════════════════════════════════════════ -->
+                            <!-- HERO SECTION -->
+                            <!-- ═══════════════════════════════════════════ -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="padding: 32px 30px 16px;" class="mobile-padding" align="center">
 
-                    <!-- Motion Swooshes on bottom left -->
-                    <path d="M 36 86 C 44 92 54 88 62 76" stroke="#111827" stroke-width="2" stroke-linecap="round"
-                        fill="none" />
-                    <path d="M 42 76 C 48 82 54 78 60 70" stroke="#111827" stroke-width="2" stroke-linecap="round"
-                        fill="none" />
+                                        <!-- Hero Icon Wrapper (Green Accent) -->
+                                        <table border="0" cellpadding="0" cellspacing="0" align="center">
+                                            <tr>
+                                                <td align="center" style="padding-bottom: 24px;">
+                                                    <table border="0" cellpadding="0" cellspacing="0"
+                                                        style="width: 72px; height: 72px; background-color: #ecfdf5; border-radius: 50%; text-align: center;">
+                                                        <tr>
+                                                            <td width="72" height="72" align="center" valign="middle"
+                                                                style="width: 72px; height: 72px; text-align: center; vertical-align: middle;">
+                                                                <img src="https://img.icons8.com/ios-glyphs/96/10b981/checkmark--v1.png"
+                                                                    width="36" height="36"
+                                                                    style="display: block; width: 36px; height: 36px; margin: 0 auto;" />
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
 
-                    <!-- The Main Shield with sharp corners -->
-                    <path
-                        d="M 80 15 Q 95 22 110 25 L 110 50 C 110 70 95 85 80 95 C 65 85 50 70 50 50 L 50 25 Q 65 22 80 15 Z"
-                        stroke="#111827" stroke-width="4.5" stroke-linejoin="miter" fill="#ffffff" />
+                                        <!-- Hero Titles -->
+                                        <h1
+                                            style="margin: 0 0 12px 0; font-size: 24px; font-weight: 800; color: #2d3748; font-family: 'Inter', Arial, sans-serif; letter-spacing: -0.5px;">
+                                            Your Trial Has Been <br>Converted to a Paid Plan</h1>
+                                        <p
+                                            style="margin: 0 0 24px 0; font-size: 15px; font-weight: 500; color: #4b5563; font-family: 'Inter', Arial, sans-serif; line-height: 1.6;">
+                                            Thank you for choosing DialPhone.<br><br>
+                                            Your paid subscription is now active, and you can continue using the
+                                            features<br>included in your plan without interruption.
+                                        </p>
 
-                    <!-- Thick Checkmark -->
-                    <path d="M 68 55 L 75 62 L 92 45" stroke="#111827" stroke-width="5" stroke-linecap="butt"
-                        stroke-linejoin="miter" />
-                </svg>
-            </div>
-        </div>
+                                        <!-- Action button -->
+                                        <table border="0" cellpadding="0" cellspacing="0" align="center">
+                                            <tr>
+                                                <td align="center" class="mobile-btn-full">
+                                                    <a href="#"
+                                                        style="display: inline-block; padding: 12px 24px; border-radius: 6px; font-size: 13px; font-weight: 700; color: #ffffff; font-family: 'Inter', Arial, sans-serif; text-decoration: none; background-color: #2d3748; letter-spacing: 0.5px;">GO
+                                                        TO DASHBOARD</a>
+                                                </td>
+                                            </tr>
+                                        </table>
 
-        <!-- Title Area -->
-        <div class="title-area">
-            <div class="success-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"
-                    stroke-linejoin="round" style="width: 40px; height: 40px;">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-            </div>
+                                    </td>
+                                </tr>
+                            </table>
 
-            <h1 class="main-title">Your Trial Has Been <br>Converted to a Paid Plan</h1>
-            <p class="desc-text" style="margin-top: 12px;">Thank you for choosing DialPhone.</p>
-            <p class="desc-text">Your paid subscription is now active, and you can continue using the features<br>
-                included in your plan without interruption.</p>
+                            <!-- Separator Spacer -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="padding: 16px 30px 16px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" align="center" width="40">
+                                            <tr>
+                                                <td height="2"
+                                                    style="height: 2px; background-color: #d1d5db; font-size: 0; line-height: 0;">
+                                                    &nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
 
-            <a href="#" class="btn-dashboard">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="16" x2="16" y2="12"></line>
-                    <line x1="16" y1="12" x2="12" y2="8"></line>
-                    <line x1="8" y1="12" x2="16" y2="12"></line>
-                </svg>
-                Go To Dashboard
-            </a>
-        </div>
+                            <!-- ═══════════════════════════════════════════ -->
+                            <!-- DETAILS SECTION -->
+                            <!-- ═══════════════════════════════════════════ -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="padding: 16px 30px 24px;" class="mobile-padding">
 
-        <div class="content">
-            <!-- Details Box -->
-            <div class="details-box">
-                <div class="details-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" style="width: 32px; height: 32px;">
-                        <path
-                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
-                        </path>
-                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                    </svg>
-                </div>
+                                        <!-- Details Card -->
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                            style="border: 1px solid #e5e7eb; border-radius: 8px; background-color: #ffffff;">
+                                            <tr>
+                                                <td style="padding: 24px;">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td width="64" valign="top"
+                                                                style="width: 64px; padding-right: 20px;"
+                                                                class="mobile-stack mobile-center">
+                                                                <table border="0" cellpadding="0" cellspacing="0"
+                                                                    class="mobile-icon-center"
+                                                                    style="width: 64px; height: 64px; background-color: #f3f4f6; border-radius: 50%;">
+                                                                    <tr>
+                                                                        <td align="center" valign="middle">
+                                                                            <img src="https://img.icons8.com/ios-glyphs/96/111827/document.png"
+                                                                                width="32" height="32"
+                                                                                style="display: block; width: 32px; height: 32px;" />
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <td valign="top" class="mobile-stack">
+                                                                <p style="margin: 0 0 12px 0; font-size: 16px; font-weight: 800; color: #2d3748; font-family: 'Inter', Arial, sans-serif;"
+                                                                    class="mobile-text-center">Subscription Details</p>
 
-                <div class="details-content">
-                    <h3 class="details-title">Subscription Details</h3>
+                                                                <!-- Metadata list -->
+                                                                <table border="0" cellpadding="0" cellspacing="0"
+                                                                    width="100%">
+                                                                    <tr>
+                                                                        <td class="mobile-list-label"
+                                                                            style="padding: 14px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; font-weight: 500; color: #6b7280; font-family: 'Inter', Arial, sans-serif;">
+                                                                            Plan</td>
+                                                                        <td align="right" class="mobile-list-value"
+                                                                            style="padding: 14px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; font-weight: 700; color: #111827; font-family: 'Inter', Arial, sans-serif;">
+                                                                            Professional Plan</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="mobile-list-label"
+                                                                            style="padding: 14px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; font-weight: 500; color: #6b7280; font-family: 'Inter', Arial, sans-serif;">
+                                                                            Billing Cycle</td>
+                                                                        <td align="right" class="mobile-list-value"
+                                                                            style="padding: 14px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; font-weight: 700; color: #111827; font-family: 'Inter', Arial, sans-serif;">
+                                                                            Monthly</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="mobile-list-label"
+                                                                            style="padding: 14px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; font-weight: 500; color: #6b7280; font-family: 'Inter', Arial, sans-serif;">
+                                                                            Next Billing Date</td>
+                                                                        <td align="right" class="mobile-list-value"
+                                                                            style="padding: 14px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; font-weight: 700; color: #111827; font-family: 'Inter', Arial, sans-serif;">
+                                                                            May 25, 2026</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="mobile-list-label"
+                                                                            style="padding: 14px 0; font-size: 14px; font-weight: 500; color: #6b7280; font-family: 'Inter', Arial, sans-serif;">
+                                                                            Payment Method</td>
+                                                                        <td align="right" class="mobile-list-value"
+                                                                            style="padding: 14px 0; font-size: 14px; font-weight: 700; color: #111827; font-family: 'Inter', Arial, sans-serif;">
+                                                                            Visa &bull;&bull;&bull;&bull; 4242</td>
+                                                                    </tr>
+                                                                </table>
 
-                    <div class="detail-row">
-                        <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                            <polyline points="2 17 12 22 22 17"></polyline>
-                            <polyline points="2 12 12 17 22 12"></polyline>
-                        </svg>
-                        <span class="detail-label">Plan</span>
-                        <span class="detail-colon">:</span>
-                        <span class="detail-value">Professional Plan</span>
-                    </div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
 
-                    <div class="detail-row">
-                        <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="23 4 23 10 17 10"></polyline>
-                            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-                        </svg>
-                        <span class="detail-label">Billing Cycle</span>
-                        <span class="detail-colon">:</span>
-                        <span class="detail-value">Monthly</span>
-                    </div>
+                                    </td>
+                                </tr>
+                            </table>
 
-                    <div class="detail-row">
-                        <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="16" y1="2" x2="16" y2="6"></line>
-                            <line x1="8" y1="2" x2="8" y2="6"></line>
-                            <line x1="3" y1="10" x2="21" y2="10"></line>
-                        </svg>
-                        <span class="detail-label">Next Billing Date</span>
-                        <span class="detail-colon">:</span>
-                        <span class="detail-value">May 25, 2026</span>
-                    </div>
+                            <!-- ═══════════════════════════════════════════ -->
+                            <!-- HELP BOX -->
+                            <!-- ═══════════════════════════════════════════ -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="padding: 0 30px 24px;" class="mobile-padding">
 
-                    <div class="detail-row">
-                        <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-                            <line x1="1" y1="10" x2="23" y2="10"></line>
-                        </svg>
-                        <span class="detail-label">Payment Method</span>
-                        <span class="detail-colon">:</span>
-                        <span class="detail-value">Visa &bull;&bull;&bull;&bull; 4242</span>
-                    </div>
-                </div>
-            </div>
+                                        <!-- Help Container -->
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                            style="background-color: #f9fafb; border: 1px solid #eaeaea; border-radius: 10px;">
+                                            <tr>
+                                                <td style="padding: 22px 24px;">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <!-- Question Mark Icon -->
+                                                            <td width="52" valign="middle" align="center"
+                                                                style="width: 52px;" class="mobile-stack mobile-center">
+                                                                <table border="0" cellpadding="0" cellspacing="0"
+                                                                    style="margin: 0 auto; width: 52px; height: 52px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 50%; text-align: center;">
+                                                                    <tr>
+                                                                        <td width="52" height="52" align="center"
+                                                                            valign="middle"
+                                                                            style="width: 52px; height: 52px; text-align: center; vertical-align: middle; font-size: 22px; font-weight: 900; color: #2d3748; line-height: 52px; font-family: 'Inter', Arial, sans-serif; mso-line-height-rule: exactly;">
+                                                                            ?</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <!-- Spacer -->
+                                                            <td width="18" style="width: 18px;" class="mobile-hide">
+                                                                &nbsp;</td>
+                                                            <!-- Help Text -->
+                                                            <td valign="middle" class="mobile-stack">
+                                                                <p style="margin: 0 0 4px 0; font-size: 15px; font-weight: 700; color: #2d3748; font-family: 'Inter', Arial, sans-serif;"
+                                                                    class="mobile-text-center">Need Help?</p>
+                                                                <p style="margin: 0; font-size: 14px; color: #555555; line-height: 1.5; font-family: 'Inter', Arial, sans-serif;"
+                                                                    class="mobile-text-center">Our support team is here
+                                                                    for you.<br><a href="mailto:support@dialphone.com"
+                                                                        style="color: #2d3748; font-weight: 700; text-decoration: none;">support@dialphone.com</a>
+                                                                </p>
+                                                            </td>
+                                                            <!-- Contact Button -->
+                                                            <td width="150" valign="middle" align="right"
+                                                                style="width: 150px;"
+                                                                class="mobile-stack mobile-center">
+                                                                <!--[if !mso]><!-->
+                                                                <div style="display: none; height: 0; overflow: hidden;"
+                                                                    class="mobile-stack-spacer">&nbsp;</div>
+                                                                <!--<![endif]-->
+                                                                <table border="0" cellpadding="0" cellspacing="0"
+                                                                    align="right" class="mobile-btn-full">
+                                                                    <tr>
+                                                                        <td align="center"
+                                                                            style="border: 1px solid #d0d0d0; border-radius: 6px; background-color: #ffffff;">
+                                                                            <a href="mailto:support@dialphone.com"
+                                                                                target="_blank"
+                                                                                style="display: inline-block; padding: 12px 20px; font-size: 14px; font-weight: 600; color: #2d3748; font-family: 'Inter', Arial, sans-serif; text-decoration: none; white-space: nowrap;">Contact
+                                                                                Support</a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
 
-            <!-- Help Box -->
-            <div class="help-box">
-                <div class="help-left">
-                    <div class="help-icon">
-                        <svg viewBox="0 0 24 24" fill="none" style="width: 32px; height: 32px;">
-                            <text x="12" y="18" font-size="20" font-weight="900"
-                                font-family="'Inter', Arial, sans-serif" text-anchor="middle" fill="#000000">?</text>
-                        </svg>
-                    </div>
-                    <div class="help-text">
-                        <h4>Need Help?</h4>
-                        <p>Our support team is here to help you anytime.</p>
-                        <a href="mailto:support@dialphone.com" class="help-email">
-                            support@dialphone.com
-                        </a>
-                    </div>
-                </div>
-                <a href="#" class="btn-outline">Contact Support</a>
-            </div>
+                                    </td>
+                                </tr>
+                            </table>
 
-        </div>
-    </div>
+
+
+                        </td>
+                    </tr>
+                </table>
+                <!-- End Main Container -->
+
+            </td>
+        </tr>
+    </table>
+
 </body>
 
 </html>

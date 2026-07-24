@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light only" />
+    <meta name="supported-color-schemes" content="light only" />
+    <!--[if mso]>
+    <noscript>
+        <xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml>
+    </noscript>
+    <![endif]-->
     <title>Security Alert - MFA - DialPhone</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <style>
+        :root {
+            color-scheme: light only;
+        }
         * {
             margin: 0;
             padding: 0;
@@ -245,6 +255,10 @@
             font-weight: 500;
         }
 
+        .was-this-you-cell {
+            padding-top: 4px;
+        }
+
         .action-buttons {
             display: flex;
             gap: 12px;
@@ -399,21 +413,99 @@
                 gap: 16px;
             }
         }
-    
-   
         /* --- BEGIN GLOBAL OVERRIDES --- */
         /* --- GLOBAL MOBILE OVERRIDES --- */
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
             body { 
                 padding-left: 12px !important; 
                 padding-right: 12px !important; 
-                padding-top: 60px !important;
             }
             .container, .card, .email-container, .main-wrapper, .email-wrapper { 
                 width: 100% !important; 
                 max-width: 100% !important; 
                 padding: 16px !important;
                 box-sizing: border-box !important;
+            }
+            table.mobile-stack-table,
+            table.mobile-stack-table > tbody,
+            table.mobile-stack-table > tbody > tr,
+            table.mobile-stack-table > tr,
+            tr.mobile-stack-row {
+                display: block !important;
+                width: 100% !important;
+            }
+            .mobile-stack,
+            td.was-this-you-cell {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                text-align: left !important;
+                box-sizing: border-box !important;
+                float: none !important;
+                clear: both !important;
+                padding-right: 0 !important;
+            }
+            .mobile-center {
+                text-align: left !important;
+            }
+            .btn-table {
+                width: 100% !important;
+                margin-top: 12px !important;
+                display: block !important;
+                float: none !important;
+            }
+            .btn-table > tbody,
+            .btn-table > tbody > tr,
+            .btn-table > tr {
+                display: block !important;
+                width: 100% !important;
+            }
+            .btn-table td {
+                display: block !important;
+                width: 100% !important;
+                padding-right: 0 !important;
+                padding-bottom: 12px !important;
+                text-align: center !important;
+                float: none !important;
+                clear: both !important;
+                box-sizing: border-box !important;
+            }
+            .btn-table td:last-child {
+                padding-bottom: 0 !important;
+            }
+            .btn-table a {
+                display: block !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+                text-align: center !important;
+                padding: 12px 16px !important;
+                margin: 0 !important;
+            }
+            .was-this-you-cell {
+                padding-top: 4px !important;
+                padding-bottom: 16px !important;
+                width: 100% !important;
+                display: block !important;
+            }
+            table[align="right"] {
+                float: none !important;
+                margin-left: 0 !important;
+                width: 100% !important;
+            }
+            .mobile-center {
+                text-align: center !important;
+            }
+            .mobile-hide {
+                display: none !important;
+            }
+            .mobile-padding {
+                padding: 20px 15px !important;
+            }
+            img.header-right {
+                max-width: 220px !important;
+                width: 100% !important;
+                margin: 15px auto 0 auto !important;
+                height: auto !important;
             }
             /* Force header elements into a single row */
             .header, .top-banner {
@@ -663,266 +755,266 @@
     </style>
 </head>
 
-<body>
-    <div id="__global_nav__"
-        style="background:#111827;color:#fff;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;position:fixed;top:0;left:0;width:100%;box-sizing:border-box;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
-        <a href="voicemail.html"
-            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">&#8592;
-            Back</a>
-        <a href="index.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:0.7;">&#9679;
-            Security Alert MFA</a>
-        <a href="email-downgrade-successful.html"
-            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">Next
-            &#8594;</a>
-    </div>
-    <div style="height:50px;"></div>
-    <!-- GLOBAL NAVIGATION BAR -->
-
-    <!-- END GLOBAL NAVIGATION BAR -->
-
-    <div class="container" style="margin-top: 60px;">
-        <div class="header">
-            <div class="header-left">
-                <!-- Black badge shield logo -->
-                <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png"
-                    alt="DialPhone Logo" style="width: 56px; height: 56px; margin-right: 16px; flex-shrink: 0;" />
-                <div class="header-divider"></div>
-                <div class="header-title-block">
-                    <div class="header-title">Security Alert</div>
-                    <div class="header-subtitle">Important Account Security Notice</div>
-                </div>
-            </div>
-            <div class="header-illustration">
-                <!-- Perfected Illustration matching user's reference -->
-                <svg viewBox="0 0 200 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Background Blobs -->
-                    <circle cx="65" cy="80" r="35" fill="#e8f5e9" />
-                    <circle cx="90" cy="95" r="25" fill="#e8f5e9" />
-                    <circle cx="145" cy="75" r="35" fill="#e8f5e9" />
-
-                    <!-- Dashed Swooshes (Smooth S-Curves) -->
-                    <path d="M 20 90 C 35 110, 50 65, 75 80" stroke="#111827" stroke-width="2" stroke-dasharray="3 7"
-                        stroke-linecap="round" fill="none" />
-                    <path d="M 125 75 C 150 55, 165 105, 185 85" stroke="#111827" stroke-width="2"
-                        stroke-dasharray="3 7" stroke-linecap="round" fill="none" />
-
-                    <!-- Left Decorations -->
-                    <path d="M 32 40 V 50 M 27 45 H 37" stroke="#111827" stroke-width="3" stroke-linecap="round" />
-                    <rect x="20" y="70" width="8" height="8" transform="rotate(45 20 70)" stroke="#111827"
-                        stroke-width="2.5" fill="none" />
-
-                    <!-- Right Decorations -->
-                    <path d="M 168 40 V 50 M 163 45 H 173" stroke="#111827" stroke-width="3" stroke-linecap="round" />
-                    <circle cx="188" cy="60" r="4" stroke="#111827" stroke-width="2.5" fill="none" />
-
-                    <!-- Shield Main -->
-                    <path d="M100 10 L145 25 V65 C145 95 125 115 100 125 C75 115 55 95 55 65 V25 L100 10Z"
-                        fill="#ffffff" stroke="#111827" stroke-width="6" stroke-linejoin="round" />
-
-                    <!-- Lock inside shield -->
-                    <rect x="80" y="55" width="40" height="28" rx="5" fill="#111827" />
-                    <path d="M87 55 V45 C87 38 93 32 100 32 C107 32 113 38 113 45 V55" stroke="#111827" stroke-width="6"
-                        stroke-linecap="round" />
-
-                    <!-- Keyhole (White) -->
-                    <circle cx="100" cy="65" r="4.5" fill="#ffffff" />
-                    <path d="M98 68 L95 78 H105 L102 68 Z" fill="#ffffff" />
-
-                    <!-- Exclamation Circle (Alert) -->
-                    <circle cx="140" cy="100" r="20" fill="#111827" stroke="#ffffff" stroke-width="6" />
-                    <path d="M140 88 V100" stroke="#ffffff" stroke-width="5" stroke-linecap="round" />
-                    <circle cx="140" cy="108" r="3" fill="#ffffff" />
-                </svg>
-            </div>
+<body style="margin: 0; padding: 0; background-color: #f0f0f0; font-family: 'Inter', Arial, sans-serif; color: #111827;">
+    <center style="width: 100%; background-color: #f0f0f0;">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f0f0f0; margin: 0 auto;">
+            <tr>
+                <td align="center" style="padding: 40px 10px;">
+                    <!-- MAIN CONTAINER -->
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                        style="max-width: 720px; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05);"
+                        bgcolor="#ffffff" align="center">
+                        <tr>
+                            <td>
+        <div style="padding: 30px 40px; border-bottom: 1px solid #e8e8e8;" class="mobile-padding">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td class="mobile-stack" valign="middle">
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td valign="middle">
+                                    <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png"
+                                        alt="DialPhone Logo" width="64" height="64" border="0"
+                                        style="width: 64px; height: 64px; display: block; border: 0; outline: none; text-decoration: none;">
+                                </td>
+                                <td width="15" class="mobile-hide">&nbsp;</td>
+                                <td width="1" class="mobile-hide" style="background-color: #d0d0d0; height: 48px;"></td>
+                                <td width="15" class="mobile-hide">&nbsp;</td>
+                                <td valign="middle" class="mobile-stack mobile-center" style="padding-right: 15px;">
+                                    <h1 style="margin: 0; font-size: 20px; font-weight: 800; color: #111827 !important; line-height: 1.3; font-family: 'Inter', sans-serif;">
+                                        Security Alert
+                                    </h1>
+                                    <p style="margin: 3px 0 0 0; font-size: 13px; color: #6b7280 !important; line-height: 1.4; font-family: 'Inter', sans-serif;">
+                                        Important Account Security Notice
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="mobile-stack mobile-center" valign="middle" align="right">
+                        <img src="https://res.cloudinary.com/powk2ugh/image/upload/v1784722132/New_Project_13_y0o7lk.png"
+                            alt="Security Alert" width="240" border="0"
+                            style="width: 100%; max-width: 240px; height: auto; display: inline-block; border: 0; outline: none; text-decoration: none;">
+                    </td>
+                </tr>
+            </table>
         </div>
+        
 
-        <div class="title-area">
-            <div class="bell-icon-wrapper"
-                style="width: 72px; height: 72px; background-color: #fef2f2; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                    <path d="M12 8v4"></path>
-                    <circle cx="12" cy="16" r="1" fill="#ef4444" stroke="none"></circle>
-                </svg>
-            </div>
-            <h1 class="main-title">Security Alert</h1>
-            <p class="desc-text">We noticed suspicious activity on your account.</p>
-            <p class="desc-subtext">Please review the details below and take action to secure your account.</p>
-            <div class="title-divider"></div>
-        </div>
+                <!-- TITLE AREA -->
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 24px;">
+            <tr>
+                <td align="center" valign="top" style="padding-top: 36px;">
+                    <table border="0" cellpadding="0" cellspacing="0" style="background-color: #fef2f2; border-radius: 50%; margin-bottom: 24px; width: 72px; height: 72px; margin-left: auto; margin-right: auto;">
+                        <tr>
+                            <td align="center" valign="middle">
+                                <img src="https://img.icons8.com/ios-filled/50/ef4444/bell.png" alt="Alert" width="28" height="28" style="vertical-align: middle; display: block; border: 0; outline: none;">
+                            </td>
+                        </tr>
+                    </table>
+                    <h1 style="margin: 0 0 8px 0; font-size: 24px; font-weight: 800; color: #111827; font-family: 'Inter', sans-serif; text-align: center;">Security Alert</h1>
+                    <p style="margin: 0 0 4px 0; font-size: 15px; color: #4b5563; font-weight: 500; font-family: 'Inter', sans-serif; text-align: center;">We noticed suspicious activity on your account.</p>
+                    <p style="margin: 0 0 24px 0; font-size: 15px; color: #4b5563; font-weight: 500; font-family: 'Inter', sans-serif; text-align: center;">Please review the details below and take action to secure your account.</p>
+                    <div style="height: 1px; background-color: #cbd5e1; width: 44px; margin: 0 auto 24px auto;"></div>
+                </td>
+            </tr>
+        </table>
 
-        <div class="content">
+        <!-- CONTENT AREA -->
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
             <!-- Card 1 -->
-            <div class="alert-card">
-                <div class="card-top">
-                    <div class="card-icon-wrap">
-                        <!-- Phone with Shield Icon -->
-                        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Phone -->
-                            <rect x="7" y="3" width="16" height="26" rx="3" stroke="#111827" stroke-width="2.5" />
-                            <line x1="13" y1="6" x2="17" y2="6" stroke="#111827" stroke-width="2"
-                                stroke-linecap="round" />
-
-                            <!-- Mask -->
-                            <circle cx="23" cy="23" r="10" fill="#f3f4f6" />
-
-                            <!-- Shield -->
-                            <path d="M 23 15 L 30 18 V 24 C 30 27.5 26.5 30.5 23 32 C 19.5 30.5 16 27.5 16 24 V 18 Z"
-                                stroke="#111827" stroke-width="2.5" stroke-linejoin="round" />
-
-                            <!-- Checkmark -->
-                            <path d="M 19.5 24 L 21.5 26 L 26.5 21" stroke="#111827" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <div class="card-info">
-                        <div class="card-title">Multi-Factor Authentication Updated</div>
-                        <div class="card-desc">Your multi-factor authentication method<br>was recently updated.</div>
-
-                        <div class="meta-row">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <polyline points="12 6 12 12 16 14"></polyline>
-                            </svg>
-                            May 24, 2026 at 9:42 PM (UTC)
-                        </div>
-                        <div class="meta-row">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                            San Francisco, United States
-                        </div>
-                    </div>
-                </div>
-                <div class="card-divider"></div>
-                <div class="card-bottom">
-                    <div class="was-this-you">
-                        <div class="was-this-you-title">Was this you?</div>
-                        <div class="was-this-you-desc">If this wasn't you, secure your account immediately.</div>
-                    </div>
-                    <div class="action-buttons">
-                        <a href="#" class="btn btn-outline">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                <path d="M9 12l2 2 4-4"></path>
-                            </svg>
-                            Secure Account
-                        </a>
-                        <a href="#" class="btn btn-green">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <path d="M9 12l2 2 4-4"></path>
-                            </svg>
-                            This Was Me
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <tr>
+                <td align="left" valign="top">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; margin-bottom: 0;">
+                        <!-- Card Top Row -->
+                        <tr>
+                            <td style="padding: 24px 24px 20px 24px;">
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <!-- Icon -->
+                                        <td width="52" valign="top" style="padding-right: 16px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="52" height="52" style="background-color: #f9fafb; background-image: linear-gradient(#f9fafb, #f9fafb); border: 1px solid #e5e7eb; border-radius: 10px;">
+                                                <tr>
+                                                    <td align="center" valign="middle">
+                                                        <img src="https://img.icons8.com/ios/50/111827/smartphone.png" alt="MFA" width="24" height="24" style="vertical-align: middle; display: block; border: 0; outline: none;">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <!-- Info -->
+                                        <td valign="top">
+                                            <div style="font-size: 16px; font-weight: 800; color: #000; margin-bottom: 4px; font-family: 'Inter', sans-serif;">Multi-Factor Authentication Updated</div>
+                                            <div style="font-size: 14px; color: #4b5563; font-weight: 500; margin-bottom: 16px; font-family: 'Inter', sans-serif;">Your multi-factor authentication method<br>was recently updated.</div>
+                                            
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 8px;">
+                                                <tr>
+                                                    <td width="20" valign="middle">
+                                                        <img src="https://img.icons8.com/ios/50/888888/clock--v1.png" alt="Time" width="16" height="16" style="vertical-align: middle; display: block; border: 0; outline: none;">
+                                                    </td>
+                                                    <td valign="middle" style="font-size: 13px; color: #1f2937; font-weight: 600; font-family: 'Inter', sans-serif;">May 24, 2026 at 9:42 PM (UTC)</td>
+                                                </tr>
+                                            </table>
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td width="20" valign="middle">
+                                                        <img src="https://img.icons8.com/ios/50/888888/marker--v1.png" alt="Location" width="16" height="16" style="vertical-align: middle; display: block; border: 0; outline: none;">
+                                                    </td>
+                                                    <td valign="middle" style="font-size: 13px; color: #1f2937; font-weight: 600; font-family: 'Inter', sans-serif;">San Francisco, United States</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- Card Bottom Row -->
+                        <tr>
+                            <td style="padding: 20px 24px 24px 24px; border-top: 1px solid #e5e7eb;">
+                                <div style="font-size: 15px; font-weight: 800; color: #000; margin-bottom: 4px; font-family: 'Inter', sans-serif;">Was this you?</div>
+                                <div style="font-size: 13px; color: #4b5563; font-weight: 500; margin-bottom: 16px; font-family: 'Inter', sans-serif;">If this wasn't you, secure your account immediately.</div>
+                                
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%" class="btn-table">
+                                    <tr class="mobile-stack-row">
+                                        <td width="50%" class="mobile-stack" style="padding-right: 6px; padding-bottom: 8px;">
+                                            <a href="#" style="display: block; text-align: center; padding: 11px 16px; border-radius: 6px; font-size: 14px; font-weight: 700; text-decoration: none; border: 1px solid #111827; color: #111827; background: transparent; font-family: 'Inter', sans-serif; box-sizing: border-box; white-space: nowrap;"><img src="https://img.icons8.com/ios-filled/50/888888/security-checked.png" alt="Secure" width="16" height="16" style="vertical-align: middle; margin-right: 6px; margin-bottom: 2px; border: 0; outline: none;"><span style="vertical-align:middle;">Secure Account</span></a>
+                                        </td>
+                                        <td width="50%" class="mobile-stack" style="padding-left: 6px; padding-bottom: 8px;">
+                                            <a href="#" style="display: block; text-align: center; padding: 11px 16px; border-radius: 6px; font-size: 14px; font-weight: 700; text-decoration: none; background: #059669; color: #fff; border: 1px solid #059669; font-family: 'Inter', sans-serif; box-sizing: border-box; white-space: nowrap;"><img src="https://img.icons8.com/ios-filled/50/ffffff/checkmark--v1.png" alt="Yes" width="16" height="16" style="vertical-align: middle; margin-right: 6px; margin-bottom: 2px; border: 0; outline: none;"><span style="vertical-align:middle;">Yes, This Was Me</span></a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <!-- Spacer Row -->
+            <tr>
+                <td height="24" style="font-size: 0; line-height: 0; padding: 0;">&nbsp;</td>
+            </tr>
 
             <!-- Card 2 -->
-            <div class="alert-card">
-                <div class="card-top">
-                    <div class="card-icon-wrap">
-                        <!-- Envelope with User Icon -->
-                        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Envelope -->
-                            <rect x="2" y="8" width="26" height="18" rx="2" stroke="#111827" stroke-width="2.5" />
-                            <path d="M 2 10 L 15 19 L 28 10" stroke="#111827" stroke-width="2.5"
-                                stroke-linejoin="round" />
-
-                            <!-- Mask -->
-                            <circle cx="24" cy="24" r="10" fill="#f3f4f6" />
-
-                            <!-- Black Circle Background -->
-                            <circle cx="24" cy="24" r="8" fill="#111827" />
-
-                            <!-- User Head -->
-                            <circle cx="24" cy="21" r="2.5" fill="#ffffff" />
-
-                            <!-- User Body -->
-                            <path d="M 19 28 C 19 25.5 21 24.5 24 24.5 C 27 24.5 29 25.5 29 28" stroke="#ffffff"
-                                stroke-width="2.5" stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <div class="card-info">
-                        <div class="card-title">Email Address Updated</div>
-                        <div class="card-desc">Your account email address<br>was recently updated.</div>
-
-                        <div class="meta-row">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <polyline points="12 6 12 12 16 14"></polyline>
-                            </svg>
-                            May 24, 2026 at 9:42 PM (UTC)
-                        </div>
-                        <div class="meta-row">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                            New York, United States
-                        </div>
-                    </div>
-                </div>
-                <div class="card-divider"></div>
-                <div class="card-bottom">
-                    <div class="was-this-you">
-                        <div class="was-this-you-title">Was this you?</div>
-                        <div class="was-this-you-desc">If this wasn't you, secure your account immediately.</div>
-                    </div>
-                    <div class="action-buttons">
-                        <a href="#" class="btn btn-outline">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                <path d="M9 12l2 2 4-4"></path>
-                            </svg>
-                            Secure Account
-                        </a>
-                        <a href="#" class="btn btn-green">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <path d="M9 12l2 2 4-4"></path>
-                            </svg>
-                            Yes, This Was Me
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <tr>
+                <td align="left" valign="top">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; margin-bottom: 0;">
+                        <!-- Card Top Row -->
+                        <tr>
+                            <td style="padding: 24px 24px 20px 24px;">
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <!-- Icon -->
+                                        <td width="52" valign="top" style="padding-right: 16px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="52" height="52" style="background-color: #f9fafb; background-image: linear-gradient(#f9fafb, #f9fafb); border: 1px solid #e5e7eb; border-radius: 10px;">
+                                                <tr>
+                                                    <td align="center" valign="middle">
+                                                        <img src="https://img.icons8.com/ios/50/111827/new-post.png" alt="Email" width="24" height="24" style="vertical-align: middle; display: block; border: 0; outline: none;">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <!-- Info -->
+                                        <td valign="top">
+                                            <div style="font-size: 16px; font-weight: 800; color: #000; margin-bottom: 4px; font-family: 'Inter', sans-serif;">Email Address Updated</div>
+                                            <div style="font-size: 14px; color: #4b5563; font-weight: 500; margin-bottom: 16px; font-family: 'Inter', sans-serif;">Your account email address<br>was recently updated.</div>
+                                            
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 8px;">
+                                                <tr>
+                                                    <td width="20" valign="middle">
+                                                        <img src="https://img.icons8.com/ios/50/888888/clock--v1.png" alt="Time" width="16" height="16" style="vertical-align: middle; display: block; border: 0; outline: none;">
+                                                    </td>
+                                                    <td valign="middle" style="font-size: 13px; color: #1f2937; font-weight: 600; font-family: 'Inter', sans-serif;">May 24, 2026 at 9:42 PM (UTC)</td>
+                                                </tr>
+                                            </table>
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td width="20" valign="middle">
+                                                        <img src="https://img.icons8.com/ios/50/888888/marker--v1.png" alt="Location" width="16" height="16" style="vertical-align: middle; display: block; border: 0; outline: none;">
+                                                    </td>
+                                                    <td valign="middle" style="font-size: 13px; color: #1f2937; font-weight: 600; font-family: 'Inter', sans-serif;">New York, United States</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- Card Bottom Row -->
+                        <tr>
+                            <td style="padding: 20px 24px 24px 24px; border-top: 1px solid #e5e7eb;">
+                                <div style="font-size: 15px; font-weight: 800; color: #000; margin-bottom: 4px; font-family: 'Inter', sans-serif;">Was this you?</div>
+                                <div style="font-size: 13px; color: #4b5563; font-weight: 500; margin-bottom: 16px; font-family: 'Inter', sans-serif;">If this wasn't you, secure your account immediately.</div>
+                                
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%" class="btn-table">
+                                    <tr class="mobile-stack-row">
+                                        <td width="50%" class="mobile-stack" style="padding-right: 6px; padding-bottom: 8px;">
+                                            <a href="#" style="display: block; text-align: center; padding: 11px 16px; border-radius: 6px; font-size: 14px; font-weight: 700; text-decoration: none; border: 1px solid #111827; color: #111827; background: transparent; font-family: 'Inter', sans-serif; box-sizing: border-box; white-space: nowrap;"><img src="https://img.icons8.com/ios-filled/50/888888/security-checked.png" alt="Secure" width="16" height="16" style="vertical-align: middle; margin-right: 6px; margin-bottom: 2px; border: 0; outline: none;"><span style="vertical-align:middle;">Secure Account</span></a>
+                                        </td>
+                                        <td width="50%" class="mobile-stack" style="padding-left: 6px; padding-bottom: 8px;">
+                                            <a href="#" style="display: block; text-align: center; padding: 11px 16px; border-radius: 6px; font-size: 14px; font-weight: 700; text-decoration: none; background: #059669; color: #fff; border: 1px solid #059669; font-family: 'Inter', sans-serif; box-sizing: border-box; white-space: nowrap;"><img src="https://img.icons8.com/ios-filled/50/ffffff/checkmark--v1.png" alt="Yes" width="16" height="16" style="vertical-align: middle; margin-right: 6px; margin-bottom: 2px; border: 0; outline: none;"><span style="vertical-align:middle;">Yes, This Was Me</span></a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <!-- Spacer Row -->
+            <tr>
+                <td height="24" style="font-size: 0; line-height: 0; padding: 0;">&nbsp;</td>
+            </tr>
 
             <!-- Help Box -->
-            <div class="help-box">
-                <div class="help-left">
-                    <div class="help-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <text x="12" y="18" font-size="20" font-weight="900"
-                                font-family="'Inter', Arial, sans-serif" text-anchor="middle" fill="#000000"
-                                stroke="none">?</text>
-                        </svg>
-                    </div>
-                    <div>
-                        <div class="help-title">Need Help?</div>
-                        <div class="help-desc">Our support team is here for you.</div>
-                        <a href="mailto:support@dialphone.com" class="help-link">support@dialphone.com</a>
-                    </div>
-                </div>
-                <a href="#" class="btn btn-outline" style="border-radius: 6px; padding: 12px 24px;">Contact Support</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer Removed -->
-
+            <tr>
+                <td align="left" valign="top">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px;">
+                        <tr>
+                            <td style="padding: 24px;">
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mobile-stack-table">
+                                    <tr class="mobile-stack-row">
+                                        <!-- Left Side -->
+                                        <td class="mobile-stack" valign="middle" align="left" style="padding-bottom: 12px;">
+                                            <table border="0" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td width="52" valign="middle" style="padding-right: 16px;">
+                                                        <table border="0" cellpadding="0" cellspacing="0" width="52" height="52" style="background-color: #fff; background-image: linear-gradient(#ffffff, #ffffff); border: 1px solid #e5e7eb; border-radius: 50%;">
+                                                            <tr>
+                                                                <td align="center" valign="middle">
+                                                                    <div style="font-size: 18px; font-weight: 800; color: #111827; line-height: 24px; text-align: center; font-family: 'Inter', Arial, sans-serif;">?</div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                    <td valign="middle">
+                                                        <div style="font-size: 16px; font-weight: 800; color: #000; margin-bottom: 4px; font-family: 'Inter', sans-serif;">Need Help?</div>
+                                                        <div style="font-size: 13px; color: #4b5563; font-weight: 500; font-family: 'Inter', sans-serif;">Our support team is here for you.</div>
+                                                        <a href="mailto:support@dialphone.com" style="font-size: 13px; font-weight: 700; color: #111827; text-decoration: none; margin-top: 2px; display: inline-block; font-family: 'Inter', sans-serif;">support@dialphone.com</a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <!-- Right Side -->
+                                        <td class="mobile-stack" valign="middle" align="right">
+                                            <table border="0" cellpadding="0" cellspacing="0" class="btn-table" align="right">
+                                                <tr>
+                                                    <td align="center">
+                                                        <a href="#" style="display: block; text-align: center; padding: 12px 24px; border-radius: 6px; font-size: 14px; font-weight: 700; text-decoration: none; border: 1px solid #111827; color: #111827; background: transparent; font-family: 'Inter', sans-serif; white-space: nowrap; box-sizing: border-box;">Contact Support</a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+                </td>
+            </tr>
+        </table>
+    </center>
 </body>
 
 </html>

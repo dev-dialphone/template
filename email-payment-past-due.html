@@ -1,1160 +1,531 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Payment Past Due - DialPhone</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f9fafb;
-            color: #111827;
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-            display: flex;
-            justify-content: center;
-            padding: 90px 20px 40px;
-        }
-
-        .container {
-            max-width: 600px;
-            width: 100%;
-            background-color: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
-        }
-
-        /* Alert Box */
-        .alert-box {
-            background-color: #fffafa;
-            border: 1px solid #fca5a5;
-            border-radius: 8px;
-            padding: 16px 20px;
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 32px;
-        }
-
-        .alert-icon {
-            width: 32px;
-            height: 32px;
-            margin-right: 16px;
-            flex-shrink: 0;
-            margin-top: -2px;
-        }
-
-        .alert-title {
-            font-size: 14px;
-            font-weight: 800;
-            margin-bottom: 4px;
-            text-transform: uppercase;
-            color: #111827;
-        }
-
-        .alert-desc {
-            font-size: 14px;
-            color: #111827;
-            line-height: 1.5;
-        }
-
-        /* Header */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 24px;
-            border-bottom: 1px solid #e5e7eb;
-            margin-bottom: 24px;
-        }
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-icon img {
-            width: 72px;
-            height: 72px;
-            object-fit: contain;
-        }
-
-        .logo-divider {
-            width: 1px;
-            height: 48px;
-            background-color: #d1d5db;
-            margin: 0 20px;
-        }
-
-        .logo-text {
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            color: #111827;
-        }
-
-        .header-illustration {
-            width: 160px;
-            height: 120px;
-            position: relative;
-        }
-
-        /* Title Area */
-        .title-area {
-            margin-bottom: 32px;
-            max-width: 400px;
-        }
-
-        .main-title {
-            font-size: 32px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            margin-bottom: 12px;
-        }
-
-        .sub-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .desc-text {
-            font-size: 14px;
-            color: #4b5563;
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-
-        /* Card Component */
-        .card {
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 12px;
-        }
-
-        /* Amount & Due Date Card */
-        .details-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            position: relative;
-        }
-
-        .details-divider {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 1px;
-            background-color: #e5e7eb;
-            transform: translateX(-50%);
-        }
-
-        .detail-block {
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .icon-circle {
-            width: 48px;
-            height: 48px;
-            background-color: #f3f4f6;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 16px;
-            flex-shrink: 0;
-        }
-
-        .icon-circle svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        .detail-label {
-            font-size: 13px;
-            color: #4b5563;
-            margin-bottom: 4px;
-        }
-
-        .detail-value {
-            font-size: 20px;
-            font-weight: 800;
-        }
-
-        .detail-sub {
-            font-size: 12px;
-            color: #6b7280;
-            margin-top: 2px;
-        }
-
-        .card-divider {
-            height: 1px;
-            background-color: #e5e7eb;
-            margin: 24px 0;
-        }
-
-        .warning-block {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-        }
-
-        .warning-left {
-            display: flex;
-            align-items: flex-start;
-            flex: 1;
-            padding-right: 20px;
-        }
-
-        .warning-icon {
-            width: 32px;
-            height: 32px;
-            margin-right: 16px;
-            flex-shrink: 0;
-        }
-
-        .warning-title {
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .warning-desc {
-            font-size: 13px;
-            color: #4b5563;
-            line-height: 1.5;
-        }
-
-        .btn-outline {
-            border: 1px solid #d1d5db;
-            background-color: #ffffff;
-            color: #111827;
-            padding: 10px 18px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        }
-
-        .btn-outline:hover {
-            background-color: #f9fafb;
-            border-color: #9ca3af;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        /* Resolve Steps */
-        .resolve-title {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 24px;
-        }
-
-        .steps-container {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-        }
-
-        .step-arrow {
-            position: absolute;
-            top: 24px;
-            left: 20%;
-            right: 20%;
-            height: 1px;
-            display: flex;
-            justify-content: space-between;
-            z-index: 1;
-        }
-
-        .arrow-line {
-            height: 1px;
-            background-image: linear-gradient(to right, #d1d5db 50%, transparent 50%);
-            background-size: 6px 1px;
-            width: 30%;
-            position: relative;
-        }
-
-        .arrow-line::after {
-            content: '';
-            position: absolute;
-            right: -2px;
-            top: -3px;
-            border: solid #d1d5db;
-            border-width: 0 1px 1px 0;
-            display: inline-block;
-            padding: 3px;
-            transform: rotate(-45deg);
-        }
-
-        .step-block {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            width: 30%;
-            position: relative;
-            z-index: 2;
-        }
-
-        .step-icon-wrapper {
-            position: relative;
-            margin-bottom: 16px;
-            background: #fff;
-        }
-
-        .step-badge {
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            width: 20px;
-            height: 20px;
-            background-color: #111827;
-            color: #ffffff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-        .step-icon {
-            width: 56px;
-            height: 56px;
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f3f4f6;
-        }
-
-        .step-title {
-            font-size: 13px;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-
-        .step-desc {
-            font-size: 12px;
-            color: #4b5563;
-            line-height: 1.5;
-        }
-
-        /* Payment Method Card */
-        .payment-method-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .pm-left {
-            display: flex;
-            align-items: center;
-        }
-
-        .pm-icon {
-            width: 48px;
-            height: 32px;
-            border: 1px solid #e5e7eb;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 16px;
-        }
-
-        .pm-details .pm-label {
-            font-size: 12px;
-            color: #4b5563;
-            margin-bottom: 2px;
-        }
-
-        .pm-details .pm-value {
-            font-size: 15px;
-            font-weight: 700;
-            margin-bottom: 2px;
-        }
-
-        .pm-details .pm-sub {
-            font-size: 12px;
-            color: #6b7280;
-        }
-
-        .btn-outline-icon {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* Call to Action */
-        .cta-container {
-            margin: 32px 0 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .cta-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #111827;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            width: 100%;
-            max-width: 280px;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(17, 24, 39, 0.15);
-            margin-bottom: 20px;
-        }
-
-        .cta-btn:hover {
-            background-color: #000000;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(17, 24, 39, 0.25);
-        }
-
-        .cta-btn .btn-text {
-            flex: 1;
-            text-align: center;
-            padding-left: 32px;
-            /* balance out the right icon */
-        }
-
-        .cta-btn .btn-arrow {
-            width: 28px;
-            height: 28px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            transition: border-color 0.2s ease;
-        }
-
-        .cta-btn:hover .btn-arrow {
-            border-color: rgba(255, 255, 255, 0.6);
-        }
-
-        .link-text {
-            color: #111827;
-            font-size: 14px;
-            font-weight: 700;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            border-bottom: 1px solid #111827;
-            padding-bottom: 2px;
-        }
-
-        /* ── HELP BOX ── */
-        .help-box {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: #f9fafb;
-            border: 1px solid #eaeaea;
-            border-radius: 10px;
-            padding: 22px 24px;
-            text-align: left;
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        .help-left {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .help-circle {
-            width: 52px;
-            height: 52px;
-            background: #e8e8e8;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: 900;
-            color: #000;
-            flex-shrink: 0;
-        }
-
-        .help-text h3 {
-            font-size: 15px;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 4px;
-        }
-
-        .help-text p {
-            font-size: 14px;
-            color: #555;
-            line-height: 1.5;
-            margin: 0;
-        }
-
-        .help-text strong {
-            color: #000;
-            font-weight: 700;
-        }
-
-        .contact-btn {
-            background: #fff;
-            border: 1px solid #d0d0d0;
-            border-radius: 6px;
-            padding: 12px 20px;
-            color: #000;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            white-space: nowrap;
-            transition: 0.2s;
-        }
-
-        .contact-btn:hover {
-            border-color: #888;
-        }
-
-
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .container {
-                padding: 24px;
-            }
-
-            .header {
-                flex-direction: column;
-            }
-
-            .header-illustration {
-                margin-top: 24px;
-                align-self: center;
-            }
-
-            .details-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .details-divider {
-                display: none;
-            }
-
-            .warning-block {
-                flex-direction: column;
-            }
-
-            .warning-left {
-                margin-bottom: 16px;
-                padding-right: 0;
-            }
-
-            .steps-container {
-                flex-direction: column;
-                gap: 32px;
-            }
-
-            .step-arrow {
-                display: none;
-            }
-
-            .step-block {
-                width: 100%;
-            }
-
-            .payment-method-row {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 16px;
-            }
-
-            .pm-left {
-                width: 100%;
-            }
-
-            .help-box {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 16px;
-            }
-
-            .btn-outline {
-                width: 100%;
-            }
-        }
-        
-        /* --- BEGIN GLOBAL OVERRIDES --- */
-        /* --- GLOBAL MOBILE OVERRIDES --- */
-        @media (max-width: 640px) {
-            body { 
-                padding-left: 12px !important; 
-                padding-right: 12px !important; 
-                padding-top: 60px !important;
-            }
-            .container, .card, .email-container, .main-wrapper, .email-wrapper { 
-                width: 100% !important; 
-                max-width: 100% !important; 
-                padding: 16px !important;
-                box-sizing: border-box !important;
-            }
-            /* Force header elements into a single row */
-            .header, .top-banner {
-                display: flex !important;
-                flex-direction: row !important;
-                flex-wrap: nowrap !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-                padding: 16px 8px !important;
-                gap: 8px !important;
-                box-sizing: border-box !important;
-                min-height: 40px !important;
-                overflow: visible !important;
-            }
-            .header-left, .logo-section, .header-title-container, .brand-section, .logo-area {
-                display: flex !important;
-                flex-direction: row !important;
-                flex-wrap: nowrap !important;
-                align-items: center !important;
-                gap: 8px !important;
-                flex: 1 !important;
-                min-width: 0 !important;
-            }
-            /* Prevent logo wrapper from shrinking to 0 width */
-            div.logo, span.logo, .header-logo, .logo-icon {
-                flex-shrink: 1 !important;
-                width: auto !important;
-                height: auto !important;
-                margin: 0 !important;
-                min-width: 0 !important;
-                display: flex !important;
-                align-items: center !important;
-                gap: 8px !important;
-            }
-            /* Apply strict medium height ONLY to images */
-            img.logo, .logo-img, .header-logo img, .logo-icon img, .brand-section img, div.logo img {
-                height: 48px !important; 
-                width: auto !important;
-                flex-shrink: 0 !important;
-                display: block !important;
-                max-width: 100% !important;
-            }
-            .logo-text, .header-title, .logo-title, .brand-title, .heading h1, .header-text h1, .heading h2, .header-text h2, .heading h3, .header-text h3, .heading small {
-                font-size: 15px !important; 
-                font-weight: 700 !important;
-                line-height: 1.3 !important;
-                margin: 0 !important;
-                white-space: normal !important;
-                overflow: hidden !important;
-                text-align: left !important;
-                min-width: 0 !important;
-                color: #111827 !important;
-            }
-            .logo-text-wrapper, .logo-text-block, .heading, .header-text, .header-center, .header-title-block {
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: flex-start !important;
-                justify-content: center !important;
-                gap: 2px !important;
-                min-width: 0 !important;
-                flex: 1 !important;
-                border: none !important;
-                padding-left: 0 !important;
-            }
-            .logo-subtitle, .logo-tagline, .banner-desc, .heading p, .header-text p, .header-subtitle {
-                display: block !important;
-                font-size: 11px !important;
-                font-weight: 400 !important;
-                color: #6b7280 !important;
-                margin: 2px 0 0 0 !important;
-                line-height: 1.4 !important;
-                white-space: normal !important;
-            }
-            /* The icon/illustration in the header */
-            .header-right, .header-illustration, .header-right-td, .banner-illustration, .header-icon, .hero-illustration {
-                display: flex !important;
-                width: 115px !important; 
-                max-width: 115px !important;
-                flex: 0 0 115px !important;
-                height: 100% !important;
-                min-height: 40px !important;
-                align-items: center !important;
-                justify-content: center !important;
-                padding-left: 0 !important;
-                overflow: visible !important;
-            }
-            .header-right svg, .header-illustration svg, .banner-illustration svg, .header-icon svg, .hero-illustration svg {
-                width: 100% !important;
-                height: auto !important;
-                max-width: 100% !important;
-                max-height: 100% !important;
-                object-fit: contain !important;
-                overflow: visible !important;
-            }
-            svg.hero-svg {
-                max-width: 180px !important;
-                height: auto !important;
-                margin: 0 auto !important;
-                display: block !important;
-            }
-            /* Stack other body elements */
-            .info-row, .features-row, .alert-actions { 
-                display: flex !important;
-                flex-direction: column !important; 
-                align-items: flex-start !important;
-                gap: 12px !important;
-            }
-            .btn, .btn-outline, .btn-primary, .support-btn, .dashboard-btn, .confirm-btn {
-                width: 100% !important;
-                justify-content: center !important;
-                margin: 12px 0 0 0 !important;
-                box-sizing: border-box !important;
-            }
-            .info-separator, .logo-divider, .header-divider, .brand-divider, .vertical-line-header, .header-left .vertical-line { display: none !important; }
-            .info-item { margin-bottom: 8px !important; }
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta name="color-scheme" content="light only" />
+    <meta name="supported-color-schemes" content="light only" />
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    <style type="text/css">
+        :root {
+            color-scheme: light only;
+            supported-color-schemes: light only;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        /* Reset */
+        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; }
+        body { margin: 0; padding: 0; width: 100% !important; height: 100% !important; }
+
+        @media only screen and (max-width: 600px) {
+            .mobile-full { width: 100% !important; max-width: 100% !important; }
+            .mobile-padding { padding-left: 16px !important; padding-right: 16px !important; }
+            .mobile-stack { display: block !important; width: 100% !important; }
+            .mobile-stack-spacer { display: block !important; height: 16px !important; width: 100% !important; }
+            .mobile-center { text-align: center !important; }
+            .mobile-hide { display: none !important; }
+            .mobile-btn-full { width: 100% !important; text-align: center !important; }
             
-            /* Force OTP boxes into a single line */
-            .otp-container {
-                flex-wrap: nowrap !important;
-                gap: 6px !important;
-                width: 100% !important;
-                justify-content: center !important;
-                padding: 0 !important;
-            }
-            .otp-box {
-                flex: 1 1 0 !important;
-                width: auto !important;
-                max-width: 50px !important;
-                height: 55px !important;
-                font-size: 24px !important;
-            }
-            
-            /* Table-based email template overrides */
-            td.header-cell {
-                padding: 12px 8px !important;
-                display: block !important;
-            }
-            td.header-cell > table, 
-            td.header-cell > table > tbody,
-            td.header-cell > table > tbody > tr {
-                display: flex !important;
-                width: 100% !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child {
-                display: flex !important;
-                flex: 1 !important;
-                min-width: 0 !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table,
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody,
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr {
-                display: flex !important;
-                width: 100% !important;
-                flex-direction: row !important;
-                align-items: center !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(1) {
-                flex-shrink: 0 !important;
-                display: block !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(2) {
-                display: none !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) {
-                flex: 1 !important;
-                min-width: 0 !important;
-                padding-left: 8px !important;
-                border-left: 1px solid #eaeaea !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) span {
-                font-size: 16px !important;
-                white-space: nowrap !important;
-                text-overflow: ellipsis !important;
-                overflow: hidden !important;
-                display: block !important;
-            }
-            td.header-right-td {
-                display: flex !important;
-                width: 115px !important; 
-                max-width: 115px !important;
-                flex: 0 0 115px !important;
-                align-items: center !important;
-                justify-content: center !important;
-            }
+            /* Responsive Header Rules to keep everything in one line */
+            .mobile-logo-cell { width: 40px !important; }
+            .mobile-logo-img { width: 40px !important; }
+            .mobile-header-divider { padding: 0 10px !important; }
+            .mobile-header-title { font-size: 14px !important; }
+            .mobile-header-subtitle { font-size: 10px !important; line-height: 1.2 !important; }
+            .mobile-header-icon-cell { width: 65px !important; }
+            .mobile-header-icon-img { width: 55px !important; }
         }
-        
-        /* --- GLOBAL DESKTOP OVERRIDES --- */
-        @media (min-width: 641px) {
-            .email-wrapper, .email-container, table.main, .container {
-                max-width: 720px !important;
-                margin-left: auto !important;
-                margin-right: auto !important;
-            }
-            .logo, .header-logo {
-                width: 64px !important;
-                height: 64px !important;
-                flex-shrink: 0 !important;
-            }
-            .header, .top-banner {
-                padding: 30px 40px !important;
-                flex-wrap: nowrap !important;
-            }
-            .vertical-line, .vertical-line-header, .logo-divider, .header-divider {
-                margin-right: 20px !important;
-            }
-            .header-right, .header-illustration {
-                width: 100% !important;
-                max-width: 160px !important;
-                flex-shrink: 0 !important;
-                height: auto !important;
-            }
-            .header-right svg, .header-illustration svg {
-                width: 100% !important;
-                height: auto !important;
-            }
-            .heading {
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: flex-start !important;
-                gap: 6px !important;
-                white-space: nowrap !important;
-            }
-            .heading h1, .heading h2, .heading h3, .heading small, .logo-text, .header-title {
-                display: inline-block !important;
-                margin: 0 !important;
-                white-space: nowrap !important;
-            }
-            .heading small, .heading h2:first-child:not(:last-child) {
-                font-size: 13px !important;
-                font-weight: 700 !important;
-                color: #555 !important;
-                letter-spacing: 0.5px !important;
-            }
-            .heading h1, .heading h2:only-child, .heading h3:only-child, .logo-text, .header-title {
-                font-size: 24px !important;
-            }
-            div.notification-card {
-                max-width: 1150px !important;
-                width: fit-content !important;
-            }
-        }
-        /* --- END GLOBAL OVERRIDES --- */
-
     </style>
 </head>
 
-<body>
-    <div id="__global_nav__"
-        style="background:#111827;color:#fff;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;position:fixed;top:0;left:0;width:100%;box-sizing:border-box;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
-        <a href="email-payment-method-updated.html"
-            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">&#8592;
-            Back</a>
-        <a href="index.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:0.7;">&#9679;
-            Payment Past Due</a>
-        <a href="email-proration-summary.html"
-            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">Next
-            &#8594;</a>
-    </div>
-    <div style="height:50px;"></div>
+<body style="margin: 0; padding: 0; background-color: #f9fafb; font-family: 'Inter', Arial, Helvetica, sans-serif;">
 
-    <!-- GLOBAL NAVIGATION BAR -->
+    <!-- Wrapper Table -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f9fafb;">
+        <tr>
+            <td align="center" style="padding: 40px 10px;">
 
-    <!-- END GLOBAL NAVIGATION BAR -->
+                <!-- Main Container -->
+                <table border="0" cellpadding="0" cellspacing="0" width="740" class="mobile-full" style="max-width: 740px; width: 100%; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 2px;">
+                    <tr>
+                        <td>
 
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <div class="logo-section">
-                <div class="logo-icon">
-                    <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png"
-                        alt="DialPhone Logo">
-                </div>
-                <div class="logo-divider"></div>
-                <div class="logo-text">Payment Past Due</div>
-            </div>
-            <div class="header-illustration">
-                <!-- Calendar Illustration -->
-                <svg viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M110 30H50C44.4772 30 40 34.4772 40 40V90C40 95.5228 44.4772 100 50 100H110C115.523 100 120 95.5228 120 90V40C120 34.4772 115.523 30 110 30Z"
-                        fill="#ffffff" stroke="#111827" stroke-width="4" />
-                    <path d="M40 46H120" stroke="#111827" stroke-width="4" />
-                    <rect x="52" y="24" width="8" height="12" rx="4" fill="#111827" />
-                    <rect x="100" y="24" width="8" height="12" rx="4" fill="#111827" />
-                    <rect x="52" y="56" width="12" height="12" rx="2" stroke="#111827" stroke-width="2" />
-                    <rect x="74" y="56" width="12" height="12" rx="2" stroke="#111827" stroke-width="2" />
-                    <rect x="96" y="56" width="12" height="12" rx="2" stroke="#111827" stroke-width="2" />
-                    <rect x="52" y="76" width="12" height="12" rx="2" stroke="#111827" stroke-width="2" />
-                    <rect x="74" y="76" width="12" height="12" rx="2" stroke="#111827" stroke-width="2" />
+                            <!-- ═══════════════════════════════════════════ -->
+                            <!-- TOP HEADER BAR -->
+                            <!-- ═══════════════════════════════════════════ -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-bottom: 1px solid #e5e7eb;">
+                                <tr>
+                                    <td style="padding: 16px 24px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <!-- Logo -->
+                                                <td width="50" valign="middle" align="center" style="width: 50px;" class="mobile-logo-cell">
+                                                    <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png" alt="DialPhone Logo" width="50" style="display: block; width: 50px; height: auto;" class="mobile-logo-img" />
+                                                </td>
+                                                <!-- Short Divider Line -->
+                                                <td width="1" valign="middle" style="width: 1px; padding: 0 16px;" class="mobile-header-divider">
+                                                    <div style="height: 32px; width: 1px; background-color: #e5e7eb; font-size: 0; line-height: 0;">&nbsp;</div>
+                                                </td>
+                                                <!-- Title + Subtitle -->
+                                                <td width="55%" valign="middle" style="width: 55%; font-family: 'Inter', Arial, sans-serif;">
+                                                    <p style="margin: 0 0 3px 0; font-size: 18px; font-weight: 800; color: #2d3748; font-family: 'Inter', Arial, sans-serif; line-height: 1.2;" class="mobile-header-title">Payment Past Due</p>
+                                                    <p style="margin: 0; font-size: 12px; color: #6b7280; font-family: 'Inter', Arial, sans-serif; line-height: 1.4;" class="mobile-header-subtitle">Action required to keep your subscription active.</p>
+                                                </td>
+                                                <!-- Right Illustration -->
+                                                <td width="35%" valign="middle" align="right" style="width: 35%; max-width: 260px;" class="mobile-header-icon-cell">
+                                                    <img src="https://res.cloudinary.com/powk2ugh/image/upload/v1784805630/New_Project_18_zha0m8.png" alt="Payment Past Due" width="260" style="display: block; width: 100%; max-width: 260px; height: auto; margin-left: auto;" class="mobile-header-icon-img" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
 
-                    <!-- Background Blob -->
-                    <path
-                        d="M140 80C140 100 120 110 100 110C70 110 30 115 20 95C10 75 25 50 45 40C65 30 90 20 110 30C130 40 140 60 140 80Z"
-                        fill="#f3f4f6" style="mix-blend-mode: multiply;" z-index="-1" />
+                            <!-- ═══════════════════════════════════════════ -->
+                            <!-- HERO SECTION (ALERT BANNER & SALUTATION) -->
+                            <!-- ═══════════════════════════════════════════ -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="padding: 24px 30px 16px;" class="mobile-padding">
+                                        
+                                        <!-- Alert Box -->
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px;">
+                                            <tr>
+                                                <td style="padding: 16px 20px;">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <!-- Exclamation Badge -->
+                                                            <td width="32" valign="top" style="width: 32px; padding-right: 12px;">
+                                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                                    <tr>
+                                                                        <td width="32" height="32" align="center" valign="middle" style="width: 32px; height: 32px; background-color: #dc2626; border-radius: 50%; color: #ffffff; font-weight: 800; font-size: 18px; line-height: 32px; text-align: center;">!</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <!-- Alert message -->
+                                                            <td valign="middle" style="font-family: 'Inter', Arial, sans-serif;">
+                                                                <p style="margin: 0 0 3px 0; font-size: 13px; font-weight: 800; color: #2d3748; text-transform: uppercase;">Payment Past Due</p>
+                                                                <p style="margin: 0; font-size: 13px; color: #111827; line-height: 1.4;">Action required: Update your payment method to avoid service interruption or account suspension.</p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
 
-                    <!-- Exclamation Circle -->
-                    <circle cx="115" cy="85" r="18" fill="#dc2626" stroke="#ffffff" stroke-width="4" />
-                    <path d="M115 75V85" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
-                    <circle cx="115" cy="92" r="2" fill="#ffffff" />
+                                        <!-- Spacer -->
+                                        <table border="0" cellpadding="0" cellspacing="0"><tr><td height="24" style="height: 24px; font-size: 0; line-height: 0;">&nbsp;</td></tr></table>
 
-                    <!-- Sparkles -->
-                    <path d="M130 18L132 24L138 26L132 28L130 34L128 28L122 26L128 24L130 18Z" fill="#111827" />
-                    <path d="M30 65L32 68L35 70L32 72L30 75L28 72L25 70L28 68L30 65Z" fill="#111827" />
-                </svg>
-            </div>
-        </div>
+                                        <!-- Salutation & Desc -->
+                                        <h2 style="margin: 0 0 10px 0; font-size: 20px; font-weight: 800; color: #2d3748; font-family: 'Inter', Arial, sans-serif;">Hi Alex Carter,</h2>
+                                        <p style="margin: 0; font-size: 14px; color: #4b5563; font-family: 'Inter', Arial, sans-serif; line-height: 1.6;">Your payment is past due because we were unable to process your most recent payment. Please update your payment method to avoid service interruption or account suspension.</p>
 
-        <!-- Alert Box -->
-        <div class="alert-box">
-            <div class="alert-icon">
-                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="16" cy="16" r="16" fill="#dc2626" />
-                    <path d="M16 8V18" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
-                    <circle cx="16" cy="24" r="2" fill="#ffffff" />
-                </svg>
-            </div>
-            <div>
-                <div class="alert-title">Payment Past Due</div>
-                <div class="alert-desc">Action required: Update your payment method to avoid service interruption or
-                    account suspension.</div>
-            </div>
-        </div>
+                                    </td>
+                                </tr>
+                            </table>
 
-        <!-- Title -->
-        <div class="title-area" style="max-width: 100%;">
-            <h2 class="main-title" style="font-size: 22px; margin-bottom: 12px;">Hi Alex Carter,</h2>
-            <p class="desc-text" style="color: #111827; font-size: 15px; max-width: 600px; line-height: 1.6;">
-                Your payment is past due because we were unable to process your most recent payment. Please update your
-                payment method to avoid service interruption or account suspension.
-            </p>
-        </div>
+                            <!-- ═══════════════════════════════════════════ -->
+                            <!-- AMOUNT & DATE SUMMARY CARD -->
+                            <!-- ═══════════════════════════════════════════ -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="padding: 0 30px 16px;" class="mobile-padding">
+                                        
+                                        <!-- Bordered Card -->
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border: 1px solid #e5e7eb; border-radius: 8px; background-color: #ffffff;">
+                                            <tr>
+                                                <td style="padding: 20px 24px;">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <!-- Amount Due Block -->
+                                                            <td valign="top" class="mobile-stack">
+                                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                                    <tr>
+                                                                        <td width="48" valign="top" style="width: 48px;">
+                                                                            <table border="0" cellpadding="0" cellspacing="0" style="width: 48px; height: 48px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 50%; text-align: center;">
+                                                                                <tr>
+                                                                                    <td width="48" height="48" align="center" valign="middle" style="width: 48px; height: 48px; text-align: center; vertical-align: middle;">
+                                                                                        <img src="https://img.icons8.com/ios-glyphs/96/000000/bank-card-back-side.png" width="24" height="24" style="display: block; width: 24px; height: 24px; margin: 0 auto;" />
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                        <td style="padding-left: 16px; font-family: 'Inter', Arial, sans-serif;">
+                                                                            <p style="margin: 0 0 3px 0; font-size: 12px; color: #6b7280;">Amount Due</p>
+                                                                            <p style="margin: 0; font-size: 18px; font-weight: 800; color: #2d3748;">$10.79</p>
+                                                                            <p style="margin: 2px 0 0 0; font-size: 11px; color: #9ca3af;">(incl. tax)</p>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <!-- Divider (hidden on mobile) -->
+                                                            <td width="1" valign="middle" align="center" style="width: 1px; padding: 0 20px;" class="mobile-hide">
+                                                                <div style="height: 36px; width: 1px; background-color: #e5e7eb; font-size: 0; line-height: 0;">&nbsp;</div>
+                                                            </td>
+                                                            <!-- Due Date Block -->
+                                                            <td valign="top" class="mobile-stack">
+                                                                <!--[if !mso]><!-->
+                                                                <div style="display: none; height: 0; overflow: hidden;" class="mobile-stack-spacer">&nbsp;</div>
+                                                                <!--<![endif]-->
+                                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                                    <tr>
+                                                                        <td width="48" valign="top" style="width: 48px;">
+                                                                            <table border="0" cellpadding="0" cellspacing="0" style="width: 48px; height: 48px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 50%; text-align: center;">
+                                                                                <tr>
+                                                                                    <td width="48" height="48" align="center" valign="middle" style="width: 48px; height: 48px; text-align: center; vertical-align: middle;">
+                                                                                        <img src="https://img.icons8.com/ios-glyphs/96/000000/calendar.png" width="24" height="24" style="display: block; width: 24px; height: 24px; margin: 0 auto;" />
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                        <td style="padding-left: 16px; font-family: 'Inter', Arial, sans-serif;">
+                                                                            <p style="margin: 0 0 3px 0; font-size: 12px; color: #6b7280;">Due Date</p>
+                                                                            <p style="margin: 0; font-size: 18px; font-weight: 800; color: #2d3748;">May 24, 2026</p>
+                                                                            <p style="margin: 2px 0 0 0; font-size: 11px; color: #9ca3af;">11:59 PM</p>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
 
-        <!-- Amount Due Card -->
-        <div class="card">
-            <div class="details-grid">
-                <div class="detail-block">
-                    <div class="icon-circle" style="background-color: #fffafa; border: 1px solid #fca5a5;">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="2" y="6" width="20" height="12" rx="2" stroke="#dc2626" stroke-width="2" />
-                            <path d="M22 10H18C16.8954 10 16 10.8954 16 12C16 13.1046 16.8954 14 18 14H22"
-                                stroke="#dc2626" stroke-width="2" />
-                        </svg>
-                    </div>
-                    <div>
-                        <div class="detail-label">Amount Due</div>
-                        <div class="detail-value">$10.79</div>
-                        <div class="detail-sub">(incl. tax)</div>
-                    </div>
-                </div>
-                <div class="details-divider"></div>
-                <div class="detail-block" style="padding-left: 20px;">
-                    <div class="icon-circle" style="background-color: #fffafa; border: 1px solid #fca5a5;">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="#dc2626" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M16 2V6M8 2V6M3 10H21" stroke="#dc2626" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <circle cx="8" cy="15" r="1.5" fill="#dc2626" />
-                            <circle cx="12" cy="15" r="1.5" fill="#dc2626" />
-                            <circle cx="16" cy="15" r="1.5" fill="#dc2626" />
-                        </svg>
-                    </div>
-                    <div>
-                        <div class="detail-label">Due Date</div>
-                        <div class="detail-value">May 24, 2026</div>
-                        <div class="detail-sub">11:59 PM</div>
-                    </div>
-                </div>
-            </div>
+                                                    <!-- Separator Spacer (prevents collapsing) -->
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td height="16" style="height: 16px; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="1" style="height: 1px; background-color: #e5e7eb; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="20" style="height: 20px; font-size: 0; line-height: 0;">&nbsp;</td>
+                                                        </tr>
+                                                    </table>
 
-            <div class="card-divider"></div>
+                                                    <!-- Warning/Action Block -->
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td valign="top" class="mobile-stack">
+                                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                                    <tr>
+                                                                        <td width="32" valign="top" style="width: 32px;">
+                                                                            <table border="0" cellpadding="0" cellspacing="0" style="width: 32px; height: 32px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 50%; text-align: center;">
+                                                                                <tr>
+                                                                                    <td width="32" height="32" align="center" valign="middle" style="width: 32px; height: 32px; text-align: center; vertical-align: middle;">
+                                                                                        <img src="https://img.icons8.com/ios-glyphs/96/000000/info.png" width="16" height="16" style="display: block; width: 16px; height: 16px; margin: 0 auto;" />
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                        <td style="padding-left: 16px; padding-right: 16px; font-family: 'Inter', Arial, sans-serif;">
+                                                                            <p style="margin: 0 0 4px 0; font-size: 13px; font-weight: 700; color: #2d3748;">What happens if payment is not received?</p>
+                                                                            <p style="margin: 0; font-size: 13px; color: #4b5563; line-height: 1.4;">If payment isn't received, your service may be interrupted or your account may be suspended.</p>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <td width="120" valign="middle" align="right" style="width: 120px;" class="mobile-stack mobile-center">
+                                                                <!--[if !mso]><!-->
+                                                                <div style="display: none; height: 0; overflow: hidden;" class="mobile-stack-spacer">&nbsp;</div>
+                                                                <!--<![endif]-->
+                                                                <table border="0" cellpadding="0" cellspacing="0" align="right" class="mobile-btn-full">
+                                                                    <tr>
+                                                                        <td align="center" style="border: 1px solid #d1d5db; border-radius: 6px; background-color: #ffffff;">
+                                                                            <a href="#" target="_blank" style="display: inline-block; padding: 10px 16px; font-size: 13px; font-weight: 600; color: #2d3748; font-family: 'Inter', Arial, sans-serif; text-decoration: none; white-space: nowrap;">View Invoice</a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
 
-            <div class="warning-block">
-                <div class="warning-left">
-                    <div class="warning-icon">
-                        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="16" cy="16" r="14" stroke="#111827" stroke-width="2" />
-                            <path d="M16 10V18" stroke="#111827" stroke-width="2" stroke-linecap="round" />
-                            <circle cx="16" cy="22" r="1.5" fill="#111827" />
-                        </svg>
-                    </div>
-                    <div>
-                        <div class="warning-title">What happens if payment is not received?</div>
-                        <div class="warning-desc">If payment isn't received, your service may be interrupted or your
-                            account may be suspended.</div>
-                    </div>
-                </div>
-                <a href="#" class="btn-outline">View Invoice</a>
-            </div>
-        </div>
+                                                </td>
+                                            </tr>
+                                        </table>
 
-        <!-- How to resolve this -->
-        <div class="card">
-            <h3 class="resolve-title">How to resolve this</h3>
-            <div class="steps-container">
-                <div class="step-arrow">
-                    <div class="arrow-line"></div>
-                    <div class="arrow-line"></div>
-                </div>
+                                    </td>
+                                </tr>
+                            </table>
 
-                <div class="step-block">
-                    <div class="step-icon-wrapper">
-                        <div class="step-badge">1</div>
-                        <div class="step-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
-                                <line x1="2" y1="10" x2="22" y2="10"></line>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="step-title">Update Payment Method</div>
-                    <div class="step-desc">Update your payment method to process the outstanding amount.</div>
-                </div>
+                            <!-- ═══════════════════════════════════════════ -->
+                            <!-- HOW TO RESOLVE THIS -->
+                            <!-- ═══════════════════════════════════════════ -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="padding: 0 30px 16px;" class="mobile-padding">
+                                        
+                                        <!-- Bordered Card -->
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border: 1px solid #e5e7eb; border-radius: 8px; background-color: #ffffff;">
+                                            <tr>
+                                                <td style="padding: 16px 20px;">
+                                                    <h3 style="margin: 0 0 20px 0; font-size: 15px; font-weight: 700; color: #2d3748; font-family: 'Inter', Arial, sans-serif;">How to resolve this</h3>
+                                                    
+                                                    <!-- Steps container -->
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <!-- Step 1 -->
+                                                            <!-- Step 1 -->
+                                                            <td width="30%" valign="top" class="mobile-stack mobile-center">
+                                                                <table border="0" cellpadding="0" cellspacing="0" align="center">
+                                                                    <tr>
+                                                                        <td align="center" style="padding-bottom: 8px;">
+                                                                            <table border="0" cellpadding="0" cellspacing="0" style="width: 20px; height: 20px; background-color: #374151; border-radius: 50%; text-align: center;">
+                                                                                <tr>
+                                                                                    <td width="20" height="20" align="center" valign="middle" style="width: 20px; height: 20px; color: #ffffff; font-size: 10px; font-weight: 800; font-family: 'Inter', Arial, sans-serif; text-align: center; vertical-align: middle; line-height: 20px;">1</td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="center" style="padding-bottom: 12px;">
+                                                                            <table border="0" cellpadding="0" cellspacing="0" style="width: 52px; height: 52px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 50%; text-align: center;">
+                                                                                <tr>
+                                                                                    <td width="52" height="52" align="center" valign="middle" style="width: 52px; height: 52px; text-align: center; vertical-align: middle;">
+                                                                                        <img src="https://img.icons8.com/ios-glyphs/96/000000/bank-card-back-side.png" width="24" height="24" style="display: block; width: 24px; height: 24px; margin: 0 auto;" />
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="center" style="font-family: 'Inter', Arial, sans-serif;">
+                                                                            <p style="margin: 0 0 4px 0; font-size: 13px; font-weight: 700; color: #2d3748;">Update Details</p>
+                                                                            <p style="margin: 0; font-size: 11px; color: #4b5563; line-height: 1.4;">Update your payment method to process the outstanding amount.</p>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <!-- Spacer -->
+                                                            <td width="5%" class="mobile-hide">&nbsp;</td>
+                                                            <!-- Step 2 -->
+                                                            <td width="30%" valign="top" class="mobile-stack mobile-center">
+                                                                <!--[if !mso]><!-->
+                                                                <div style="display: none; height: 0; overflow: hidden;" class="mobile-stack-spacer">&nbsp;</div>
+                                                                <!--<![endif]-->
+                                                                <table border="0" cellpadding="0" cellspacing="0" align="center">
+                                                                    <tr>
+                                                                        <td align="center" style="padding-bottom: 8px;">
+                                                                            <table border="0" cellpadding="0" cellspacing="0" style="width: 20px; height: 20px; background-color: #374151; border-radius: 50%; text-align: center;">
+                                                                                <tr>
+                                                                                    <td width="20" height="20" align="center" valign="middle" style="width: 20px; height: 20px; color: #ffffff; font-size: 10px; font-weight: 800; font-family: 'Inter', Arial, sans-serif; text-align: center; vertical-align: middle; line-height: 20px;">2</td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="center" style="padding-bottom: 12px;">
+                                                                            <table border="0" cellpadding="0" cellspacing="0" style="width: 52px; height: 52px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 50%; text-align: center;">
+                                                                                <tr>
+                                                                                    <td width="52" height="52" align="center" valign="middle" style="width: 52px; height: 52px; text-align: center; vertical-align: middle;">
+                                                                                        <img src="https://img.icons8.com/ios-glyphs/96/000000/refresh.png" width="24" height="24" style="display: block; width: 24px; height: 24px; margin: 0 auto;" />
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="center" style="font-family: 'Inter', Arial, sans-serif;">
+                                                                            <p style="margin: 0 0 4px 0; font-size: 13px; font-weight: 700; color: #2d3748;">Processing</p>
+                                                                            <p style="margin: 0; font-size: 11px; color: #4b5563; line-height: 1.4;">We'll process the payment and update your account automatically.</p>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <!-- Spacer -->
+                                                            <td width="5%" class="mobile-hide">&nbsp;</td>
+                                                            <!-- Step 3 -->
+                                                            <td width="30%" valign="top" class="mobile-stack mobile-center">
+                                                                <!--[if !mso]><!-->
+                                                                <div style="display: none; height: 0; overflow: hidden;" class="mobile-stack-spacer">&nbsp;</div>
+                                                                <!--<![endif]-->
+                                                                <table border="0" cellpadding="0" cellspacing="0" align="center">
+                                                                    <tr>
+                                                                        <td align="center" style="padding-bottom: 8px;">
+                                                                            <table border="0" cellpadding="0" cellspacing="0" style="width: 20px; height: 20px; background-color: #374151; border-radius: 50%; text-align: center;">
+                                                                                <tr>
+                                                                                    <td width="20" height="20" align="center" valign="middle" style="width: 20px; height: 20px; color: #ffffff; font-size: 10px; font-weight: 800; font-family: 'Inter', Arial, sans-serif; text-align: center; vertical-align: middle; line-height: 20px;">3</td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="center" style="padding-bottom: 12px;">
+                                                                            <table border="0" cellpadding="0" cellspacing="0" style="width: 52px; height: 52px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 50%; text-align: center;">
+                                                                                <tr>
+                                                                                    <td width="52" height="52" align="center" valign="middle" style="width: 52px; height: 52px; text-align: center; vertical-align: middle;">
+                                                                                        <img src="https://img.icons8.com/ios-glyphs/96/000000/checkmark--v1.png" width="24" height="24" style="display: block; width: 24px; height: 24px; margin: 0 auto;" />
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td align="center" style="font-family: 'Inter', Arial, sans-serif;">
+                                                                            <p style="margin: 0 0 4px 0; font-size: 13px; font-weight: 700; color: #2d3748;">Service Restored</p>
+                                                                            <p style="margin: 0; font-size: 11px; color: #4b5563; line-height: 1.4;">Once payment is successful, your service continues without interruption.</p>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
 
-                <div class="step-block">
-                    <div class="step-icon-wrapper">
-                        <div class="step-badge">2</div>
-                        <div class="step-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="23 4 23 10 17 10"></polyline>
-                                <polyline points="1 20 1 14 7 14"></polyline>
-                                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="step-title">Payment Is <br>Processed</div>
-                    <div class="step-desc">We’ll process the payment and update your account automatically.</div>
-                </div>
+                                                </td>
+                                            </tr>
+                                        </table>
 
-                <div class="step-block">
-                    <div class="step-icon-wrapper">
-                        <div class="step-badge">3</div>
-                        <div class="step-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                <polyline points="9 12 11 14 15 10"></polyline>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="step-title">Service Continues</div>
-                    <div class="step-desc">Once payment is successful, your service will continue without interruption.
-                    </div>
-                </div>
-            </div>
-        </div>
+                                    </td>
+                                </tr>
+                            </table>
 
-        <!-- Payment Method Card -->
-        <div class="card">
-            <div class="payment-method-row">
-                <div class="pm-left">
-                    <div class="pm-icon"
-                        style="background-color: #f9fafb; border: 1px solid #e5e7eb; width: 56px; height: 36px; border-radius: 6px; display: flex; align-items: center; justify-content: center;">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4b5563" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
-                            <line x1="2" y1="10" x2="22" y2="10"></line>
-                        </svg>
-                    </div>
-                    <div class="pm-details">
-                        <div class="pm-label">Payment Method</div>
-                        <div class="pm-value">Visa •••• 4242</div>
-                        <div class="pm-sub">Last payment attempt: May 24, 2026 at 11:59 PM</div>
-                    </div>
-                </div>
-                <a href="#" class="btn-outline btn-outline-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 20H21" stroke="#111827" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path
-                            d="M16.5 3.50023C16.8978 3.1024 17.4374 2.87891 18 2.87891C18.2786 2.87891 18.5544 2.93378 18.8118 3.04038C19.0692 3.14699 19.303 3.30324 19.5 3.50023C19.697 3.69721 19.8532 3.93106 19.5998 4.18843C19.3464 4.4458 19.2915 4.72165 19.2915 5.00023C19.2915 5.2788 19.3464 5.55465 19.5998 5.81202C19.8532 6.06939 19.697 6.30324 19.5 6.50023L7 19.0002L3 20.0002L4 16.0002L16.5 3.50023Z"
-                            stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    Update Payment Method
-                </a>
-            </div>
-        </div>
+                            <!-- ═══════════════════════════════════════════ -->
+                            <!-- CURRENT PAYMENT METHOD -->
+                            <!-- ═══════════════════════════════════════════ -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="padding: 0 30px 20px;" class="mobile-padding">
+                                        
+                                        <!-- Bordered Card -->
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border: 1px solid #e5e7eb; border-radius: 8px; background-color: #ffffff;">
+                                            <tr>
+                                                <td style="padding: 16px 20px;">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <!-- Left: card detail -->
+                                                            <td valign="middle" class="mobile-stack">
+                                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                                    <tr>
+                                                                        <td width="56" height="36" align="center" valign="middle" style="width: 56px; height: 36px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px;">
+                                                                            <img src="https://img.icons8.com/ios-glyphs/96/000000/bank-card-back-side.png" width="24" height="24" style="display: block; width: 24px; height: 24px; margin: 0 auto;" />
+                                                                        </td>
+                                                                        <td style="padding-left: 16px; font-family: 'Inter', Arial, sans-serif;">
+                                                                            <p style="margin: 0 0 2px 0; font-size: 11px; color: #4b5563;">Payment Method</p>
+                                                                            <p style="margin: 0 0 2px 0; font-size: 14px; font-weight: 700; color: #2d3748;">Visa •••• 4242</p>
+                                                                            <p style="margin: 0; font-size: 11px; color: #6b7280;">Last attempt: May 24, 2026 at 11:59 PM</p>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <!-- Right: update link -->
+                                                            <td width="200" valign="middle" align="right" style="width: 200px;" class="mobile-stack mobile-center">
+                                                                <!--[if !mso]><!-->
+                                                                <div style="display: none; height: 0; overflow: hidden;" class="mobile-stack-spacer">&nbsp;</div>
+                                                                <!--<![endif]-->
+                                                                <table border="0" cellpadding="0" cellspacing="0" align="right" class="mobile-btn-full">
+                                                                    <tr>
+                                                                        <td align="center" style="border: 1px solid #d1d5db; border-radius: 6px; background-color: #ffffff;">
+                                                                            <a href="#" target="_blank" style="display: inline-block; padding: 10px 16px; font-size: 13px; font-weight: 600; color: #2d3748; font-family: 'Inter', Arial, sans-serif; text-decoration: none; white-space: nowrap;">
+                                                                                <img src="https://img.icons8.com/ios-glyphs/96/2d3748/edit--v1.png" width="14" height="14" style="display: inline-block; vertical-align: middle; width: 14px; height: 14px; margin-right: 6px; border: 0;" />
+                                                                                <span style="vertical-align: middle;">Update Method</span>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
 
-        <!-- CTA -->
-        <div class="cta-container">
-            <a href="#" class="cta-btn">
-                <span class="btn-text">Pay Now</span>
-                <span class="btn-arrow">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2.5"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </span>
-            </a>
-            <a href="#" class="link-text">
-                View Invoices
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 18L15 12L9 6" stroke="#111827" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-            </a>
-        </div>
+                                        <!-- Centered Pay Now Call to Action Button -->
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td align="center" style="padding-top: 32px;">
+                                                    <table border="0" cellpadding="0" cellspacing="0" align="center">
+                                                        <tr>
+                                                            <td align="center" style="background-color: #374151; border-radius: 6px;">
+                                                                <a href="#" target="_blank" style="display: inline-block; padding: 13px 40px; font-size: 14px; font-weight: 700; color: #ffffff; font-family: 'Inter', Arial, sans-serif; text-decoration: none; letter-spacing: 0.5px;">&#10148;&nbsp;&nbsp;Pay Now</a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <p style="margin: 16px 0 0 0; text-align: center;">
+                                                        <a href="#" style="color: #2d3748; font-weight: 700; text-decoration: underline; font-size: 13px; font-family: 'Inter', Arial, sans-serif;">View Invoices &rarr;</a>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </table>
 
-        <!-- HELP BOX -->
-        <div class="help-box">
-            <div class="help-left">
-                <div class="help-circle">?</div>
-                <div class="help-text">
-                    <h3>Need Help?</h3>
-                    <p>Our support team is here for you.<br>
-                        <strong>support@dialphone.com</strong>
-                    </p>
-                </div>
-            </div>
-            <a href="mailto:support@dialphone.com" class="contact-btn">Contact Support</a>
-        </div>
+                                    </td>
+                                </tr>
+                            </table>
 
+                            <!-- ═══════════════════════════════════════════ -->
+                            <!-- HELP BOX -->
+                            <!-- ═══════════════════════════════════════════ -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="padding: 0 30px 24px;" class="mobile-padding">
 
-    </div>
+                                        <!-- Help Container -->
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f9fafb; border: 1px solid #eaeaea; border-radius: 10px;">
+                                            <tr>
+                                                <td style="padding: 22px 24px;">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <!-- Question Mark Icon -->
+                                                            <td width="52" valign="middle" align="center"
+                                                                style="width: 52px;" class="mobile-stack mobile-center">
+                                                                <table border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto; width: 52px; height: 52px; background-color: #e8e8e8; border-radius: 50%; text-align: center;">
+                                                                    <tr>
+                                                                        <td width="52" height="52" align="center"
+                                                                            valign="middle"
+                                                                            style="width: 52px; height: 52px; text-align: center; vertical-align: middle; font-size: 22px; font-weight: 900; color: #000000; line-height: 52px; font-family: 'Inter', Arial, sans-serif; mso-line-height-rule: exactly;">
+                                                                            ?</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <!-- Spacer -->
+                                                            <td width="18" style="width: 18px;" class="mobile-hide">&nbsp;</td>
+                                                            <!-- Help Text -->
+                                                            <td valign="middle" class="mobile-stack">
+                                                                <p style="margin: 0 0 4px 0; font-size: 15px; font-weight: 700; color: #2d3748; font-family: 'Inter', Arial, sans-serif;">Need Help?</p>
+                                                                <p style="margin: 0; font-size: 14px; color: #555555; line-height: 1.5; font-family: 'Inter', Arial, sans-serif;">Our support team is here for you.<br><a href="mailto:support@dialphone.com" style="color: #2d3748; font-weight: 700; text-decoration: none;">support@dialphone.com</a></p>
+                                                            </td>
+                                                            <!-- Contact Button -->
+                                                            <td width="150" valign="middle" align="right" style="width: 150px;" class="mobile-stack mobile-center">
+                                                                <!--[if !mso]><!-->
+                                                                <div style="display: none; height: 0; overflow: hidden;" class="mobile-stack-spacer">&nbsp;</div>
+                                                                <!--<![endif]-->
+                                                                <table border="0" cellpadding="0" cellspacing="0" align="right" class="mobile-btn-full">
+                                                                    <tr>
+                                                                        <td align="center" style="border: 1px solid #d0d0d0; border-radius: 6px; background-color: #ffffff;">
+                                                                            <a href="mailto:support@dialphone.com" target="_blank" style="display: inline-block; padding: 12px 20px; font-size: 14px; font-weight: 600; color: #2d3748; font-family: 'Inter', Arial, sans-serif; text-decoration: none; white-space: nowrap;">Contact Support</a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </td>
+                                </tr>
+                            </table>
+
+                          
+
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
 
 </body>
-
 </html>

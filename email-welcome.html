@@ -1,766 +1,309 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:o="urn:schemas-microsoft-com:office:office">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta name="color-scheme" content="light only" />
+    <meta name="supported-color-schemes" content="light only" />
     <title>Welcome to DialPhone</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!--[if mso]>
+  <noscript>
+    <xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml>
+  </noscript>
+  <![endif]-->
+    <style type="text/css">
+        :root {
+            color-scheme: light only;
+            supported-color-schemes: light only;
+        }
 
-
-    <style>
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
+        body,
+        table,
+        td,
+        a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        table,
+        td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+            border-collapse: collapse;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f4f5f7;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 40px 20px;
-            color: #111827;
+            margin: 0 !important;
+            padding: 0 !important;
+            background-color: #f0f0f0 !important;
+            color: #111827 !important;
+            font-family: 'Inter', Arial, sans-serif;
         }
 
-        .email-container {
-            background-color: #ffffff;
-            width: 100%;
-            max-width: 640px;
-            border: 1px solid #e5e7eb;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 24px 36px;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .logo img {
-            width: 56px;
-            height: 56px;
-            object-fit: contain;
-            display: block;
-        }
-
-        .logo-divider {
-            width: 1px;
-            height: 44px;
-            background-color: #e5e7eb;
-        }
-
-        .header-text h1 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #111827;
-            line-height: 1.2;
-        }
-
-        .header-text p {
-            font-size: 13px;
-            color: #6b7280;
-            margin-top: 3px;
-        }
-
-        .header-illustration {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-        }
-
-        .main-content {
-            padding: 52px 48px 44px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .title {
-            font-size: 34px;
-            font-weight: 800;
-            color: #111827;
-            margin-bottom: 14px;
-            letter-spacing: -0.5px;
-        }
-
-        .subtitle {
-            font-size: 15px;
-            color: #6b7280;
-            line-height: 1.6;
-            margin-bottom: 6px;
-        }
-
-        .green-divider {
-            width: 44px;
-            height: 3px;
-            background-color: #111827;
-            border-radius: 2px;
-            margin: 24px auto 36px;
-        }
-
-        .email-body {
-            width: 100%;
-            font-size: 15px;
-            line-height: 1.75;
-            color: #374151;
-            text-align: left;
-            margin-bottom: 36px;
-        }
-
-        .email-body p {
-            margin-bottom: 16px;
-        }
-
-        .email-body p:last-child {
-            margin-bottom: 0;
-        }
-
-        .dashboard-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background-color: #111827;
-            color: #ffffff;
+        img {
+            border: 0;
+            outline: none;
             text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 13px;
-            letter-spacing: 1px;
-            margin-bottom: 44px;
-            max-width: 280px;
-            transition: background-color 0.2s;
+            -ms-interpolation-mode: bicubic;
         }
 
-        .dashboard-btn:hover {
-            background-color: #1f2937;
-        }
-
-        .btn-arrow {
-            width: 24px;
-            height: 24px;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .features-section {
-            width: 100%;
-            background: #f9fafb;
-            border: 1px solid #e5e7eb;
-            border-radius: 10px;
-            padding: 28px 20px 24px;
-            margin-bottom: 20px;
-        }
-
-        .features-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: #111827;
-            text-align: center;
-            margin-bottom: 24px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 4px;
-        }
-
-        .feature-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 8px 2px;
-        }
-
-        .feature-icon-wrap {
-            width: 52px;
-            height: 52px;
-            background: #fff;
-            border: 1px solid #e5e7eb;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-        }
-
-        .feature-card h4 {
-            font-size: 13px;
-            font-weight: 700;
-            color: #111827;
-            margin-bottom: 5px;
-            white-space: nowrap;
-        }
-
-        .feature-card p {
-            font-size: 11.5px;
-            color: #6b7280;
-            line-height: 1.45;
-        }
-
-        /* ── HELP BOX ── */
-        .help-box {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: #f9fafb;
-            border: 1px solid #eaeaea;
-            border-radius: 10px;
-            padding: 22px 24px;
-            text-align: left;
-            margin: 24px auto 0;
-            max-width: 560px;
-        }
-
-        .help-left {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .help-circle {
-            width: 52px;
-            height: 52px;
-            background: #e8e8e8;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: 900;
-            color: #000;
-            flex-shrink: 0;
-        }
-
-        .help-text h3 {
-            font-size: 15px;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 4px;
-        }
-
-        .help-text p {
-            font-size: 14px;
-            color: #555;
-            line-height: 1.5;
-            margin: 0;
-        }
-
-        .help-text strong {
-            color: #000;
-            font-weight: 700;
-        }
-
-        .contact-btn {
-            background: #fff;
-            border: 1px solid #d0d0d0;
-            border-radius: 6px;
-            padding: 12px 20px;
-            color: #000;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            white-space: nowrap;
-            transition: 0.2s;
-        }
-
-        .contact-btn:hover {
-            border-color: #888;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 24px;
-            font-size: 13px;
-            color: #9ca3af;
-            border-top: 1px solid #e5e7eb;
-        }
-
-        @media(max-width: 600px) {
-            body {
-                padding: 16px;
-            }
-
-            .header {
-                flex-direction: column;
-                gap: 16px;
-                padding: 20px;
-                text-align: center;
-            }
-
-            .logo-area {
-                flex-direction: column;
-            }
-
-            .logo-divider {
-                display: none;
-            }
-
-            .main-content {
-                padding: 32px 20px;
-            }
-
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .help-box {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 16px;
-            }
-        }
-    
-    
-        /* --- BEGIN GLOBAL OVERRIDES --- */
-        /* --- GLOBAL MOBILE OVERRIDES --- */
-        @media (max-width: 640px) {
-            body { 
-                padding-left: 12px !important; 
-                padding-right: 12px !important; 
-                padding-top: 60px !important;
-            }
-            .container, .card, .email-container, .main-wrapper, .email-wrapper { 
-                width: 100% !important; 
-                max-width: 100% !important; 
-                padding: 16px !important;
-                box-sizing: border-box !important;
-            }
-            /* Force header elements into a single row */
-            .header, .top-banner {
-                display: flex !important;
-                flex-direction: row !important;
-                flex-wrap: nowrap !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-                padding: 16px 8px !important;
-                gap: 8px !important;
-                box-sizing: border-box !important;
-                min-height: 40px !important;
-                overflow: visible !important;
-            }
-            .header-left, .logo-section, .header-title-container, .brand-section, .logo-area {
-                display: flex !important;
-                flex-direction: row !important;
-                flex-wrap: nowrap !important;
-                align-items: center !important;
-                gap: 8px !important;
-                flex: 1 !important;
-                min-width: 0 !important;
-            }
-            /* Prevent logo wrapper from shrinking to 0 width */
-            div.logo, span.logo, .header-logo, .logo-icon {
-                flex-shrink: 1 !important;
-                width: auto !important;
-                height: auto !important;
-                margin: 0 !important;
-                min-width: 0 !important;
-                display: flex !important;
-                align-items: center !important;
-                gap: 8px !important;
-            }
-            /* Apply strict medium height ONLY to images */
-            img.logo, .logo-img, .header-logo img, .logo-icon img, .brand-section img, div.logo img {
-                height: 48px !important; 
-                width: auto !important;
-                flex-shrink: 0 !important;
+        /* Mobile Responsive Stack */
+        @media only screen and (max-width: 620px) {
+            .mobile-stack {
                 display: block !important;
+                width: 100% !important;
                 max-width: 100% !important;
+                text-align: center !important;
             }
-            .logo-text, .header-title, .logo-title, .brand-title, .heading h1, .header-text h1, .heading h2, .header-text h2, .heading h3, .header-text h3, .heading small {
-                font-size: 15px !important; 
-                font-weight: 700 !important;
-                line-height: 1.3 !important;
-                margin: 0 !important;
-                white-space: normal !important;
-                overflow: hidden !important;
-                text-align: left !important;
-                min-width: 0 !important;
-                color: #111827 !important;
+
+            .mobile-center {
+                text-align: center !important;
             }
-            .logo-text-wrapper, .logo-text-block, .heading, .header-text, .header-center, .header-title-block {
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: flex-start !important;
-                justify-content: center !important;
-                gap: 2px !important;
-                min-width: 0 !important;
-                flex: 1 !important;
-                border: none !important;
-                padding-left: 0 !important;
+
+            .mobile-padding {
+                padding: 20px 15px !important;
             }
-            .logo-subtitle, .logo-tagline, .banner-desc, .heading p, .header-text p, .header-subtitle {
-                display: block !important;
-                font-size: 11px !important;
-                font-weight: 400 !important;
-                color: #6b7280 !important;
-                margin: 2px 0 0 0 !important;
-                line-height: 1.4 !important;
-                white-space: normal !important;
-            }
-            /* The icon/illustration in the header */
-            .header-right, .header-illustration, .header-right-td, .banner-illustration, .header-icon, .hero-illustration {
-                display: flex !important;
-                width: 115px !important; 
-                max-width: 115px !important;
-                flex: 0 0 115px !important;
-                height: 100% !important;
-                min-height: 40px !important;
-                align-items: center !important;
-                justify-content: center !important;
-                padding-left: 0 !important;
-                overflow: visible !important;
-            }
-            .header-right svg, .header-illustration svg, .banner-illustration svg, .header-icon svg, .hero-illustration svg {
-                width: 100% !important;
-                height: auto !important;
-                max-width: 100% !important;
-                max-height: 100% !important;
-                object-fit: contain !important;
-                overflow: visible !important;
-            }
-            svg.hero-svg {
-                max-width: 180px !important;
-                height: auto !important;
-                margin: 0 auto !important;
-                display: block !important;
-            }
-            /* Stack other body elements */
-            .info-row, .features-row, .alert-actions { 
-                display: flex !important;
-                flex-direction: column !important; 
-                align-items: flex-start !important;
-                gap: 12px !important;
-            }
-            .btn, .btn-outline, .btn-primary, .support-btn, .dashboard-btn, .confirm-btn {
-                width: 100% !important;
-                justify-content: center !important;
-                margin: 12px 0 0 0 !important;
-                box-sizing: border-box !important;
-            }
-            .info-separator, .logo-divider, .header-divider, .brand-divider, .vertical-line-header, .header-left .vertical-line { display: none !important; }
-            .info-item { margin-bottom: 8px !important; }
-            
-            /* Force OTP boxes into a single line */
-            .otp-container {
-                flex-wrap: nowrap !important;
-                gap: 6px !important;
-                width: 100% !important;
-                justify-content: center !important;
-                padding: 0 !important;
-            }
-            .otp-box {
-                flex: 1 1 0 !important;
-                width: auto !important;
-                max-width: 50px !important;
-                height: 55px !important;
-                font-size: 24px !important;
-            }
-            
-            /* Table-based email template overrides */
-            td.header-cell {
-                padding: 12px 8px !important;
-                display: block !important;
-            }
-            td.header-cell > table, 
-            td.header-cell > table > tbody,
-            td.header-cell > table > tbody > tr {
-                display: flex !important;
-                width: 100% !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child {
-                display: flex !important;
-                flex: 1 !important;
-                min-width: 0 !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table,
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody,
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr {
-                display: flex !important;
-                width: 100% !important;
-                flex-direction: row !important;
-                align-items: center !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(1) {
-                flex-shrink: 0 !important;
-                display: block !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(2) {
+
+            .mobile-hide {
                 display: none !important;
             }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) {
-                flex: 1 !important;
-                min-width: 0 !important;
-                padding-left: 8px !important;
-                border-left: 1px solid #eaeaea !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) span {
-                font-size: 16px !important;
-                white-space: nowrap !important;
-                text-overflow: ellipsis !important;
-                overflow: hidden !important;
-                display: block !important;
-            }
-            td.header-right-td {
-                display: flex !important;
-                width: 115px !important; 
-                max-width: 115px !important;
-                flex: 0 0 115px !important;
-                align-items: center !important;
-                justify-content: center !important;
-            }
-        }
-        
-        /* --- GLOBAL DESKTOP OVERRIDES --- */
-        @media (min-width: 641px) {
-            .email-wrapper, .email-container, table.main, .container {
-                max-width: 720px !important;
-                margin-left: auto !important;
-                margin-right: auto !important;
-            }
-            .logo, .header-logo {
-                width: 64px !important;
-                height: 64px !important;
-                flex-shrink: 0 !important;
-            }
-            .header, .top-banner {
-                padding: 30px 40px !important;
-                flex-wrap: nowrap !important;
-            }
-            .vertical-line, .vertical-line-header, .logo-divider, .header-divider {
-                margin-right: 20px !important;
-            }
-            .header-right, .header-illustration {
-                width: 100% !important;
-                max-width: 160px !important;
-                flex-shrink: 0 !important;
-                height: auto !important;
-            }
-            .header-right svg, .header-illustration svg {
-                width: 100% !important;
-                height: auto !important;
-            }
-            .heading {
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: flex-start !important;
-                gap: 6px !important;
-                white-space: nowrap !important;
-            }
-            .heading h1, .heading h2, .heading h3, .heading small, .logo-text, .header-title {
-                display: inline-block !important;
-                margin: 0 !important;
-                white-space: nowrap !important;
-            }
-            .heading small, .heading h2:first-child:not(:last-child) {
-                font-size: 13px !important;
-                font-weight: 700 !important;
-                color: #555 !important;
-                letter-spacing: 0.5px !important;
-            }
-            .heading h1, .heading h2:only-child, .heading h3:only-child, .logo-text, .header-title {
-                font-size: 24px !important;
-            }
-            div.notification-card {
-                max-width: 1150px !important;
-                width: fit-content !important;
-            }
-        }
-        /* --- END GLOBAL OVERRIDES --- */
 
+            .mobile-border-top {
+                border-top: 1px solid #eaeaea !important;
+                border-left: none !important;
+                padding-top: 15px !important;
+                padding-left: 0 !important;
+                margin-top: 15px !important;
+            }
+
+            .mobile-stack-margin {
+                margin-bottom: 20px !important;
+            }
+            
+            .header-right {
+                max-width: 180px !important;
+                width: 100% !important;
+                margin: 15px auto 0 auto !important;
+            }
+            
+            .mobile-half {
+                display: inline-block !important;
+                width: 50% !important;
+                margin-bottom: 20px !important;
+                box-sizing: border-box !important;
+            }
+            .mobile-no-margin-bottom {
+                margin-bottom: 0 !important;
+            }
+        }
     </style>
 </head>
 
+<body style="margin: 0; padding: 0; background-color: #f0f0f0; font-family: 'Inter', Arial, sans-serif; color: #111827;">
+    <center style="width: 100%; background-color: #f0f0f0;">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f0f0f0; margin: 0 auto;">
+            <tr>
+                <td align="center" style="padding: 40px 10px;">
+                    <!-- MAIN CONTAINER -->
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                        style="max-width: 720px; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 12px; overflow: hidden;"
+                        bgcolor="#ffffff">
 
+                        <!-- HEADER SECTION -->
+                        <tr>
+                            <td style="padding: 30px 40px; border-bottom: 1px solid #e8e8e8;" class="mobile-padding">
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <td class="mobile-stack" valign="middle">
+                                            <table border="0" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td valign="middle">
+                                                        <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png"
+                                                            alt="DialPhone Logo" width="64" height="64" border="0"
+                                                            style="width: 64px; height: 64px; display: block; border: 0; outline: none; text-decoration: none;">
+                                                    </td>
+                                                    <td width="15" class="mobile-hide">&nbsp;</td>
+                                                    <td width="1" class="mobile-hide" style="background-color: #d0d0d0; height: 48px;"></td>
+                                                    <td width="15" class="mobile-hide">&nbsp;</td>
+                                                    <td valign="middle" class="mobile-stack mobile-center" style="padding-right: 15px;">
+                                                        <h1 style="margin: 0; font-size: 20px; font-weight: 800; color: #111827 !important; line-height: 1.3;">
+                                                            Welcome to DialPhone
+                                                        </h1>
+                                                        <p style="margin: 3px 0 0 0; font-size: 13px; color: #6b7280 !important; line-height: 1.4;">
+                                                            We're excited to have you on board!
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td class="mobile-stack mobile-center" valign="middle" align="right">
+                                            <img src="https://res.cloudinary.com/powk2ugh/image/upload/e_trim/v1784720269/New_Project_12_blzat9.png"
+                                                alt="Welcome" width="180" border="0"
+                                                style="width: 100%; max-width: 180px; height: auto; display: inline-block; border: 0; outline: none; text-decoration: none;"
+                                                class="header-right">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
 
-<body>
-    <div id="__global_nav__"
-        style="background:#111827;color:#fff;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;position:fixed;top:0;left:0;width:100%;box-sizing:border-box;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
-        <a href="email-video event invite 1.html"
-            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">&#8592;
-            Back</a>
-        <a href="index.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:0.7;">&#9679;
-            Welcome</a>
-        <a href="callback-scheduled.html"
-            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">Next
-            &#8594;</a>
-    </div>
-    <div style="height:50px;"></div>
-    <!-- GLOBAL NAVIGATION BAR -->
+                        <!-- CONTENT SECTION -->
+                        <tr>
+                            <td style="padding: 44px 50px 38px 50px;" class="mobile-padding" align="center">
 
-    <!-- END GLOBAL NAVIGATION BAR -->
-    <div class="email-container">
-        <header class="header">
-            <div class="logo-area">
-                <div class="logo">
-                    <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png"
-                        alt="DialPhone Logo">
-                </div>
-                <div class="logo-divider"></div>
-                <div class="header-text">
-                    <h1>Welcome to DialPhone</h1>
-                    <p>We're excited to have you on board!</p>
-                </div>
-            </div>
-            <div class="header-illustration">
-                <svg width="210" height="120" viewBox="0 0 210 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Background decorative elements -->
-                    <circle cx="105" cy="60" r="40" fill="#f3f4f6" />
-                    <circle cx="170" cy="35" r="4" fill="#111827" />
-                    <circle cx="32" cy="88" r="3" fill="#9ca3af" />
-                    <path d="M 35 30 L 43 38 M 43 30 L 35 38" stroke="#111827" stroke-width="2"
-                        stroke-linecap="round" />
-                    <path d="M 175 90 L 183 98 M 183 90 L 175 98" stroke="#9ca3af" stroke-width="2"
-                        stroke-linecap="round" />
+                                <!-- Greeting & Body Text -->
+                                <h2 style="margin: 0 0 16px 0; font-size: 32px; font-weight: 800; color: #000000 !important; text-align: center; letter-spacing: -0.5px;">
+                                    Welcome to DialPhone!</h2>
+                                
+                                <p style="margin: 0 auto 8px auto; font-size: 16px; color: #6b7280 !important; line-height: 1.6; text-align: center;">
+                                    Your account is ready.
+                                </p>
+                                <p style="margin: 0 auto 32px auto; font-size: 16px; color: #6b7280 !important; line-height: 1.6; text-align: center;">
+                                    Let's get started with smarter business communication.
+                                </p>
+                                
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <td align="center">
+                                            <div style="width: 44px; height: 3px; background-color: #111827; border-radius: 2px; margin: 0 auto 36px auto;"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                
+                                <p style="margin: 0 auto 20px auto; font-size: 15px; color: #374151 !important; line-height: 1.75; text-align: left;">
+                                    Hello <strong>Alex Carter</strong>,
+                                </p>
+                                
+                                <p style="margin: 0 auto 20px auto; font-size: 15px; color: #374151 !important; line-height: 1.75; text-align: left;">
+                                    Thanks for joining DialPhone — we're excited to have you with us.
+                                </p>
 
-                    <!-- Smartphone Outline -->
-                    <rect x="85" y="22" width="40" height="76" rx="6" fill="white" stroke="#111827" stroke-width="3" />
-                    <!-- Phone Screen Checkmark -->
-                    <path d="M 97 60 L 102 65 L 113 53" stroke="#111827" stroke-width="3" stroke-linecap="round"
-                        stroke-linejoin="round" />
+                                <p style="margin: 0 auto 24px auto; font-size: 15px; color: #374151 !important; line-height: 1.75; text-align: left;">
+                                    With DialPhone, you can make and receive calls, send SMS, manage contacts, and access powerful analytics from a single platform.
+                                </p>
 
-                    <!-- Chat Bubble (Top Right) -->
-                    <g transform="translate(118, 15)">
-                        <path
-                            d="M 0 15 C 0 6.7 6.7 0 15 0 C 23.3 0 30 6.7 30 15 C 30 23.3 23.3 30 15 30 C 11.2 30 7.8 28.6 5.1 26.3 L 0 28 L 1.8 23.4 C 0.7 21 0 18.1 0 15 Z"
-                            fill="#111827" />
-                        <circle cx="10" cy="15" r="2" fill="white" />
-                        <circle cx="15" cy="15" r="2" fill="white" />
-                        <circle cx="20" cy="15" r="2" fill="white" />
-                    </g>
+                                <p style="margin: 0 auto 44px auto; font-size: 15px; color: #111827 !important; font-weight: 700; line-height: 1.75; text-align: left;">
+                                    Your journey to smarter business communication starts now.
+                                </p>
 
-                    <!-- Chat Bubble (Bottom Left) -->
-                    <g transform="translate(42, 55)">
-                        <path
-                            d="M 35 15 C 35 6.7 28.3 0 20 0 C 11.7 0 5 6.7 5 15 C 5 17.6 5.7 20.1 6.9 22.3 L 5 27 L 10.1 25.4 C 12.9 28.3 16.3 30 20 30 C 28.3 30 35 23.3 35 15 Z"
-                            fill="white" stroke="#111827" stroke-width="2.5" />
-                        <path d="M 14 15 H 26" stroke="#111827" stroke-width="2.5" stroke-linecap="round" />
-                        <path d="M 14 21 H 21" stroke="#111827" stroke-width="2.5" stroke-linecap="round" />
-                    </g>
-                </svg>
-            </div>
-        </header>
-        <main class="main-content">
-            <h2 class="title">Welcome to DialPhone!</h2>
-            <p class="subtitle"> Your account is ready.</p>
-            <p class="subtitle">Let's get started with smarter business communication.</p>
+                                <!-- CALL TO ACTION BUTTON -->
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 44px;">
+                                    <tr>
+                                        <td align="center">
+                                            <table border="0" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td align="center" bgcolor="#111827" style="border-radius: 8px;">
+                                                        <a href="#" target="_blank"
+                                                            style="display: inline-block; padding: 14px 28px; font-size: 14px; font-weight: 700; font-family: 'Inter', Arial, sans-serif; color: #ffffff !important; text-decoration: none; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                                            <img src="https://img.icons8.com/ios/50/ffffff/circled-right.png" alt="->" width="20" height="20" style="vertical-align: middle; display: inline-block; width: 20px; height: 20px; margin-right: 8px; margin-bottom: 2px; border: 0; outline: none;"> <span style="vertical-align: middle;">GO TO DASHBOARD</span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                                
+                                <!-- FEATURES GRID -->
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 28px 20px 24px; margin-bottom: 24px;">
+                                    <tr>
+                                        <td align="center" style="padding: 28px 20px 24px;">
+                                            <h3 style="margin: 0 0 24px 0; font-size: 16px; font-weight: 800; color: #111827 !important; text-align: center;">What you can do next</h3>
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td class="mobile-half" width="25%" align="center" valign="top" style="padding: 0 10px;">
+                                                        <div style="width: 52px; height: 52px; line-height: 52px; text-align: center; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 50%; margin: 0 auto 10px auto;">
+                                                            <img src="https://img.icons8.com/ios/50/111827/phone.png" alt="Phone" width="24" height="24" style="vertical-align: middle; display: inline-block; width: 24px; height: 24px; border: 0; outline: none;">
+                                                        </div>
+                                                        <h4 style="margin: 0 0 5px 0; font-size: 13px; font-weight: 700; color: #111827 !important;">Make Calls</h4>
+                                                        <p style="margin: 0; font-size: 12px; color: #6b7280 !important; line-height: 1.45;">Make crystal-clear calls instantly.</p>
+                                                    </td>
+                                                    <td class="mobile-half" width="25%" align="center" valign="top" style="padding: 0 10px;">
+                                                        <div style="width: 52px; height: 52px; line-height: 52px; text-align: center; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 50%; margin: 0 auto 10px auto;">
+                                                            <img src="https://img.icons8.com/ios/50/111827/speech-bubble--v1.png" alt="SMS" width="24" height="24" style="vertical-align: middle; display: inline-block; width: 24px; height: 24px; border: 0; outline: none;">
+                                                        </div>
+                                                        <h4 style="margin: 0 0 5px 0; font-size: 13px; font-weight: 700; color: #111827 !important;">Send SMS</h4>
+                                                        <p style="margin: 0; font-size: 12px; color: #6b7280 !important; line-height: 1.45;">Reach contacts with ease.</p>
+                                                    </td>
+                                                    <td class="mobile-half mobile-no-margin-bottom" width="25%" align="center" valign="top" style="padding: 0 10px;">
+                                                        <div style="width: 52px; height: 52px; line-height: 52px; text-align: center; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 50%; margin: 0 auto 10px auto;">
+                                                            <img src="https://img.icons8.com/ios/50/111827/conference.png" alt="Contacts" width="24" height="24" style="vertical-align: middle; display: inline-block; width: 24px; height: 24px; border: 0; outline: none;">
+                                                        </div>
+                                                        <h4 style="margin: 0 0 5px 0; font-size: 13px; font-weight: 700; color: #111827 !important;">Manage Contacts</h4>
+                                                        <p style="margin: 0; font-size: 12px; color: #6b7280 !important; line-height: 1.45;">Organize and manage your contacts.</p>
+                                                    </td>
+                                                    <td class="mobile-half mobile-no-margin-bottom" width="25%" align="center" valign="top" style="padding: 0 10px;">
+                                                        <div style="width: 52px; height: 52px; line-height: 52px; text-align: center; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 50%; margin: 0 auto 10px auto;">
+                                                            <img src="https://img.icons8.com/ios/50/111827/bar-chart--v1.png" alt="Analytics" width="24" height="24" style="vertical-align: middle; display: inline-block; width: 24px; height: 24px; border: 0; outline: none;">
+                                                        </div>
+                                                        <h4 style="margin: 0 0 5px 0; font-size: 13px; font-weight: 700; color: #111827 !important;">View Analytics</h4>
+                                                        <p style="margin: 0; font-size: 12px; color: #6b7280 !important; line-height: 1.45;">Track performance and grow your business.</p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
 
+                                <!-- FOOTER SECTION (HELP BOX) - Inside content area -->
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                    style="margin-top: 24px; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                                    <tr>
+                                        <td style="padding: 24px 30px;" class="mobile-padding">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td class="mobile-stack mobile-center mobile-stack-margin" valign="middle">
+                                                        <table border="0" cellpadding="0" cellspacing="0" class="mobile-center" style="margin: 0 auto 0 0;">
+                                                            <tr>
+                                                                <td width="44" valign="middle">
+                                                                    <div style="width: 44px; height: 44px; line-height: 44px; text-align: center; background-color: #e2e8f0; border-radius: 50%; font-size: 20px; font-weight: 800; color: #000000 !important;">
+                                                                        ?
+                                                                    </div>
+                                                                </td>
+                                                                <td width="16"></td>
+                                                                <td valign="middle" align="left">
+                                                                    <h4 style="margin: 0 0 6px 0; font-size: 16px; font-weight: 800; color: #000000 !important;">
+                                                                        Need Help?</h4>
+                                                                    <p style="margin: 0; font-size: 14px; color: #64748b !important; line-height: 1.5;">
+                                                                        Our support team is here for you.<br>
+                                                                        <strong><a href="mailto:support@dialphone.com" style="color: #000000 !important; text-decoration: none;">support@dialphone.com</a></strong>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                    <td class="mobile-stack mobile-center mobile-border-top" valign="middle" align="right">
+                                                        <table border="0" cellpadding="0" cellspacing="0" class="mobile-center" style="margin: 0 0 0 auto;">
+                                                            <tr>
+                                                                <td align="center" style="border-radius: 6px;">
+                                                                    <a href="mailto:support@dialphone.com" style="display: inline-block; background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px 24px; color: #000000 !important; font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap;">Contact Support</a>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                                
+                            </td>
+                        </tr>
 
-            <div class="green-divider"></div>
-            <div class="email-body">
-                <p>Hello <b>Alex Carter</b>,</p>
-                <p>Thanks for joining DialPhone — we're excited to have you with us.
-                </p>
-                <p>With DialPhone, you can make and receive calls, send SMS, manage contacts, and access powerful
-                    analytics from a single platform.</p>
-                <center>
-                    <p><b>Your journey to smarter business communication starts now.</b></p>
-                </center>
-            </div>
-            <a href="#" class="dashboard-btn">
-                <span class="btn-arrow">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2.5"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </span>
-                GO TO DASHBOARD
-            </a>
-            <div class="features-section">
-                <p class="features-title">What you can do next</p>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon-wrap">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path
-                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.4 2 2 0 0 1 3.57 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.87-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
-                                    stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <h4>Make Calls</h4>
-                        <p>Make crystal-clear calls instantly.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon-wrap">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="#111827"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M8 10h.01M12 10h.01M16 10h.01" stroke="#111827" stroke-width="2.5"
-                                    stroke-linecap="round" />
-                            </svg>
-                        </div>
-                        <h4>Send SMS</h4>
-                        <p>Reach contacts with ease.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon-wrap">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#111827" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                                <circle cx="9" cy="7" r="4" stroke="#111827" stroke-width="2" />
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#111827"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <h4>Manage Contacts</h4>
-                        <p>Organize and manage your contacts.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon-wrap">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <line x1="18" y1="20" x2="18" y2="10" stroke="#111827" stroke-width="2"
-                                    stroke-linecap="round" />
-                                <line x1="12" y1="20" x2="12" y2="4" stroke="#111827" stroke-width="2"
-                                    stroke-linecap="round" />
-                                <line x1="6" y1="20" x2="6" y2="14" stroke="#111827" stroke-width="2"
-                                    stroke-linecap="round" />
-                            </svg>
-                        </div>
-                        <h4>View Analytics</h4>
-                        <p>Track performance and grow your business.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- HELP BOX -->
-            <div class="help-box">
-                <div class="help-left">
-                    <div class="help-circle">?</div>
-                    <div class="help-text">
-                        <h3>Need Help?</h3>
-                        <p>Our support team is here for you.<br>
-                            <strong>support@dialphone.com</strong>
-                        </p>
-                    </div>
-                </div>
-                <a href="mailto:support@dialphone.com" class="contact-btn">Contact Support</a>
-            </div>
-        </main>
-
-    </div>
+                    </table>
+                    
+                </td>
+            </tr>
+        </table>
+    </center>
 </body>
 
 </html>

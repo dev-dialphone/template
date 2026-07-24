@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
-  xmlns:o="urn:schemas-microsoft-com:office:office">
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="x-apple-disable-message-reformatting" />
-  <title>DID Assignment Notification</title>
-  <!--[if mso]>
-  <noscript>
-    <xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml>
-  </noscript>
-  <![endif]-->
-  <style type="text/css">
-    * {
-      box-sizing: border-box;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DID Assigned - DialPhone</title>
+  <!-- Force Light Mode in Dark Mode clients -->
+  <meta name="color-scheme" content="light only" />
+  <meta name="supported-color-schemes" content="light only" />
+  <style>
+    :root {
+      color-scheme: light only;
     }
 
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    /* Reset */
     body,
     table,
     td,
@@ -30,639 +28,380 @@
     td {
       mso-table-lspace: 0pt;
       mso-table-rspace: 0pt;
-      border-collapse: collapse;
-    }
-
-    body {
-      margin: 0 !important;
-      padding: 0 !important;
-      background-color: #f2f2f2;
     }
 
     img {
+      -ms-interpolation-mode: bicubic;
       border: 0;
       outline: none;
       text-decoration: none;
-      display: block;
     }
 
-    a {
-      color: inherit;
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100% !important;
+      height: 100% !important;
     }
 
-    @media only screen and (max-width: 620px) {
-      .email-container {
+    @media only screen and (max-width: 600px) {
+      .mobile-full {
         width: 100% !important;
+        max-width: 100% !important;
       }
 
-      .header-cell {
-        padding: 14px 16px !important;
+      .mobile-padding {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
       }
 
-      .header-right-td {
-        display: none !important;
-      }
-
-      .body-cell {
-        padding: 28px 20px 32px !important;
-      }
-
-      .main-heading {
-        font-size: 28px !important;
-      }
-
-      .main-subtitle {
-        font-size: 13px !important;
-        margin-bottom: 20px !important;
-      }
-
-      .greeting-p,
-      .body-p {
-        font-size: 14px !important;
-      }
-
-      .cta-table {
-        width: 100% !important;
-      }
-
-      .cta-td {
-        width: 100% !important;
-        border-radius: 8px !important;
-      }
-
-      .cta-a {
-        display: block !important;
-        font-size: 14px !important;
-        padding: 12px 16px !important;
-        border: none !important;
-        text-align: center !important;
-      }
-
-      .support-left-td {
+      .mobile-stack {
         display: block !important;
         width: 100% !important;
+        padding-right: 0 !important;
         padding-bottom: 16px !important;
       }
 
-      .support-btn-td {
+      .mobile-stack-spacer {
+        display: block !important;
+        height: 16px !important;
+        width: 100% !important;
+      }
+
+      .mobile-center {
+        text-align: center !important;
+      }
+
+      .mobile-hide {
+        display: none !important;
+      }
+
+      .mobile-icon-center {
+        margin: 0 auto 16px auto !important;
+      }
+
+      .mobile-text-center {
+        text-align: center !important;
+      }
+
+      .mobile-btn-full {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+      }
+
+      .mobile-btn-full a {
+        display: block !important;
+        width: auto !important;
+        margin-right: 0 !important;
+        margin-bottom: 8px !important;
+      }
+
+      /* Responsive Header Rules to keep everything in one line */
+      .mobile-logo-cell {
+        width: 40px !important;
+      }
+
+      .mobile-logo-img {
+        width: 40px !important;
+      }
+
+      .mobile-header-divider {
+        padding: 0 10px !important;
+      }
+
+      .mobile-header-title {
+        font-size: 14px !important;
+      }
+
+      .mobile-header-subtitle {
+        font-size: 10px !important;
+        line-height: 1.2 !important;
+      }
+
+      .mobile-header-icon-cell {
+        width: 65px !important;
+      }
+
+      .mobile-header-icon-img {
+        width: 55px !important;
+      }
+
+      .mobile-list-label {
+        display: block !important;
+        width: 100% !important;
+        padding-bottom: 4px !important;
+        text-align: left !important;
+        border-bottom: none !important;
+      }
+
+      .mobile-list-value {
         display: block !important;
         width: 100% !important;
         text-align: left !important;
-      }
-
-      .hero-svg {
-        width: 100% !important;
-        height: auto !important;
+        padding-top: 0 !important;
       }
     }
-
-        /* --- BEGIN GLOBAL OVERRIDES --- */
-        /* --- GLOBAL MOBILE OVERRIDES --- */
-        @media (max-width: 640px) {
-            body { 
-                padding-left: 12px !important; 
-                padding-right: 12px !important; 
-                padding-top: 60px !important;
-            }
-            .container, .card, .email-container, .main-wrapper, .email-wrapper { 
-                width: 100% !important; 
-                max-width: 100% !important; 
-                padding: 16px !important;
-                box-sizing: border-box !important;
-            }
-            /* Force header elements into a single row */
-            .header, .top-banner {
-                display: flex !important;
-                flex-direction: row !important;
-                flex-wrap: nowrap !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-                padding: 16px 8px !important;
-                gap: 8px !important;
-                box-sizing: border-box !important;
-                min-height: 40px !important;
-                overflow: visible !important;
-            }
-            .header-left, .logo-section, .header-title-container, .brand-section, .logo-area {
-                display: flex !important;
-                flex-direction: row !important;
-                flex-wrap: nowrap !important;
-                align-items: center !important;
-                gap: 8px !important;
-                flex: 1 !important;
-                min-width: 0 !important;
-            }
-            /* Prevent logo wrapper from shrinking to 0 width */
-            div.logo, span.logo, .header-logo, .logo-icon {
-                flex-shrink: 1 !important;
-                width: auto !important;
-                height: auto !important;
-                margin: 0 !important;
-                min-width: 0 !important;
-                display: flex !important;
-                align-items: center !important;
-                gap: 8px !important;
-            }
-            /* Apply strict medium height ONLY to images */
-            img.logo, .logo-img, .header-logo img, .logo-icon img, .brand-section img, div.logo img {
-                height: 48px !important; 
-                width: auto !important;
-                flex-shrink: 0 !important;
-                display: block !important;
-                max-width: 100% !important;
-            }
-            .logo-text, .header-title, .logo-title, .brand-title, .heading h1, .header-text h1, .heading h2, .header-text h2, .heading h3, .header-text h3, .heading small {
-                font-size: 15px !important; 
-                font-weight: 700 !important;
-                line-height: 1.3 !important;
-                margin: 0 !important;
-                white-space: normal !important;
-                overflow: hidden !important;
-                text-align: left !important;
-                min-width: 0 !important;
-                color: #111827 !important;
-            }
-            .logo-text-wrapper, .logo-text-block, .heading, .header-text, .header-center, .header-title-block {
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: flex-start !important;
-                justify-content: center !important;
-                gap: 2px !important;
-                min-width: 0 !important;
-                flex: 1 !important;
-                border: none !important;
-                padding-left: 0 !important;
-            }
-            .logo-subtitle, .logo-tagline, .banner-desc, .heading p, .header-text p, .header-subtitle {
-                display: block !important;
-                font-size: 11px !important;
-                font-weight: 400 !important;
-                color: #6b7280 !important;
-                margin: 2px 0 0 0 !important;
-                line-height: 1.4 !important;
-                white-space: normal !important;
-            }
-            /* The icon/illustration in the header */
-            .header-right, .header-illustration, .header-right-td, .banner-illustration, .header-icon, .hero-illustration {
-                display: flex !important;
-                width: 115px !important; 
-                max-width: 115px !important;
-                flex: 0 0 115px !important;
-                height: 100% !important;
-                min-height: 40px !important;
-                align-items: center !important;
-                justify-content: center !important;
-                padding-left: 0 !important;
-                overflow: visible !important;
-            }
-            .header-right svg, .header-illustration svg, .banner-illustration svg, .header-icon svg, .hero-illustration svg {
-                width: 100% !important;
-                height: auto !important;
-                max-width: 100% !important;
-                max-height: 100% !important;
-                object-fit: contain !important;
-                overflow: visible !important;
-            }
-            svg.hero-svg {
-                max-width: 180px !important;
-                height: auto !important;
-                margin: 0 auto !important;
-                display: block !important;
-            }
-            /* Stack other body elements */
-            .info-row, .features-row, .alert-actions { 
-                display: flex !important;
-                flex-direction: column !important; 
-                align-items: flex-start !important;
-                gap: 12px !important;
-            }
-            .btn, .btn-outline, .btn-primary, .support-btn, .dashboard-btn, .confirm-btn {
-                width: 100% !important;
-                justify-content: center !important;
-                margin: 12px 0 0 0 !important;
-                box-sizing: border-box !important;
-            }
-            .info-separator, .logo-divider, .header-divider, .brand-divider, .vertical-line-header, .header-left .vertical-line { display: none !important; }
-            .info-item { margin-bottom: 8px !important; }
-            
-            /* Force OTP boxes into a single line */
-            .otp-container {
-                flex-wrap: nowrap !important;
-                gap: 6px !important;
-                width: 100% !important;
-                justify-content: center !important;
-                padding: 0 !important;
-            }
-            .otp-box {
-                flex: 1 1 0 !important;
-                width: auto !important;
-                max-width: 50px !important;
-                height: 55px !important;
-                font-size: 24px !important;
-            }
-            
-            /* Table-based email template overrides */
-            td.header-cell {
-                padding: 12px 8px !important;
-                display: block !important;
-            }
-            td.header-cell > table, 
-            td.header-cell > table > tbody,
-            td.header-cell > table > tbody > tr {
-                display: flex !important;
-                width: 100% !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child {
-                display: flex !important;
-                flex: 1 !important;
-                min-width: 0 !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table,
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody,
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr {
-                display: flex !important;
-                width: 100% !important;
-                flex-direction: row !important;
-                align-items: center !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(1) {
-                flex-shrink: 0 !important;
-                display: block !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(2) {
-                display: none !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) {
-                flex: 1 !important;
-                min-width: 0 !important;
-                padding-left: 8px !important;
-                border-left: 1px solid #eaeaea !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) span {
-                font-size: 16px !important;
-                white-space: nowrap !important;
-                text-overflow: ellipsis !important;
-                overflow: hidden !important;
-                display: block !important;
-            }
-            td.header-right-td {
-                display: flex !important;
-                width: 115px !important; 
-                max-width: 115px !important;
-                flex: 0 0 115px !important;
-                align-items: center !important;
-                justify-content: center !important;
-            }
-        }
-        
-        /* --- GLOBAL DESKTOP OVERRIDES --- */
-        @media (min-width: 641px) {
-            .email-wrapper, .email-container, table.main, .container {
-                max-width: 720px !important;
-                margin-left: auto !important;
-                margin-right: auto !important;
-            }
-            .logo, .header-logo {
-                width: 64px !important;
-                height: 64px !important;
-                flex-shrink: 0 !important;
-            }
-            .header, .top-banner {
-                padding: 30px 40px !important;
-                flex-wrap: nowrap !important;
-            }
-            .vertical-line, .vertical-line-header, .logo-divider, .header-divider {
-                margin-right: 20px !important;
-            }
-            .header-right, .header-illustration {
-                width: 100% !important;
-                max-width: 160px !important;
-                flex-shrink: 0 !important;
-                height: auto !important;
-            }
-            .header-right svg, .header-illustration svg {
-                width: 100% !important;
-                height: auto !important;
-            }
-            .heading {
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: flex-start !important;
-                gap: 6px !important;
-                white-space: nowrap !important;
-            }
-            .heading h1, .heading h2, .heading h3, .heading small, .logo-text, .header-title {
-                display: inline-block !important;
-                margin: 0 !important;
-                white-space: nowrap !important;
-            }
-            .heading small, .heading h2:first-child:not(:last-child) {
-                font-size: 13px !important;
-                font-weight: 700 !important;
-                color: #555 !important;
-                letter-spacing: 0.5px !important;
-            }
-            .heading h1, .heading h2:only-child, .heading h3:only-child, .logo-text, .header-title {
-                font-size: 24px !important;
-            }
-            div.notification-card {
-                max-width: 1150px !important;
-                width: fit-content !important;
-            }
-        }
-        /* --- END GLOBAL OVERRIDES --- */
-
-    </style>
+  </style>
 </head>
 
-<body style="margin:0;padding:0;background-color:#f2f2f2;">
+<body
+  style="margin: 0; padding: 0; background-color: #f9fafb; font-family: 'Inter', Arial, sans-serif; -webkit-font-smoothing: antialiased;">
 
-  <!--[if !mso]><!-->
-  <div id="__global_nav__"
-    style="background:#111827;color:#fff;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;position:fixed;top:0;left:0;width:100%;box-sizing:border-box;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
-    <a href="company-user-added.html"
-      style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">&#8592;
-      Back</a>
-    <a href="index.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:0.7;">&#9679; DID
-      Assignment</a>
-    <a href="did-unassignment-notification.html"
-      style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">Next
-      &#8594;</a>
-  </div>
-  <div style="height:50px;"></div>
-  <!--<![endif]-->
-
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f2f2f2;">
+  <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f9fafb;">
     <tr>
-      <td align="center" style="padding:24px 12px;">
+      <td align="center" style="padding: 40px 10px;">
 
-        <!-- EMAIL CONTAINER: 600px — matches reference width -->
-        <table class="email-container" role="presentation" cellpadding="0" cellspacing="0" border="0" align="center"
-          style="width:600px;max-width:600px;background-color:#ffffff;border:1px solid #e0e0e0;border-radius:12px;overflow:hidden;">
-
-          <!-- ══════════════ HEADER ══════════════ -->
+        <!-- Main Container -->
+        <table border="0" cellpadding="0" cellspacing="0" width="600" class="mobile-full"
+          style="max-width: 600px; width: 100%; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 2px;">
           <tr>
-            <td class="header-cell" style="padding:18px 24px;border-bottom:1px solid #e8e8e8;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
+            <td>
 
-                  <!-- LEFT: D logo + divider + title -->
-                  <td style="vertical-align:middle;">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+              <!-- ═══════════════════════════════════════════ -->
+              <!-- TOP HEADER BAR -->
+              <!-- ═══════════════════════════════════════════ -->
+              <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-bottom: 1px solid #e5e7eb;">
+                <tr>
+                  <td style="padding: 16px 24px;">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
                       <tr>
-                        <!-- DialPhone Logo -->
-                        <td style="vertical-align:middle;padding-right:12px;">
+                        <!-- Logo -->
+                        <td width="50" valign="middle" align="center" style="width: 50px;" class="mobile-logo-cell">
                           <img
                             src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png"
-                            alt="DialPhone Logo"
-                            style="width: 44px; height: 44px; display: block; border: 0; object-fit: contain;" />
+                            alt="DialPhone Logo" width="50" style="display: block; width: 50px; height: auto;"
+                            class="mobile-logo-img" />
                         </td>
-                        <!-- Vertical divider -->
-                        <td style="vertical-align:middle;padding-right:12px;">
-                          <div style="width:1px;height:28px;background-color:#cccccc;"></div>
+                        <!-- Short Divider Line -->
+                        <td width="1" valign="middle" style="width: 1px; padding: 0 16px;"
+                          class="mobile-header-divider">
+                          <div
+                            style="height: 32px; width: 1px; background-color: #e5e7eb; font-size: 0; line-height: 0;">
+                            &nbsp;</div>
                         </td>
-                        <!-- Title -->
-                        <td style="vertical-align:middle;">
-                          <span
-                            style="font-family:Arial,Helvetica,sans-serif;font-size:18px;font-weight:600;color:#000000;white-space:nowrap;">DID
-                            Assignment Notification</span>
+                        <!-- Title + Subtitle -->
+                        <td width="55%" valign="middle" style="width: 55%; font-family: 'Inter', Arial, sans-serif;">
+                          <p style="margin: 0 0 3px 0; font-size: 24px; font-weight: 800; color: #2d3748; font-family: 'Inter', Arial, sans-serif; line-height: 1.2;"
+                            class="mobile-header-title">DID Assigned</p>
+                          <p style="margin: 0; font-size: 12px; color: #6b7280; font-family: 'Inter', Arial, sans-serif; line-height: 1.4;"
+                            class="mobile-header-subtitle">A new number is ready</p>
+                        </td>
+                        <!-- Right Illustration -->
+                        <td width="35%" valign="middle" align="right" style="width: 35%; max-width: 260px;"
+                          class="mobile-header-icon-cell">
+                          <img
+                            src="https://res.cloudinary.com/powk2ugh/image/upload/v1784816670/New_Project_28_gbqz9z.png"
+                            alt="DID Assignment" width="260"
+                            style="display: block; width: 100%; max-width: 260px; height: auto; margin-left: auto;"
+                            class="mobile-header-icon-img" />
                         </td>
                       </tr>
                     </table>
                   </td>
-
-                  <!-- RIGHT: compact header illustration (all black) -->
-                  <td class="header-right-td"
-                    style="vertical-align:middle;text-align:right;white-space:nowrap;padding-left:12px;">
-                    <svg width="140" height="62" viewBox="0 0 188 84" fill="none" xmlns="http://www.w3.org/2000/svg"
-                      role="img" aria-label="DID card above phone, arrow to user with X">
-
-                      <!-- DID card: open bottom, left=phone cx=20, right=user cx=140, center=80 -->
-                      <rect x="20" y="1" width="120" height="36" rx="4" fill="#ffffff" stroke="none" />
-                      <path d="M20 37 L20 5 Q20 1 24 1 L136 1 Q140 1 140 5 L140 37" fill="none" stroke="#000000"
-                        stroke-width="1.4" stroke-linecap="square" />
-                      <text x="80" y="14" text-anchor="middle" fill="#000000"
-                        style="font-family:Arial,Helvetica,sans-serif;font-size:9px;font-weight:800;">DID</text>
-                      <line x1="26" y1="18" x2="134" y2="18" stroke="#000000" stroke-width="0.9" />
-                      <text x="80" y="30" text-anchor="middle" fill="#000000"
-                        style="font-family:Arial,Helvetica,sans-serif;font-size:7px;font-weight:600;">XXXXXX</text>
-
-                      <!-- Phone: Feather 24×24, scale=1.15, centered cx=20,cy=62 -->
-                      <g transform="translate(6,48) scale(1.15)">
-                        <path
-                          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.33a2 2 0 0 1 1.98-1.15h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.77a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
-                          stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                          fill="none" />
-                        <!-- signal arcs -->
-                        <path d="M17 6.5 a2.5 2.5 0 0 1 2.5 2.5" fill="none" stroke="#000000" stroke-width="1.2"
-                          stroke-linecap="round" />
-                        <path d="M17 4.5 a4.5 4.5 0 0 1 4.5 4.5" fill="none" stroke="#000000" stroke-width="1.2"
-                          stroke-linecap="round" />
-                        <path d="M17 2.5 a6.5 6.5 0 0 1 6.5 6.5" fill="none" stroke="#000000" stroke-width="1.2"
-                          stroke-linecap="round" />
-                      </g>
-
-                      <!-- Arrow -->
-                      <line x1="48" y1="62" x2="108" y2="62" stroke="#000000" stroke-width="1.4"
-                        stroke-linecap="round" />
-                      <polyline points="101,57 109,62 101,67" fill="none" stroke="#000000" stroke-width="1.4"
-                        stroke-linecap="round" stroke-linejoin="round" />
-
-                      <!-- User circle -->
-                      <circle cx="140" cy="62" r="16" stroke="#000000" stroke-width="1.4" fill="#ffffff" />
-                      <circle cx="140" cy="56" r="4.5" stroke="#000000" stroke-width="1.2" fill="#ffffff" />
-                      <path d="M130 70C130 66 134 63 140 63C146 63 150 66 150 70" stroke="#000000" stroke-width="1.2"
-                        stroke-linecap="round" fill="none" />
-
-                      <!-- Checkmark badge -->
-                      <circle cx="152" cy="74" r="7" fill="#ffffff" />
-                      <circle cx="152" cy="74" r="5.5" fill="#000000" />
-                      <polyline points="148,74 151,77 156,71" fill="none" stroke="#ffffff" stroke-width="1.4"
-                        stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                  </td>
-
                 </tr>
               </table>
-            </td>
-          </tr>
 
-          <!-- ══════════════ BODY ══════════════ -->
-          <tr>
-            <td class="body-cell" style="padding:40px 40px 44px;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-
-                <!-- HERO ILLUSTRATION -->
+              <!-- ═══════════════════════════════════════════ -->
+              <!-- HERO SECTION -->
+              <!-- ═══════════════════════════════════════════ -->
+              <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr>
-                  <td align="center" style="padding-bottom:32px;">
-                    <svg class="hero-svg" width="240" height="140" viewBox="0 0 360 210" fill="none"
-                      xmlns="http://www.w3.org/2000/svg" role="img"
-                      aria-label="DID card above phone with signal arcs and blue arrow to user circle with checkmark">
-                      <defs>
-                        <clipPath id="ucClip">
-                          <circle cx="270" cy="156" r="32" />
-                        </clipPath>
-                      </defs>
+                  <td style="padding: 32px 30px 16px;" class="mobile-padding" align="center">
 
-                      <!-- DID CARD -->
-                      <rect x="52" y="4" width="218" height="100" rx="10" fill="#ffffff" stroke="none" />
-                      <path d="M52 104 L52 14 Q52 4 62 4 L258 4 Q270 4 270 14 L270 104" fill="none" stroke="#111111"
-                        stroke-width="2.4" stroke-linecap="square" />
-                      <text x="161" y="42" text-anchor="middle" fill="#1267f3"
-                        style="font-family:Arial,Helvetica,sans-serif;font-size:26px;font-weight:900;">DID</text>
-                      <line x1="66" y1="56" x2="256" y2="56" stroke="#111111" stroke-width="1.6" />
-                      <text x="161" y="82" text-anchor="middle" fill="#111111"
-                        style="font-family:Arial,Helvetica,sans-serif;font-size:17px;font-weight:700;">XXXXXXXXX</text>
-
-                      <!-- Phone outline + blue arcs -->
-                      <g transform="translate(18,122) scale(2.833)">
-                        <path
-                          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.33a2 2 0 0 1 1.98-1.15h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.77a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
-                          fill="none" stroke="#111111" stroke-width="1.2" stroke-linecap="round"
-                          stroke-linejoin="round" />
-                        <path d="M17 6.5 a2.5 2.5 0 0 1 2.5 2.5" fill="none" stroke="#1267f3" stroke-width="1.1"
-                          stroke-linecap="round" />
-                        <path d="M17 4.5 a4.5 4.5 0 0 1 4.5 4.5" fill="none" stroke="#1267f3" stroke-width="1.1"
-                          stroke-linecap="round" />
-                        <path d="M17 2.5 a6.5 6.5 0 0 1 6.5 6.5" fill="none" stroke="#1267f3" stroke-width="1.1"
-                          stroke-linecap="round" />
-                      </g>
-
-                      <!-- BLUE ARROW -->
-                      <line x1="100" y1="156" x2="224" y2="156" stroke="#1267f3" stroke-width="2.5"
-                        stroke-linecap="round" />
-                      <polyline points="216,149 226,156 216,163" fill="none" stroke="#1267f3" stroke-width="2.5"
-                        stroke-linecap="round" stroke-linejoin="round" />
-
-                      <!-- USER CIRCLE -->
-                      <circle cx="270" cy="156" r="34" fill="#ffffff" stroke="#1267f3" stroke-width="2.4" />
-                      <circle cx="270" cy="145" r="11" fill="#1267f3" clip-path="url(#ucClip)" />
-                      <ellipse cx="270" cy="174" rx="19" ry="13" fill="#1267f3" clip-path="url(#ucClip)" />
-
-                      <!-- CHECKMARK BADGE -->
-                      <circle cx="294" cy="179" r="13" fill="#ffffff" />
-                      <circle cx="294" cy="179" r="10" fill="#1267f3" />
-                      <polyline points="288,179 292,184 300,173" fill="none" stroke="#ffffff" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                  </td>
-                </tr>
-
-                <!-- MAIN HEADING -->
-                <tr>
-                  <td align="center" style="padding-bottom:10px;">
-                    <h1 class="main-heading"
-                      style="font-family:Arial,Helvetica,sans-serif;font-size:28px;font-weight:900;color:#000000;text-align:center;margin:0;line-height:1.15;">
-                      DID Assignment</h1>
-                  </td>
-                </tr>
-
-                <!-- SUBTITLE -->
-                <tr>
-                  <td align="center" style="padding-bottom:36px;">
-                    <p class="main-subtitle"
-                      style="font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#333333;text-align:center;margin:0;line-height:1.5;">
-                      A DID number has been assigned successfully.</p>
-                  </td>
-                </tr>
-
-                <!-- GREETING -->
-                <tr>
-                  <td style="padding-bottom:16px;">
-                    <p class="greeting-p"
-                      style="font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:700;color:#000000;margin:0;">
-                      Hi Alex Carter,</p>
-                  </td>
-                </tr>
-
-                <!-- BODY TEXT 1 -->
-                <tr>
-                  <td style="padding-bottom:10px;">
-                    <p class="body-p"
-                      style="font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#111111;line-height:1.65;margin:0;">
-                      A new DID number has been assigned in DialPhone.</p>
-                  </td>
-                </tr>
-
-                <!-- BODY TEXT 2 -->
-                <tr>
-                  <td style="padding-bottom:0;">
-                    <p class="body-p"
-                      style="font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#111111;line-height:1.65;margin:0;">
-                      Review the assignment details below and verify the routing destination.</p>
-                  </td>
-                </tr>
-
-                <!-- CTA BUTTON -->
-                <tr>
-                  <td align="center" style="padding:30px 0 36px;">
-                    <table class="cta-table" role="presentation" cellpadding="0" cellspacing="0" border="0">
+                    <!-- Hero Icon Wrapper (Blue Accent) -->
+                    <table border="0" cellpadding="0" cellspacing="0" align="center">
                       <tr>
-                        <td class="cta-td" style="background-color:#000000;border-radius:8px;">
-                          <a href="#" class="cta-a"
-                            style="display:inline-block;background-color:#000000;color:#ffffff;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;border-top:12px solid #000000;border-bottom:12px solid #000000;border-left:36px solid #000000;border-right:36px solid #000000;border-radius:8px;letter-spacing:0.02em;"
-                            aria-label="View DID assignment details">View DID Details</a>
+                        <td align="center" style="padding-bottom: 4px;">
+                          <img
+                            src="https://res.cloudinary.com/powk2ugh/image/upload/v1784817262/New_Project_29_wgjtoc.png"
+                            width="600"
+                            style="display: block; width: 100%; max-width: 600px; height: auto; margin: 0 auto;" />
                         </td>
+                      </tr>
+                    </table>
+
+                    <!-- Hero Titles -->
+                    <h1
+                      style="margin: 0 0 12px 0; font-size: 24px; font-weight: 800; color: #2d3748; font-family: 'Inter', Arial, sans-serif; letter-spacing: -0.5px;">
+                      DID Assignment</h1>
+                    <p
+                      style="margin: 0 0 24px 0; font-size: 15px; font-weight: 500; color: #4b5563; font-family: 'Inter', Arial, sans-serif; line-height: 1.6;">
+                      Hi Alex Carter,<br><br>
+                      A new DID number has been assigned in DialPhone.<br>Review the assignment details below and verify
+                      the routing destination.
+                    </p>
+
+                    <!-- Action button -->
+                    <table border="0" cellpadding="0" cellspacing="0" align="center">
+                      <tr>
+                        <td align="center" class="mobile-btn-full">
+                          <a href="#"
+                            style="display: inline-block; padding: 12px 24px; border-radius: 6px; font-size: 13px; font-weight: 700; color: #ffffff; font-family: 'Inter', Arial, sans-serif; text-decoration: none; background-color: #2d3748; letter-spacing: 0.5px;">VIEW
+                            DID DETAILS</a>
+                        </td>
+                      </tr>
+                    </table>
+
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Separator Spacer -->
+              <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td style="padding: 16px 30px 16px;">
+                    <table border="0" cellpadding="0" cellspacing="0" align="center" width="40">
+                      <tr>
+                        <td height="2" style="height: 2px; background-color: #d1d5db; font-size: 0; line-height: 0;">
+                          &nbsp;</td>
                       </tr>
                     </table>
                   </td>
                 </tr>
+              </table>
 
-                <!-- HELP BOX -->
+              <!-- ═══════════════════════════════════════════ -->
+              <!-- DETAILS SECTION -->
+              <!-- ═══════════════════════════════════════════ -->
+              <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr>
-                  <td>
-                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
-                      style="background-color:#f9fafb; border:1px solid #eaeaea; border-radius:10px; width:100%;">
+                  <td style="padding: 16px 30px 24px;" class="mobile-padding">
+
+                    <!-- Details Card -->
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                      style="border: 1px solid #e5e7eb; border-radius: 8px; background-color: #ffffff;">
                       <tr>
-                        <td style="padding:22px 24px;">
-                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <td style="padding: 24px;">
+                          <table border="0" cellpadding="0" cellspacing="0" width="100%">
                             <tr>
-                              <!-- LEFT SIDE -->
-                              <td class="support-left-td" style="vertical-align:middle; text-align:left;">
-                                <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                              <td width="64" valign="top" style="width: 64px; padding-right: 20px;"
+                                class="mobile-stack mobile-center">
+                                <table border="0" cellpadding="0" cellspacing="0" class="mobile-icon-center"
+                                  style="width: 64px; height: 64px; background-color: #f3f4f6; border-radius: 50%;">
                                   <tr>
-                                    <td style="vertical-align:middle; padding-right:18px;">
-                                      <div
-                                        style="width:52px; height:52px; border-radius:50%; background-color:#e8e8e8; text-align:center; display:inline-block;">
-                                        <span
-                                          style="display:inline-block; width:52px; height:52px; line-height:52px; font-size:24px; font-weight:900; color:#000000; font-family:'Inter', Arial, sans-serif; text-align:center;">?</span>
-                                      </div>
-                                    </td>
-                                    <td style="vertical-align:middle;">
-                                      <h3
-                                        style="font-family:'Inter', Arial, sans-serif; font-size:15px; font-weight:700; color:#000000; margin:0 0 4px 0;">
-                                        Need Help?</h3>
-                                      <p
-                                        style="font-family:'Inter', Arial, sans-serif; font-size:14px; color:#555555; margin:0; line-height:1.5;">
-                                        Our support team is here for you.<br>
-                                        <strong style="color:#000000; font-weight:700;">support@dialphone.com</strong>
-                                      </p>
+                                    <td align="center" valign="middle">
+                                      <img src="https://img.icons8.com/ios-glyphs/96/111827/phone.png" width="32"
+                                        height="32" style="display: block; width: 32px; height: 32px;" />
                                     </td>
                                   </tr>
                                 </table>
                               </td>
-                              <!-- RIGHT SIDE (Button) -->
-                              <td class="support-btn-td" style="vertical-align:middle; text-align:right;">
-                                <a href="mailto:support@dialphone.com"
-                                  style="display:inline-block; background-color:#ffffff; border:1px solid #d0d0d0; border-radius:6px; padding:12px 20px; color:#000000; font-size:14px; font-weight:600; text-decoration:none; font-family:'Inter', Arial, sans-serif; white-space:nowrap;">Contact
-                                  Support</a>
+                              <td valign="top" class="mobile-stack">
+                                <p style="margin: 0 0 12px 0; font-size: 16px; font-weight: 800; color: #2d3748; font-family: 'Inter', Arial, sans-serif;"
+                                  class="mobile-text-center">Assignment Details</p>
+
+                                <!-- Metadata list -->
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                  <tr>
+                                    <td class="mobile-list-label"
+                                      style="padding: 14px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; font-weight: 500; color: #6b7280; font-family: 'Inter', Arial, sans-serif;">
+                                      DID Number</td>
+                                    <td align="right" class="mobile-list-value"
+                                      style="padding: 14px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; font-weight: 700; color: #111827; font-family: 'Inter', Arial, sans-serif;">
+                                      XXXXXXXXX</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="mobile-list-label"
+                                      style="padding: 14px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; font-weight: 500; color: #6b7280; font-family: 'Inter', Arial, sans-serif;">
+                                      Status</td>
+                                    <td align="right" class="mobile-list-value"
+                                      style="padding: 14px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; font-weight: 700; color: #10b981; font-family: 'Inter', Arial, sans-serif;">
+                                      Active</td>
+                                  </tr>
+                                  <tr>
+                                    <td class="mobile-list-label"
+                                      style="padding: 14px 0; font-size: 14px; font-weight: 500; color: #6b7280; font-family: 'Inter', Arial, sans-serif;">
+                                      Assigned By</td>
+                                    <td align="right" class="mobile-list-value"
+                                      style="padding: 14px 0; font-size: 14px; font-weight: 700; color: #111827; font-family: 'Inter', Arial, sans-serif;">
+                                      System Administration</td>
+                                  </tr>
+                                </table>
+
                               </td>
                             </tr>
                           </table>
                         </td>
                       </tr>
                     </table>
+
                   </td>
                 </tr>
-
               </table>
+
+              <!-- ═══════════════════════════════════════════ -->
+              <!-- HELP BOX -->
+              <!-- ═══════════════════════════════════════════ -->
+              <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td style="padding: 0 30px 24px;" class="mobile-padding">
+
+                    <!-- Help Container -->
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                      style="background-color: #f9fafb; border: 1px solid #eaeaea; border-radius: 10px;">
+                      <tr>
+                        <td style="padding: 22px 24px;">
+                          <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                              <!-- Question Mark Icon -->
+                              <td width="52" valign="middle" align="center" style="width: 52px;"
+                                class="mobile-stack mobile-center">
+                                <table border="0" cellpadding="0" cellspacing="0"
+                                  style="margin: 0 auto; width: 52px; height: 52px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 50%; text-align: center;">
+                                  <tr>
+                                    <td width="52" height="52" align="center" valign="middle"
+                                      style="width: 52px; height: 52px; text-align: center; vertical-align: middle; font-size: 22px; font-weight: 900; color: #2d3748; line-height: 52px; font-family: 'Inter', Arial, sans-serif; mso-line-height-rule: exactly;">
+                                      ?</td>
+                                  </tr>
+                                </table>
+                              </td>
+                              <!-- Spacer -->
+                              <td width="18" style="width: 18px;" class="mobile-hide">&nbsp;</td>
+                              <!-- Help Text -->
+                              <td valign="middle" class="mobile-stack">
+                                <p style="margin: 0 0 4px 0; font-size: 15px; font-weight: 700; color: #2d3748; font-family: 'Inter', Arial, sans-serif;"
+                                  class="mobile-text-center">Need Help?</p>
+                                <p style="margin: 0; font-size: 14px; color: #555555; line-height: 1.5; font-family: 'Inter', Arial, sans-serif;"
+                                  class="mobile-text-center">Our support team is here for you.<br><a
+                                    href="mailto:support@dialphone.com"
+                                    style="color: #2d3748; font-weight: 700; text-decoration: none;">support@dialphone.com</a>
+                                </p>
+                              </td>
+                              <!-- Contact Button -->
+                              <td width="150" valign="middle" align="right" style="width: 150px;"
+                                class="mobile-stack mobile-center">
+                                <!--[if !mso]><!-->
+                                <div style="display: none; height: 0; overflow: hidden;" class="mobile-stack-spacer">
+                                  &nbsp;</div>
+                                <!--<![endif]-->
+                                <table border="0" cellpadding="0" cellspacing="0" align="right" class="mobile-btn-full">
+                                  <tr>
+                                    <td align="center"
+                                      style="border: 1px solid #d0d0d0; border-radius: 6px; background-color: #ffffff;">
+                                      <a href="mailto:support@dialphone.com" target="_blank"
+                                        style="display: inline-block; padding: 12px 20px; font-size: 14px; font-weight: 600; color: #2d3748; font-family: 'Inter', Arial, sans-serif; text-decoration: none; white-space: nowrap;">Contact
+                                        Support</a>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+
+                  </td>
+                </tr>
+              </table>
+
+
             </td>
           </tr>
-
         </table>
+        <!-- End Main Container -->
+
       </td>
     </tr>
   </table>
