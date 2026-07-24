@@ -1,846 +1,282 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:o="urn:schemas-microsoft-com:office:office">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upcoming Meeting Reminder</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta name="color-scheme" content="light only" />
+    <meta name="supported-color-schemes" content="light only" />
+    <title>Meeting Reminder - DialPhone</title>
+    <!--[if mso]>
+  <noscript>
+    <xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml>
+  </noscript>
+  <![endif]-->
+    <style type="text/css">
+        :root {
+            color-scheme: light only;
+            supported-color-schemes: light only;
+        }
 
-    <style>
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
+        body,
+        table,
+        td,
+        a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        table,
+        td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+            border-collapse: collapse;
+        }
+
         body {
-            background: #f5f5f5;
-            font-family: 'Inter', sans-serif;
-            padding: 40px;
+            margin: 0 !important;
+            padding: 0 !important;
+            background-color: #f0f0f0 !important;
+            color: #111827 !important;
+            font-family: 'Inter', Arial, sans-serif;
         }
 
-        /* ── PAGE KO CHOTA (STANDARD 640px) KIYA GAYA ── */
-        .email-wrapper {
-            max-width: 640px;
-            /* Reduced from 1400px */
-            margin: auto;
-            background: #fff;
-            border: 1px solid #dcdcdc;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-        }
-
-        /* HEADER */
-        .header {
-            padding: 30px 40px;
-            /* Scaled down */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo {
-            width: 56px;
-            /* Scaled down */
-            height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-        }
-
-        .logo img {
-            width: 100%;
-        }
-
-        .vertical-line {
-            width: 1px;
-            height: 60px;
-            /* Scaled down */
-            background: #d8d8d8;
-            margin-right: 24px;
-        }
-
-        .heading small {
-            display: block;
-            font-size: 14px;
-            /* Scaled down */
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 4px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .heading h1 {
-            font-size: 24px;
-            /* Scaled down */
-            line-height: 1.2;
-            font-weight: 800;
-            color: #000;
-            white-space: nowrap;
-        }
-
-        .header-right {
-            width: 45%;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-
-        .header-right svg {
-            width: 100%;
-            height: auto;
-            max-width: 220px;
-            /* Scaled down */
-        }
-
-        /* DIVIDER */
-        .divider {
-            border-top: 1px solid #e2e2e2;
-        }
-
-        /* CONTENT */
-        .content {
-            padding: 40px 50px;
-            /* Scaled down */
-            text-align: left;
-        }
-
-        .content h2 {
-            font-size: 20px;
-            /* Scaled down */
-            font-weight: 800;
-            color: #000;
-            margin-bottom: 16px;
-        }
-
-
-
-        .content p {
-            font-size: 15px;
-            /* Scaled down */
-            line-height: 1.6;
-            color: #333;
-            margin-bottom: 24px;
-        }
-
-        .content strong {
-            font-weight: 800;
-            color: #000;
-        }
-
-        /* BUTTON */
-        .cta-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: #000;
-            color: #fff;
+        img {
+            border: 0;
+            outline: none;
             text-decoration: none;
-            padding: 14px 24px;
-            /* Scaled down */
-            border-radius: 8px;
-            font-size: 15px;
-            /* Scaled down */
-            font-weight: 700;
-            margin-top: 10px;
-            transition: background 0.3s;
+            -ms-interpolation-mode: bicubic;
         }
 
-        .cta-btn:hover {
-            background: #222;
-        }
-
-        .cta-btn svg {
-            width: 18px;
-            height: 18px;
-        }
-
-        /* MEETING DETAILS */
-        .meeting-details {
-            background: #f9fafb;
-            border: 1px solid #eaeaea;
-            border-radius: 10px;
-            padding: 24px;
-            margin: 0 auto 32px;
-            max-width: 560px;
-        }
-
-        .detail-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 14px 0;
-            border-bottom: 1px solid #eaeaea;
-        }
-
-        .detail-row:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .detail-row:first-child {
-            padding-top: 0;
-        }
-
-        .detail-label {
-            font-size: 15px;
-            color: #555;
-            font-weight: 500;
-        }
-
-        .detail-value {
-            font-size: 15px;
-            color: #000;
-            font-weight: 700;
-            text-align: right;
-        }
-
-        /* ── HELP BOX ── */
-        .help-box {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: #f9fafb;
-            border: 1px solid #eaeaea;
-            border-radius: 10px;
-            padding: 22px 24px;
-            text-align: left;
-            margin: 24px auto 0;
-            max-width: 560px;
-        }
-
-        .help-left {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .help-circle {
-            width: 52px;
-            height: 52px;
-            background: #e8e8e8;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: 900;
-            color: #000;
-            flex-shrink: 0;
-        }
-
-        .help-text h3 {
-            font-size: 15px;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 4px;
-        }
-
-        .help-text p {
-            font-size: 14px;
-            color: #555;
-            line-height: 1.5;
-            margin: 0;
-        }
-
-        .help-text strong {
-            color: #000;
-            font-weight: 700;
-        }
-
-        .contact-btn {
-            background: #fff;
-            border: 1px solid #d0d0d0;
-            border-radius: 6px;
-            padding: 12px 20px;
-            color: #000;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            white-space: nowrap;
-            transition: 0.2s;
-        }
-
-        .contact-btn:hover {
-            border-color: #888;
-        }
-
-        /* BOTTOM BAR */
-        .bottom-bar {
-            height: 6px;
-            background: #e2e2e2;
-            position: relative;
-        }
-
-        .bottom-bar::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 140px;
-            /* Scaled down progress bar */
-            height: 100%;
-            border-radius: 0 4px 4px 0;
-            background: #000;
-            /* Added background color so it is visible */
-        }
-
-        /* MOBILE RESPONSIVE */
-        @media(max-width: 650px) {
-            body {
-                padding: 16px;
-            }
-
-            .header {
-                flex-direction: column;
-                gap: 24px;
-                padding: 30px;
-            }
-
-            .header-left {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .logo {
-                margin-right: 0;
-                margin-bottom: 12px;
-            }
-
-            .vertical-line {
-                display: none;
-            }
-
-            .heading h1 {
-                font-size: 22px;
-            }
-
-            .header-right {
-                width: 90%;
-                justify-content: center;
-            }
-
-            .content {
-                padding: 30px;
-            }
-
-            .detail-row {
-                flex-direction: column;
-                gap: 6px;
-            }
-
-            .detail-value {
-                text-align: left;
-            }
-
-            .help-box {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 16px;
-            }
-        }
-    
-        /* --- BEGIN GLOBAL OVERRIDES --- */
-        /* --- GLOBAL MOBILE OVERRIDES --- */
-        @media (max-width: 640px) {
-            body { 
-                padding-left: 12px !important; 
-                padding-right: 12px !important; 
-                padding-top: 60px !important;
-            }
-            .container, .card, .email-container, .main-wrapper, .email-wrapper { 
-                width: 100% !important; 
-                max-width: 100% !important; 
-                padding: 16px !important;
-                box-sizing: border-box !important;
-            }
-            /* Force header elements into a single row */
-            .header, .top-banner {
-                display: flex !important;
-                flex-direction: row !important;
-                flex-wrap: nowrap !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-                padding: 16px 8px !important;
-                gap: 8px !important;
-                box-sizing: border-box !important;
-                min-height: 40px !important;
-                overflow: visible !important;
-            }
-            .header-left, .logo-section, .header-title-container, .brand-section, .logo-area {
-                display: flex !important;
-                flex-direction: row !important;
-                flex-wrap: nowrap !important;
-                align-items: center !important;
-                gap: 8px !important;
-                flex: 1 !important;
-                min-width: 0 !important;
-            }
-            /* Prevent logo wrapper from shrinking to 0 width */
-            div.logo, span.logo, .header-logo, .logo-icon {
-                flex-shrink: 1 !important;
-                width: auto !important;
-                height: auto !important;
-                margin: 0 !important;
-                min-width: 0 !important;
-                display: flex !important;
-                align-items: center !important;
-                gap: 8px !important;
-            }
-            /* Apply strict medium height ONLY to images */
-            img.logo, .logo-img, .header-logo img, .logo-icon img, .brand-section img, div.logo img {
-                height: 48px !important; 
-                width: auto !important;
-                flex-shrink: 0 !important;
+        /* Mobile Responsive Stack */
+        @media only screen and (max-width: 620px) {
+            .mobile-stack {
                 display: block !important;
+                width: 100% !important;
                 max-width: 100% !important;
+                text-align: center !important;
             }
-            .logo-text, .header-title, .logo-title, .brand-title, .heading h1, .header-text h1, .heading h2, .header-text h2, .heading h3, .header-text h3, .heading small {
-                font-size: 15px !important; 
-                font-weight: 700 !important;
-                line-height: 1.3 !important;
-                margin: 0 !important;
-                white-space: normal !important;
-                overflow: hidden !important;
-                text-align: left !important;
-                min-width: 0 !important;
-                color: #111827 !important;
+
+            .mobile-center {
+                text-align: center !important;
             }
-            .logo-text-wrapper, .logo-text-block, .heading, .header-text, .header-center, .header-title-block {
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: flex-start !important;
-                justify-content: center !important;
-                gap: 2px !important;
-                min-width: 0 !important;
-                flex: 1 !important;
-                border: none !important;
-                padding-left: 0 !important;
+
+            .mobile-padding {
+                padding: 20px 15px !important;
             }
-            .logo-subtitle, .logo-tagline, .banner-desc, .heading p, .header-text p, .header-subtitle {
-                display: block !important;
-                font-size: 11px !important;
-                font-weight: 400 !important;
-                color: #6b7280 !important;
-                margin: 2px 0 0 0 !important;
-                line-height: 1.4 !important;
-                white-space: normal !important;
-            }
-            /* The icon/illustration in the header */
-            .header-right, .header-illustration, .header-right-td, .banner-illustration, .header-icon, .hero-illustration {
-                display: flex !important;
-                width: 115px !important; 
-                max-width: 115px !important;
-                flex: 0 0 115px !important;
-                height: 100% !important;
-                min-height: 40px !important;
-                align-items: center !important;
-                justify-content: center !important;
-                padding-left: 0 !important;
-                overflow: visible !important;
-            }
-            .header-right svg, .header-illustration svg, .banner-illustration svg, .header-icon svg, .hero-illustration svg {
-                width: 100% !important;
-                height: auto !important;
-                max-width: 100% !important;
-                max-height: 100% !important;
-                object-fit: contain !important;
-                overflow: visible !important;
-            }
-            svg.hero-svg {
-                max-width: 180px !important;
-                height: auto !important;
-                margin: 0 auto !important;
-                display: block !important;
-            }
-            /* Stack other body elements */
-            .info-row, .features-row, .alert-actions { 
-                display: flex !important;
-                flex-direction: column !important; 
-                align-items: flex-start !important;
-                gap: 12px !important;
-            }
-            .btn, .btn-outline, .btn-primary, .support-btn, .dashboard-btn, .confirm-btn {
-                width: 100% !important;
-                justify-content: center !important;
-                margin: 12px 0 0 0 !important;
-                box-sizing: border-box !important;
-            }
-            .info-separator, .logo-divider, .header-divider, .brand-divider, .vertical-line-header, .header-left .vertical-line { display: none !important; }
-            .info-item { margin-bottom: 8px !important; }
-            
-            /* Force OTP boxes into a single line */
-            .otp-container {
-                flex-wrap: nowrap !important;
-                gap: 6px !important;
-                width: 100% !important;
-                justify-content: center !important;
-                padding: 0 !important;
-            }
-            .otp-box {
-                flex: 1 1 0 !important;
-                width: auto !important;
-                max-width: 50px !important;
-                height: 55px !important;
-                font-size: 24px !important;
-            }
-            
-            /* Table-based email template overrides */
-            td.header-cell {
-                padding: 12px 8px !important;
-                display: block !important;
-            }
-            td.header-cell > table, 
-            td.header-cell > table > tbody,
-            td.header-cell > table > tbody > tr {
-                display: flex !important;
-                width: 100% !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child {
-                display: flex !important;
-                flex: 1 !important;
-                min-width: 0 !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table,
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody,
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr {
-                display: flex !important;
-                width: 100% !important;
-                flex-direction: row !important;
-                align-items: center !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(1) {
-                flex-shrink: 0 !important;
-                display: block !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(2) {
+
+            .mobile-hide {
                 display: none !important;
             }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) {
-                flex: 1 !important;
-                min-width: 0 !important;
-                padding-left: 8px !important;
-                border-left: 1px solid #eaeaea !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) span {
-                font-size: 16px !important;
-                white-space: nowrap !important;
-                text-overflow: ellipsis !important;
-                overflow: hidden !important;
-                display: block !important;
-            }
-            td.header-right-td {
-                display: flex !important;
-                width: 115px !important; 
-                max-width: 115px !important;
-                flex: 0 0 115px !important;
-                align-items: center !important;
-                justify-content: center !important;
-            }
-        }
-        
-        /* --- GLOBAL DESKTOP OVERRIDES --- */
-        @media (min-width: 641px) {
-            .email-wrapper, .email-container, table.main, .container {
-                max-width: 720px !important;
-                margin-left: auto !important;
-                margin-right: auto !important;
-            }
-            .logo, .header-logo {
-                width: 64px !important;
-                height: 64px !important;
-                flex-shrink: 0 !important;
-            }
-            .header, .top-banner {
-                padding: 30px 40px !important;
-                flex-wrap: nowrap !important;
-            }
-            .vertical-line, .vertical-line-header, .logo-divider, .header-divider {
-                margin-right: 20px !important;
-            }
-            .header-right, .header-illustration {
-                width: 100% !important;
-                max-width: 160px !important;
-                flex-shrink: 0 !important;
-                height: auto !important;
-            }
-            .header-right svg, .header-illustration svg {
-                width: 100% !important;
-                height: auto !important;
-            }
-            .heading {
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: flex-start !important;
-                gap: 6px !important;
-                white-space: nowrap !important;
-            }
-            .heading h1, .heading h2, .heading h3, .heading small, .logo-text, .header-title {
-                display: inline-block !important;
-                margin: 0 !important;
-                white-space: nowrap !important;
-            }
-            .heading small, .heading h2:first-child:not(:last-child) {
-                font-size: 13px !important;
-                font-weight: 700 !important;
-                color: #555 !important;
-                letter-spacing: 0.5px !important;
-            }
-            .heading h1, .heading h2:only-child, .heading h3:only-child, .logo-text, .header-title {
-                font-size: 24px !important;
-            }
-            div.notification-card {
-                max-width: 1150px !important;
-                width: fit-content !important;
-            }
-        }
-        /* --- END GLOBAL OVERRIDES --- */
 
+            .mobile-border-top {
+                border-top: 1px solid #eaeaea !important;
+                border-left: none !important;
+                padding-top: 15px !important;
+                padding-left: 0 !important;
+                margin-top: 15px !important;
+            }
+
+            .mobile-stack-margin {
+                margin-bottom: 20px !important;
+            }
+            
+            .header-right {
+                max-width: 180px !important;
+                width: 100% !important;
+                margin: 15px auto 0 auto !important;
+            }
+        }
     </style>
 </head>
 
-<body>
-    <div id="__global_nav__"
-        style="background:#111827;color:#fff;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;position:fixed;top:0;left:0;width:100%;box-sizing:border-box;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
-        <a href="email-upcoming event reminder.html"
-            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">&#8592;
-            Back</a>
-        <a href="index.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:0.7;">&#9679;
-            Upcoming Meeting</a>
-        <a href="email-upcoming task reminder.html"
-            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">Next
-            &#8594;</a>
-    </div>
-    <div style="height:50px;"></div>
-    <!-- GLOBAL NAVIGATION BAR -->
+<body style="margin: 0; padding: 0; background-color: #f0f0f0; font-family: 'Inter', Arial, sans-serif; color: #111827;">
+    <center style="width: 100%; background-color: #f0f0f0;">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f0f0f0; margin: 0 auto;">
+            <tr>
+                <td align="center" style="padding: 40px 10px;">
+                    <!-- MAIN CONTAINER -->
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                        style="max-width: 720px; background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 12px; overflow: hidden;"
+                        bgcolor="#ffffff">
 
-    <!-- END GLOBAL NAVIGATION BAR -->
+                        <!-- HEADER SECTION -->
+                        <tr>
+                            <td style="padding: 30px 40px; border-bottom: 1px solid #e8e8e8;" class="mobile-padding">
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <td class="mobile-stack" valign="middle">
+                                            <table border="0" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td valign="middle">
+                                                        <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png"
+                                                            alt="DialPhone Logo" width="64" height="64" border="0"
+                                                            style="width: 64px; height: 64px; display: block; border: 0; outline: none; text-decoration: none;">
+                                                    </td>
+                                                    <td width="20" class="mobile-hide">&nbsp;</td>
+                                                    <td width="1" class="mobile-hide" style="background-color: #d0d0d0; height: 48px;"></td>
+                                                    <td width="20" class="mobile-hide">&nbsp;</td>
+                                                    <td valign="middle" class="mobile-stack mobile-center">
+                                                        <h4 style="margin: 0 0 4px 0; font-size: 13px; font-weight: 700; color: #555555 !important; letter-spacing: 0.5px; text-transform: uppercase;">
+                                                            UPCOMING
+                                                        </h4>
+                                                        <h1 style="margin: 0; font-size: 24px; font-weight: 800; color: #000000 !important; white-space: nowrap; text-transform: uppercase;">
+                                                            Meeting Reminder</h1>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td class="mobile-stack mobile-center" valign="middle" align="right" style="padding-top: 15px;">
+                                            <img src="https://res.cloudinary.com/powk2ugh/image/upload/e_trim/v1784715395/New_Project_9_ykfxsh.png"
+                                                alt="Meeting Reminder" width="180" border="0"
+                                                style="width: 100%; max-width: 180px; height: auto; display: inline-block; border: 0; outline: none; text-decoration: none;"
+                                                class="header-right">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
 
-    <div class="email-wrapper">
+                        <!-- CONTENT SECTION -->
+                        <tr>
+                            <td style="padding: 44px 50px 38px 50px;" class="mobile-padding" align="center">
 
-        <div class="header">
+                                <!-- Greeting & Body Text -->
+                                <h2 style="margin: 0 0 16px 0; font-size: 20px; font-weight: 800; color: #000000 !important; text-align: center;">
+                                    Hello Alex Carter,</h2>
+                                
+                                <p style="margin: 0 auto 32px auto; font-size: 15px; color: #333333 !important; line-height: 1.7; text-align: center; max-width: 500px;">
+                                    This is a quick reminder that your meeting <strong>Client Onboarding Call</strong> is scheduled to start soon.<br><br>
+                                    <b>Click</b> the button below to <b>join your meeting</b>.
+                                </p>
 
-            <div class="header-left">
+                                <!-- CALL TO ACTION BUTTON -->
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 40px;">
+                                    <tr>
+                                        <td align="center">
+                                            <table border="0" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td align="center" bgcolor="#111827" style="border-radius: 24px;">
+                                                        <a href="#" target="_blank"
+                                                            style="display: inline-block; padding: 14px 40px; font-size: 14px; font-weight: 800; font-family: 'Inter', Arial, sans-serif; color: #ffffff !important; text-decoration: none; border-radius: 24px; text-transform: uppercase; letter-spacing: 1px;">
+                                                            Join Meeting &nbsp;&#10140;
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
 
-                <div class="logo">
-                    <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png"
-                        alt="Logo">
-                </div>
+                                <!-- MEETING DETAILS BOX -->
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                    style="background-color: #f9f9fa; border: 1px solid #e0e0e0; border-radius: 8px;">
+                                    <tr>
+                                        <td style="padding: 24px 30px;">                                                
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td width="30%" valign="top" style="padding: 6px 0; font-size: 14px; font-weight: 600; color: #666666 !important;">
+                                                        Meeting
+                                                    </td>
+                                                    <td width="70%" valign="top" style="padding: 6px 0; font-size: 14px; font-weight: 700; color: #111827 !important;">
+                                                        Client Onboarding Call
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="30%" valign="top" style="padding: 6px 0; font-size: 14px; font-weight: 600; color: #666666 !important;">
+                                                        Date
+                                                    </td>
+                                                    <td width="70%" valign="top" style="padding: 6px 0; font-size: 14px; font-weight: 700; color: #111827 !important;">
+                                                        Jun 16, 2026
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="30%" valign="top" style="padding: 6px 0; font-size: 14px; font-weight: 600; color: #666666 !important;">
+                                                        Time
+                                                    </td>
+                                                    <td width="70%" valign="top" style="padding: 6px 0; font-size: 14px; font-weight: 700; color: #111827 !important;">
+                                                        2:30 PM (America/New_York)
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="30%" valign="top" style="padding: 6px 0; font-size: 14px; font-weight: 600; color: #666666 !important;">
+                                                        Duration
+                                                    </td>
+                                                    <td width="70%" valign="top" style="padding: 6px 0; font-size: 14px; font-weight: 700; color: #111827 !important;">
+                                                        30 minutes
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="30%" valign="top" style="padding: 6px 0; font-size: 14px; font-weight: 600; color: #666666 !important;">
+                                                        Organizer
+                                                    </td>
+                                                    <td width="70%" valign="top" style="padding: 6px 0; font-size: 14px; font-weight: 700; color: #111827 !important;">
+                                                        Alex Carter
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
 
-                <div class="vertical-line"></div>
+                                <!-- FOOTER SECTION (HELP BOX) - Inside content area -->
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                    style="margin-top: 40px; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px;">
+                                    <tr>
+                                        <td style="padding: 24px 30px;" class="mobile-padding">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td class="mobile-stack mobile-center mobile-stack-margin" valign="middle">
+                                                        <table border="0" cellpadding="0" cellspacing="0" class="mobile-center" style="margin: 0 auto 0 0;">
+                                                            <tr>
+                                                                <td width="44" valign="middle">
+                                                                    <div style="width: 44px; height: 44px; line-height: 44px; text-align: center; background-color: #e2e8f0; border-radius: 50%; font-size: 20px; font-weight: 800; color: #000000 !important;">
+                                                                        ?
+                                                                    </div>
+                                                                </td>
+                                                                <td width="16"></td>
+                                                                <td valign="middle" align="left">
+                                                                    <h4 style="margin: 0 0 6px 0; font-size: 16px; font-weight: 800; color: #000000 !important;">
+                                                                        Need Help?</h4>
+                                                                    <p style="margin: 0; font-size: 14px; color: #64748b !important; line-height: 1.5;">
+                                                                        Our support team is here for you.<br>
+                                                                        <strong><a href="mailto:support@dialphone.com" style="color: #000000 !important; text-decoration: none;">support@dialphone.com</a></strong>
+                                                                    </p>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                    <td class="mobile-stack mobile-center mobile-border-top" valign="middle" align="right">
+                                                        <table border="0" cellpadding="0" cellspacing="0" class="mobile-center" style="margin: 0 0 0 auto;">
+                                                            <tr>
+                                                                <td align="center" style="border-radius: 6px;">
+                                                                    <a href="mailto:support@dialphone.com" style="display: inline-block; background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 12px 24px; color: #000000 !important; font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap;">Contact Support</a>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                                
+                            </td>
+                        </tr>
 
-                <div class="heading">
-                    <small>UPCOMING</small>
-                    <h1>Meeting Reminder</h1>
-                </div>
-
-            </div>
-
-            <div class="header-right">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
-
-                    <!-- Background Blob -->
-                    <circle cx="230" cy="150" r="140" fill="#f8fafc" />
-
-                    <!-- Dotted Flight Path -->
-                    <path d="M 60 200 C 40 180 40 130 70 100" fill="none" stroke="#475569" stroke-width="2"
-                        stroke-dasharray="5,7" stroke-linecap="round" />
-
-                    <!-- PAPER PLANE (No tail flap) -->
-                    <g transform="translate(30, 50)">
-                        <path d="M 20 35 L 70 10 L 50 60 L 35 45 Z" fill="#ffffff" stroke="#111827" stroke-width="2.5"
-                            stroke-linejoin="round" />
-                        <path d="M 70 10 L 35 45" stroke="#111827" stroke-width="2.5" stroke-linejoin="round" />
-                    </g>
-
-                    <!-- Potted Plant -->
-                    <g transform="translate(85, 118)">
-                        <line x1="20" y1="20" x2="20" y2="105" stroke="#111827" stroke-width="2.5"
-                            stroke-linecap="round" />
-                        <path d="M 20 20 Q 12 10 20 0 Q 28 10 20 20 Z" fill="#ffffff" stroke="#111827"
-                            stroke-width="2.5" stroke-linejoin="round" />
-                        <path d="M 20 45 Q 5 45 5 25 Q 20 25 20 45 Z" fill="#ffffff" stroke="#111827" stroke-width="2.5"
-                            stroke-linejoin="round" />
-                        <path d="M 20 45 Q 35 45 35 25 Q 20 25 20 45 Z" fill="#ffffff" stroke="#111827"
-                            stroke-width="2.5" stroke-linejoin="round" />
-                        <path d="M 20 70 Q 0 70 0 50 Q 20 50 20 70 Z" fill="#ffffff" stroke="#111827" stroke-width="2.5"
-                            stroke-linejoin="round" />
-                        <path d="M 20 70 Q 40 70 40 50 Q 20 50 20 70 Z" fill="#ffffff" stroke="#111827"
-                            stroke-width="2.5" stroke-linejoin="round" />
-                        <path d="M 20 95 Q -5 95 -5 75 Q 20 75 20 95 Z" fill="#ffffff" stroke="#111827"
-                            stroke-width="2.5" stroke-linejoin="round" />
-                        <path d="M 20 95 Q 45 95 45 75 Q 20 75 20 95 Z" fill="#ffffff" stroke="#111827"
-                            stroke-width="2.5" stroke-linejoin="round" />
-                        <rect x="0" y="105" width="40" height="8" rx="2" fill="#ffffff" stroke="#111827"
-                            stroke-width="2.5" />
-                        <path d="M 6 113 L 34 113 L 30 135 L 10 135 Z" fill="#ffffff" stroke="#111827"
-                            stroke-width="2.5" stroke-linejoin="round" />
-                    </g>
-
-                    <!-- Calendar -->
-                    <g transform="translate(145, 105)">
-                        <rect x="8" y="8" width="130" height="150" rx="8" fill="#111827" />
-                        <rect x="0" y="0" width="130" height="150" rx="8" fill="#ffffff" stroke="#111827"
-                            stroke-width="2.5" />
-                        <path d="M 0 8 C 0 3.6 3.6 0 8 0 L 122 0 C 126.4 0 130 3.6 130 8 L 130 35 L 0 35 Z"
-                            fill="#111827" />
-                        <g transform="translate(20,-15)">
-                            <path d="M 0 25 V 8 C 0 3.6 3.6 0 8 0 C 12.4 0 16 3.6 16 8 V 25" fill="none"
-                                stroke="#111827" stroke-width="2.5" stroke-linecap="round" />
-                            <path d="M 4 25 V 8 C 4 5.8 5.8 4 8 4 C 10.2 4 12 5.8 12 8 V 25" fill="none"
-                                stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
-                        </g>
-                        <rect x="18" y="-5" width="20" height="10" rx="5" fill="#ffffff" stroke="#111827"
-                            stroke-width="2.5" />
-                        <g transform="translate(90,-15)">
-                            <path d="M 0 25 V 8 C 0 3.6 3.6 0 8 0 C 12.4 0 16 3.6 16 8 V 25" fill="none"
-                                stroke="#111827" stroke-width="2.5" stroke-linecap="round" />
-                            <path d="M 4 25 V 8 C 4 5.8 5.8 4 8 4 C 10.2 4 12 5.8 12 8 V 25" fill="none"
-                                stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
-                        </g>
-                        <rect x="88" y="-5" width="20" height="10" rx="5" fill="#ffffff" stroke="#111827"
-                            stroke-width="2.5" />
-                        <g transform="translate(15,50)" fill="none" stroke="#111827" stroke-width="2">
-                            <rect x="0" y="0" width="16" height="16" rx="3" />
-                            <rect x="28" y="0" width="16" height="16" rx="3" />
-                            <rect x="56" y="0" width="16" height="16" rx="3" />
-                            <rect x="84" y="0" width="16" height="16" rx="3" />
-                            <rect x="0" y="24" width="16" height="16" rx="3" />
-                            <rect x="28" y="24" width="16" height="16" rx="3" />
-                            <rect x="56" y="24" width="16" height="16" rx="3" />
-                            <rect x="84" y="24" width="16" height="16" rx="3" />
-                            <rect x="0" y="48" width="16" height="16" rx="3" />
-                            <rect x="28" y="48" width="16" height="16" rx="3" />
-                            <rect x="56" y="48" width="16" height="16" rx="3" />
-                            <rect x="84" y="48" width="16" height="16" rx="3" />
-                            <rect x="0" y="72" width="16" height="16" rx="3" />
-                            <rect x="28" y="72" width="16" height="16" rx="3" />
-                            <rect x="56" y="72" width="16" height="16" rx="3" />
-                            <rect x="84" y="72" width="16" height="16" rx="3" />
-                        </g>
-                    </g>
-
-                    <!-- Bell -->
-                    <g transform="translate(265, 175)">
-                        <circle cx="0" cy="0" r="32" fill="#111827" stroke="#ffffff" stroke-width="4" />
-                        <path
-                            d="M 0 -14 C 6 -14 10 -9 10 -4 V 3 C 10 7 13 8 16 8 H -16 C -13 8 -10 7 -10 3 V -4 C -10 -9 -6 -14 0 -14 Z"
-                            fill="#ffffff" />
-                        <path d="M -4 9 C -4 12 -2 14 0 14 C 2 14 4 12 4 9 Z" fill="#ffffff" />
-                    </g>
-
-                    <!-- Burst Lines -->
-                    <g stroke="#111827" stroke-width="2.5" stroke-linecap="round">
-                        <path d="M 285 130 L 300 105" />
-                        <path d="M 305 145 L 330 125" />
-                        <path d="M 315 165 L 340 155" />
-                    </g>
-
-                    <!-- Plus Signs -->
-                    <g stroke="#111827" stroke-width="2" stroke-linecap="round">
-                        <path d="M 70 150 L 80 150 M 75 145 L 75 155" />
-                        <path d="M 278 92  h 9 m -4.5 -4.5 v 9" />
-                        <path d="M 362 147 h 9 m -4.5 -4.5 v 9" />
-                    </g>
-
-                    <!-- Ground Lines -->
-                    <g stroke="#111827" stroke-width="2" stroke-linecap="round">
-                        <path d="M 50 258 L 350 258" />
-                        <path d="M 70 270 h 20" />
-                        <path d="M 315 270 h 25" />
-                    </g>
-
-                </svg>
-            </div>
-
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="content">
-
-            <h2>Hello Alex Carter,</h2>
-            <div class="underline"></div>
-
-            <p>
-                This is a quick reminder that your meeting
-                <strong>Client Onboarding Call</strong> is
-                scheduled to start soon.
-            </p>
-
-            <p>
-                <b>Click</b> the button below to <b>join your meeting</b>
-            </p>
-
-            <div style="text-align: center; margin-bottom: 32px;">
-                <a href="#" class="cta-btn">
-                    <!-- Team (Human) Icon SVG -->
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg>
-                    Join Meeting
-                </a>
-            </div>
-
-            <!-- MEETING DETAILS -->
-            <div class="meeting-details">
-                <div class="detail-row">
-                    <span class="detail-label">Meeting</span>
-                    <span class="detail-value">Client Onboarding Call</span>
-                </div>
-                <div class="detail-row">
-                    <span class="detail-label">Date</span>
-                    <span class="detail-value">Jun 16, 2026</span>
-                </div>
-                <div class="detail-row">
-                    <span class="detail-label">Time</span>
-                    <span class="detail-value">2:30 PM (America/New_York)</span>
-                </div>
-                <div class="detail-row">
-                    <span class="detail-label">Duration</span>
-                    <span class="detail-value">30 minutes</span>
-                </div>
-                <div class="detail-row">
-                    <span class="detail-label">Organizer</span>
-                    <span class="detail-value">Alex Carter</span>
-                </div>
-            </div>
-
-            <!-- HELP BOX -->
-            <div class="help-box">
-                <div class="help-left">
-                    <div class="help-circle">?</div>
-                    <div class="help-text">
-                        <h3>Need Help?</h3>
-                        <p>Our support team is here for you.<br>
-                            <strong>support@dialphone.com</strong>
-                        </p>
-                    </div>
-                </div>
-                <a href="mailto:support@dialphone.com" class="contact-btn">Contact Support</a>
-            </div>
-
-        </div>
-
-
-    </div>
-
+                    </table>
+                    
+                </td>
+            </tr>
+        </table>
+    </center>
 </body>
 
 </html>

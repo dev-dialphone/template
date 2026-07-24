@@ -4,8 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light only">
+    <meta name="supported-color-schemes" content="light only">
     <title>Payment Method Expiring - DialPhone</title>
     <style>
+        :root {
+            color-scheme: light only;
+        }
+
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
         * {
@@ -38,23 +44,16 @@
         /* Top Header */
         .header {
             padding: 24px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             border-bottom: 1px solid #e5e7eb;
         }
 
         .header-logo {
-            flex-shrink: 0;
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 72px;
+            height: 72px;
+            text-align: center;
         }
 
         .header-center {
-            flex: 1;
             padding: 0 24px;
             border-left: 1px solid #e5e7eb;
             margin-left: 24px;
@@ -74,12 +73,9 @@
         }
 
         .header-illustration {
-            width: 120px;
-            height: 90px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 160px;
+            height: auto;
+            text-align: right;
         }
 
         /* Hero Section */
@@ -189,8 +185,6 @@
         }
 
         .detail-row {
-            display: flex;
-            align-items: center;
             padding: 16px 0;
             border-bottom: 1px solid #f3f4f6;
         }
@@ -205,22 +199,21 @@
             height: 32px;
             background-color: #f3f4f6;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 16px;
-            flex-shrink: 0;
+            text-align: center;
+            vertical-align: middle;
         }
 
         .detail-label {
             color: #111827;
             font-weight: 500;
-            flex: 1;
+            width: 100%;
         }
 
         .detail-value {
             font-weight: 500;
             color: #111827;
+            white-space: nowrap;
+            text-align: right !important;
         }
 
         /* ── HELP BOX ── */
@@ -248,13 +241,11 @@
             height: 52px;
             background: #e8e8e8;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            text-align: center;
+            vertical-align: middle;
             font-size: 24px;
             font-weight: 900;
             color: #000;
-            flex-shrink: 0;
         }
 
         .help-text h3 {
@@ -310,37 +301,69 @@
             }
 
             .card {
-                flex-direction: column;
                 text-align: center;
                 padding: 24px;
             }
 
             .card-icon {
-                margin-right: 0;
-                margin-bottom: 24px;
+                margin: 0 auto 24px auto;
             }
 
             .detail-row {
-                flex-direction: column;
                 margin-bottom: 8px;
                 padding: 12px 0;
             }
 
             .detail-icon {
                 margin-bottom: 8px;
-                margin-right: 0;
-            }
-
-            .help-box {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 16px;
             }
         }
     
         /* --- BEGIN GLOBAL OVERRIDES --- */
+        .mobile-break { display: none; }
+
         /* --- GLOBAL MOBILE OVERRIDES --- */
         @media (max-width: 640px) {
+            .mobile-break { display: block !important; }
+            .header-cell {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                padding: 12px 4px !important;
+            }
+            .header-logo-wrap {
+                width: 18% !important;
+                max-width: 18% !important;
+                flex: 0 0 18% !important;
+            }
+            .header-logo-wrap img {
+                width: 100% !important;
+                height: auto !important;
+            }
+            .header-text-wrap {
+                width: 60% !important;
+                max-width: 60% !important;
+                flex: 0 0 60% !important;
+                padding: 0 4px !important;
+            }
+            .header-text-wrap h1 {
+                font-size: 14px !important;
+                white-space: normal !important;
+            }
+            .header-text-wrap p {
+                font-size: 10px !important;
+            }
+            .header-img-wrap {
+                width: 22% !important;
+                max-width: 22% !important;
+                flex: 0 0 22% !important;
+            }
+            .header-img-wrap img {
+                width: 100% !important;
+                height: auto !important;
+            }
             body { 
                 padding-left: 12px !important; 
                 padding-right: 12px !important; 
@@ -352,30 +375,40 @@
                 padding: 16px !important;
                 box-sizing: border-box !important;
             }
-            /* Force header elements into a single row */
-            .header, .top-banner {
-                display: flex !important;
-                flex-direction: row !important;
-                flex-wrap: nowrap !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-                padding: 16px 8px !important;
-                gap: 8px !important;
-                box-sizing: border-box !important;
-                min-height: 40px !important;
-                overflow: visible !important;
+            /* Proper Mobile Stacking for Header */
+            .header, .header tbody, .header tr, .header-cell, .header-cell table, .header-cell tbody, .header-cell tr {
+                display: block !important;
+                width: 100% !important;
             }
-            .header-left, .logo-section, .header-title-container, .brand-section, .logo-area {
-                display: flex !important;
-                flex-direction: row !important;
-                flex-wrap: nowrap !important;
-                align-items: center !important;
-                gap: 8px !important;
-                flex: 1 !important;
-                min-width: 0 !important;
+            .header-logo, .header-center, .header-illustration {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                text-align: center !important;
+                border-left: none !important;
+                padding: 12px 0 !important;
+                margin: 0 auto !important;
+                box-sizing: border-box !important;
+            }
+            .header-logo img, .header-illustration img {
+                margin: 0 auto !important;
+            }
+            .header-center {
+                padding: 16px 0 !important;
+            }
+            .header-title, .header-subtitle {
+                font-size: 20px !important;
+                line-height: 1.3 !important;
+                white-space: normal !important;
+                text-align: center !important;
+            }
+            .header-subtitle {
+                font-size: 14px !important;
+                line-height: 1.5 !important;
+                margin-top: 4px !important;
             }
             /* Prevent logo wrapper from shrinking to 0 width */
-            div.logo, span.logo, .header-logo, .logo-icon {
+            div.logo, span.logo, .logo-icon {
                 flex-shrink: 1 !important;
                 width: auto !important;
                 height: auto !important;
@@ -387,13 +420,13 @@
             }
             /* Apply strict medium height ONLY to images */
             img.logo, .logo-img, .header-logo img, .logo-icon img, .brand-section img, div.logo img {
-                height: 48px !important; 
+                height: 56px !important; 
                 width: auto !important;
                 flex-shrink: 0 !important;
                 display: block !important;
                 max-width: 100% !important;
             }
-            .logo-text, .header-title, .logo-title, .brand-title, .heading h1, .header-text h1, .heading h2, .header-text h2, .heading h3, .header-text h3, .heading small {
+            .logo-text, .logo-title, .brand-title, .heading h1, .header-text h1, .heading h2, .header-text h2, .heading h3, .header-text h3, .heading small {
                 font-size: 15px !important; 
                 font-weight: 700 !important;
                 line-height: 1.3 !important;
@@ -404,7 +437,7 @@
                 min-width: 0 !important;
                 color: #111827 !important;
             }
-            .logo-text-wrapper, .logo-text-block, .heading, .header-text, .header-center, .header-title-block {
+            .logo-text-wrapper, .logo-text-block, .heading, .header-text, .header-title-block {
                 display: flex !important;
                 flex-direction: column !important;
                 align-items: flex-start !important;
@@ -415,7 +448,7 @@
                 border: none !important;
                 padding-left: 0 !important;
             }
-            .logo-subtitle, .logo-tagline, .banner-desc, .heading p, .header-text p, .header-subtitle {
+            .logo-subtitle, .logo-tagline, .banner-desc, .heading p, .header-text p {
                 display: block !important;
                 font-size: 11px !important;
                 font-weight: 400 !important;
@@ -424,26 +457,19 @@
                 line-height: 1.4 !important;
                 white-space: normal !important;
             }
-            /* The icon/illustration in the header */
-            .header-right, .header-illustration, .header-right-td, .banner-illustration, .header-icon, .hero-illustration {
-                display: flex !important;
-                width: 115px !important; 
-                max-width: 115px !important;
-                flex: 0 0 115px !important;
-                height: 100% !important;
-                min-height: 40px !important;
-                align-items: center !important;
-                justify-content: center !important;
-                padding-left: 0 !important;
-                overflow: visible !important;
+            .banner-illustration, .header-icon, .hero-illustration {
+                display: block !important;
+                width: 100% !important; 
+                max-width: 100% !important;
+                height: auto !important;
+                text-align: center !important;
+                padding: 16px 0 !important;
             }
-            .header-right svg, .header-illustration svg, .banner-illustration svg, .header-icon svg, .hero-illustration svg {
+            .banner-illustration svg, .header-icon svg, .hero-illustration svg {
                 width: 100% !important;
                 height: auto !important;
-                max-width: 100% !important;
-                max-height: 100% !important;
-                object-fit: contain !important;
-                overflow: visible !important;
+                max-width: 160px !important;
+                margin: 0 auto !important;
             }
             svg.hero-svg {
                 max-width: 180px !important;
@@ -485,50 +511,34 @@
             
             /* Table-based email template overrides */
             td.header-cell {
-                padding: 12px 8px !important;
+                padding: 24px 16px !important;
                 display: block !important;
             }
-            td.header-cell > table, 
-            td.header-cell > table > tbody,
+            td.header-cell > table {
+                display: block !important;
+                width: 100% !important;
+            }
+            td.header-cell > table > tbody {
+                display: block !important;
+                width: 100% !important;
+            }
             td.header-cell > table > tbody > tr {
-                display: flex !important;
-                width: 100% !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child {
-                display: flex !important;
-                flex: 1 !important;
-                min-width: 0 !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table,
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody,
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr {
-                display: flex !important;
-                width: 100% !important;
-                flex-direction: row !important;
-                align-items: center !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(1) {
-                flex-shrink: 0 !important;
                 display: block !important;
+                width: 100% !important;
             }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(2) {
-                display: none !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) {
-                flex: 1 !important;
-                min-width: 0 !important;
-                padding-left: 8px !important;
-                border-left: 1px solid #eaeaea !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) span {
-                font-size: 16px !important;
-                white-space: nowrap !important;
-                text-overflow: ellipsis !important;
-                overflow: hidden !important;
+            td.header-cell > table > tbody > tr > td {
                 display: block !important;
+                width: 100% !important;
+                text-align: center !important;
+                border: none !important;
+                padding: 0 0 16px 0 !important;
+                margin: 0 auto !important;
+            }
+            td.header-cell > table > tbody > tr > td:last-child {
+                padding-bottom: 0 !important;
+            }
+            td.header-logo img, td.header-illustration img {
+                margin: 0 auto !important;
             }
             td.header-right-td {
                 display: flex !important;
@@ -538,34 +548,66 @@
                 align-items: center !important;
                 justify-content: center !important;
             }
+            table.mobile-stack-table {
+                display: block !important;
+                width: 100% !important;
+            }
+            tr.mobile-stack-row {
+                display: block !important;
+            }
+            td.mobile-stack {
+                display: block !important;
+                width: 100% !important;
+                text-align: center !important;
+            }
+            table.mobile-btn-wrapper {
+                margin: 0 auto !important;
+            }
+            .mobile-center {
+                text-align: center !important;
+            }
+            .mobile-hide {
+                display: none !important;
+            }
         }
         
         /* --- GLOBAL DESKTOP OVERRIDES --- */
         @media (min-width: 641px) {
+            .desktop-flex-row {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+            }
             .email-wrapper, .email-container, table.main, .container {
-                max-width: 720px !important;
+                max-width: 760px !important;
                 margin-left: auto !important;
                 margin-right: auto !important;
             }
             .logo, .header-logo {
-                width: 64px !important;
-                height: 64px !important;
+                width: 84px !important;
+                height: auto !important;
                 flex-shrink: 0 !important;
             }
             .header, .top-banner {
-                padding: 30px 40px !important;
+                padding: 30px 20px !important;
                 flex-wrap: nowrap !important;
+            }
+            .header-center {
+                padding: 0 16px !important;
+                margin-left: 16px !important;
             }
             .vertical-line, .vertical-line-header, .logo-divider, .header-divider {
                 margin-right: 20px !important;
             }
             .header-right, .header-illustration {
                 width: 100% !important;
-                max-width: 160px !important;
+                max-width: 220px !important;
                 flex-shrink: 0 !important;
                 height: auto !important;
             }
-            .header-right svg, .header-illustration svg {
+            .header-right svg, .header-illustration svg, .header-illustration img {
                 width: 100% !important;
                 height: auto !important;
             }
@@ -597,180 +639,311 @@
         }
         /* --- END GLOBAL OVERRIDES --- */
 
+        /* --- DARK MODE PREVENTION HACKS --- */
+        @media (prefers-color-scheme: dark) {
+            body, center, table.main-bg {
+                background: #f9fafb url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=') repeat !important;
+            }
+            .container {
+                background: #ffffff url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=') repeat !important;
+            }
+            .card-icon, .detail-icon, .help-circle, .help-box {
+                background-image: linear-gradient(#f3f4f6, #f3f4f6) !important;
+            }
+            h1, h2, h3, p, span, td, a, strong, div {
+                color: #000000 !important;
+                -webkit-text-fill-color: #000000 !important;
+            }
+            
+            /* Protect the primary action button from being inverted */
+            .btn-black, .btn-black td, a.btn-black {
+                color: #ffffff !important;
+                -webkit-text-fill-color: #ffffff !important;
+            }
+            td[bgcolor="#000000"] {
+                background-color: #000000 !important;
+                background-image: linear-gradient(#000000, #000000) !important;
+            }
+            td[bgcolor="#000000"] table {
+                background-color: transparent !important;
+                background-image: none !important;
+            }
+            }
+        }
     </style>
 </head>
 
 <body>
-    <div id="__global_nav__"
-        style="background:#111827;color:#fff;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;position:fixed;top:0;left:0;width:100%;box-sizing:border-box;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
-        <a href="email-downgrade-successful.html"
-            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">&#8592;
-            Back</a>
-        <a href="index.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:0.7;">&#9679;
-            Payment Method Expiring</a>
-        <a href="email-payment-method-updated.html"
-            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">Next
-            &#8594;</a>
-    </div>
-    <div style="height:50px;"></div>
-    <!-- GLOBAL NAVIGATION BAR -->
+            <center style="width: 100%; background-color: #f9fafb; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=');">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="main-bg" style="background-color: #f9fafb; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII='); margin: 0 auto; font-family: 'Inter', Arial, sans-serif;">
+            <tr>
+                <td align="center" style="padding: 60px 10px 40px;">
+                    <!-- MAIN CONTAINER -->
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" class="container"
+                        style="max-width: 760px; background-color: #ffffff; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII='); border: 1px solid #e5e7eb; border-radius: 1px; box-shadow: 0 4px 20px rgba(0,0,0,0.03);"
+                        bgcolor="#ffffff" align="center">
+                        <tr>
+                            <td>
+                                <!-- Top Header -->
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%" class="header" style="border-bottom: 1px solid #e5e7eb;">
+                                    <tr>
+                                        <td style="padding: 16px 8px;">
+                                            <!-- Header: 3-column table — works on ALL email clients without CSS -->
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <!-- Logo column -->
+                                                    <td width="15%" valign="middle" align="center" style="width: 15%; padding-right: 10px; border-right: 1px solid #e5e7eb;">
+                                                        <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png" alt="DialPhone Logo" width="60" style="display: block; width: 60px; height: auto; margin: 0 auto;" border="0" />
+                                                    </td>
+                                                    <!-- Center text column -->
+                                                    <td valign="middle" align="center" style="padding: 8px 10px;">
+                                                        <h1 class="header-title" style="margin: 0 0 4px 0; font-size: 20px; font-weight: 800; color: #000000; text-align: center; line-height: 1.2;">Payment Method Expiring Soon</h1>
+                                                        <p class="header-subtitle" style="margin: 0; font-size: 11px; color: #374151; line-height: 1.4; text-align: center;">Update your payment method to avoid service interruption.</p>
+                                                    </td>
+                                                    <!-- Right illustration column -->
+                                                    <td width="25%" valign="top" align="right" style="width: 25%;">
+                                                        <img src="https://res.cloudinary.com/powk2ugh/image/upload/v1784792295/New_Project_16_bfbdhv.png" alt="Header Icon" width="120" style="display: block; width: 120px; height: auto; margin: 0 0 0 auto;" border="0" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
 
-    <!-- END GLOBAL NAVIGATION BAR -->
+                                <!-- Hero Section -->
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%" class="hero">
+                                    <tr>
+                                        <td align="center" style="padding: 40px 40px 32px; text-align: center;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td align="center" style="padding-bottom: 24px;">
+                                                        <table border="0" cellpadding="0" cellspacing="0" align="center">
+                                                            <tr>
+                                                                <td align="center">
+                                                                    <table border="0" cellpadding="0" cellspacing="0" align="center" style="margin: 0 auto;">
+                                                                        <tr>
+                                                                            <td align="center" valign="middle" style="width: 100px; height: 100px;">
+                                                                                <table width="100" height="100" cellpadding="0" cellspacing="0" border="0" style="margin: 0 auto;">
+                                                                                    <tr>
+                                                                                        <td align="center" valign="middle">
+                                                                                            <table width="88" height="88" cellpadding="0" cellspacing="0" border="0" style="background-color: #f3f4f6; border-radius: 50%;">
+                                                                                                <tr>
+                                                                                                    <td align="center" valign="middle">
+                                                                                                        <!-- Card -->
+                                                                                                        <table width="40" height="28" cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff; border: 2px solid #111827; border-radius: 3px;">
+                                                                                                            <tr>
+                                                                                                                <td valign="top" style="padding-top: 5px;">
+                                                                                                                    <!-- Black strip -->
+                                                                                                                    <table width="100%" height="6" cellpadding="0" cellspacing="0" border="0" style="background-color: #111827;"><tr><td></td></tr></table>
+                                                                                                                    
+                                                                                                                    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top: 3px;">
+                                                                                                                        <tr>
+                                                                                                                            <td valign="bottom" style="padding-left: 4px;">
+                                                                                                                                <!-- Lines -->
+                                                                                                                                <table width="12" height="2" cellpadding="0" cellspacing="0" border="0" style="background-color: #111827; border-radius: 1px; margin-bottom: 2px;"><tr><td></td></tr></table>
+                                                                                                                                <table width="6" height="2" cellpadding="0" cellspacing="0" border="0" style="background-color: #111827; border-radius: 1px;"><tr><td></td></tr></table>
+                                                                                                                            </td>
+                                                                                                                            <td align="right" valign="bottom" style="padding-right: 2px; padding-bottom: 2px;">
+                                                                                                                                <!-- Red Badge inside card -->
+                                                                                                                                <table width="14" height="14" cellpadding="0" cellspacing="0" border="0" style="background-color: #dc2626; border-radius: 50%;">
+                                                                                                                                    <tr>
+                                                                                                                                        <td align="center" valign="middle" style="color: #ffffff; font-size: 10px; font-weight: bold; font-family: Arial, sans-serif; line-height: 1;">!</td>
+                                                                                                                                    </tr>
+                                                                                                                                </table>
+                                                                                                                            </td>
+                                                                                                                        </tr>
+                                                                                                                    </table>
+                                                                                                                </td>
+                                                                                                            </tr>
+                                                                                                        </table>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center">
+                                                        <h1 class="hero-title" style="margin: 0 0 16px 0; font-size: 24px; font-weight: 800; color: #000000; letter-spacing: -0.5px; text-align: center !important;">Your Payment Method<br>Expires Soon</h1>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center">
+                                                        <p class="hero-subtitle" style="margin: 0 0 24px 0; font-size: 15px; color: #111827; line-height: 1.6; font-weight: 400; text-align: center !important;">
+                                                            Your card ending in &bull;&bull;&bull;&bull; <strong>4242</strong> expires in<br>
+                                                            <span style="font-size: 18px; font-weight: 800; display: inline-block; margin-top: 8px;">May 2026.</span>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center" style="padding-bottom: 24px;">
+                                                        <p class="hero-subtitle" style="margin: 0; font-size: 15px; color: #111827; line-height: 1.6; font-weight: 400; text-align: center !important;">
+                                                            Please update your payment method<br> to avoid interruption to your DialPhone service.
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="center">
+                                                        <table border="0" cellpadding="0" cellspacing="0" align="center">
+                                                            <tr>
+                                                                <td align="center" bgcolor="#000000" style="border-radius: 6px;">
+                                                                    <a href="#" class="btn-black" style="display: inline-block; padding: 12px 24px; color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; border-radius: 6px;">
+                                                                        <table border="0" cellpadding="0" cellspacing="0" align="center">
+                                                                            <tr>
+                                                                                <td valign="middle" style="padding-right: 12px;">
+                                                                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: block;">
+                                                                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                                                                    </svg>
+                                                                                </td>
+                                                                                <td valign="middle" style="color: #ffffff; font-size: 14px; font-weight: 600; font-family: 'Inter', sans-serif;">
+                                                                                    Update Payment Method
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
 
-    <div class="container">
-        <!-- Top Header -->
-        <div class="header">
-            <div class="header-logo">
-                <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png" alt="DialPhone Logo" style="height: 48px; width: auto;" />
-            </div>
-            <div class="header-center">
-                <div class="header-title">Payment Method Expiring Soon</div>
-                <div class="header-subtitle">Update your payment method to avoid service interruption.</div>
-            </div>
-            <div class="header-illustration">
-                <svg width="120" height="90" viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Sparkles/Dots in background -->
-                    <path d="M90 15 L90 19 M88 17 L92 17" stroke="#111827" stroke-width="1.2" stroke-linecap="round" />
-                    <path d="M100 35 L100 39 M98 37 L102 37" stroke="#111827" stroke-width="1.2"
-                        stroke-linecap="round" />
-                    <path d="M25 45 L25 49 M23 47 L27 47" stroke="#111827" stroke-width="1.2" stroke-linecap="round" />
-                    <circle cx="35" cy="15" r="1" fill="#111827" />
+                                <!-- Information Cards -->
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%" class="cards-container">
+                                    <tr>
+                                        <td width="100%" style="padding: 32px 40px;">
+                                            
+                                            <!-- Details Box -->
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border: 1px solid #e5e7eb; border-radius: 8px; background: #ffffff; margin-bottom: 24px;">
+                                                <tr>
+                                                    <td width="100%" style="padding: 16px 32px;">
+                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="details-grid" style="width: 100%; min-width: 100%;">
+                                                            <tr>
+                                                                <td width="32" valign="middle" style="padding: 16px 0; border-bottom: 1px solid #f3f4f6;">
+                                                                    <table border="0" cellpadding="0" cellspacing="0" width="32">
+                                                                        <tr>
+                                                                            <td width="32" height="32" class="detail-icon" style="background-color: #f3f4f6; border-radius: 50%; text-align: center; vertical-align: middle;">
+                                                                                <table border="0" cellpadding="0" cellspacing="0" width="16" style="margin: 0 auto; border: 1.5px solid #111827; border-radius: 2px; height: 11px;">
+                                                                                    <tr><td style="height: 2px; line-height: 2px; font-size: 2px;">&nbsp;</td></tr>
+                                                                                    <tr><td style="height: 2px; background-color: #111827; line-height: 2px; font-size: 2px;">&nbsp;</td></tr>
+                                                                                    <tr><td style="height: 4px; line-height: 4px; font-size: 4px;">&nbsp;</td></tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                                <td width="16" style="padding: 16px 0; border-bottom: 1px solid #f3f4f6;">&nbsp;</td>
+                                                                <td class="detail-label" width="80%" style="padding: 16px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-weight: 500; font-size: 14px;">Card Type</td>
+                                                                <td class="detail-value" align="right" style="padding: 16px 0; border-bottom: 1px solid #f3f4f6; color: #111827; font-weight: 600; font-size: 14px; text-align: right; white-space: nowrap;">Visa</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="32" valign="middle" style="padding: 16px 0; border-bottom: 1px solid #f3f4f6;">
+                                                                    <table border="0" cellpadding="0" cellspacing="0" width="32">
+                                                                        <tr>
+                                                                            <td width="32" height="32" class="detail-icon" style="background-color: #f3f4f6; border-radius: 50%; text-align: center; vertical-align: middle;">
+                                                                                <table border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto;">
+                                                                                    <tr>
+                                                                                        <td style="width: 3px; height: 3px; background-color: #111827; border-radius: 50%; line-height: 3px; font-size: 3px;">&nbsp;</td>
+                                                                                        <td style="width: 2px; height: 3px;"></td>
+                                                                                        <td style="width: 3px; height: 3px; background-color: #111827; border-radius: 50%; line-height: 3px; font-size: 3px;">&nbsp;</td>
+                                                                                        <td style="width: 2px; height: 3px;"></td>
+                                                                                        <td style="width: 3px; height: 3px; background-color: #111827; border-radius: 50%; line-height: 3px; font-size: 3px;">&nbsp;</td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                                <td width="16" style="padding: 16px 0; border-bottom: 1px solid #f3f4f6;">&nbsp;</td>
+                                                                <td class="detail-label" width="80%" style="padding: 16px 0; border-bottom: 1px solid #f3f4f6; color: #6b7280; font-weight: 500; font-size: 14px;">Card Number</td>
+                                                                <td class="detail-value" align="right" style="padding: 16px 0; border-bottom: 1px solid #f3f4f6; color: #111827; font-weight: 600; font-size: 14px; text-align: right; white-space: nowrap;">&bull;&bull;&bull;&bull; 4242</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="32" valign="middle" style="padding: 16px 0;">
+                                                                    <table border="0" cellpadding="0" cellspacing="0" width="32">
+                                                                        <tr>
+                                                                            <td width="32" height="32" class="detail-icon" style="background-color: #f3f4f6; border-radius: 50%; text-align: center; vertical-align: middle;">
+                                                                                <table border="0" cellpadding="0" cellspacing="0" width="14" style="margin: 0 auto; border: 1.5px solid #111827; border-radius: 2px; height: 12px;">
+                                                                                    <tr><td style="height: 3px; background-color: #111827; line-height: 3px; font-size: 3px;">&nbsp;</td></tr>
+                                                                                    <tr><td style="height: 6px; line-height: 6px; font-size: 6px;">&nbsp;</td></tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                                <td width="16" style="padding: 16px 0;">&nbsp;</td>
+                                                                <td class="detail-label" width="80%" style="padding: 16px 0; color: #111827; font-weight: 500; font-size: 14px;">Expiration Date</td>
+                                                                <td class="detail-value" align="right" style="padding: 16px 0; color: #111827; font-weight: 500; font-size: 14px; text-align: right; white-space: nowrap;">May 2026 or 05/2026</td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
 
-                    <!-- Credit Card Icon -->
-                    <rect x="35" y="22" width="60" height="40" rx="4" fill="#ffffff" stroke="#111827"
-                        stroke-width="1.5" />
+                                            <!-- HELP BOX -->
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" class="help-box" style="background: #f9fafb; border: 1px solid #eaeaea; border-radius: 10px;">
+                                                <tr>
+                                                    <td style="padding: 22px 24px;">
+                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mobile-stack-table">
+                                                            <tr class="mobile-stack-row">
+                                                                <td class="mobile-stack" valign="middle">
+                                                                    <table border="0" cellpadding="0" cellspacing="0">
+                                                                        <tr>
+                                                                            <td width="52" valign="middle">
+                                                                                <table border="0" cellpadding="0" cellspacing="0" width="52">
+                                                                                    <tr>
+                                                                                        <td width="52" height="52" class="help-circle" style="width: 52px; height: 52px; background: #e8e8e8; border-radius: 50%; text-align: center; vertical-align: middle; font-size: 24px; font-weight: 900; color: #000; line-height: 52px; mso-line-height-rule: exactly;">?</td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                            <td width="18">&nbsp;</td>
+                                                                            <td class="help-text" valign="middle">
+                                                                                <h3 style="margin: 0 0 4px 0; font-size: 15px; font-weight: 700; color: #000;">Need Help?</h3>
+                                                                                <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.5;">Our support team is here for you.<br>
+                                                                                    <a href="mailto:support@dialphone.com" style="color: #000000; font-weight: 700; text-decoration: none;">support@dialphone.com</a>
+                                                                                </p>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                                <td class="mobile-stack" align="right" valign="middle" style="padding-top: 10px;">
+                                                                    <table border="0" cellpadding="0" cellspacing="0" class="mobile-btn-wrapper">
+                                                                        <tr>
+                                                                            <td align="center" style="background: #fff; border: 1px solid #d0d0d0; border-radius: 6px;">
+                                                                                <a href="mailto:support@dialphone.com" class="contact-btn" style="display: inline-block; padding: 12px 20px; color: #000; font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap;">Contact Support</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            
+                                        </td>
+                                    </tr>
+                                </table>
 
-                    <!-- Card Details -->
-                    <rect x="35" y="30" width="60" height="6" fill="#111827" />
-                    <line x1="43" y1="44" x2="65" y2="44" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
-                    <line x1="43" y1="50" x2="55" y2="50" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
-
-                    <!-- Alert ! Badge overlapping bottom right -->
-                    <circle cx="85" cy="55" r="12" fill="#ffffff" stroke="#111827" stroke-width="1.5" />
-                    <line x1="85" y1="49" x2="85" y2="55" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
-                    <circle cx="85" cy="59" r="1" fill="#111827" />
-                </svg>
-            </div>
-        </div>
-
-        <!-- Hero Section -->
-        <div class="hero">
-            <div class="hero-icon-container">
-                <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="44" fill="#f3f4f6" />
-
-                    <!-- Credit Card -->
-                    <rect x="30" y="35" width="40" height="28" rx="3" fill="#ffffff" stroke="#111827" stroke-width="2"
-                        stroke-linejoin="round" />
-                    <rect x="30" y="42" width="40" height="6" fill="#111827" />
-                    <line x1="36" y1="55" x2="48" y2="55" stroke="#111827" stroke-width="2" stroke-linecap="round" />
-                    <line x1="36" y1="59" x2="42" y2="59" stroke="#111827" stroke-width="2" stroke-linecap="round" />
-
-                    <!-- Red ! Badge -->
-                    <circle cx="68" cy="62" r="10" fill="#dc2626" />
-                    <line x1="68" y1="58.5" x2="68" y2="62.5" stroke="#ffffff" stroke-width="1.5"
-                        stroke-linecap="round" />
-                    <circle cx="68" cy="65.5" r="1" fill="#ffffff" />
-
-                    <!-- Red radiating lines -->
-                    <line x1="18" y1="50" x2="22" y2="50" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round" />
-                    <line x1="78" y1="50" x2="82" y2="50" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round" />
-                    <line x1="50" y1="18" x2="50" y2="22" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round" />
-                    <line x1="50" y1="78" x2="50" y2="82" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round" />
-
-                    <line x1="27" y1="27" x2="30" y2="30" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round" />
-                    <line x1="73" y1="73" x2="70" y2="70" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round" />
-                    <line x1="73" y1="27" x2="70" y2="30" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round" />
-                    <line x1="27" y1="73" x2="30" y2="70" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round" />
-                </svg>
-            </div>
-
-            <h1 class="hero-title">Your Payment Method<br>Expires Soon</h1>
-            <p class="hero-subtitle">
-                Your card ending in &bull;&bull;&bull;&bull; <strong>4242</strong> expires in<br>
-                <span style="font-size: 18px; font-weight: 800; display: inline-block; margin-top: 8px;">May
-                    2026.</span>
-            </p>
-
-            <p class="hero-subtitle" style="margin-bottom: 24px;">
-                Please update your payment method<br> to avoid interruption to your DialPhone service.
-            </p>
-
-            <a href="#" class="btn-black">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="10 16 14 12 10 8"></polyline>
-                    <line x1="8" y1="12" x2="14" y2="12"></line>
-                </svg>
-                UPDATE PAYMENT METHOD
-            </a>
-        </div>
-
-        <!-- Information Cards -->
-        <div class="cards-container">
-            <!-- Details Box -->
-            <div class="card"
-                style="flex-direction: column; padding: 16px 32px; align-items: flex-start; margin-bottom: 24px;">
-                <div class="details-grid">
-                    <div class="detail-row" style="padding-top: 16px;">
-                        <div class="detail-icon">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111827"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="5" width="20" height="14" rx="2"></rect>
-                                <line x1="2" y1="10" x2="22" y2="10"></line>
-                                <line x1="6" y1="15" x2="10" y2="15"></line>
-                            </svg>
-                        </div>
-                        <span class="detail-label">Card Type</span>
-                        <span class="detail-value">Visa</span>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-icon">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111827"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="5" cy="12" r="1.5" fill="currentColor"></circle>
-                                <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
-                                <circle cx="19" cy="12" r="1.5" fill="currentColor"></circle>
-                            </svg>
-                        </div>
-                        <span class="detail-label">Card Number</span>
-                        <span class="detail-value">&bull;&bull;&bull;&bull; 4242</span>
-                    </div>
-                    <div class="detail-row">
-                        <div class="detail-icon">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111827"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                <line x1="16" y1="2" x2="16" y2="6"></line>
-                                <line x1="8" y1="2" x2="8" y2="6"></line>
-                                <line x1="3" y1="10" x2="21" y2="10"></line>
-                                <circle cx="8" cy="15" r="1" fill="#111827"></circle>
-                                <circle cx="12" cy="15" r="1" fill="#111827"></circle>
-                                <circle cx="16" cy="15" r="1" fill="#111827"></circle>
-                            </svg>
-                        </div>
-                        <span class="detail-label">Expiration Date</span>
-                        <span class="detail-value">May 2026 or 05/2026</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- HELP BOX -->
-            <div class="help-box">
-                <div class="help-left">
-                    <div class="help-circle">?</div>
-                    <div class="help-text">
-                        <h3>Need Help?</h3>
-                        <p>Our support team is here for you.<br>
-                            <strong>support@dialphone.com</strong>
-                        </p>
-                    </div>
-                </div>
-                <a href="mailto:support@dialphone.com" class="contact-btn">Contact Support</a>
-            </div>
-        </div>
-    </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </center>
 </body>
 
 </html>

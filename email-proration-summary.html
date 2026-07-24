@@ -5,777 +5,416 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proration Summary - DialPhone</title>
+    <!-- Force Light Mode in Dark Mode clients -->
+    <meta name="color-scheme" content="light only" />
+    <meta name="supported-color-schemes" content="light only" />
     <style>
+        :root {
+            color-scheme: light only;
+        }
+
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
+        /* Reset */
+        body,
+        table,
+        td,
+        a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        table,
+        td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+            border: 0;
+            outline: none;
+            text-decoration: none;
         }
 
         body {
-            background-color: #f9fafb;
-            font-family: 'Inter', Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            padding: 60px 10px 40px;
-            /* Padding top for global nav */
-        }
-
-        .container {
-            max-width: 760px;
-            width: 100%;
-            background: #ffffff;
-            border-radius: 1px;
-            border: 1px solid #e5e7eb;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-            position: relative;
-        }
-
-        /* Top Header */
-        .header {
-            padding: 16px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .header-logo {
-            flex-shrink: 0;
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .header-center {
-            flex: 1;
-            padding: 0 24px;
-            border-left: 1px solid #e5e7eb;
-            margin-left: 24px;
-        }
-
-        .header-title {
-            font-size: 16px;
-            font-weight: 800;
-            color: #000000;
-            margin-bottom: 6px;
-        }
-
-        .header-subtitle {
-            font-size: 13px;
-            color: #000000;
-            line-height: 1.5;
-        }
-
-        .header-illustration {
-            width: 120px;
-            height: 90px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 24px 24px 16px;
-            text-align: center;
-        }
-
-        .hero-icon-container {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-title {
-            font-size: 24px;
-            font-weight: 800;
-            color: #000000;
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
-        }
-
-        .hero-subtitle {
-            font-size: 15px;
-            color: #000000;
-            line-height: 1.6;
-            margin-bottom: 24px;
-            font-weight: 400;
-        }
-
-        .credit-box {
-            background-color: #f0fdf4;
-            border: 1px solid #dcfce7;
-            border-radius: 12px;
-            padding: 24px;
-            margin: 0 auto 24px;
-            max-width: 320px;
-        }
-
-        .credit-label {
-            font-size: 14px;
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 8px;
-        }
-
-        .credit-amount {
-            font-size: 28px;
-            font-weight: 800;
-            color: #047857;
-            letter-spacing: -0.5px;
-        }
-
-        .btn-black {
-            display: inline-flex;
-            align-items: center;
-            background-color: #000000;
-            color: #ffffff;
-            padding: 12px 24px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 800;
-            text-decoration: none;
-            transition: opacity 0.2s;
-            letter-spacing: 0.5px;
-        }
-
-        .btn-black svg {
-            margin-right: 12px;
-        }
-
-        .btn-black:hover {
-            opacity: 0.85;
-        }
-
-        .divider {
-            height: 1px;
-            background-color: #e5e7eb;
-            margin: 0 40px;
-        }
-
-        /* Information Cards */
-        .cards-container {
-            padding: 24px 24px;
-        }
-
-        .card {
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 20px 24px;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            background: #ffffff;
-        }
-
-        .card-icon {
-            width: 72px;
-            height: 72px;
-            background-color: #f3f4f6;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            margin-right: 32px;
-        }
-
-        .card-content {
-            flex: 1;
-        }
-
-        .card-title {
-            font-size: 16px;
-            font-weight: 800;
-            color: #000000;
-            margin-bottom: 16px;
-        }
-
-        .card-text {
-            font-size: 14px;
-            color: #000000;
-            line-height: 1.6;
-        }
-
-        /* Subscription Details Grid */
-        .details-grid {
-            font-size: 14px;
-            color: #000000;
-            width: 100%;
-        }
-
-        .detail-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 0;
-            border-bottom: 1px solid #f3f4f6;
-        }
-
-        .detail-row:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .detail-label {
-            color: #4b5563;
-        }
-
-        .detail-value {
-            font-weight: 500;
-            color: #111827;
-        }
-
-        .detail-value.green {
-            color: #047857;
-            font-weight: 700;
-        }
-
-        /* ── HELP BOX ── */
-        .help-box {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: #f9fafb;
-            border: 1px solid #eaeaea;
-            border-radius: 10px;
-            padding: 22px 24px;
-            text-align: left;
             margin: 0;
+            padding: 0;
+            width: 100% !important;
+            height: 100% !important;
         }
 
-        .help-left {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .help-circle {
-            width: 52px;
-            height: 52px;
-            background: #e8e8e8;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: 900;
-            color: #000;
-            flex-shrink: 0;
-        }
-
-        .help-text h3 {
-            font-size: 15px;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 4px;
-        }
-
-        .help-text p {
-            font-size: 14px;
-            color: #555;
-            line-height: 1.5;
-            margin: 0;
-        }
-
-        .help-text strong {
-            color: #000;
-            font-weight: 700;
-        }
-
-        .contact-btn {
-            background: #fff;
-            border: 1px solid #d0d0d0;
-            border-radius: 6px;
-            padding: 12px 20px;
-            color: #000;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            white-space: nowrap;
-            transition: 0.2s;
-        }
-
-        .contact-btn:hover {
-            border-color: #888;
-        }
-
-
-
-        @media (max-width: 600px) {
-            .header {
-                flex-direction: column;
-                text-align: center;
-                padding: 24px;
-            }
-
-            .header-center {
-                border-left: none;
-                margin-left: 0;
-                padding: 24px 0;
-                border-bottom: 1px solid #e5e7eb;
-                border-top: 1px solid #e5e7eb;
-                margin: 24px 0;
-            }
-
-            .card {
-                flex-direction: column;
-                text-align: center;
-                padding: 24px;
-            }
-
-            .card-icon {
-                margin-right: 0;
-                margin-bottom: 24px;
-            }
-
-            .detail-row {
-                flex-direction: column;
-                margin-bottom: 8px;
-                padding: 12px 0;
-            }
-
-            .detail-label {
-                margin-bottom: 8px;
-            }
-
-            .help-box {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 16px;
-            }
-        }
-    
-
-        /* --- BEGIN GLOBAL OVERRIDES --- */
-        /* --- GLOBAL MOBILE OVERRIDES --- */
-        @media (max-width: 640px) {
-            body { 
-                padding-left: 12px !important; 
-                padding-right: 12px !important; 
-                padding-top: 60px !important;
-            }
-            .container, .card, .email-container, .main-wrapper, .email-wrapper { 
-                width: 100% !important; 
-                max-width: 100% !important; 
-                padding: 16px !important;
-                box-sizing: border-box !important;
-            }
-            /* Force header elements into a single row */
-            .header, .top-banner {
-                display: flex !important;
-                flex-direction: row !important;
-                flex-wrap: nowrap !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-                padding: 16px 8px !important;
-                gap: 8px !important;
-                box-sizing: border-box !important;
-                min-height: 40px !important;
-                overflow: visible !important;
-            }
-            .header-left, .logo-section, .header-title-container, .brand-section, .logo-area {
-                display: flex !important;
-                flex-direction: row !important;
-                flex-wrap: nowrap !important;
-                align-items: center !important;
-                gap: 8px !important;
-                flex: 1 !important;
-                min-width: 0 !important;
-            }
-            /* Prevent logo wrapper from shrinking to 0 width */
-            div.logo, span.logo, .header-logo, .logo-icon {
-                flex-shrink: 1 !important;
-                width: auto !important;
-                height: auto !important;
-                margin: 0 !important;
-                min-width: 0 !important;
-                display: flex !important;
-                align-items: center !important;
-                gap: 8px !important;
-            }
-            /* Apply strict medium height ONLY to images */
-            img.logo, .logo-img, .header-logo img, .logo-icon img, .brand-section img, div.logo img {
-                height: 48px !important; 
-                width: auto !important;
-                flex-shrink: 0 !important;
-                display: block !important;
+        @media only screen and (max-width: 600px) {
+            .mobile-full {
+                width: 100% !important;
                 max-width: 100% !important;
             }
-            .logo-text, .header-title, .logo-title, .brand-title, .heading h1, .header-text h1, .heading h2, .header-text h2, .heading h3, .header-text h3, .heading small {
-                font-size: 15px !important; 
-                font-weight: 700 !important;
-                line-height: 1.3 !important;
-                margin: 0 !important;
-                white-space: normal !important;
-                overflow: hidden !important;
-                text-align: left !important;
-                min-width: 0 !important;
-                color: #111827 !important;
+
+            .mobile-padding {
+                padding-left: 16px !important;
+                padding-right: 16px !important;
             }
-            .logo-text-wrapper, .logo-text-block, .heading, .header-text, .header-center, .header-title-block {
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: flex-start !important;
-                justify-content: center !important;
-                gap: 2px !important;
-                min-width: 0 !important;
-                flex: 1 !important;
-                border: none !important;
-                padding-left: 0 !important;
-            }
-            .logo-subtitle, .logo-tagline, .banner-desc, .heading p, .header-text p, .header-subtitle {
+
+            .mobile-stack {
                 display: block !important;
-                font-size: 11px !important;
-                font-weight: 400 !important;
-                color: #6b7280 !important;
-                margin: 2px 0 0 0 !important;
-                line-height: 1.4 !important;
-                white-space: normal !important;
-            }
-            /* The icon/illustration in the header */
-            .header-right, .header-illustration, .header-right-td, .banner-illustration, .header-icon, .hero-illustration {
-                display: flex !important;
-                width: 115px !important; 
-                max-width: 115px !important;
-                flex: 0 0 115px !important;
-                height: 100% !important;
-                min-height: 40px !important;
-                align-items: center !important;
-                justify-content: center !important;
-                padding-left: 0 !important;
-                overflow: visible !important;
-            }
-            .header-right svg, .header-illustration svg, .banner-illustration svg, .header-icon svg, .hero-illustration svg {
                 width: 100% !important;
-                height: auto !important;
-                max-width: 100% !important;
-                max-height: 100% !important;
-                object-fit: contain !important;
-                overflow: visible !important;
             }
-            svg.hero-svg {
-                max-width: 180px !important;
-                height: auto !important;
-                margin: 0 auto !important;
+
+            .mobile-stack-spacer {
                 display: block !important;
-            }
-            /* Stack other body elements */
-            .info-row, .features-row, .alert-actions { 
-                display: flex !important;
-                flex-direction: column !important; 
-                align-items: flex-start !important;
-                gap: 12px !important;
-            }
-            .btn, .btn-outline, .btn-primary, .support-btn, .dashboard-btn, .confirm-btn {
+                height: 16px !important;
                 width: 100% !important;
-                justify-content: center !important;
-                margin: 12px 0 0 0 !important;
-                box-sizing: border-box !important;
             }
-            .info-separator, .logo-divider, .header-divider, .brand-divider, .vertical-line-header, .header-left .vertical-line { display: none !important; }
-            .info-item { margin-bottom: 8px !important; }
-            
-            /* Force OTP boxes into a single line */
-            .otp-container {
-                flex-wrap: nowrap !important;
-                gap: 6px !important;
-                width: 100% !important;
-                justify-content: center !important;
-                padding: 0 !important;
+
+            .mobile-center {
+                text-align: center !important;
             }
-            .otp-box {
-                flex: 1 1 0 !important;
-                width: auto !important;
-                max-width: 50px !important;
-                height: 55px !important;
-                font-size: 24px !important;
-            }
-            
-            /* Table-based email template overrides */
-            td.header-cell {
-                padding: 12px 8px !important;
-                display: block !important;
-            }
-            td.header-cell > table, 
-            td.header-cell > table > tbody,
-            td.header-cell > table > tbody > tr {
-                display: flex !important;
-                width: 100% !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                justify-content: space-between !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child {
-                display: flex !important;
-                flex: 1 !important;
-                min-width: 0 !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table,
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody,
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr {
-                display: flex !important;
-                width: 100% !important;
-                flex-direction: row !important;
-                align-items: center !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(1) {
-                flex-shrink: 0 !important;
-                display: block !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(2) {
+
+            .mobile-hide {
                 display: none !important;
             }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) {
-                flex: 1 !important;
-                min-width: 0 !important;
-                padding-left: 8px !important;
-                border-left: 1px solid #eaeaea !important;
-            }
-            td.header-cell > table > tbody > tr > td:first-child > table > tbody > tr > td:nth-child(3) span {
-                font-size: 16px !important;
-                white-space: nowrap !important;
-                text-overflow: ellipsis !important;
-                overflow: hidden !important;
-                display: block !important;
-            }
-            td.header-right-td {
-                display: flex !important;
-                width: 115px !important; 
-                max-width: 115px !important;
-                flex: 0 0 115px !important;
-                align-items: center !important;
-                justify-content: center !important;
-            }
-        }
-        
-        /* --- GLOBAL DESKTOP OVERRIDES --- */
-        @media (min-width: 641px) {
-            .email-wrapper, .email-container, table.main, .container {
-                max-width: 720px !important;
-                margin-left: auto !important;
-                margin-right: auto !important;
-            }
-            .logo, .header-logo {
-                width: 64px !important;
-                height: 64px !important;
-                flex-shrink: 0 !important;
-            }
-            .header, .top-banner {
-                padding: 30px 40px !important;
-                flex-wrap: nowrap !important;
-            }
-            .vertical-line, .vertical-line-header, .logo-divider, .header-divider {
-                margin-right: 20px !important;
-            }
-            .header-right, .header-illustration {
-                width: 100% !important;
-                max-width: 160px !important;
-                flex-shrink: 0 !important;
-                height: auto !important;
-            }
-            .header-right svg, .header-illustration svg {
-                width: 100% !important;
-                height: auto !important;
-            }
-            .heading {
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: flex-start !important;
-                gap: 6px !important;
-                white-space: nowrap !important;
-            }
-            .heading h1, .heading h2, .heading h3, .heading small, .logo-text, .header-title {
-                display: inline-block !important;
-                margin: 0 !important;
-                white-space: nowrap !important;
-            }
-            .heading small, .heading h2:first-child:not(:last-child) {
-                font-size: 13px !important;
-                font-weight: 700 !important;
-                color: #555 !important;
-                letter-spacing: 0.5px !important;
-            }
-            .heading h1, .heading h2:only-child, .heading h3:only-child, .logo-text, .header-title {
-                font-size: 24px !important;
-            }
-            div.notification-card {
-                max-width: 1150px !important;
-                width: fit-content !important;
-            }
-        }
-        /* --- END GLOBAL OVERRIDES --- */
 
+            .mobile-btn-full {
+                width: 100% !important;
+                text-align: center !important;
+            }
+
+            /* Responsive Header Rules to keep everything in one line */
+            .mobile-logo-cell {
+                width: 40px !important;
+            }
+
+            .mobile-logo-img {
+                width: 40px !important;
+            }
+
+            .mobile-header-divider {
+                padding: 0 10px !important;
+            }
+
+            .mobile-header-title {
+                font-size: 14px !important;
+            }
+
+            .mobile-header-subtitle {
+                font-size: 10px !important;
+                line-height: 1.2 !important;
+            }
+
+            .mobile-header-icon-cell {
+                width: 65px !important;
+            }
+
+            .mobile-header-icon-img {
+                width: 55px !important;
+            }
+        }
     </style>
 </head>
 
-<body>
-    <div id="__global_nav__"
-        style="background:#111827;color:#fff;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;position:fixed;top:0;left:0;width:100%;box-sizing:border-box;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
-        <a href="email-payment-past-due.html"
-            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">&#8592;
-            Back</a>
-        <a href="index.html" style="color:#fff;text-decoration:none;font-size:13px;font-weight:700;opacity:0.7;">&#9679;
-            Proration Summary</a>
-        <a href="email-security-alert.html"
-            style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:rgba(255,255,255,0.08);">Next
-            &#8594;</a>
-    </div>
-    <div style="height:50px;"></div>
-    <!-- GLOBAL NAVIGATION BAR -->
+<body style="margin: 0; padding: 0; background-color: #f9fafb; font-family: 'Inter', Arial, Helvetica, sans-serif;">
 
-    <!-- END GLOBAL NAVIGATION BAR -->
+    <!-- Wrapper Table -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f9fafb;">
+        <tr>
+            <td align="center" style="padding: 40px 10px;">
 
-    <div class="container">
-        <!-- Top Header -->
-        <div class="header">
-            <div class="header-logo">
-                <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png" alt="DialPhone Logo" style="height: 48px; width: auto;" />
-            </div>
-            <div class="header-center">
-                <div class="header-title">Proration Summary</div>
-                <div class="header-subtitle">Your plan has been updated, and your billing<br>has been adjusted
-                    automatically.</div>
-            </div>
-            <div class="header-illustration">
-                <svg width="120" height="90" viewBox="0 0 120 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Subtle background blob -->
-                    <circle cx="70" cy="45" r="35" fill="#f9fafb" />
-                    <!-- Sparkles -->
-                    <path d="M20 25 Q 22 27 24 25 Q 22 23 20 25 Z" fill="#111827" />
-                    <path d="M105 20 Q 107 22 109 20 Q 107 18 105 20 Z" fill="#111827" />
-                    <path d="M30 65 Q 32 67 34 65 Q 32 63 30 65 Z" fill="#111827" />
-                    <circle cx="110" cy="50" r="1" fill="#111827" />
-                    <circle cx="25" cy="50" r="1.5" fill="#111827" />
+                <!-- Main Container -->
+                <table border="0" cellpadding="0" cellspacing="0" width="740" class="mobile-full"
+                    style="max-width: 740px; width: 100%; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 2px;">
+                    <tr>
+                        <td>
 
-                    <!-- Document Icon -->
-                    <path d="M50 20 H75 L90 35 V75 C90 77 88 79 86 79 H50 C48 79 46 77 46 75 V24 C46 22 48 20 50 20 Z"
-                        fill="#ffffff" stroke="#111827" stroke-width="2" stroke-linejoin="round" />
-                    <path d="M75 20 V35 H90" stroke="#111827" stroke-width="2" stroke-linejoin="round" fill="none" />
+                            <!-- ═══════════════════════════════════════════ -->
+                            <!-- TOP HEADER BAR -->
+                            <!-- ═══════════════════════════════════════════ -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                style="border-bottom: 1px solid #e5e7eb;">
+                                <tr>
+                                    <td style="padding: 16px 24px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <!-- Logo -->
+                                                <td width="50" valign="middle" align="center" style="width: 50px;"
+                                                    class="mobile-logo-cell">
+                                                    <img src="https://res.cloudinary.com/dts1f4835/image/upload/v1781101913/dialphone-logo-only_1_mks7lx.png"
+                                                        alt="DialPhone Logo" width="50"
+                                                        style="display: block; width: 50px; height: auto;"
+                                                        class="mobile-logo-img" />
+                                                </td>
+                                                <!-- Short Divider Line -->
+                                                <td width="1" valign="middle" style="width: 1px; padding: 0 16px;"
+                                                    class="mobile-header-divider">
+                                                    <div
+                                                        style="height: 32px; width: 1px; background-color: #e5e7eb; font-size: 0; line-height: 0;">
+                                                        &nbsp;</div>
+                                                </td>
+                                                <!-- Title + Subtitle -->
+                                                <td width="55%" valign="middle"
+                                                    style="width: 55%; font-family: 'Inter', Arial, sans-serif;">
+                                                    <p style="margin: 0 0 3px 0; font-size: 18px; font-weight: 800; color: #2d3748; font-family: 'Inter', Arial, sans-serif; line-height: 1.2;"
+                                                        class="mobile-header-title">Proration Summary</p>
+                                                    <p style="margin: 0; font-size: 12px; color: #6b7280; font-family: 'Inter', Arial, sans-serif; line-height: 1.4;"
+                                                        class="mobile-header-subtitle">Your plan has been updated, and
+                                                        your billing has been adjusted automatically.</p>
+                                                </td>
+                                                <!-- Right Illustration -->
+                                                <td width="35%" valign="middle" align="right"
+                                                    style="width: 35%; max-width: 260px;"
+                                                    class="mobile-header-icon-cell">
+                                                    <img src="https://res.cloudinary.com/powk2ugh/image/upload/v1784808948/New_Project_19_vo0v3m.png"
+                                                        alt="Proration Summary" width="260"
+                                                        style="display: block; width: 100%; max-width: 260px; height: auto; margin-left: auto;"
+                                                        class="mobile-header-icon-img" />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
 
-                    <!-- Lines on Document -->
-                    <line x1="56" y1="35" x2="68" y2="35" stroke="#111827" stroke-width="2" stroke-linecap="round" />
-                    <line x1="56" y1="45" x2="72" y2="45" stroke="#111827" stroke-width="2" stroke-linecap="round" />
-                    <line x1="56" y1="55" x2="68" y2="55" stroke="#111827" stroke-width="2" stroke-linecap="round" />
-                    <line x1="56" y1="65" x2="64" y2="65" stroke="#111827" stroke-width="2" stroke-linecap="round" />
+                            <!-- ═══════════════════════════════════════════ -->
+                            <!-- HERO SECTION (SALUTATION & SUMMARY) -->
+                            <!-- ═══════════════════════════════════════════ -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="padding: 32px 30px 16px;" class="mobile-padding" align="center">
 
-                    <!-- Bullet points on Document -->
-                    <line x1="51" y1="45" x2="51" y2="45.1" stroke="#111827" stroke-width="2.5"
-                        stroke-linecap="round" />
-                    <line x1="51" y1="55" x2="51" y2="55.1" stroke="#111827" stroke-width="2.5"
-                        stroke-linecap="round" />
-                    <line x1="51" y1="65" x2="51" y2="65.1" stroke="#111827" stroke-width="2.5"
-                        stroke-linecap="round" />
+                                        <!-- Hero Icon Wrapper -->
+                                        <table border="0" cellpadding="0" cellspacing="0" align="center">
+                                            <tr>
+                                                <td align="center" style="padding-bottom: 24px;">
+                                                    <table border="0" cellpadding="0" cellspacing="0"
+                                                        style="width: 100px; height: 100px; background-color: #f3f4f6; border-radius: 50%; text-align: center;">
+                                                        <tr>
+                                                            <td width="100" height="100" align="center" valign="middle"
+                                                                style="width: 100px; height: 100px; text-align: center; vertical-align: middle;">
+                                                                <table border="0" cellpadding="0" cellspacing="0"
+                                                                    style="margin: 0 auto; width: 44px; height: 44px; background-color: #374151; border-radius: 50%; text-align: center;">
+                                                                    <tr>
+                                                                        <td width="44" height="44" align="center"
+                                                                            valign="middle"
+                                                                            style="width: 44px; height: 44px; text-align: center; vertical-align: middle; font-size: 20px; font-weight: 800; color: #ffffff; line-height: 44px; font-family: 'Inter', Arial, sans-serif;">
+                                                                            $
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
 
-                    <!-- $ Circle overlapping document bottom right -->
-                    <circle cx="85" cy="65" r="14" fill="#ffffff" stroke="#111827" stroke-width="2" />
-                    <text x="85" y="70" font-family="'Inter', sans-serif" font-size="14" font-weight="800"
-                        text-anchor="middle" fill="#111827">$</text>
-                </svg>
-            </div>
-        </div>
+                                        <!-- Hero Titles -->
+                                        <h1
+                                            style="margin: 0 0 12px 0; font-size: 24px; font-weight: 800; color: #2d3748; font-family: 'Inter', Arial, sans-serif; letter-spacing: -0.5px;">
+                                            Your Billing Adjustment</h1>
+                                        <p
+                                            style="margin: 0 0 24px 0; font-size: 15px; color: #6b7280; font-family: 'Inter', Arial, sans-serif; line-height: 1.6;">
+                                            We've calculated the billing adjustment for your recent plan change.
+                                        </p>
 
-        <!-- Hero Section -->
-        <div class="hero">
-            <div class="hero-icon-container">
-                <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="44" fill="#f3f4f6" />
-                    <circle cx="50" cy="50" r="22" fill="#111827" />
-                    <circle cx="50" cy="50" r="26" stroke="#111827" stroke-width="1.5" fill="none" />
-                    <text x="50" y="56" font-family="'Inter', sans-serif" font-size="18" font-weight="600"
-                        text-anchor="middle" fill="#ffffff">$</text>
+                                        <!-- Credit Box Card -->
+                                        <table border="0" cellpadding="0" cellspacing="0" align="center"
+                                            style="width: 320px; background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px;">
+                                            <tr>
+                                                <td align="center" style="padding: 16px 24px;">
+                                                    <p
+                                                        style="margin: 0 0 6px 0; font-size: 13px; font-weight: 600; color: #6b7280; font-family: 'Inter', Arial, sans-serif; text-transform: uppercase; letter-spacing: 0.5px;">
+                                                        Credit Applied</p>
+                                                    <p
+                                                        style="margin: 0; font-size: 28px; font-weight: 800; color: #2d3748; font-family: 'Inter', Arial, sans-serif; letter-spacing: -0.5px;">
+                                                        $17.00</p>
+                                                </td>
+                                            </tr>
+                                        </table>
 
-                    <line x1="18" y1="50" x2="22" y2="50" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
-                    <line x1="78" y1="50" x2="82" y2="50" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
-                    <line x1="50" y1="18" x2="50" y2="22" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
-                    <line x1="50" y1="78" x2="50" y2="82" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
+                                        <p
+                                            style="margin: 16px 0 24px 0; font-size: 13px; color: #6b7280; font-family: 'Inter', Arial, sans-serif;">
+                                            This credit will be applied to your next invoice.
+                                        </p>
 
-                    <line x1="27" y1="27" x2="30" y2="30" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
-                    <line x1="73" y1="73" x2="70" y2="70" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
-                    <line x1="73" y1="27" x2="70" y2="30" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
-                    <line x1="27" y1="73" x2="30" y2="70" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
-                </svg>
-            </div>
+                                        <!-- CTA Button -->
+                                        <table border="0" cellpadding="0" cellspacing="0" align="center">
+                                            <tr>
+                                                <td align="center"
+                                                    style="background-color: #374151; border-radius: 6px;">
+                                                    <a href="#" target="_blank"
+                                                        style="display: inline-block; padding: 13px 40px; font-size: 14px; font-weight: 700; color: #ffffff; font-family: 'Inter', Arial, sans-serif; text-decoration: none; letter-spacing: 0.5px;">&#10148;&nbsp;&nbsp;View
+                                                        Billing Details</a>
+                                                </td>
+                                            </tr>
+                                        </table>
 
-            <h1 class="hero-title">Your Billing Adjustment</h1>
-            <p class="hero-subtitle">
-                We've calculated the billing adjustment for<br>
-                your recent plan change.
-            </p>
+                                    </td>
+                                </tr>
+                            </table>
 
-            <div class="credit-box">
-                <div class="credit-label">Credit Applied</div>
-                <div class="credit-amount">$17.00</div>
-            </div>
+                            <!-- Separator Spacer -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="padding: 0 30px;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td height="1"
+                                                    style="height: 1px; background-color: #e5e7eb; font-size: 0; line-height: 0;">
+                                                    &nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
 
-            <p class="hero-subtitle" style="margin-top: 16px; margin-bottom: 24px; font-size: 14px;">
-                This credit will be applied to your next invoice. </p>
+                            <table border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td height="24" style="height: 24px; font-size: 0; line-height: 0;">&nbsp;</td>
+                                </tr>
+                            </table>
 
-            <a href="#" class="btn-black">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="10 16 14 12 10 8"></polyline>
-                    <line x1="8" y1="12" x2="14" y2="12"></line>
-                </svg>
-                View Billing Details </a>
-        </div>
+                            <!-- ═══════════════════════════════════════════ -->
+                            <!-- ACCOUNT SUMMARY CARD -->
+                            <!-- ═══════════════════════════════════════════ -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="padding: 0 30px 16px;" class="mobile-padding">
 
-        <div class="divider"></div>
+                                        <!-- Bordered Card -->
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                            style="border: 1px solid #e5e7eb; border-radius: 8px; background-color: #ffffff;">
+                                            <tr>
+                                                <td style="padding: 16px 20px;">
+                                                    <h3
+                                                        style="margin: 0 0 16px 0; font-size: 15px; font-weight: 700; color: #2d3748; font-family: 'Inter', Arial, sans-serif;">
+                                                        Account Summary</h3>
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <!-- Row 1 -->
+                                                        <tr>
+                                                            <td
+                                                                style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; font-family: 'Inter', Arial, sans-serif; font-size: 13px; color: #6b7280;">
+                                                                Previous Plan</td>
+                                                            <td align="right"
+                                                                style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; font-family: 'Inter', Arial, sans-serif; font-size: 13px; font-weight: 600; color: #2d3748;">
+                                                                Professional Plan</td>
+                                                        </tr>
+                                                        <!-- Row 2 -->
+                                                        <tr>
+                                                            <td
+                                                                style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; font-family: 'Inter', Arial, sans-serif; font-size: 13px; color: #6b7280;">
+                                                                New Plan</td>
+                                                            <td align="right"
+                                                                style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; font-family: 'Inter', Arial, sans-serif; font-size: 13px; font-weight: 600; color: #2d3748;">
+                                                                Basic Plan</td>
+                                                        </tr>
+                                                        <!-- Row 3 -->
+                                                        <tr>
+                                                            <td
+                                                                style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; font-family: 'Inter', Arial, sans-serif; font-size: 13px; color: #6b7280;">
+                                                                Prorated Credit</td>
+                                                            <td align="right"
+                                                                style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; font-family: 'Inter', Arial, sans-serif; font-size: 13px; font-weight: 700; color: #2d3748;">
+                                                                -$17.00</td>
+                                                        </tr>
+                                                        <!-- Row 4 -->
+                                                        <tr>
+                                                            <td
+                                                                style="padding: 12px 0; font-family: 'Inter', Arial, sans-serif; font-size: 13px; color: #6b7280;">
+                                                                Next Billing Date</td>
+                                                            <td align="right"
+                                                                style="padding: 12px 0; font-family: 'Inter', Arial, sans-serif; font-size: 13px; font-weight: 600; color: #2d3748;">
+                                                                May 25, 2026</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
 
-        <!-- Information Cards -->
-        <div class="cards-container">
-            <!-- Account Summary Card -->
-            <div class="card" style="flex-direction: column; padding: 24px 32px; align-items: flex-start;">
-                <div class="card-title" style="margin-bottom: 24px;">Account Summary</div>
-                <div class="details-grid">
-                    <div class="detail-row" style="padding-top: 0;">
-                        <span class="detail-label">Previous Plan</span>
-                        <span class="detail-value">Professional Plan</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">New Plan</span>
-                        <span class="detail-value">Basic Plan</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Prorated Credit</span>
-                        <span class="detail-value green">-$17.00</span>
-                    </div>
-                    <div class="detail-row" style="border-bottom: none; padding-bottom: 0;">
-                        <span class="detail-label">Next Billing Date</span>
-                        <span class="detail-value">May 25, 2026</span>
-                    </div>
-                </div>
-            </div>
+                                    </td>
+                                </tr>
+                            </table>
 
-            <!-- HELP BOX -->
-            <div class="help-box">
-                <div class="help-left">
-                    <div class="help-circle">?</div>
-                    <div class="help-text">
-                        <h3>Need Help?</h3>
-                        <p>Our support team is here for you.<br>
-                            <strong>support@dialphone.com</strong>
-                        </p>
-                    </div>
-                </div>
-                <a href="mailto:support@dialphone.com" class="contact-btn">Contact Support</a>
-            </div>
-        </div>
-    </div>
+                            <!-- ═══════════════════════════════════════════ -->
+                            <!-- HELP BOX -->
+                            <!-- ═══════════════════════════════════════════ -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="padding: 0 30px 24px;" class="mobile-padding">
+
+                                        <!-- Help Container -->
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                            style="background-color: #f9fafb; border: 1px solid #eaeaea; border-radius: 10px;">
+                                            <tr>
+                                                <td style="padding: 22px 24px;">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <!-- Question Mark Icon -->
+                                                            <td width="52" valign="middle" align="center"
+                                                                style="width: 52px;" class="mobile-stack mobile-center">
+                                                                <table border="0" cellpadding="0" cellspacing="0"
+                                                                    style="margin: 0 auto; width: 52px; height: 52px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 50%; text-align: center;">
+                                                                    <tr>
+                                                                        <td width="52" height="52" align="center"
+                                                                            valign="middle"
+                                                                            style="width: 52px; height: 52px; text-align: center; vertical-align: middle; font-size: 22px; font-weight: 900; color: #2d3748; line-height: 52px; font-family: 'Inter', Arial, sans-serif; mso-line-height-rule: exactly;">
+                                                                            ?</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <!-- Spacer -->
+                                                            <td width="18" style="width: 18px;" class="mobile-hide">
+                                                                &nbsp;</td>
+                                                            <!-- Help Text -->
+                                                            <td valign="middle" class="mobile-stack">
+                                                                <p
+                                                                    style="margin: 0 0 4px 0; font-size: 15px; font-weight: 700; color: #2d3748; font-family: 'Inter', Arial, sans-serif;">
+                                                                    Need Help?</p>
+                                                                <p
+                                                                    style="margin: 0; font-size: 14px; color: #555555; line-height: 1.5; font-family: 'Inter', Arial, sans-serif;">
+                                                                    Our support team is here for you.<br><a
+                                                                        href="mailto:support@dialphone.com"
+                                                                        style="color: #2d3748; font-weight: 700; text-decoration: none;">support@dialphone.com</a>
+                                                                </p>
+                                                            </td>
+                                                            <!-- Contact Button -->
+                                                            <td width="150" valign="middle" align="right"
+                                                                style="width: 150px;"
+                                                                class="mobile-stack mobile-center">
+                                                                <!--[if !mso]><!-->
+                                                                <div style="display: none; height: 0; overflow: hidden;"
+                                                                    class="mobile-stack-spacer">&nbsp;</div>
+                                                                <!--<![endif]-->
+                                                                <table border="0" cellpadding="0" cellspacing="0"
+                                                                    align="right" class="mobile-btn-full">
+                                                                    <tr>
+                                                                        <td align="center"
+                                                                            style="border: 1px solid #d0d0d0; border-radius: 6px; background-color: #ffffff;">
+                                                                            <a href="mailto:support@dialphone.com"
+                                                                                target="_blank"
+                                                                                style="display: inline-block; padding: 12px 20px; font-size: 14px; font-weight: 600; color: #2d3748; font-family: 'Inter', Arial, sans-serif; text-decoration: none; white-space: nowrap;">Contact
+                                                                                Support</a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </td>
+                                </tr>
+                            </table>
+
+
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+
 </body>
 
 </html>
